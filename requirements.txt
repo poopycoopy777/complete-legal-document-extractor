@@ -31,3 +31,6 @@ typing_extensions==4.16.0
 uvicorn==0.53.0
 watchfiles==1.2.0
 websockets==17.1
+
+# Verification stage: corpus access for the index build and retriever.
+psycopg[binary]>=3.2
