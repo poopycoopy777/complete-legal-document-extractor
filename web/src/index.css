@@ -411,12 +411,6 @@ mark.quote { background: var(--quote-hl); color: inherit; border-radius: 2px; }
   border-color: var(--verified);
   background: var(--verified-soft);
 }
-/* Neutral on purpose: same weight as any other unremarkable row. */
-.verify-verdict.none {
-  color: var(--fg-faint);
-  border-style: dashed;
-  background: transparent;
-}
 .verify-verdict .cluster {
   font-family: var(--mono);
   font-weight: 400;

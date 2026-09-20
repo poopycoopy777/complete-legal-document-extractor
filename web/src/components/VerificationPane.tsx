@@ -100,13 +100,9 @@ export function VerificationPane({
                 {group.header.full_citation ?? group.header.text}
               </div>
 
-              {verification.kind === "done" && (
-                <div
-                  className={
-                    isVerified ? "verify-verdict ok" : "verify-verdict none"
-                  }
-                >
-                  {isVerified ? "Identity confirmed" : "Not established"}
+              {isVerified && (
+                <div className="verify-verdict ok">
+                  Identity confirmed
                   {result?.clusterId != null && (
                     <span className="cluster">
                       {" "}
