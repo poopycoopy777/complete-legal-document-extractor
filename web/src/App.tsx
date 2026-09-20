@@ -4,13 +4,20 @@ import { DocumentPane } from "./components/DocumentPane";
 import { CitationsPane } from "./components/CitationsPane";
 import { VerificationPane } from "./components/VerificationPane";
 import { BottomBar } from "./components/BottomBar";
-import { checkHealth, extractText, uploadDocument } from "./api";
+import {
+  VerifierUnavailable,
+  checkHealth,
+  extractText,
+  uploadDocument,
+  verifyCases,
+} from "./api";
 import type {
   LoadedDocument,
   LogEntry,
   Selection,
   Span,
   ThemeName,
+  VerificationState,
 } from "./types";
 
 const THEME_KEY = "caselaw.theme";
@@ -39,6 +46,9 @@ export default function App() {
   const [log, setLog] = useState<LogEntry[]>([]);
   const [pasteOpen, setPasteOpen] = useState(false);
   const [pasteValue, setPasteValue] = useState("");
+  const [verification, setVerification] = useState<VerificationState>({
+    kind: "idle",
+  });
 
   const append = useCallback(
     (message: string, level: LogEntry["level"] = "info") =>
@@ -106,6 +116,52 @@ export default function App() {
     },
     [ordered, selection],
   );
+
+  // Verification runs after extraction, on its own, so a slow or unavailable
+  // verifier never blocks the citations from appearing.
+  useEffect(() => {
+    const groupList = doc?.extraction.groups ?? [];
+    let cancelled = false;
+    // Setting state in a microtask keeps this out of the synchronous render
+    // pass, which would otherwise cascade an extra render on every load.
+    queueMicrotask(() => {
+      if (!cancelled) {
+        setVerification(
+          groupList.length === 0 ? { kind: "idle" } : { kind: "running" },
+        );
+      }
+    });
+    if (groupList.length === 0) {
+      return () => {
+        cancelled = true;
+      };
+    }
+    verifyCases(groupList)
+      .then((verified) => {
+        if (cancelled) return;
+        setVerification({ kind: "done", verified });
+        append(
+          `Verified identity of ${Object.keys(verified).length} of ` +
+            `${groupList.length} cases`,
+        );
+      })
+      .catch((cause) => {
+        if (cancelled) return;
+        // An outage is not a result. Saying "0 verified" here would read
+        // exactly like a document full of fabricated citations.
+        const reason = String(cause?.message ?? cause);
+        if (cause instanceof VerifierUnavailable) {
+          setVerification({ kind: "unavailable", reason });
+          append(`Verifier unavailable: ${reason}`, "error");
+        } else {
+          setVerification({ kind: "unavailable", reason });
+          append(`Verification failed: ${reason}`, "error");
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [doc, append]);
 
   const openFile = useCallback(
     async (file: File) => {
@@ -210,6 +266,7 @@ export default function App() {
           hasDocument={doc !== null}
           selection={selection}
           onSelect={select}
+          verification={verification}
         />
       </main>
 

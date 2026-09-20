@@ -1,4 +1,4 @@
-import type { Extraction, LoadedDocument } from "./types";
+import type { CitationGroup, Extraction, LoadedDocument, VerifiedCase } from "./types";
 
 const BASE = import.meta.env.VITE_API_BASE ?? "http://127.0.0.1:8010";
 
@@ -43,4 +43,45 @@ export async function checkHealth(): Promise<boolean> {
   } catch {
     return false;
   }
+}
+
+/** Thrown when the verifier did not run, as opposed to reaching no conclusion. */
+export class VerifierUnavailable extends Error {}
+
+export async function verifyCases(
+  groups: CitationGroup[],
+): Promise<Record<string, VerifiedCase>> {
+  const payload = groups.map((g) => ({
+    groupId: g.id,
+    volume: g.header.volume,
+    reporter: g.header.reporter,
+    page: g.header.page,
+    plaintiff: g.header.plaintiff,
+    defendant: g.header.defendant,
+    year: g.header.year,
+    court: g.header.court,
+  }));
+
+  const response = await fetch(`${BASE}/api/verify/cases`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ groups: payload }),
+  });
+
+  // 503 means the verifier is down or unconfigured. It must never be shown as
+  // "nothing verified", which reads identically to a document full of
+  // fabricated citations.
+  if (response.status === 503) {
+    let reason = "The verifier is unavailable.";
+    try {
+      const body = await response.json();
+      if (body?.detail) reason = String(body.detail);
+    } catch {
+      /* no JSON body; keep the default */
+    }
+    throw new VerifierUnavailable(reason);
+  }
+
+  const body = await unwrap<{ verified: VerifiedCase[] }>(response);
+  return Object.fromEntries(body.verified.map((v) => [v.groupId, v]));
 }

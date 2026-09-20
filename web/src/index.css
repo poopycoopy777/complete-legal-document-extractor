@@ -24,6 +24,8 @@
   --accent: #1f4fd8;
   --accent-fg: #ffffff;
   --accent-soft: #dde5fb;
+  --verified: #1a7f4b;
+  --verified-soft: #e2f4ea;
   --flag: #9a5b00;
   --flag-soft: #fdf0dc;
   --hl: #fff1a8;
@@ -46,6 +48,8 @@
   --accent: #5b8cff;
   --accent-fg: #0b0d12;
   --accent-soft: #1d2740;
+  --verified: #4ec988;
+  --verified-soft: #12291d;
   --flag: #e0a44c;
   --flag-soft: #33260f;
   --hl: #4a4321;
@@ -68,6 +72,8 @@
   --accent: #b81d24;
   --accent-fg: #ffffff;
   --accent-soft: #350f14;
+  --verified: #4fbf85;
+  --verified-soft: #10251a;
   --flag: #d98c3a;
   --flag-soft: #33210f;
   --hl: #4a1a20;
@@ -355,7 +361,7 @@ mark.quote { background: var(--quote-hl); color: inherit; border-radius: 2px; }
   border-bottom: var(--border-w) solid var(--border);
 }
 
-/* ---------- verification pane (visual only) ---------- */
+/* ---------- verification pane ---------- */
 .verify-row {
   padding: 9px 11px;
   border-bottom: var(--border-w) solid var(--border);
@@ -381,6 +387,42 @@ mark.quote { background: var(--quote-hl); color: inherit; border-radius: 2px; }
 }
 .verify-check .label { flex: 1; }
 .verify-check .status { font-family: var(--mono); font-size: 10.5px; }
+
+/* A passed check is filled; an unrun one keeps the hollow dot. There is no
+   "failed" styling, because this stage never reports one: a citation it could
+   not confirm is unresolved, not wrong. */
+.dot.ok {
+  background: var(--verified);
+  border-color: var(--verified);
+}
+.verify-check.later { opacity: 0.55; }
+
+.verify-verdict {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--radius);
+  border: var(--border-w) solid var(--border-strong);
+  color: var(--fg-muted);
+}
+.verify-verdict.ok {
+  color: var(--verified);
+  border-color: var(--verified);
+  background: var(--verified-soft);
+}
+/* Neutral on purpose: same weight as any other unremarkable row. */
+.verify-verdict.none {
+  color: var(--fg-faint);
+  border-style: dashed;
+  background: transparent;
+}
+.verify-verdict .cluster {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 10px;
+  opacity: 0.8;
+}
 
 .stub-note {
   margin: 10px;

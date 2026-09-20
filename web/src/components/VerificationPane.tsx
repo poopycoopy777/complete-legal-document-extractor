@@ -1,18 +1,36 @@
-import type { CitationGroup, Selection, Span } from "../types";
+import type {
+  CitationGroup,
+  Selection,
+  Span,
+  VerificationState,
+} from "../types";
 
 /**
- * Visual shell only. No verification logic is wired up: every check renders in
- * its "not run" state so the layout is settled before any resolver exists.
+ * Stage one of verification: case-citation identity only.
+ *
+ * The four identity checks are live. Everything below them belongs to a later
+ * stage and renders unrun, because showing a case as simply "verified" would
+ * imply the pin cite, the quotation and its good-law status had been checked.
+ * None of them have.
+ *
+ * Verification is positive-only. A case the stage could not confirm shows as
+ * "not established", never as invalid, missing or fabricated. The corpus is a
+ * CourtListener snapshot, not the universe of American law: unpublished
+ * dispositions, very recent opinions and most state trial orders are not in
+ * it, so absence is not evidence against a citation.
  */
 
-const CHECKS = [
-  "Reporter citation resolves",
-  "Case name matches reporter",
-  "Year matches reporter record",
-  "Court matches reporter record",
+const IDENTITY_CHECKS = [
+  { key: "reporterCitation", label: "Reporter citation matches" },
+  { key: "caseName", label: "Case name matches" },
+  { key: "year", label: "Filing year matches" },
+  { key: "court", label: "Court matches" },
+] as const;
+
+const LATER_STAGES = [
   "Pin cite within opinion range",
-  "Subsequent history / still good law",
   "Quotation appears in opinion",
+  "Subsequent history / still good law",
 ];
 
 interface Props {
@@ -20,6 +38,20 @@ interface Props {
   hasDocument: boolean;
   selection: Selection;
   onSelect: (groupId: string, span: Span) => void;
+  verification: VerificationState;
+}
+
+function headline(state: VerificationState, total: number): string {
+  switch (state.kind) {
+    case "idle":
+      return "not run";
+    case "running":
+      return "checking…";
+    case "unavailable":
+      return "unavailable";
+    case "done":
+      return `${Object.keys(state.verified).length}/${total} identified`;
+  }
 }
 
 export function VerificationPane({
@@ -27,18 +59,34 @@ export function VerificationPane({
   hasDocument,
   selection,
   onSelect,
+  verification,
 }: Props) {
+  const verified = verification.kind === "done" ? verification.verified : {};
+
   return (
     <section className="pane">
       <div className="pane-head">
         <span>Verification</span>
-        <span className="count">not run</span>
+        <span className="count">{headline(verification, groups.length)}</span>
       </div>
       <div className="pane-body">
-        <div className="stub-note">
-          Verification is not implemented. Every check below is a placeholder in
-          its unrun state — nothing here has been checked against any source.
-        </div>
+        {verification.kind === "unavailable" && (
+          <div className="stub-note">
+            <strong>The verifier did not run.</strong> {verification.reason}{" "}
+            Nothing below has been checked — this is not a result about these
+            citations.
+          </div>
+        )}
+
+        {verification.kind === "done" && (
+          <div className="stub-note">
+            Case identity only: reporter citation, case name, filing year and
+            court. This says nothing about whether a pin cite is right, whether
+            a quotation appears in the opinion, or whether the case is still
+            good law. A case shown as <em>not established</em> was not
+            confirmed here; that is not a finding against it.
+          </div>
+        )}
 
         {!hasDocument && (
           <div className="empty">
@@ -46,31 +94,62 @@ export function VerificationPane({
           </div>
         )}
 
-        {groups.map((group) => (
-          <div
-            key={group.id}
-            className="verify-row"
-            style={
-              selection?.groupId === group.id
-                ? { background: "var(--accent-soft)" }
-                : undefined
-            }
-            onClick={() => onSelect(group.id, group.header.span)}
-          >
-            <div className="case">
-              {group.header.full_citation ?? group.header.text}
-            </div>
-            <div className="verify-checks">
-              {CHECKS.map((check) => (
-                <div className="verify-check" key={check}>
-                  <span className="dot" />
-                  <span className="label">{check}</span>
-                  <span className="status">—</span>
+        {groups.map((group) => {
+          const result = verified[group.id];
+          const isVerified = Boolean(result);
+          return (
+            <div
+              key={group.id}
+              className="verify-row"
+              style={
+                selection?.groupId === group.id
+                  ? { background: "var(--accent-soft)" }
+                  : undefined
+              }
+              onClick={() => onSelect(group.id, group.header.span)}
+            >
+              <div className="case">
+                {group.header.full_citation ?? group.header.text}
+              </div>
+
+              {verification.kind === "done" && (
+                <div
+                  className={
+                    isVerified ? "verify-verdict ok" : "verify-verdict none"
+                  }
+                >
+                  {isVerified ? "Identity confirmed" : "Not established"}
+                  {result?.clusterId != null && (
+                    <span className="cluster">
+                      {" "}
+                      · cluster {result.clusterId}
+                    </span>
+                  )}
                 </div>
-              ))}
+              )}
+
+              <div className="verify-checks">
+                {IDENTITY_CHECKS.map(({ key, label }) => {
+                  const passed = result?.checks?.[key];
+                  return (
+                    <div className="verify-check" key={key}>
+                      <span className={passed ? "dot ok" : "dot"} />
+                      <span className="label">{label}</span>
+                      <span className="status">{passed ? "yes" : "—"}</span>
+                    </div>
+                  );
+                })}
+                {LATER_STAGES.map((label) => (
+                  <div className="verify-check later" key={label}>
+                    <span className="dot" />
+                    <span className="label">{label}</span>
+                    <span className="status">not run</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

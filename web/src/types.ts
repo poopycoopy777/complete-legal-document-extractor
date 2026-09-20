@@ -165,3 +165,33 @@ export const KIND_LABEL: Record<CitationKind, string> = {
   ReferenceCitation: "ref",
   UnknownCitation: "unknown",
 };
+
+/** One case whose identity the verifier confirmed. */
+export interface VerifiedCase {
+  groupId: string;
+  status: "citation_verified";
+  clusterId: number | null;
+  checks: {
+    reporterCitation: boolean;
+    caseName: boolean;
+    year: boolean;
+    court: boolean;
+  };
+}
+
+/**
+ * Verification is positive-only, so this models three distinct states that
+ * must never be collapsed in the UI:
+ *
+ * - "verified": the stage ran and confirmed this case's identity.
+ * - "unresolved": the stage ran and reached no conclusion. NOT a finding
+ *   against the citation. The corpus is a CourtListener snapshot, not the
+ *   universe of American law, so a real citation can be absent from it.
+ * - "unavailable": the stage did not run. Rendering this as "nothing
+ *   verified" would make an outage look like a document full of bad cites.
+ */
+export type VerificationState =
+  | { kind: "idle" }
+  | { kind: "running" }
+  | { kind: "done"; verified: Record<string, VerifiedCase> }
+  | { kind: "unavailable"; reason: string };
