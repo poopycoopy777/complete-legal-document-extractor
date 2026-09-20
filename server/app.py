@@ -24,7 +24,13 @@ from pydantic import BaseModel
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from caselaw import ocr as ocr_module
 from caselaw.group import group_citations
+from caselaw.verify import retrieval as verify_retrieval
 from caselaw.verify import service as verify_service
+
+# Registered at import when the corpus is configured, so the endpoint reports
+# 503 rather than a misleading empty result when it is not. The model itself
+# still loads lazily on the first verification request.
+verify_service.set_retriever(verify_retrieval.build_from_environment())
 
 STORAGE = Path(__file__).resolve().parents[1] / "storage"
 STORAGE.mkdir(exist_ok=True)
