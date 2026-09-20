@@ -1,11 +1,9 @@
 """Official Colorado legal sources, checked live over the network.
 
-Cloned from the legal-citation-verification-system project. This copy is
-standalone: its types live in `.types`, its paths come from `.config`, and
-nothing here imports from that repository.
-
-The logic below is the original, unchanged. Only three couplings were cut:
-the citation dataclass, the result dataclass and the settings object.
+This standalone copy started from the legal-citation-verification-system
+implementation: its types live in `.types`, its paths come from `.config`,
+and nothing here imports from that repository.  Its search adapter is kept
+current with the response contract served by the public Colorado site.
 
 Unlike the rest of this package, these functions make outbound requests to
 Colorado court and legislature servers. Every document fetched is written to
@@ -39,6 +37,14 @@ COLORADO_COURT_OF_APPEALS_ANNOUNCEMENTS_URL = (
     "https://www.coloradojudicial.gov/court-appeals/court-appeals-case-announcements"
 )
 COLORADO_CASE_LAW_SEARCH_URL = "https://research.coloradojudicial.gov"
+
+# The public Colorado search UI sends this header on every search request.
+# Without it the same anonymous endpoint silently uses a much smaller result
+# set (for example, 106 instead of 1,470 results for ``576 P.3d 225``) and can
+# omit the exact case.  The server currently treats the numeric value as an
+# opaque public-client seed; presence selects the web application's search
+# mode.  No account, cookie, or credential is involved.
+COLORADO_CASE_LAW_SEARCH_HEADERS = {"X-webapp-seed": "1"}
 
 _COLORADO_SEARCH_CACHE: dict[str, ProvisionResult] = {}
 
@@ -194,6 +200,7 @@ async def _verify_colorado_case_law_archive(
 ) -> ProvisionResult:
     search_response = await client.get(
         f"{COLORADO_CASE_LAW_SEARCH_URL}/search.json",
+        headers=COLORADO_CASE_LAW_SEARCH_HEADERS,
         params={
             "product_id": "WW",
             "jurisdiction": "US",
@@ -267,6 +274,22 @@ def _normalized_citation(value: str) -> str:
     return re.sub(r"[^a-z0-9]", "", value.casefold())
 
 
+def _search_result_citations(result: dict) -> list[str]:
+    citations: list[str] = []
+    for prop in result.get("properties", []):
+        if not isinstance(prop, dict):
+            continue
+        label = str(prop.get("property", {}).get("label", "")).casefold()
+        if label not in {"citation", "citations"}:
+            continue
+        for value in prop.get("values", []):
+            if isinstance(value, str):
+                citations.append(value)
+            elif isinstance(value, dict) and isinstance(value.get("value"), str):
+                citations.append(value["value"])
+    return citations
+
+
 async def verify_colorado_case_search(
     citation: ExtractedCitation,
     client: httpx.AsyncClient | None = None,
@@ -289,6 +312,7 @@ async def verify_colorado_case_search(
         )
         search_response = await client.get(
             f"{COLORADO_CASE_LAW_SEARCH_URL}/search.json",
+            headers=COLORADO_CASE_LAW_SEARCH_HEADERS,
             params={
                 "product_id": "WW",
                 "jurisdiction": "US",
@@ -314,14 +338,11 @@ async def verify_colorado_case_search(
             document_id = str(result.get("id", ""))
             if not document_id.isdigit():
                 continue
-            props = result.get("properties", [])
-            citations_list = []
-            for prop in props:
-                if isinstance(prop, dict) and prop.get("property", {}).get("label") == "Citation":
-                    citations_list.extend(prop.get("values", []))
-
+            citations_list = _search_result_citations(result)
             matched_cite = any(_normalized_citation(c) == norm_cite for c in citations_list)
-            snippet = result.get("snippet", "")
+            snippet = BeautifulSoup(
+                result.get("snippet", ""), "html.parser"
+            ).get_text(" ")
             title = result.get("title", "")
 
             if matched_cite or norm_cite in _normalized_citation(snippet) or norm_cite in _normalized_citation(title):

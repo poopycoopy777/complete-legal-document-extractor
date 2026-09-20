@@ -1,16 +1,15 @@
 # Ruff configuration.
 #
-# caselaw/colorado/sources.py is a verbatim clone of another project's module.
-# Its logic is deliberately unchanged so it can be diffed against the original
-# and re-synced if that project fixes something. Two of its habits trip rules
-# this repository otherwise keeps:
+# caselaw/colorado/sources.py began as a clone of another project's module and
+# retains two intentional source-compatible habits that trip rules this
+# repository otherwise keeps:
 #
 #   DTZ011  date.today() without a timezone -- used to bound a session-law
 #           year range, where local date is the intended meaning.
 #   RUF059  an unused element in a tuple unpack, which documents the shape of
 #           the row being destructured.
 #
-# Editing cloned code to satisfy a linter would make the clone harder to
-# verify against its source, which is worth more here than the two warnings.
+# Rewriting those unrelated sections would obscure the functional changes in
+# this adapter, which is worth more here than eliminating two warnings.
 [lint.per-file-ignores]
 "caselaw/colorado/sources.py" = ["DTZ011", "RUF059"]

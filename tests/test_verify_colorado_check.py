@@ -4,11 +4,12 @@ Offline. The network path is exercised by hand against the live source; a test
 that needs a court website to be up fails for reasons unrelated to this code.
 
 What matters here is that the fallback is not a rubber stamp. It does not
-trust the source's own "found" flag: the exact citation must appear in the
-document that came back, and both parties must appear in its caption.
+trust the source's own "found" flag: the returned opinion must confirm the
+exact citation, caption, filing year, and court.
 """
 
 import sys
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -26,6 +27,8 @@ WHELDEN = GroupQuery(
     plaintiff="Whelden",
     defendant="Board of County Commissioners",
     year=1989,
+    court="coloctapp",
+    court_text="Colo. App.",
 )
 
 # Trimmed from the real response for 782 P.2d 853.
@@ -90,6 +93,22 @@ class TestConfirmsIsNotARubberStamp:
 
     def test_empty_document_is_refused(self):
         assert not confirms(Result(text=""), WHELDEN)
+
+    def test_wrong_year_is_refused(self):
+        assert not confirms(Result(), replace(WHELDEN, year=1990))
+
+    def test_missing_year_is_refused(self):
+        assert not confirms(Result(), replace(WHELDEN, year=None))
+
+    def test_wrong_court_is_refused(self):
+        assert not confirms(
+            Result(), replace(WHELDEN, court="colo", court_text="Colo.")
+        )
+
+    def test_missing_court_is_refused(self):
+        assert not confirms(
+            Result(), replace(WHELDEN, court=None, court_text=None)
+        )
 
     def test_missing_party_names_cannot_confirm(self):
         """Two cases in the sample brief extract with no party names. Without
@@ -198,10 +217,12 @@ class TestNonAdversarialCaptions:
     RUBIO_DOC = (
         "313 P.3d 623 In re the MARRIAGE OF Louise RUBIO , and Frank Rubio , "
         "Appellee , and Concerning The Marrison Law Firm , Appellant . "
+        "Colorado Court of Appeals 2011 "
     )
     CAG_DOC = (
         "Page 1229 903 P.2d 1229 The PEOPLE of the State of Colorado, "
         "Petitioner-Appellee, In the Interest of C.A.G., a Child, Respondent, "
+        "Colorado Court of Appeals 1995 "
     )
 
     def test_reporter_typo_does_not_reject_the_right_opinion(self):
@@ -214,6 +235,8 @@ class TestNonAdversarialCaptions:
             page="623",
             case_name="In Re Marriage of Rubio",
             year=2011,
+            court="coloctapp",
+            court_text="Colo. App.",
         )
         assert confirms(Result(text=self.RUBIO_DOC), query)
 
@@ -239,6 +262,8 @@ class TestNonAdversarialCaptions:
             page="1229",
             case_name="People in the Interest of C.A.G.",
             year=1995,
+            court="coloctapp",
+            court_text="Colo. App.",
         )
         assert confirms(Result(text=self.CAG_DOC), query)
 

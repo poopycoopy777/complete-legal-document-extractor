@@ -5,13 +5,15 @@ separate live check, not by the suite: a test that depends on a court website
 being up is a test that fails for reasons that have nothing to do with this
 code.
 
-What is tested here is that the clone stands alone, and that the pure helpers
-it relies on behave exactly as the original did.
+What is tested here is that the clone stands alone and that its pure helpers
+and current Colorado search contract behave deterministically.
 """
 
+import asyncio
 import sys
 from pathlib import Path
 
+import httpx
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -115,6 +117,81 @@ class TestNormalizedCitation:
         assert _normalized_citation("782 P.2d 853") != _normalized_citation(
             "782 P.3d 853"
         )
+
+
+class TestColoradoCaseSearchRequest:
+    def test_uses_the_public_webapp_search_mode_that_returns_ion_media(
+        self, tmp_path
+    ):
+        """A cold JSON request searches only a small incomplete result set.
+
+        The public website selects its complete search mode with the
+        X-webapp-seed header.  Without it this exact query omits Ion Media,
+        even though the rendered court search ranks the opinion first.
+        """
+
+        async def check() -> ProvisionResult:
+            def respond(request: httpx.Request) -> httpx.Response:
+                if request.url.path == "/search.json":
+                    results = []
+                    if request.headers.get("X-webapp-seed"):
+                        results = [
+                            {
+                                "id": 1105742207,
+                                "title": "Ion Media Networks, Inc. v. W.",
+                                "parent": {"title": "Colorado Court of Appeals"},
+                                "snippet": (
+                                    "<hi>576</hi> <hi>P</hi>.<hi>3d</hi> "
+                                    "<hi>225</hi> 2025 COA 66"
+                                ),
+                                "properties": [
+                                    {
+                                        "property": {
+                                            "id": "pCitations",
+                                            "label": "Citations",
+                                        },
+                                        "values": [
+                                            {"value": "576 P.3d 225"},
+                                            {"value": "2025 COA 66"},
+                                        ],
+                                    }
+                                ],
+                            }
+                        ]
+                    return httpx.Response(
+                        200, json={"count": len(results), "results": results}
+                    )
+                if request.url.path == "/vid/1105742207/content":
+                    return httpx.Response(
+                        200,
+                        text=(
+                            "<html><body>576 P.3d 225 2025 COA 66 "
+                            "ION MEDIA NETWORKS, INC. v. WEST</body></html>"
+                        ),
+                    )
+                raise AssertionError(f"unexpected request: {request.url}")
+
+            citation = ExtractedCitation(
+                text="576 P.3d 225",
+                volume="576",
+                reporter="P.3d",
+                reporter_page="225",
+                case_name="Ion Media Networks, Inc. v. West",
+                year="2025",
+            )
+            async with httpx.AsyncClient(
+                transport=httpx.MockTransport(respond),
+                base_url="https://research.coloradojudicial.gov",
+            ) as client:
+                return await sources.verify_colorado_case_search(
+                    citation, client=client, opinions_dir=str(tmp_path)
+                )
+
+        result = asyncio.run(check())
+
+        assert result.found is True
+        assert result.source_identifier is not None
+        assert "vid-1105742207" in result.source_identifier
 
 
 class TestPreserveSource:

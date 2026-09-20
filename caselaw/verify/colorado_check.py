@@ -32,6 +32,12 @@ _COLORADO_COURT = re.compile(r"\bColo\b", re.IGNORECASE)
 # A brief may write "P.3d." with a trailing period. That is a typo, not a
 # different reporter, and it must not decide whether the case is checked.
 _PACIFIC = re.compile(r"^P\.\s?[23]d\.?$|^P\.$", re.IGNORECASE)
+_APPEALS_HEADING = re.compile(
+    r"(?:colorado court of appeals|court of appeals of colorado)", re.IGNORECASE
+)
+_SUPREME_HEADING = re.compile(
+    r"(?:colorado supreme court|supreme court of colorado)", re.IGNORECASE
+)
 
 # One request per citation against someone else's server. Kept small so a
 # document with many Colorado cites cannot turn into a burst of traffic.
@@ -126,21 +132,75 @@ def _parties_present(text: str, query: GroupQuery) -> bool:
     return True
 
 
+def _year_present(text: str, query: GroupQuery) -> bool:
+    """Require the extracted filing year in the opinion's own header."""
+    if query.year is None:
+        return False
+    head = " ".join(text[:3000].split())
+    return re.search(rf"(?<!\d){int(query.year)}(?!\d)", head) is not None
+
+
+def _query_court_kind(query: GroupQuery) -> str | None:
+    kinds: set[str] = set()
+    for value in (query.court, query.court_text):
+        if not value:
+            continue
+        normalized = re.sub(r"[^a-z]", "", value.casefold())
+        if (
+            "courtofappeals" in normalized
+            or "ctapp" in normalized
+            or "coloapp" in normalized
+        ):
+            kinds.add("appeals")
+        elif normalized in {"colo", "colorado"} or "supremecourt" in normalized:
+            kinds.add("supreme")
+    return next(iter(kinds)) if len(kinds) == 1 else None
+
+
+def _court_present(text: str, query: GroupQuery) -> bool:
+    """Match the extracted court to the earliest court heading in the source."""
+    expected = _query_court_kind(query)
+    if expected is None:
+        return False
+    head = " ".join(text[:3000].split())
+    positions = {
+        "appeals": (
+            match.start() if (match := _APPEALS_HEADING.search(head)) else None
+        ),
+        "supreme": (
+            match.start() if (match := _SUPREME_HEADING.search(head)) else None
+        ),
+    }
+    present = {
+        kind: position
+        for kind, position in positions.items()
+        if position is not None
+    }
+    if not present:
+        return False
+    actual = min(present, key=present.__getitem__)
+    return actual == expected
+
+
 def confirms(result: object, query: GroupQuery) -> bool:
     """Does this source result establish the citation's identity?
 
-    Three independent conditions, all required: the source said found, the
-    exact citation appears in the document it returned, and both parties
-    appear in the caption. The second and third are checked here rather than
-    trusted from the search, because a search that matches on a snippet can
-    return a case that merely discusses the one being cited.
+    The source must say found, and the returned opinion itself must confirm
+    the exact citation, caption, filing year, and court. These are checked
+    here rather than trusted from the search, because a search that matches on
+    a snippet can return a case that merely discusses the one being cited.
     """
     if not getattr(result, "found", False):
         return False
     text = getattr(result, "text", None) or ""
     if not text:
         return False
-    return _citation_present(text, query) and _parties_present(text, query)
+    return (
+        _citation_present(text, query)
+        and _parties_present(text, query)
+        and _year_present(text, query)
+        and _court_present(text, query)
+    )
 
 
 async def _check_one(query: GroupQuery, client, semaphore) -> tuple[str, object | None]:
