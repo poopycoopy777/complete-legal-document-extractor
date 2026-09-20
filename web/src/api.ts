@@ -67,6 +67,10 @@ export async function verifyCases(
     // Non-adversarial captions ("In re Marriage of ...") have one party, not
     // two, so plaintiff and defendant are both null and this is the name.
     caseName: g.header.case_name,
+    // Every quotation attributed to this case, with its pin cite as printed.
+    // Sending only one would leave every later fabricated quote unchecked, and
+    // the pin cites are the only page evidence the verifier receives.
+    quotes: g.quotes.map((q) => ({ text: q.text, pin_cite: q.pin_cite })),
   }));
 
   const response = await fetch(`${BASE}/api/verify/cases`, {

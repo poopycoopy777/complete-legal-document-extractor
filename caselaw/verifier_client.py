@@ -81,6 +81,21 @@ def to_case_payload(group: dict[str, Any]) -> dict[str, Any] | None:
         payload["court_text"] = str(group["courtText"])
     if group.get("pinPage"):
         payload["pin_page"] = int(group["pinPage"])
+    # A brief quotes a case several times at several pages, so quotations go
+    # over as a list with each pin cite as printed. Sending only the first would
+    # leave every later fabricated quote unchecked.
+    quotes = []
+    for quote in group.get("quotes") or []:
+        text = (quote or {}).get("text") if isinstance(quote, dict) else None
+        if not text or not str(text).strip():
+            continue
+        entry = {"text": str(text)}
+        pin = (quote or {}).get("pin_cite")
+        if pin:
+            entry["pin_cite"] = str(pin)
+        quotes.append(entry)
+    if quotes:
+        payload["quotes"] = quotes
     if group.get("quotedText"):
         payload["quoted_text"] = str(group["quotedText"])
     if group.get("proposition"):
