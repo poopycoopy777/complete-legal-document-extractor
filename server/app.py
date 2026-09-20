@@ -23,15 +23,12 @@ from pydantic import BaseModel
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from caselaw import ocr as ocr_module
+from caselaw import verifier_client
 from caselaw.group import group_citations
-from caselaw.verify import colorado_check
-from caselaw.verify import retrieval as verify_retrieval
-from caselaw.verify import service as verify_service
 
-# Registered at import when the corpus is configured, so the endpoint reports
-# 503 rather than a misleading empty result when it is not. The model itself
-# still loads lazily on the first verification request.
-verify_service.set_retriever(verify_retrieval.build_from_environment())
+# This application extracts citations. Verification belongs to a separate
+# read-only service that owns the corpus, the resolution ladder, and the
+# evidence rules. Nothing here decides whether a citation holds up.
 
 STORAGE = Path(__file__).resolve().parents[1] / "storage"
 STORAGE.mkdir(exist_ok=True)
@@ -361,56 +358,66 @@ def raw_document(doc_id: str) -> FileResponse:
 
 class VerifyRequest(BaseModel):
     groups: list[dict]
+    analyze: bool = False
 
 
 @app.post("/api/verify/cases")
 def verify_cases(payload: VerifyRequest) -> dict:
-    """Verify the identity of extracted case citations. Positive-only.
+    """Send extracted citation groups to the verification service.
 
-    Returns conclusively verified cases and nothing else. A case that is
-    missing from the corpus, weakly matched, ambiguous or conflicting is
-    omitted rather than labelled: the corpus is a CourtListener snapshot, not
-    the universe of American law, so absence is not evidence of fabrication.
-    The caller finds what is unresolved by comparing submitted group ids with
-    returned ones.
+    This endpoint is a proxy. It does no verification of its own: the service
+    owns the corpus, the resolution ladder (local corpus, then CourtListener,
+    then the official Colorado source), and every rule about what evidence
+    means. That is why absence from one source is no longer a conclusion here.
 
-    `citation_verified` means the reporter citation, case name, filing year and
-    court all matched one candidate. It says nothing about pin cites,
-    quotations, propositions or whether the case is still good law.
+    The response carries three things at once:
 
-    A verifier outage is an error, never an empty success.
+    * `verified` -- the positive-only shape the existing UI already renders, so
+      nothing breaks. Only a confirmed identity appears in it.
+    * `results` -- the full per-citation record: identity verdict and reason
+      code, pin cite, quotation with its opinion role, citation history with
+      coverage numbers, and any model analysis of legal usage.
+    * `counts` -- card counts against log counts. `verified` plus `flagged`
+      does not sum to the total, because an unresolved citation is neither.
+
+    Two distinctions the service makes that this app must not flatten: a
+    fabricated citation (`phantom_citation`) is not the same finding as a real
+    case cited wrongly (`citation_does_not_match_named_case`), and a source
+    outage is not a finding at all.
+
+    An outage is an error, never an empty success.
     """
-    retriever = verify_service.get_retriever()
-    if retriever is None:
-        raise HTTPException(
-            status_code=503,
-            detail=(
-                "Case verification is not configured. It requires the "
-                "CourtListener metadata corpus and its vector index."
-            ),
-        )
     try:
-        verified = verify_service.verify_groups(payload.groups, retriever)
-    except ValueError as exc:
-        raise HTTPException(status_code=413, detail=str(exc)) from exc
-    except verify_service.VerifierUnavailable as exc:
-        # Never disguise an outage as "nothing verified".
-        raise HTTPException(status_code=503, detail=str(exc)) from exc
+        response = verifier_client.verify_groups(payload.groups, analyze=payload.analyze)
+    except verifier_client.VerifierUnavailable as exc:
+        # Never disguise an outage as "nothing verified": a document full of
+        # real citations and one the verifier could not reach look identical.
+        raise HTTPException(status_code=503, detail=str(exc)) from None
 
-    for entry in verified:
-        entry.setdefault("source", "corpus")
-
-    # Second source, for the gap the corpus cannot close. A third of Colorado
-    # Court of Appeals rows carry no regional reporter citation, so the cite a
-    # brief actually uses can never match there. Only unresolved groups are
-    # sent, and only Colorado-looking ones.
-    resolved = {entry["groupId"] for entry in verified}
-    remaining = [
-        verify_service.GroupQuery.from_dict(group)
-        for group in payload.groups
-        if str(group.get("groupId") or "") not in resolved
+    results = response.get("results") or []
+    verified = [
+        entry
+        for entry in (verifier_client.to_legacy_verified(result) for result in results)
+        if entry
     ]
-    if remaining:
-        verified.extend(colorado_check.verify_colorado(remaining).values())
 
-    return {"verified": verified}
+    return {
+        "verified": verified,
+        "results": results,
+        "counts": response.get("counts") or {},
+        "authorities": response.get("authorities") or [],
+    }
+
+
+@app.get("/api/verify/capabilities")
+def verify_capabilities() -> dict:
+    """Report what the verification service can currently answer.
+
+    Coverage gaps are disclosed rather than discovered mid-request, so the UI
+    can say which checks are unavailable before a user reads a result as a
+    finding.
+    """
+    try:
+        return verifier_client.capabilities()
+    except verifier_client.VerifierUnavailable as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from None
