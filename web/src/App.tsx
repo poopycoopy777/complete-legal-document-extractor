@@ -270,7 +270,13 @@ export default function App() {
         />
       </main>
 
-      <BottomBar document={doc} groups={groups} log={log} onSelect={select} />
+      <BottomBar
+        document={doc}
+        groups={groups}
+        log={log}
+        onSelect={select}
+        verification={verification}
+      />
 
       {pasteOpen && (
         <div

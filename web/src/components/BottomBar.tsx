@@ -1,5 +1,11 @@
 import { useState } from "react";
-import type { CitationGroup, LoadedDocument, LogEntry, Span } from "../types";
+import type {
+  CitationGroup,
+  LoadedDocument,
+  LogEntry,
+  Span,
+  VerificationState,
+} from "../types";
 
 type Tab = "summary" | "flags" | "provenance" | "log";
 
@@ -15,9 +21,16 @@ interface Props {
   groups: CitationGroup[];
   log: LogEntry[];
   onSelect: (groupId: string, span: Span) => void;
+  verification: VerificationState;
 }
 
-export function BottomBar({ document: doc, groups, log, onSelect }: Props) {
+export function BottomBar({
+  document: doc,
+  groups,
+  log,
+  onSelect,
+  verification,
+}: Props) {
   const [tab, setTab] = useState<Tab>("summary");
   const stats = doc?.extraction.stats;
 
@@ -75,7 +88,11 @@ export function BottomBar({ document: doc, groups, log, onSelect }: Props) {
             </span>
             <span className="stat">
               <span className="k">verified</span>
-              <span className="v">0</span>
+              <span className="v">
+                {verification.kind === "done"
+                  ? Object.keys(verification.verified).length
+                  : "—"}
+              </span>
             </span>
           </div>
         )}
