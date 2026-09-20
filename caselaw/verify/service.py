@@ -48,6 +48,10 @@ class GroupQuery:
     defendant: str | None = None
     year: int | None = None
     court: str | None = None
+    # The parenthetical exactly as the document prints it. eyecite resolves
+    # "Colo." to a court id but not "Colo. App.", so this is often the only
+    # evidence of which court a citation belongs to.
+    court_text: str | None = None
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> GroupQuery:
@@ -65,6 +69,9 @@ class GroupQuery:
             defendant=_clean(payload.get("defendant")),
             year=year,
             court=_clean(payload.get("court")),
+            court_text=_clean(
+                payload.get("courtText") or payload.get("court_text")
+            ),
         )
 
     @property

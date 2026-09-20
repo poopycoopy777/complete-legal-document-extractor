@@ -136,3 +136,53 @@ class TestOutageIsSilent:
             group_id="g", volume="595", reporter="F.3d", page="50", court="ca1"
         )
         assert colorado_check.verify_colorado([federal]) == {}
+
+
+class TestEligibilityRegressions:
+    """Two ways a Colorado case was silently skipped."""
+
+    def test_reporter_with_a_trailing_period_still_qualifies(self):
+        """A brief wrote "313 P.3d. 623". The extra period is a typo, not a
+        different reporter, and it must not decide whether the case is
+        checked at all."""
+        assert is_colorado(
+            GroupQuery(group_id="g", volume="313", reporter="P.3d.", page="623")
+        )
+
+    @pytest.mark.parametrize(
+        "court_text", ["Colo.App.", "Colo. App.", "Colo.", "Colo. Ct. App."]
+    )
+    def test_court_text_alone_qualifies(self, court_text):
+        """eyecite resolves "Colo." to a court id but not "Colo. App.", so
+        court_text is often the only evidence of the court. It has to reach
+        this check, which means the caller has to send it."""
+        assert is_colorado(
+            GroupQuery(
+                group_id="g",
+                volume="1",
+                reporter="P.3d",
+                page="2",
+                court_text=court_text,
+            )
+        )
+
+    def test_court_text_survives_from_dict(self):
+        query = GroupQuery.from_dict(
+            {"groupId": "g", "volume": "1", "reporter": "P.3d", "page": "2",
+             "courtText": "Colo.App."}
+        )
+        assert query.court_text == "Colo.App."
+        assert is_colorado(query)
+
+    def test_a_non_colorado_pacific_case_is_still_skipped(self):
+        """The Pacific Reporter covers many states. A Nevada case must not be
+        sent to a Colorado court."""
+        assert not is_colorado(
+            GroupQuery(
+                group_id="g",
+                volume="1",
+                reporter="P.3d",
+                page="2",
+                court_text="Nev.",
+            )
+        )

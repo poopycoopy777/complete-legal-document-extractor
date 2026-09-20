@@ -29,7 +29,9 @@ from .service import GroupQuery
 # Colorado reporters and court parentheticals. A citation that looks like
 # neither is not worth a request to a Colorado court.
 _COLORADO_COURT = re.compile(r"\bColo\b", re.IGNORECASE)
-_PACIFIC = re.compile(r"^P\.\s?[23]d$|^P\.$", re.IGNORECASE)
+# A brief may write "P.3d." with a trailing period. That is a typo, not a
+# different reporter, and it must not decide whether the case is checked.
+_PACIFIC = re.compile(r"^P\.\s?[23]d\.?$|^P\.$", re.IGNORECASE)
 
 # One request per citation against someone else's server. Kept small so a
 # document with many Colorado cites cannot turn into a burst of traffic.
@@ -44,7 +46,9 @@ def is_colorado(query: GroupQuery, court_text: str | None = None) -> bool:
     Pacific Reporter covers many states, so the court parenthetical decides
     when it is present.
     """
-    haystack = " ".join(filter(None, [query.court, court_text]))
+    haystack = " ".join(
+        filter(None, [query.court, court_text, getattr(query, "court_text", None)])
+    )
     if _COLORADO_COURT.search(haystack):
         return True
     if query.court and query.court.strip().casefold().startswith("colo"):

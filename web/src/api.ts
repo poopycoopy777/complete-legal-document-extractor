@@ -60,6 +60,10 @@ export async function verifyCases(
     defendant: g.header.defendant,
     year: g.header.year,
     court: g.header.court,
+    // The parenthetical as printed. eyecite resolves "Colo." to a court id
+    // but not "Colo. App.", so this is often the only evidence of which
+    // court a citation belongs to.
+    courtText: g.header.court_text,
   }));
 
   const response = await fetch(`${BASE}/api/verify/cases`, {
