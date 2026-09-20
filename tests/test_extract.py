@@ -82,6 +82,35 @@ def test_lead_in_prose_is_stripped_from_the_plaintiff():
     assert cite.plaintiff == "Monell"
 
 
+def test_pdf_lowercase_l_for_capital_i_does_not_drop_ion_from_case_name():
+    text = (
+        "redactions based on a general Interpretation of the ELEIA and lon Media\n"
+        "Networks, Inc. v. West, 576 P.3d 225 (Colo. App. 2025)."
+    )
+
+    (cite,) = [c for c in extract(text) if c.text == "576 P.3d 225"]
+
+    assert cite.plaintiff == "Ion Media Networks, Inc."
+    assert cite.defendant == "West"
+    assert cite.full_citation == (
+        "Ion Media Networks, Inc. v. West, 576 P.3d 225 (Colo. App. 2025)"
+    )
+    assert any(flag.startswith("party_name_ocr_corrected:") for flag in cite.flags)
+
+
+def test_table_of_authorities_heading_is_not_part_of_first_case_name():
+    text = (
+        "TABLE OF AUTHORITIES\n\nCases\n"
+        "Ashcroft v. Iqbal, 556 U.S. 662 (2009)........P 10\n"
+    )
+
+    (cite,) = [c for c in extract(text) if c.text == "556 U.S. 662"]
+
+    assert cite.plaintiff == "Ashcroft"
+    assert cite.defendant == "Iqbal"
+    assert cite.full_citation == "Ashcroft v. Iqbal, 556 U.S. 662 (2009)"
+
+
 def test_courts_are_resolved():
     courts = [c.court for c in extract(BRIEF) if c.kind == "FullCaseCitation"]
     assert courts == ["scotus", "scotus", "ca10", "scotus"]

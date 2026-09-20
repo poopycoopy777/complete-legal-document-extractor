@@ -184,6 +184,18 @@ _NAME_CONNECTORS = {"of", "the", "for", "de", "van", "der", "del", "la", "&"}
 # so it must be the whole token to count.
 _NUMBERING = re.compile(r"[ivxlcdm]{1,7}|[a-z]|\d{1,3}", re.IGNORECASE)
 
+# PDF text layers sometimes map the capital I in Ion Media's name to a
+# lowercase l. Keep this correction deliberately narrow: changing arbitrary
+# lowercase words at a case-name boundary would turn ordinary prose into a
+# party name.
+_ION_MEDIA_OCR = re.compile(r"\blon(?=\s+Media\s+Networks\b)")
+
+# A Table of Authorities heading sits directly before its first case and is
+# therefore inside the same citation-bounded window. It is layout, not a party.
+_TOA_CASES_PREFIX = re.compile(
+    r"^TABLE\s+OF\s+AUTHORITIES\s+Cases\s+", re.IGNORECASE
+)
+
 # A year parenthetical must appear close to the citation; pin cites and
 # court/year parentheticals are short.
 _TRAILING_LOOKAHEAD = 100
@@ -247,6 +259,7 @@ def _trim_lead_in(name: str) -> str:
     "Plaintiff relies on Monell" -> "Monell"
     "See also Bell Atlantic Corp." -> "Bell Atlantic Corp."
     """
+    name = _TOA_CASES_PREFIX.sub("", name)
     words = name.split()
     keep = len(words)
     for i in range(len(words) - 1, -1, -1):
@@ -462,7 +475,15 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
                 )
 
             if isinstance(cite, FullCaseCitation):
-                plaintiff, defendant = _derive_parties(before)
+                corrected_before, correction_count = _ION_MEDIA_OCR.subn(
+                    "Ion", before
+                )
+                if correction_count:
+                    record.flags.append(
+                        "party_name_ocr_corrected: 'lon Media Networks' -> "
+                        "'Ion Media Networks'"
+                    )
+                plaintiff, defendant = _derive_parties(corrected_before)
                 record.plaintiff = plaintiff
                 record.defendant = defendant
                 if plaintiff is None:
