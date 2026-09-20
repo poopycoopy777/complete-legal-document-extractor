@@ -388,14 +388,22 @@ mark.quote { background: var(--quote-hl); color: inherit; border-radius: 2px; }
 .verify-check .label { flex: 1; }
 .verify-check .status { font-family: var(--mono); font-size: 10.5px; }
 
-/* A passed check is filled; an unrun one keeps the hollow dot. There is no
-   "failed" styling, because this stage never reports one: a citation it could
-   not confirm is unresolved, not wrong. */
+/* A passed check is filled, an unrun one keeps the hollow dot, and a failure is
+   filled red. Unresolved is still not wrong: it keeps the hollow dot, because
+   only an affirmative finding earns the red one. */
 .dot.ok {
   background: var(--verified);
   border-color: var(--verified);
 }
 .verify-check.later { opacity: 0.55; }
+
+/* A failure is a finding and must not be dimmed like an unrun stage. */
+.dot.bad {
+  background: var(--bad, #e5484d);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--bad, #e5484d) 25%, transparent);
+}
+.verify-check.bad { opacity: 1; color: var(--bad, #e5484d); }
+.verify-check.bad .status { font-weight: 600; }
 
 .verify-verdict {
   align-self: flex-start;

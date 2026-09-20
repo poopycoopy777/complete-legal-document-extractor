@@ -1,4 +1,11 @@
-import type { CitationGroup, Extraction, LoadedDocument, VerifiedCase } from "./types";
+import type {
+  CheckStatus,
+  CitationGroup,
+  Extraction,
+  LoadedDocument,
+  StageResult,
+  VerifiedCase,
+} from "./types";
 
 const BASE = import.meta.env.VITE_API_BASE ?? "http://127.0.0.1:8010";
 
@@ -93,6 +100,109 @@ export async function verifyCases(
     throw new VerifierUnavailable(reason);
   }
 
-  const body = await unwrap<{ verified: VerifiedCase[] }>(response);
-  return Object.fromEntries(body.verified.map((v) => [v.groupId, v]));
+  const body = await unwrap<{
+    verified: VerifiedCase[];
+    results?: ServiceResult[];
+  }>(response);
+
+  // Start from the positive-only array so a service that predates `results`
+  // still renders, then fold in every dimension the service now reports --
+  // including the cases it flagged, which the positive-only array omits.
+  const byId: Record<string, VerifiedCase> = Object.fromEntries(
+    body.verified.map((v) => [v.groupId, v]),
+  );
+
+  for (const r of body.results ?? []) {
+    const id = r.caller_id;
+    const passed = r.identity?.status === "pass";
+    const base: VerifiedCase = byId[id] ?? {
+      groupId: id,
+      status: "citation_verified",
+      clusterId: r.identity?.cluster_id ?? null,
+      checks: {
+        reporterCitation: passed,
+        caseName: passed,
+        year: passed,
+        court: passed,
+      },
+    };
+    byId[id] = {
+      ...base,
+      identity: {
+        status: r.identity.status,
+        reason: r.identity.reason_code,
+        message: r.identity.message,
+      },
+      pinCite: stage(r.pin_cite),
+      quotation: stage(r.quotation),
+      history: r.treatment
+        ? {
+            status: historyStatus(r.treatment.status),
+            reason: r.treatment.reason_code,
+            detail: r.treatment.message ?? null,
+            role: null,
+            page: null,
+          }
+        : undefined,
+      quotations: (r.quotations ?? []).map((q) => ({
+        text: q.text,
+        pinCite: q.pin_cite ?? null,
+        pinPage: q.pin_page ?? null,
+        status: q.finding?.status ?? "not_run",
+        reason: q.finding?.reason_code ?? "",
+      })),
+    };
+  }
+
+  return byId;
+}
+
+interface ServiceFinding {
+  status: CheckStatus;
+  reason_code: string;
+  detail: string | null;
+  role: string | null;
+  page: number | null;
+}
+
+interface ServiceResult {
+  caller_id: string;
+  identity: {
+    status: CheckStatus;
+    reason_code: string;
+    message: string;
+    cluster_id: number | null;
+  };
+  pin_cite: ServiceFinding | null;
+  quotation: ServiceFinding | null;
+  treatment: { status: string; reason_code: string; message: string } | null;
+  quotations?: {
+    text: string;
+    pin_cite: string | null;
+    pin_page: number | null;
+    finding: ServiceFinding | null;
+  }[];
+}
+
+function stage(f: ServiceFinding | null | undefined): StageResult | undefined {
+  if (!f) return undefined;
+  return {
+    status: f.status,
+    reason: f.reason_code,
+    detail: f.detail ?? null,
+    role: f.role ?? null,
+    page: f.page ?? null,
+  };
+}
+
+/**
+ * History has its own vocabulary because "good law" is not a claim this corpus
+ * can make. Only an affirmative adverse finding is a failure; everything else
+ * is incomplete coverage, which is not a finding against the citation.
+ */
+function historyStatus(raw: string): CheckStatus {
+  if (raw === "adverse_treatment_found") return "fail";
+  if (raw === "history_checked_no_adverse_found") return "pass";
+  if (raw === "history_unavailable") return "unavailable";
+  return "not_run";
 }

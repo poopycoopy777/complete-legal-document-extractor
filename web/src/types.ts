@@ -169,6 +169,36 @@ export const KIND_LABEL: Record<CitationKind, string> = {
 };
 
 /** One case whose identity the verifier confirmed. */
+/**
+ * One verification dimension. The six states are distinct on purpose: a source
+ * outage ("unavailable") and a check that never ran ("not_run") are not
+ * findings against a citation, and must never render like one.
+ */
+export type CheckStatus =
+  | "pass"
+  | "fail"
+  | "ambiguous"
+  | "not_found"
+  | "not_run"
+  | "unavailable";
+
+export interface StageResult {
+  status: CheckStatus;
+  reason: string;
+  detail: string | null;
+  /** Which opinion the evidence came from: majority, dissent, concurrence. */
+  role: string | null;
+  page: number | null;
+}
+
+export interface CheckedQuote {
+  text: string;
+  pinCite: string | null;
+  pinPage: number | null;
+  status: CheckStatus;
+  reason: string;
+}
+
 export interface VerifiedCase {
   groupId: string;
   status: "citation_verified";
@@ -179,6 +209,13 @@ export interface VerifiedCase {
     year: boolean;
     court: boolean;
   };
+  /** Identity verdict, including the failing verdicts the old shape omitted. */
+  identity?: { status: CheckStatus; reason: string; message: string };
+  pinCite?: StageResult;
+  quotation?: StageResult;
+  history?: StageResult;
+  /** Every quotation checked, so a single bad one is locatable. */
+  quotations?: CheckedQuote[];
 }
 
 /**

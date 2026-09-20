@@ -6,18 +6,17 @@ import type {
 } from "../types";
 
 /**
- * Stage one of verification: case-citation identity only.
+ * Verification results, as reported by the verification service.
  *
- * The four identity checks are live. Everything below them belongs to a later
- * stage and renders unrun, because showing a case as simply "verified" would
- * imply the pin cite, the quotation and its good-law status had been checked.
- * None of them have.
+ * Every dimension carries one of six states, and they are not interchangeable.
+ * "unavailable" means a source could not be reached and "not run" means a
+ * prerequisite was missing; neither is a finding against a citation, and
+ * rendering either like a failure would make an outage look like a document
+ * full of fabricated authority.
  *
- * Verification is positive-only. A case the stage could not confirm shows as
- * "not established", never as invalid, missing or fabricated. The corpus is a
- * CourtListener snapshot, not the universe of American law: unpublished
- * dispositions, very recent opinions and most state trial orders are not in
- * it, so absence is not evidence against a citation.
+ * History never claims good law. The corpus reaches a fraction of the opinions
+ * that cite any given case, so the honest answer is usually that coverage is
+ * incomplete, and that is what it says.
  */
 
 const IDENTITY_CHECKS = [
@@ -27,11 +26,27 @@ const IDENTITY_CHECKS = [
   { key: "court", label: "Court matches" },
 ] as const;
 
-const LATER_STAGES = [
-  "Pin cite within opinion range",
-  "Quotation appears in opinion",
-  "Subsequent history / still good law",
-];
+const STAGES = [
+  { key: "pinCite", label: "Pin cite within opinion range" },
+  { key: "quotation", label: "Quotation appears in opinion" },
+  { key: "history", label: "Subsequent history" },
+] as const;
+
+/** What a state is called, and whether it reads as a finding. */
+const STATUS_TEXT: Record<string, string> = {
+  pass: "yes",
+  fail: "NO",
+  ambiguous: "ambiguous",
+  not_found: "not found",
+  not_run: "not run",
+  unavailable: "unavailable",
+};
+
+function statusClass(status: string | undefined): string {
+  if (status === "pass") return "dot ok";
+  if (status === "fail") return "dot bad";
+  return "dot";
+}
 
 interface Props {
   groups: CitationGroup[];
@@ -123,13 +138,42 @@ export function VerificationPane({
                     </div>
                   );
                 })}
-                {LATER_STAGES.map((label) => (
-                  <div className="verify-check later" key={label}>
-                    <span className="dot" />
-                    <span className="label">{label}</span>
-                    <span className="status">not run</span>
-                  </div>
-                ))}
+                {STAGES.map(({ key, label }) => {
+                  const stage = result?.[key];
+                  const status = stage?.status ?? "not_run";
+                  return (
+                    <div
+                      className={
+                        status === "fail" ? "verify-check bad" : "verify-check later"
+                      }
+                      key={key}
+                      title={stage?.detail ?? stage?.reason ?? undefined}
+                    >
+                      <span className={statusClass(status)} />
+                      <span className="label">
+                        {label}
+                        {stage?.role ? ` (${stage.role})` : ""}
+                        {stage?.page != null ? ` — p. ${stage.page}` : ""}
+                      </span>
+                      <span className="status">
+                        {STATUS_TEXT[status] ?? status}
+                      </span>
+                    </div>
+                  );
+                })}
+                {(result?.quotations ?? [])
+                  .filter((q) => q.status === "fail")
+                  .map((q, i) => (
+                    <div className="verify-check bad" key={`q${i}`} title={q.text}>
+                      <span className="dot bad" />
+                      <span className="label">
+                        Quote not found
+                        {q.pinCite ? ` (${q.pinCite})` : ""}: "{q.text.slice(0, 60)}
+                        {q.text.length > 60 ? "…" : ""}"
+                      </span>
+                      <span className="status">NO</span>
+                    </div>
+                  ))}
               </div>
             </div>
           );
