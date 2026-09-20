@@ -12,3 +12,4 @@ api.log
 benchmark/corpus/
 benchmark/scan.json
 logs/
+data/

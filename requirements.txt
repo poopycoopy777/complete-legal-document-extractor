@@ -35,3 +35,5 @@ websockets==17.1
 # Verification stage: corpus access for the index build and retriever.
 psycopg[binary]>=3.2
 sentence-transformers>=3.0
+httpx>=0.27
+beautifulsoup4>=4.12
