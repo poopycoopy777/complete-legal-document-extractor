@@ -38,7 +38,21 @@ MODEL_CONTRACT = "st:BAAI/bge-m3:cls:norm"
 # How many candidates to examine per citation. Retrieval only has to put the
 # right case somewhere in this list; the checks do the discriminating. Wider
 # costs latency, not precision.
-DEFAULT_TOP_K = 10
+DEFAULT_TOP_K = 50
+
+# PROVISIONAL, measured 2026-09-20 on eight citations. Not a calibration.
+#
+# pgvector defaults ivfflat.probes to 1, which on a ~3162-list index scans
+# about 0.03% of the corpus. Roe v. Wade at 410 U.S. 113 was not in the top
+# 500 candidates at that setting; it appeared at probes=100. The corpus holds
+# many rows per famous case -- cert grants, rehearing denials, orders -- and
+# those crowd out the merits opinion, so the failure is recall, never
+# precision: a missed row abstains, it does not verify wrongly.
+#
+# The value that ships must come from the held-out benchmark, measuring
+# candidate recall and latency together. 100 is where one probe started
+# working, not where the curve flattens.
+DEFAULT_PROBES = 100
 
 # A verification request must never hold a connection open indefinitely.
 STATEMENT_TIMEOUT_MS = 30_000
@@ -203,12 +217,12 @@ class CorpusRetriever:
         self,
         encoder: Encoder | None = None,
         top_k: int = DEFAULT_TOP_K,
-        probes: int | None = None,
+        probes: int | None = DEFAULT_PROBES,
     ) -> None:
         self.encoder = encoder or Encoder()
         self.top_k = top_k
-        # Calibrated against the benchmark, not guessed. None leaves the
-        # server default, which is correct when no ANN index exists.
+        # None leaves the server default of 1, which measurably loses the
+        # right row on this corpus. See DEFAULT_PROBES.
         self.probes = probes
 
     def candidates(
@@ -286,5 +300,5 @@ def build_from_environment() -> CorpusRetriever | None:
     top_k = os.environ.get("VERIFIER_TOP_K")
     return CorpusRetriever(
         top_k=int(top_k) if top_k else DEFAULT_TOP_K,
-        probes=int(probes) if probes else None,
+        probes=int(probes) if probes else DEFAULT_PROBES,
     )
