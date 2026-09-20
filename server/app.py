@@ -24,6 +24,7 @@ from pydantic import BaseModel
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from caselaw import ocr as ocr_module
 from caselaw.group import group_citations
+from caselaw.verify import colorado_check
 from caselaw.verify import retrieval as verify_retrieval
 from caselaw.verify import service as verify_service
 
@@ -395,4 +396,21 @@ def verify_cases(payload: VerifyRequest) -> dict:
     except verify_service.VerifierUnavailable as exc:
         # Never disguise an outage as "nothing verified".
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+    for entry in verified:
+        entry.setdefault("source", "corpus")
+
+    # Second source, for the gap the corpus cannot close. A third of Colorado
+    # Court of Appeals rows carry no regional reporter citation, so the cite a
+    # brief actually uses can never match there. Only unresolved groups are
+    # sent, and only Colorado-looking ones.
+    resolved = {entry["groupId"] for entry in verified}
+    remaining = [
+        verify_service.GroupQuery.from_dict(group)
+        for group in payload.groups
+        if str(group.get("groupId") or "") not in resolved
+    ]
+    if remaining:
+        verified.extend(colorado_check.verify_colorado(remaining).values())
+
     return {"verified": verified}
