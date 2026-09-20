@@ -141,22 +141,65 @@ def verify_groups(
     if not queryable:
         return []
 
-    found = retriever.candidates(queryable)
-
     verified: list[dict[str, Any]] = []
-    for query in queryable:
-        matches = [c for c in found.get(query.group_id, []) if passes_all(query, c)]
-        # Two candidates passing every check means the corpus cannot tell them
-        # apart either. Picking the higher similarity score would be guessing,
-        # and similarity is not evidence of identity.
-        if len(matches) != 1:
-            continue
-        verified.append(
-            VerifiedCase(
-                group_id=query.group_id, cluster_id=matches[0].cluster_id
-            ).as_dict()
-        )
+    pending = list(queryable)
+
+    # Escalation. Retrieval latency is linear in probe depth, and most
+    # citations are found at the shallowest setting, so the deep search is
+    # spent only on the ones that need it. A rung that resolves a group takes
+    # it out of the next, more expensive, rung.
+    #
+    # Note the semantics this buys: a group resolved cheaply is not re-examined
+    # deeply, so the ambiguity guard below only ever sees one rung's candidate
+    # set. Two genuinely indistinguishable rows could therefore be split across
+    # rungs and the shallower one accepted. Each rung uses a wide top_k so both
+    # twins land in the same set when they exist.
+    for rung in _rungs(retriever):
+        if not pending:
+            break
+        found = _retrieve(retriever, pending, rung)
+        still_pending: list[GroupQuery] = []
+        for query in pending:
+            matches = [
+                c for c in found.get(query.group_id, []) if passes_all(query, c)
+            ]
+            # Two candidates passing every check means the corpus cannot tell
+            # them apart either. Picking the higher similarity score would be
+            # guessing, and similarity is not evidence of identity.
+            if len(matches) == 1:
+                verified.append(
+                    VerifiedCase(
+                        group_id=query.group_id, cluster_id=matches[0].cluster_id
+                    ).as_dict()
+                )
+            elif not matches:
+                # Nothing passed: a deeper search may simply not have reached
+                # the right row yet.
+                still_pending.append(query)
+            # Ambiguous stays omitted and is not escalated: searching deeper
+            # can only find more candidates, never fewer.
+        pending = still_pending
     return verified
+
+
+def _rungs(retriever: Retriever) -> list[int | None]:
+    """The probe depths to try, shallowest first.
+
+    A retriever that cannot vary probe depth -- a fake, or a future backend
+    without an ANN index -- gets a single pass at whatever it does.
+    """
+    if not hasattr(retriever, "candidates_at"):
+        return [None]
+    ladder = getattr(retriever, "ladder", None)
+    return list(ladder) if ladder else [getattr(retriever, "probes", None)]
+
+
+def _retrieve(
+    retriever: Retriever, queries: list[GroupQuery], rung: int | None
+) -> dict[str, list[Candidate]]:
+    if rung is not None and hasattr(retriever, "candidates_at"):
+        return retriever.candidates_at(queries, rung)
+    return retriever.candidates(queries)
 
 
 # The retriever is injected rather than imported, so the endpoint, the tests

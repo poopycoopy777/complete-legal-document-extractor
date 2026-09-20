@@ -196,3 +196,89 @@ class TestGroupQuery:
     def test_blank_strings_become_none(self):
         query = GroupQuery.from_dict({**GOOD_GROUP, "court": "   "})
         assert query.court is None
+
+
+class LadderRetriever:
+    """Returns different candidates per probe depth, and records the calls.
+
+    Mirrors the real corpus: the right row only surfaces once enough lists are
+    probed.
+    """
+
+    def __init__(self, by_rung, ladder=(10, 100)):
+        self.by_rung = by_rung
+        self.ladder = ladder
+        self.probes = ladder[-1]
+        self.calls: list[tuple[int, list[str]]] = []
+
+    def candidates_at(self, queries, probes):
+        self.calls.append((probes, [q.group_id for q in queries]))
+        return self.by_rung.get(probes, {})
+
+    def candidates(self, queries):
+        return self.candidates_at(queries, self.probes)
+
+
+class TestEscalation:
+    def test_cheap_rung_resolves_and_stops(self):
+        """A citation found shallow never pays for the deep search."""
+        retriever = LadderRetriever({10: {"g0": [DOWDELL]}})
+        result = verify_groups([GOOD_GROUP], retriever)
+        assert len(result) == 1
+        assert [probes for probes, _ in retriever.calls] == [10]
+
+    def test_deep_rung_finds_what_the_cheap_one_missed(self):
+        """The real corpus behaviour: Roe was not in the top 500 at probes=1
+        and appeared at probes=100."""
+        retriever = LadderRetriever({10: {"g0": []}, 100: {"g0": [DOWDELL]}})
+        result = verify_groups([GOOD_GROUP], retriever)
+        assert len(result) == 1
+        assert [probes for probes, _ in retriever.calls] == [10, 100]
+
+    def test_only_unresolved_groups_escalate(self):
+        """The expensive rung carries just the stragglers."""
+        other = {**GOOD_GROUP, "groupId": "g1"}
+        retriever = LadderRetriever(
+            {10: {"g0": [DOWDELL]}, 100: {"g1": [DOWDELL]}}
+        )
+        result = verify_groups([GOOD_GROUP, other], retriever)
+        assert {r["groupId"] for r in result} == {"g0", "g1"}
+        assert retriever.calls[0] == (10, ["g0", "g1"])
+        assert retriever.calls[1] == (100, ["g1"])
+
+    def test_nothing_left_to_escalate_skips_the_deep_search(self):
+        retriever = LadderRetriever({10: {"g0": [DOWDELL]}})
+        verify_groups([GOOD_GROUP], retriever)
+        assert len(retriever.calls) == 1
+
+    def test_ambiguous_is_not_escalated(self):
+        """Searching deeper can only find more candidates, never fewer, so a
+        group that is already ambiguous cannot become unambiguous."""
+        twin = Candidate(
+            cluster_id=77,
+            case_name="United States v. Dowdell",
+            court_id="ca1",
+            date_filed="2010-02-12",
+            content="United States v. Dowdell 595 F.3d 50 (ca1 2010) No. 08-9999",
+        )
+        retriever = LadderRetriever({10: {"g0": [DOWDELL, twin]}})
+        assert verify_groups([GOOD_GROUP], retriever) == []
+        assert len(retriever.calls) == 1
+
+    def test_never_verified_exhausts_the_ladder(self):
+        retriever = LadderRetriever({10: {"g0": []}, 100: {"g0": []}})
+        assert verify_groups([GOOD_GROUP], retriever) == []
+        assert [probes for probes, _ in retriever.calls] == [10, 100]
+
+    def test_escalation_cannot_manufacture_a_pass(self):
+        """A damaged citation stays refused however deep the search goes."""
+        bad = {**GOOD_GROUP, "defendant": "Dowdel"}
+        retriever = LadderRetriever(
+            {10: {"g0": [DOWDELL]}, 100: {"g0": [DOWDELL]}}
+        )
+        assert verify_groups([bad], retriever) == []
+
+    def test_retriever_without_a_ladder_still_works(self):
+        """A plain retriever gets one pass, as before."""
+        plain = FakeRetriever({"g0": [DOWDELL]})
+        assert len(verify_groups([GOOD_GROUP], plain)) == 1
