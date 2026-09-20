@@ -72,19 +72,7 @@ export function VerificationPane({
       <div className="pane-body">
         {verification.kind === "unavailable" && (
           <div className="stub-note">
-            <strong>The verifier did not run.</strong> {verification.reason}{" "}
-            Nothing below has been checked — this is not a result about these
-            citations.
-          </div>
-        )}
-
-        {verification.kind === "done" && (
-          <div className="stub-note">
-            Case identity only: reporter citation, case name, filing year and
-            court. This says nothing about whether a pin cite is right, whether
-            a quotation appears in the opinion, or whether the case is still
-            good law. A case shown as <em>not established</em> was not
-            confirmed here; that is not a finding against it.
+            Verifier did not run: {verification.reason}
           </div>
         )}
 
