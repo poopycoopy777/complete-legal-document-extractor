@@ -19,8 +19,9 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "benchmark"))
 
-from caselaw.authorities import extract_authorities  # noqa: E402
-from state_fixtures import fixtures  # noqa: E402
+from state_fixtures import fixtures
+
+from caselaw.authorities import extract_authorities
 
 SECTION = "§"
 

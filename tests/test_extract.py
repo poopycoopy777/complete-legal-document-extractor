@@ -12,7 +12,7 @@ import pytest
 from eyecite import get_citations
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from caselaw.extract import extract
+from caselaw.extract import extract, extract_pairs
 
 BRIEF = (
     "Plaintiff relies on Monell v. Department of Social Services, "
@@ -205,3 +205,82 @@ def test_curly_apostrophes_in_party_names():
     (cite,) = [c for c in extract(text) if c.kind == "FullCaseCitation"]
     assert cite.plaintiff == "Bd. of Cnty. Comm’rs"
     assert cite.defendant == "Brown"
+
+
+class TestNonAdversarialCaptions:
+    """Captions with no "v." at all: one party, not two.
+
+    Domestic relations, dependency and neglect, probate and juvenile cases are
+    all cited this way. A case-name pattern built only around "v." drops the
+    whole class, which in family law is most of the precedent.
+    """
+
+    @pytest.mark.parametrize(
+        "text,expected",
+        [
+            (
+                "In re Marriage of Rubio, 313 P.3d 623 (Colo. App. 2011).",
+                "In re Marriage of Rubio",
+            ),
+            (
+                "People in the Interest of C.A.G., 903 P.2d 1229 (Colo. App. 1995).",
+                "People in the Interest of C.A.G.",
+            ),
+            (
+                "In the Matter of the Estate of Smith, 100 P.3d 1 (Colo. 2004).",
+                "In the Matter of the Estate of Smith",
+            ),
+            ("Ex parte Young, 209 U.S. 123 (1908).", "Ex parte Young"),
+            (
+                "In re the Marriage of Jones, 55 P.3d 2 (Colo. App. 2002).",
+                "In re the Marriage of Jones",
+            ),
+        ],
+    )
+    def test_captures_the_caption(self, text, expected):
+        full = [c for _, c in extract_pairs(text) if c.kind == "FullCaseCitation"]
+        assert full, f"no full citation extracted from {text!r}"
+        assert full[0].case_name == expected
+        assert full[0].plaintiff is None
+        assert full[0].defendant is None
+
+    def test_adversarial_captions_are_unaffected(self):
+        full = [
+            c
+            for _, c in extract_pairs(
+                "See United States v. Dowdell, 595 F.3d 50 (1st Cir. 2010)."
+            )
+            if c.kind == "FullCaseCitation"
+        ]
+        assert full[0].plaintiff == "United States"
+        assert full[0].defendant == "Dowdell"
+        assert full[0].case_name is None
+
+    def test_the_caption_reaches_the_assembled_citation(self):
+        full = [
+            c
+            for _, c in extract_pairs(
+                "In re Marriage of Rubio, 313 P.3d 623 (Colo. App. 2011)."
+            )
+            if c.kind == "FullCaseCitation"
+        ]
+        assert full[0].full_citation.startswith("In re Marriage of Rubio, 313 P.3d 623")
+
+    def test_an_opener_with_nothing_after_it_is_not_a_name(self):
+        """"In re" alone is boilerplate, not a case."""
+        full = [
+            c
+            for _, c in extract_pairs("See In re, 313 P.3d 623 (Colo. App. 2011).")
+            if c.kind == "FullCaseCitation"
+        ]
+        assert full[0].case_name is None
+
+    def test_prose_before_the_opener_is_not_dragged_in(self):
+        """Anchored on the last opener, so a preceding sentence cannot bleed
+        into the caption."""
+        text = (
+            "The court discussed the matter of custody at length. "
+            "In re Marriage of Rubio, 313 P.3d 623 (Colo. App. 2011)."
+        )
+        full = [c for _, c in extract_pairs(text) if c.kind == "FullCaseCitation"]
+        assert full[0].case_name == "In re Marriage of Rubio"

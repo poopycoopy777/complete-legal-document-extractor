@@ -24,6 +24,14 @@ from pydantic import BaseModel
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from caselaw import ocr as ocr_module
 from caselaw.group import group_citations
+from caselaw.verify import colorado_check
+from caselaw.verify import retrieval as verify_retrieval
+from caselaw.verify import service as verify_service
+
+# Registered at import when the corpus is configured, so the endpoint reports
+# 503 rather than a misleading empty result when it is not. The model itself
+# still loads lazily on the first verification request.
+verify_service.set_retriever(verify_retrieval.build_from_environment())
 
 STORAGE = Path(__file__).resolve().parents[1] / "storage"
 STORAGE.mkdir(exist_ok=True)
@@ -349,3 +357,60 @@ def raw_document(doc_id: str) -> FileResponse:
         raise HTTPException(status_code=404, detail="Unknown document.")
     media = "application/pdf" if stored.kind == "pdf" else "text/plain; charset=utf-8"
     return FileResponse(stored.path, media_type=media, filename=stored.name)
+
+
+class VerifyRequest(BaseModel):
+    groups: list[dict]
+
+
+@app.post("/api/verify/cases")
+def verify_cases(payload: VerifyRequest) -> dict:
+    """Verify the identity of extracted case citations. Positive-only.
+
+    Returns conclusively verified cases and nothing else. A case that is
+    missing from the corpus, weakly matched, ambiguous or conflicting is
+    omitted rather than labelled: the corpus is a CourtListener snapshot, not
+    the universe of American law, so absence is not evidence of fabrication.
+    The caller finds what is unresolved by comparing submitted group ids with
+    returned ones.
+
+    `citation_verified` means the reporter citation, case name, filing year and
+    court all matched one candidate. It says nothing about pin cites,
+    quotations, propositions or whether the case is still good law.
+
+    A verifier outage is an error, never an empty success.
+    """
+    retriever = verify_service.get_retriever()
+    if retriever is None:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Case verification is not configured. It requires the "
+                "CourtListener metadata corpus and its vector index."
+            ),
+        )
+    try:
+        verified = verify_service.verify_groups(payload.groups, retriever)
+    except ValueError as exc:
+        raise HTTPException(status_code=413, detail=str(exc)) from exc
+    except verify_service.VerifierUnavailable as exc:
+        # Never disguise an outage as "nothing verified".
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+    for entry in verified:
+        entry.setdefault("source", "corpus")
+
+    # Second source, for the gap the corpus cannot close. A third of Colorado
+    # Court of Appeals rows carry no regional reporter citation, so the cite a
+    # brief actually uses can never match there. Only unresolved groups are
+    # sent, and only Colorado-looking ones.
+    resolved = {entry["groupId"] for entry in verified}
+    remaining = [
+        verify_service.GroupQuery.from_dict(group)
+        for group in payload.groups
+        if str(group.get("groupId") or "") not in resolved
+    ]
+    if remaining:
+        verified.extend(colorado_check.verify_colorado(remaining).values())
+
+    return {"verified": verified}

@@ -5,10 +5,11 @@ __pycache__/
 .ruff_cache/
 .coverage
 node_modules/
-web/
 .claude/
 stop.bat
 storage/
 api.log
 benchmark/corpus/
 benchmark/scan.json
+logs/
+data/
