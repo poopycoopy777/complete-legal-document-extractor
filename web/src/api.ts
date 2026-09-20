@@ -64,6 +64,9 @@ export async function verifyCases(
     // but not "Colo. App.", so this is often the only evidence of which
     // court a citation belongs to.
     courtText: g.header.court_text,
+    // Non-adversarial captions ("In re Marriage of ...") have one party, not
+    // two, so plaintiff and defendant are both null and this is the name.
+    caseName: g.header.case_name,
   }));
 
   const response = await fetch(`${BASE}/api/verify/cases`, {

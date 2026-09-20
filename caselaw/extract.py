@@ -57,6 +57,23 @@ _CASE_NAME = re.compile(
     r"\s*,?\s*$"
 )
 
+# Non-adversarial captions have no "v." at all: one party, not two. Domestic
+# relations, dependency and neglect, probate and juvenile cases are all cited
+# this way, so a case-name pattern built only around "v." silently drops a
+# large share of family-law precedent.
+#
+#   In re Marriage of Rubio, 313 P.3d 623 (Colo. App. 2011)
+#   People in the Interest of C.A.G., 903 P.2d 1229 (Colo. App. 1995)
+_IN_RE_OPENER = re.compile(
+    r"(?:In\s+re(?:\s+the)?|In\s+the\s+Matter\s+of|Matter\s+of|Ex\s+parte|"
+    r"(?:People|State|Commonwealth)\s+in\s+the\s+Interest\s+of|"
+    r"In\s+the\s+Interest\s+of|In\s+re:)",
+    re.IGNORECASE,
+)
+# What may follow the opener. Initials with periods are common in juvenile
+# captions ("C.A.G."), so periods and spaces are allowed.
+_IN_RE_BODY = re.compile(r"^[A-Za-z0-9'‘’\.\-&,\s]{0,160}$")
+
 # Bluebook introductory signals and common lead-in verbs. These are capitalised
 # at the start of a sentence, so capitalisation alone cannot separate them from
 # a party name.
@@ -191,6 +208,9 @@ class Citation:
     antecedent: str | None = None
     corrected: str | None = None
     court_text: str | None = None
+    # A non-adversarial caption ("In re Marriage of Rubio"), which has one
+    # party rather than two and so cannot be held in plaintiff/defendant.
+    case_name: str | None = None
     full_citation: str | None = None
     flags: list[str] = field(default_factory=list)
 
@@ -312,6 +332,25 @@ def _derive_parties(window: str) -> tuple[str | None, str | None]:
     return plaintiff, defendant
 
 
+def _derive_case_name(window: str) -> str | None:
+    """A non-adversarial caption sitting immediately before the citation.
+
+    Anchored on the last opener in the window, so a preceding sentence that
+    happens to contain "in the matter of" cannot drag prose into the name.
+    Returns the caption as written; there are no parties to split.
+    """
+    stripped = window.rstrip().rstrip(",").rstrip()
+    openers = list(_IN_RE_OPENER.finditer(stripped))
+    if not openers:
+        return None
+    candidate = _collapse(stripped[openers[-1].start():]).strip().strip(",").strip()
+    if not candidate or not _IN_RE_BODY.match(candidate):
+        return None
+    # An opener alone is not a case name; something must follow it.
+    remainder = _IN_RE_OPENER.sub("", candidate, count=1).strip(" :,.")
+    return candidate if remainder else None
+
+
 def _assemble_full_citation(record: Citation) -> str:
     """Render the complete citation the way a brief writes it.
 
@@ -336,6 +375,8 @@ def _assemble_full_citation(record: Citation) -> str:
     if record.plaintiff and record.defendant:
         name = f"{record.plaintiff} v. {record.defendant}"
         return f"{name}, {body}" if body else name
+    if record.case_name:
+        return f"{record.case_name}, {body}" if body else record.case_name
     return body
 
 
@@ -424,9 +465,15 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
                 plaintiff, defendant = _derive_parties(before)
                 record.plaintiff = plaintiff
                 record.defendant = defendant
+                if plaintiff is None:
+                    # No "v." in the window. That is the normal shape of a
+                    # domestic relations, dependency or probate caption, not a
+                    # failure, so look for a non-adversarial one before
+                    # reporting the citation as nameless.
+                    record.case_name = _derive_case_name(before)
                 ec_p = (getattr(meta, "plaintiff", None) or "").strip()
                 ec_d = (getattr(meta, "defendant", None) or "").strip()
-                if plaintiff is None and (ec_p or ec_d):
+                if plaintiff is None and record.case_name is None and (ec_p or ec_d):
                     record.flags.append(
                         f"parties_unverified: eyecite reported "
                         f"{ec_p!r} v. {ec_d!r}, no 'v.' pattern in this "

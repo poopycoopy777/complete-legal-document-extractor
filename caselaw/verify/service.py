@@ -52,6 +52,8 @@ class GroupQuery:
     # "Colo." to a court id but not "Colo. App.", so this is often the only
     # evidence of which court a citation belongs to.
     court_text: str | None = None
+    # A non-adversarial caption, which has one party rather than two.
+    case_name: str | None = None
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> GroupQuery:
@@ -71,6 +73,9 @@ class GroupQuery:
             court=_clean(payload.get("court")),
             court_text=_clean(
                 payload.get("courtText") or payload.get("court_text")
+            ),
+            case_name=_clean(
+                payload.get("caseName") or payload.get("case_name")
             ),
         )
 
@@ -130,7 +135,9 @@ class Retriever(Protocol):
 def passes_all(query: GroupQuery, candidate: Candidate) -> bool:
     return (
         check_reporter(query.volume, query.reporter, query.page, candidate)
-        and check_name(query.plaintiff, query.defendant, candidate)
+        and check_name(
+            query.plaintiff, query.defendant, candidate, query.case_name
+        )
         and check_year(query.year, candidate)
         and check_court(query.court, candidate)
     )

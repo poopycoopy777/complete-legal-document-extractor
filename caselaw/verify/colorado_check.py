@@ -23,7 +23,7 @@ import re
 
 from ..colorado.sources import verify_colorado_case_search
 from ..colorado.types import ExtractedCitation
-from .checks import normalize_party, split_caption
+from .checks import _PUNCT, normalize_caption, normalize_party, split_caption
 from .service import GroupQuery
 
 # Colorado reporters and court parentheticals. A citation that looks like
@@ -68,11 +68,17 @@ def _citation_present(text: str, query: GroupQuery) -> bool:
     """
     if not (query.volume and query.reporter and query.page):
         return False
+    # A brief may write "P.3d." with a trailing period. Matching the document
+    # against the typo verbatim rejects the correct opinion. The series itself
+    # is untouched: "P.2d" and "P.3d" stay different reporters.
+    reporter = query.reporter.strip().rstrip(".")
+    if not reporter:
+        return False
     pattern = (
         re.escape(query.volume)
         + r"\s*"
-        + re.escape(query.reporter).replace(r"\ ", r"\s*")
-        + r"\s*"
+        + re.escape(reporter).replace(r"\ ", r"\s*")
+        + r"\.?\s*"
         + re.escape(query.page)
     )
     return re.search(pattern, text, re.IGNORECASE) is not None
@@ -86,9 +92,29 @@ def _parties_present(text: str, query: GroupQuery) -> bool:
     so requiring the brief's short form to match exactly would reject correct
     opinions. Both sides are still required.
     """
-    if not (query.plaintiff and query.defendant):
-        return False
     head = " ".join(text[:3000].split()).casefold()
+    # Punctuation-free view of the same caption. A juvenile caption prints
+    # initials as "C.A.G."; normalized it is "cag", which does not appear in
+    # the raw head at all.
+    flat = _PUNCT.sub("", head)
+    flat = re.sub(r"\s+", " ", flat)
+
+    if not (query.plaintiff and query.defendant):
+        # Non-adversarial caption: one name, so the distinguishing part has to
+        # appear in the opinion's own caption. "In re Marriage of Rubio" is
+        # confirmed by "Rubio", not by "Marriage".
+        if not query.case_name:
+            return False
+        normalized = normalize_caption(query.case_name)
+        if not normalized:
+            return False
+        # Initials are short: "cag" is three characters and is still the whole
+        # identifying part of the caption. Long enough to be meaningful here
+        # because the exact reporter citation has already pinned the case.
+        words = [w for w in normalized.split() if len(w) > 3]
+        anchor = words[-1] if words else normalized.split()[-1]
+        return len(anchor) >= 2 and (anchor in head or anchor in flat)
+
     for party in (query.plaintiff, query.defendant):
         normalized = normalize_party(party)
         if not normalized:
@@ -132,6 +158,8 @@ async def _check_one(query: GroupQuery, client, semaphore) -> tuple[str, object 
         ),
         year=str(query.year) if query.year else None,
     )
+    if query.case_name and not citation.case_name:
+        citation.case_name = query.case_name
     async with semaphore:
         try:
             result = await verify_colorado_case_search(citation, client=client)

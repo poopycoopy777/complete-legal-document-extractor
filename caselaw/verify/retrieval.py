@@ -186,6 +186,10 @@ def query_text(query: GroupQuery) -> str:
     parts: list[str] = []
     if query.plaintiff and query.defendant:
         parts.append(f"{query.plaintiff} v. {query.defendant}")
+    elif query.case_name:
+        # A non-adversarial caption is the whole name; without it the query
+        # would be a bare reporter citation with nothing to match on.
+        parts.append(query.case_name)
     if query.volume and query.reporter and query.page:
         parts.append(f"{query.volume} {query.reporter} {query.page}")
     court_year = " ".join(p for p in (query.court, str(query.year or "")) if p).strip()

@@ -186,3 +186,86 @@ class TestEligibilityRegressions:
                 court_text="Nev.",
             )
         )
+
+
+class TestNonAdversarialCaptions:
+    """Family-law and juvenile captions, which have one party rather than two.
+
+    Both of these reached the right opinion and were then refused by bugs in
+    the checking rather than by anything about the citations.
+    """
+
+    RUBIO_DOC = (
+        "313 P.3d 623 In re the MARRIAGE OF Louise RUBIO , and Frank Rubio , "
+        "Appellee , and Concerning The Marrison Law Firm , Appellant . "
+    )
+    CAG_DOC = (
+        "Page 1229 903 P.2d 1229 The PEOPLE of the State of Colorado, "
+        "Petitioner-Appellee, In the Interest of C.A.G., a Child, Respondent, "
+    )
+
+    def test_reporter_typo_does_not_reject_the_right_opinion(self):
+        """The brief wrote "313 P.3d. 623". Matching the document against the
+        typo verbatim refused the correct case."""
+        query = GroupQuery(
+            group_id="g",
+            volume="313",
+            reporter="P.3d.",
+            page="623",
+            case_name="In Re Marriage of Rubio",
+            year=2011,
+        )
+        assert confirms(Result(text=self.RUBIO_DOC), query)
+
+    def test_series_still_cannot_collapse(self):
+        """Tolerating a trailing period must not make P.2d match P.3d."""
+        query = GroupQuery(
+            group_id="g",
+            volume="313",
+            reporter="P.2d",
+            page="623",
+            case_name="In Re Marriage of Rubio",
+            year=2011,
+        )
+        assert not confirms(Result(text=self.RUBIO_DOC), query)
+
+    def test_initials_in_a_juvenile_caption_confirm(self):
+        """"People in the Interest of C.A.G." normalizes to "cag" -- three
+        characters, and the whole identifying part of the caption."""
+        query = GroupQuery(
+            group_id="g",
+            volume="903",
+            reporter="P.2d",
+            page="1229",
+            case_name="People in the Interest of C.A.G.",
+            year=1995,
+        )
+        assert confirms(Result(text=self.CAG_DOC), query)
+
+    def test_a_different_child_is_refused(self):
+        query = GroupQuery(
+            group_id="g",
+            volume="903",
+            reporter="P.2d",
+            page="1229",
+            case_name="People in the Interest of R.T.L.",
+            year=1995,
+        )
+        assert not confirms(Result(text=self.CAG_DOC), query)
+
+    def test_a_different_marriage_is_refused(self):
+        query = GroupQuery(
+            group_id="g",
+            volume="313",
+            reporter="P.3d",
+            page="623",
+            case_name="In re Marriage of Gonzalez",
+            year=2011,
+        )
+        assert not confirms(Result(text=self.RUBIO_DOC), query)
+
+    def test_no_caption_and_no_parties_cannot_confirm(self):
+        query = GroupQuery(
+            group_id="g", volume="313", reporter="P.3d", page="623", year=2011
+        )
+        assert not confirms(Result(text=self.RUBIO_DOC), query)

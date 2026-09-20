@@ -25,6 +25,8 @@ export interface Citation {
   corrected: string | null;
   /** Court text exactly as the citation's own parenthetical gives it. */
   court_text: string | null;
+  /** A non-adversarial caption ("In re Marriage of X"): one party, not two. */
+  case_name: string | null;
   /** The complete citation, assembled from verified parts. Full cites only. */
   full_citation: string | null;
   flags: string[];

@@ -31,6 +31,17 @@ _SPACE = re.compile(r"\s+")
 # A caption splits on "v." -- and on little else reliably.
 _VERSUS = re.compile(r"\s+v[.s]?\.?\s+", re.IGNORECASE)
 
+# Boilerplate openers on a non-adversarial caption. A brief and a docket
+# spell these differently -- "In re Marriage of Rubio" against "In re the
+# Marriage of Rubio" -- while the distinguishing part is the same, so the
+# opener is stripped from both sides before they are compared.
+_IN_RE_OPENER = re.compile(
+    r"^(?:in\s+re:?(?:\s+the)?|in\s+the\s+matter\s+of|matter\s+of|ex\s+parte|"
+    r"(?:people|state|commonwealth)\s+in\s+the\s+interest\s+of|"
+    r"in\s+the\s+interest\s+of)\s*",
+    re.IGNORECASE,
+)
+
 
 @dataclass(frozen=True)
 class Candidate:
@@ -133,23 +144,54 @@ def _normalize_reporter(reporter: str) -> str:
     return _SPACE.sub(" ", reporter.strip()).casefold()
 
 
-def check_name(
-    plaintiff: str | None, defendant: str | None, candidate: Candidate
-) -> bool:
-    """Do both parties match the candidate's caption, in the same order?
+def normalize_caption(value: str | None) -> str:
+    """Normalize a non-adversarial caption for comparison.
 
-    Party order is significant. On appeal a caption genuinely reverses, and
-    "A v. B" and "B v. A" can be different proceedings.
+    Strips the boilerplate opener and then applies the same conservative
+    normalization the parties get. Still exact: only the opener and the
+    punctuation are allowed to differ.
     """
-    if not (plaintiff and defendant):
-        return False
-    sides = split_caption(candidate.case_name)
-    if sides is None:
-        return False
-    return (
-        normalize_party(plaintiff) == normalize_party(sides[0])
-        and normalize_party(defendant) == normalize_party(sides[1])
-    )
+    if not value:
+        return ""
+    return normalize_party(_IN_RE_OPENER.sub("", value.strip(), count=1))
+
+
+def check_name(
+    plaintiff: str | None,
+    defendant: str | None,
+    candidate: Candidate,
+    case_name: str | None = None,
+) -> bool:
+    """Does the caption match the candidate's?
+
+    Adversarial captions compare party by party, and order is significant:
+    on appeal a caption genuinely reverses, and "A v. B" and "B v. A" can be
+    different proceedings.
+
+    A non-adversarial caption -- "In re Marriage of Rubio", "People in the
+    Interest of C.A.G." -- has one party rather than two, so it is compared
+    whole. Much precedent in domestic relations, dependency and probate is
+    cited this way, and requiring two parties would refuse all of it.
+    """
+    if plaintiff and defendant:
+        sides = split_caption(candidate.case_name)
+        if sides is None:
+            return False
+        return (
+            normalize_party(plaintiff) == normalize_party(sides[0])
+            and normalize_party(defendant) == normalize_party(sides[1])
+        )
+
+    if case_name:
+        # A candidate whose own caption splits on "v." is a different case,
+        # not this one written differently.
+        if split_caption(candidate.case_name) is not None:
+            return False
+        ours = normalize_caption(case_name)
+        theirs = normalize_caption(candidate.case_name)
+        return bool(ours) and ours == theirs
+
+    return False
 
 
 def check_year(year: int | None, candidate: Candidate) -> bool:
