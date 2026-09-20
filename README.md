@@ -64,6 +64,32 @@ What this does **not** measure: citations already in the source text that the
 extractor misses. Injection cannot find unknown unknowns. Precision is reported
 as a raw count for manual review, not scored.
 
+### State coverage
+
+`benchmark/state_fixtures.py` builds a citation for every state code from that
+state's own CiteURL pattern and checks it extracts back to the same state.
+
+| | |
+|---|---|
+| Generated fixtures | 74 across 30+ codes |
+| Extracted to the right state | **65** |
+| Extracted to the **wrong** state | **0** |
+| Not extracted | 9 |
+
+Zero cross-state misattribution is the property that matters: 86 generated
+templates do not steal each other's citations. A Colorado citation reported as
+Nevada law would be worse than no match, because it is wrong with confidence.
+
+Of the 9 misses, 6 were the fixture generator building a citation the state
+does not actually use — those forms extract correctly when written properly
+(`735 ILCS 5/2-619`, `Mass. Gen. Laws ch. 265, § 13A`, `N.Y. Penal Law
+§ 120.00`, `Fla. Admin. Code R. 62-4.070`). The rest are recorded under known
+gaps.
+
+This proves a template matches text written to its own specification. It does
+not prove the specification matches what practitioners in that state write —
+that needs real filings from those jurisdictions.
+
 **The dominant risk is not the extractor.** Two of the ten documents produced
 zero extractable text — image scans with no text layer, including a 36-page
 Colorado Supreme Court opinion. Before OCR those returned "0 citations", which
@@ -117,6 +143,15 @@ requires a section sign, "section"/"sec.", "id." or a code name.
 ("§ 24-72-303, C.R.S."). Prefix and postfix patterns are generated for every
 state from that state's own token structure, resolving the `inherit` chain first
 because most states borrow their pattern from another. 86 generated templates.
+
+**CiteURL — two states cannot match their own declared abbreviation.** Rhode
+Island and South Dakota both inherit Alabama's pattern, which requires
+`(C(odes?|\.)|Stat(utes|s?\.?))` after the state name. Their actual names end in
+"Laws" — `R.I. Gen. Laws`, `S.D. Codified Laws` — which matches neither branch,
+so the bundled templates can never match the abbreviation they themselves
+declare. The generated initialism forms (`RIGL`, `SDCL`) are the only way these
+two states are matched at all. Pinned by
+`tests/test_state_coverage.py::test_upstream_long_forms_remain_broken`.
 
 ## Quotations and attribution
 
@@ -200,8 +235,10 @@ Current validation: 104 tests, clean Ruff checks, Python bytecode compilation,
 - Layout-only block quotations without quotation marks are not detected; doing
   so reliably requires retaining PDF layout semantics rather than guessing from
   indentation in flattened text.
-- The code loads CiteURL templates for all fifty states, but common citation
-  forms have not yet been independently fixture-tested state by state.
+- Maryland's subject-volume form with a comma (`Md. Code, Crim. Law § 3-203`)
+  and the Virgin Islands form that puts the title before the code name
+  (`14 V.I.C. § 2251`) are not matched. Both are pinned by tests so a fix is
+  noticed.
 - Verification does not exist. It is the structural fix for both OCR failure
   modes and for fabricated citations generally.
 
