@@ -296,3 +296,9 @@ def test_an_en_dash_in_a_party_name_is_kept():
     text = "It so held. Daniels–Hall v. Nat’l Educ. Ass’n, 629 F.3d 992, 998 (9th Cir. 2010)."
     (group,) = group_citations(text).as_dict()["groups"]
     assert group["caseName"] == "Daniels–Hall v. Nat’l Educ. Ass’n"
+
+
+def test_an_ocr_underscore_before_v_does_not_lose_the_caption():
+    text = "It so held. In Doe _v. United States, 419 F.3d 1058 (9th Cir. 2005), the court held."
+    (group,) = group_citations(text).as_dict()["groups"]
+    assert group["caseName"] == "Doe v. United States"
