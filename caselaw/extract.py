@@ -178,7 +178,9 @@ _SIGNAL_WORDS = {
 # Education", "Bank of the West"). "and" is deliberately NOT here: Bluebook
 # abbreviates it to "&" inside case names, so an "and" running up to a citation
 # is nearly always the prose that precedes the case name.
-_NAME_CONNECTORS = {"of", "the", "for", "de", "van", "der", "del", "la", "&"}
+# "ex rel." joins the relator to the state: People ex rel. State Bd. of
+# Equalization v. Hively. Cut at "rel." the caption lost "People ex rel.".
+_NAME_CONNECTORS = {"of", "the", "for", "de", "van", "der", "del", "la", "&", "ex", "rel."}
 
 # Section-heading numbering that can sit immediately before a citation:
 # "III.", "A.", "2.". Matched against a token already stripped of punctuation,

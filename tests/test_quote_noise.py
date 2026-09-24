@@ -197,8 +197,8 @@ def test_captions_with_lower_case_abbreviations_survive():
     text = ("New Mexico ex rel. Balderas v. Real Estate Law Center, P.C., 409 F. Supp. 3d 1122 (D.N.M. 2019). "
             "Smith et al. v. Jones Co., 1 F.3d 1 (10th Cir. 1993).")
     names = [g["header"]["full_citation"] for g in group_citations(text).as_dict()["groups"]]
-    # Unchanged by the sentence cut: "ex rel." and "et al." are not sentence ends.
-    assert names[0].startswith("Balderas v. Real Estate Law Center, P.C."), names
+    # "ex rel." and "et al." are not sentence ends, and "ex rel." is part of the caption.
+    assert names[0].startswith("New Mexico ex rel. Balderas v. Real Estate Law Center, P.C."), names
     assert names[1] == "1 F.3d 1 (10th Cir. 1993)", names
 
 
@@ -268,3 +268,11 @@ def test_a_regional_reporter_takes_its_court_from_the_parenthetical():
 
     (cite,) = extract("It held. Reagan v. Investors Mtg. Co., 977 P.2d 299 (Colo. App. 1999).")
     assert (cite.court, cite.flags) == ("coloctapp", [])
+
+
+def test_ex_rel_stays_in_the_caption_and_the_proposition_is_found():
+    text = ('A court may grant declaratory relief to "settle rights where clarity of ownership is '
+            'essential." People ex rel. State Bd. of Equalization v. Hively, 336 P.2d 721 (1959).')
+    (group,) = group_citations(text).as_dict()["groups"]
+    assert group["caseName"] == "People ex rel. State Bd. of Equalization v. Hively"
+    assert group["proposition"].startswith("A court may grant declaratory relief")
