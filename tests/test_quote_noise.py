@@ -84,3 +84,35 @@ def test_quote_goes_to_the_quoting_case_not_the_parenthetical():
               for g in group_citations(FOOTNOTE).as_dict()["groups"]}
     assert [q["text"][:10] for q in groups["569 U.S. 1"]["quotes"]] == ["conception"]
     assert groups["466 U.S. 170"]["quotes"] == []
+
+
+# Filed in Coomer v. Lindell, No. 22-cv-01129 (D. Colo.), Doc. 283 at 3. The
+# court found the Farmington quotation was invented; it must be checked against
+# Farmington, not against Cerno, the next citation in the paragraph.
+COOMER = (
+    "the evidence must have “an undue tendency to suggest decision on an improper basis.” "
+    "Fed. R. Evid. 403\nadvisory committee notes. See also Mata v. City of Farmington, 798 "
+    "F.Supp.2d 1215, 1227 (D.N.M. 2011)\n\n(“The prejudice must be unfair in the sense that it "
+    "would affect the jury's ability to weigh the evidence\n\nrationally.”) Rule 403 permits "
+    "inclusion of evidence when the probative value is so crucial to a necessary\n\nissue that Mr. "
+    "Coomer cannot show any prejudice “substantially outweighs” the probative value. See\n\n"
+    "United States v. Cerno, 529 F.3d 926, 935 (10th Cir. 2008)."
+)
+
+
+def test_quote_in_a_parenthetical_belongs_to_that_citation():
+    groups = {" ".join(g["header"]["text"].split()): g
+              for g in group_citations(COOMER).as_dict()["groups"]}
+    farmington = groups["798 F.Supp.2d 1215"]
+    cerno = groups["529 F.3d 926"]
+    assert [q["text"][:24] for q in farmington["quotes"]] == ["The prejudice must be un"]
+    assert [q["text"] for q in cerno["quotes"]] == ["substantially outweighs"]
+
+
+def test_parenthetical_lead_in_words_are_allowed():
+    text = ('World Wide Ass’n v. Pure, Inc., 450 F.3d 1132, 1139 (2006) (recognizing that '
+            '"reputation and character are inextricably intertwined" in defamation cases). '
+            'New Mexico ex rel. Balderas v. Real Estate Law Center, P.C., 409 F.Supp.3d 1122 (2019).')
+    groups = {" ".join(g["header"]["text"].split()): g for g in group_citations(text).as_dict()["groups"]}
+    assert [q["text"][:10] for q in groups["450 F.3d 1132"]["quotes"]] == ["reputation"]
+    assert groups["409 F.Supp.3d 1122"]["quotes"] == []

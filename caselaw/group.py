@@ -396,14 +396,45 @@ def _find_quotes(text: str) -> list[tuple[int, int, str]]:
     return spans
 
 
+# Between a citation and a quotation inside that citation's own parenthetical:
+# the rest of the cite (pin, court and year), then an opening parenthesis and
+# at most a short lead-in -- "(noting that ", "(quoting ", "(holding ".
+#   Mata v. City of Farmington, 798 F.Supp.2d 1215, 1227 (D.N.M. 2011)
+#   ("The prejudice must be unfair ...")
+_PARENTHETICAL_GAP = re.compile(
+    r"[\s,]*(?:at\s+)?(?:[\d*\u2013\-\s,n.]*)?(?:\([^()]{0,80}\)[\s,]*)*\([^()\"\u201c\u201d]{0,60}$"
+)
+
+
+def _parenthetical_owner(
+    text: str, quote_start: int, records: list[Citation | Authority | RecordCite]
+) -> Citation | Authority | RecordCite | None:
+    """The citation whose explanatory parenthetical contains this quotation."""
+    preceding = [c for c in records if c.span[1] <= quote_start and quote_start - c.span[1] <= 140]
+    if not preceding:
+        return None
+    nearest = max(preceding, key=lambda c: c.span[1])
+    gap = text[nearest.span[1] : quote_start]
+    return nearest if _PARENTHETICAL_GAP.fullmatch(gap) else None
+
+
 def _attribute_quote(
-    quote_start: int, quote_end: int, records: list[Citation | Authority | RecordCite]
+    quote_start: int,
+    quote_end: int,
+    records: list[Citation | Authority | RecordCite],
+    text: str = "",
 ) -> tuple[Citation | Authority | RecordCite | None, str | None]:
     """Attach a quotation to a citation.
 
-    Legal writing puts the quotation before its citation, so a following
-    citation wins; a preceding one is accepted only at close range.
+    A quotation inside a citation's own parenthetical belongs to that citation.
+    Otherwise legal writing puts the quotation before its citation, so a
+    following citation wins; a preceding one is accepted only at close range.
     """
+    if text:
+        owner = _parenthetical_owner(text, quote_start, records)
+        if owner is not None:
+            return owner, "own_parenthetical"
+
     following = [
         c
         for c in records
@@ -751,7 +782,7 @@ def group_citations(text: str) -> ExtractionResult:
             span=(q_start, q_end),
             raw_text=text[q_start:q_end],
         )
-        target, basis = _attribute_quote(q_start, q_end, attribution_records)
+        target, basis = _attribute_quote(q_start, q_end, attribution_records, text)
         if target is None:
             unattributed_quotes.append(quote)
             continue
