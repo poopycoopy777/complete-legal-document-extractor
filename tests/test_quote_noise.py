@@ -61,3 +61,26 @@ def test_page_marker_is_not_part_of_a_case_name():
     assert _trim_lead_in("P13 County of Sacramento") == "County of Sacramento"
     assert _trim_lead_in("County of Sacramento") == "County of Sacramento"
     assert _trim_lead_in("A12 Ashcroft") == "Ashcroft"
+
+
+FOOTNOTE = (
+    "The United States Supreme Court has said that the “conception defining the "
+    "curtilage’ is … familiar\nenough that it is ‘easily understood from our "
+    "daily experience.’” Florida v. Jardines, 569\nU.S. 1, 7 (2013) (quoting Oliver "
+    "v. United States, 466 U.S. 170, 182, n. 12 (1984)."
+)
+
+
+def test_citation_broken_across_a_line_is_still_found():
+    groups = {" ".join(g["header"]["text"].split()): g
+              for g in group_citations(FOOTNOTE).as_dict()["groups"]}
+    assert set(groups) == {"569 U.S. 1", "466 U.S. 170"}
+    start = FOOTNOTE.index("569")
+    assert tuple(groups["569 U.S. 1"]["header"]["span"]) == (start, start + 10)
+
+
+def test_quote_goes_to_the_quoting_case_not_the_parenthetical():
+    groups = {" ".join(g["header"]["text"].split()): g
+              for g in group_citations(FOOTNOTE).as_dict()["groups"]}
+    assert [q["text"][:10] for q in groups["569 U.S. 1"]["quotes"]] == ["conception"]
+    assert groups["466 U.S. 170"]["quotes"] == []

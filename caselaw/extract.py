@@ -406,7 +406,13 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
     if not text or not text.strip():
         return []
 
-    found = get_citations(text)
+    # PDF text layers break lines anywhere, including inside a citation
+    # ("Florida v. Jardines, 569\nU.S. 1"), and eyecite does not read a reporter
+    # across a line break. The citation was then missed, and its quotation was
+    # attributed to the next citation found -- in one filing, to the case inside
+    # the "(quoting ...)" parenthetical. Line breaks become spaces of the same
+    # length, so every span still indexes the original text.
+    found = get_citations(text.replace("\r", " ").replace("\n", " "))
     # Case law only. eyecite also returns statute, journal and placeholder
     # citations; those are out of scope here and would otherwise arrive as
     # unattached noise (bare section symbols, C.F.R. cites, and so on).
