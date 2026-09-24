@@ -198,7 +198,7 @@ _ION_MEDIA_OCR = re.compile(r"\blon(?=\s+Media\s+Networks\b)")
 # A Table of Authorities heading sits directly before its first case and is
 # therefore inside the same citation-bounded window. It is layout, not a party.
 _TOA_CASES_PREFIX = re.compile(
-    r"^TABLE\s+OF\s+AUTHORITIES\s+Cases\s+", re.IGNORECASE
+    r"^(?:.*\s)?TABLE\s+OF\s+AUTHORITIES\s+(?:Cases\s+)?", re.IGNORECASE | re.DOTALL
 )
 
 # A year parenthetical must appear close to the citation; pin cites and

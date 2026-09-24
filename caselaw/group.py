@@ -385,12 +385,23 @@ def _is_citation_only(body: str) -> bool:
     return not re.search(r"[A-Za-z]{2,}", rest)
 
 
+def _is_shouted_label(body: str) -> bool:
+    """A sign, stamp or disposition in capitals: "NO TRESPASSING", "EXONERATED".
+
+    Opinions do not quote themselves in capitals; these are record words, and
+    checking them against case law can only produce a false failure.
+    """
+    letters = re.sub(r"[^A-Za-z]", "", body)
+    return len(body.split()) <= 4 and len(letters) >= 2 and letters.isupper()
+
+
 def _find_quotes(text: str) -> list[tuple[int, int, str]]:
     spans = []
     for m in _QUOTE.finditer(text):
         body = m.group(1) if m.group(1) is not None else m.group(2)
         body = " ".join(body.split())
-        if _is_defined_term(text, m.start(), m.end(), body) or _is_citation_only(body):
+        if (_is_defined_term(text, m.start(), m.end(), body) or _is_citation_only(body)
+                or _is_shouted_label(body)):
             continue
         spans.append((m.start(), m.end(), body))
     return spans
@@ -426,6 +437,13 @@ _SENTENCE_END = re.compile(r"[.!?][\"'\u201d\u2019)\]]*\s+(?=[A-Z\u201c\"])")
 # sentence opening "In Doe v. United States, ..." is prose about that case.
 _TEXTUAL_OPENING = re.compile(r"\s*In\s+(?!re\b)")
 _SAME_SENTENCE_REACH = 400
+# A sentence of the filing's own prose: an end of sentence followed by a word
+# that opens argument rather than a citation ("See", a case name, "Under").
+_PROSE_SENTENCE = re.compile(
+    r"[.!?][\"'\u201d\u2019)\]]*\s+(?=(?:The|This|That|These|Those|It|Its|He|She|They|We|I|"
+    r"His|Her|Their|Our|Plaintiffs?|Defendants?|Officers?|Here|There|Thus|Therefore|"
+    r"Accordingly|Moreover|Further|Furthermore|Indeed|However|Because|Such|No|Nor)\b)"
+)
 
 
 def _same_sentence_owner(
@@ -486,6 +504,12 @@ def _attribute_quote(
         for c in records
         if c.span[0] >= quote_end and c.span[0] - quote_end <= _QUOTE_FORWARD
     ]
+    if following and text:
+        # Two sentences of the filing's own argument between a quotation and
+        # the next citation: that citation is for the argument, not the quote.
+        nearest_start = min(c.span[0] for c in following)
+        if len(_PROSE_SENTENCE.findall(text, max(quote_start, quote_end - 3), nearest_start)) >= 2:
+            following = []
     if following:
         target = min(following, key=lambda c: c.span[0])
         if isinstance(target, RecordCite):
@@ -694,6 +718,79 @@ def _proposition(
     return Proposition(text=candidate, span=(s, e), signal=signal)
 
 
+def _inside_parenthetical_of(outer: Citation, inner: Citation) -> bool:
+    """Is ``inner`` cited inside ``outer``'s explanatory parenthetical?"""
+    paren = outer.parenthetical or ""
+    return bool(paren) and outer.span[1] <= inner.span[0] and " ".join(inner.text.split()) in paren
+
+
+def _rebind_ids_past_parentheticals(
+    timeline: list[Citation | Authority | RecordCite],
+    case_owner: dict[int, CitationGroup],
+) -> None:
+    """Point an Id. at the cited case, not the case in its "(quoting ...)" parenthetical.
+
+        Ashcroft v. Iqbal, 556 U.S. 662, 678 (2009) (quoting Bell Atlantic
+        Corp. v. Twombly, 550 U.S. 544, 570 (2007)). ... Id. at 679.
+
+    eyecite resolves that Id. to Twombly, the last case it read. An authority
+    cited only in a parenthetical is never the antecedent of id., so the Id.
+    (and every Id. chained after it) belongs to Iqbal.
+    """
+    rebound: dict[int, CitationGroup] = {}
+    for position, citation in enumerate(timeline):
+        if getattr(citation, "kind", None) != "IdCitation" or position == 0:
+            continue
+        previous = timeline[position - 1]
+        target = rebound.get(id(previous))
+        if target is None and position >= 2 and isinstance(previous, Citation):
+            outer = timeline[position - 2]
+            if isinstance(outer, Citation) and _inside_parenthetical_of(outer, previous):
+                target = case_owner.get(id(outer))
+        current = case_owner.get(id(citation))
+        if target is None or current is None:
+            continue
+        rebound[id(citation)] = target
+        if current is not target:
+            current.children.remove(citation)
+            target.children.append(citation)
+            target.children.sort(key=lambda c: c.span[0])
+            case_owner[id(citation)] = target
+
+
+def _inherited_case_pins(
+    timeline: list[Citation | Authority | RecordCite],
+    case_owner: dict[int, CitationGroup],
+) -> dict[int, tuple[str, str]]:
+    """A bare Id. repeats the page of the citation it refers to.
+
+        Iqbal, 556 U.S. at 678. ... "more than a sheer possibility." Id.
+
+    That quotation is on page 678. The referent skips any citation inside the
+    earlier citation's parenthetical, as in _rebind_ids_past_parentheticals.
+    """
+    pins: dict[int, tuple[str, str]] = {}
+    for position, citation in enumerate(timeline):
+        if getattr(citation, "kind", None) != "IdCitation" or position == 0:
+            continue
+        if citation.pin_cite:
+            continue
+        previous = timeline[position - 1]
+        if (position >= 2 and isinstance(previous, Citation)
+                and isinstance(timeline[position - 2], Citation)
+                and _inside_parenthetical_of(timeline[position - 2], previous)):
+            previous = timeline[position - 2]
+        group = case_owner.get(id(citation))
+        if group is None or case_owner.get(id(previous)) is not group:
+            continue
+        if id(previous) in pins:
+            pins[id(citation)] = (pins[id(previous)][0], "inherited_from_id")
+        elif getattr(previous, "pin_cite", None):
+            page = re.sub(r"^at\s+", "", previous.pin_cite, flags=re.IGNORECASE)
+            pins[id(citation)] = (page, "inherited_from_id")
+    return pins
+
+
 def group_citations(text: str) -> ExtractionResult:
     """Extract citations and cluster them under their full citation."""
     pairs = extract_pairs(text)
@@ -789,6 +886,9 @@ def group_citations(text: str) -> ExtractionResult:
             record_pins[id(citation)] = (printed.group(1), "printed")
         elif id(previous) in record_pins:
             record_pins[id(citation)] = (record_pins[id(previous)][0], "inherited_from_id")
+
+    _rebind_ids_past_parentheticals(timeline, case_owner)
+    record_pins.update(_inherited_case_pins(timeline, case_owner))
 
     ordered_records = list(record_groups.values())
     for group in ordered_records:

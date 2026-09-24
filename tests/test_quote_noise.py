@@ -200,3 +200,48 @@ def test_captions_with_lower_case_abbreviations_survive():
     # Unchanged by the sentence cut: "ex rel." and "et al." are not sentence ends.
     assert names[0].startswith("Balderas v. Real Estate Law Center, P.C."), names
     assert names[1] == "1 F.3d 1 (10th Cir. 1993)", names
+
+
+def _group(result, name):
+    return next(g for g in result["groups"] if name in (g["caseName"] or ""))
+
+
+def test_id_after_a_quoting_parenthetical_refers_to_the_cited_case():
+    text = (
+        'A complaint need only contain "sufficient factual matter, accepted as true, to state '
+        'a claim to relief that is plausible on its face." Ashcroft v. Iqbal, 556 U.S. 662, '
+        "678 (2009) (quoting Bell Atlantic Corp. v. Twombly, 550 U.S. 544, 570 (2007)). The "
+        'standard asks for "more than a sheer possibility that a defendant has acted '
+        'unlawfully." Id. The inquiry is a "context-specific task." Id. at 679.'
+    )
+    result = group_citations(text).as_dict()
+    iqbal = _group(result, "Iqbal")
+    assert [(q["text"][:9], q["pin_cite"]) for q in iqbal["quotes"]] == [
+        ("sufficien", "678"), ("more than", "678"), ("context-s", "679")]
+    assert [q["pin_basis"] for q in iqbal["quotes"]][1] == "inherited_from_id"
+    assert _group(result, "Twombly")["quotes"] == []
+
+
+def test_a_quote_two_argument_sentences_before_a_citation_is_not_its():
+    text = (
+        'Their logic is perverse: "It is lawful to besiege a home without probable cause." '
+        "This makes their conduct worse, not better. The admission proves they knew. Under "
+        "Holland ex rel. Overdorff v. Harrington, 268 F.3d 1179 (10th Cir. 2001), threats "
+        "can be excessive force."
+    )
+    result = group_citations(text).as_dict()
+    assert all(not g["quotes"] for g in result["groups"])
+    assert [q["text"][:8] for q in result["unattributedQuotes"]] == ["It is la"]
+
+
+def test_capitalised_record_words_are_not_quotations():
+    text = (
+        'Internal Affairs closed every allegation as "EXONERATED" or "UNFOUNDED", '
+        'past a sign reading "NO TRESPASSING." Pembaur v. City of Cincinnati, 475 U.S. 469 '
+        '(1986). The "very core" of the Fourth Amendment is the home.'
+    )
+    assert _bodies(text) == ["very core"]
+
+
+def test_table_of_authorities_heading_after_a_page_stamp_is_not_a_party():
+    assert _trim_lead_in("pg 2 of 27 TABLE OF AUTHORITIES Cases Ashcroft") == "Ashcroft"
