@@ -331,7 +331,26 @@ def _court_abbreviations() -> tuple[tuple[str, frozenset[str]], ...]:
         abbreviation = court.get("citation_string")
         if abbreviation:
             table.setdefault(_normalize_court_text(abbreviation), set()).add(court["id"])
+    # Bluebook writes several intermediate appellate courts without "Ct.":
+    # courts-db's "Colo. Ct. App." is cited "Colo. App.".
+    for key, ids in list(table.items()):
+        if key.endswith(" ct. app."):
+            table.setdefault(key[: -len(" ct. app.")] + " app.", set(ids))
     return tuple(sorted(((k, frozenset(v)) for k, v in table.items()), key=lambda kv: -len(kv[0])))
+
+
+def _court_from_hint(hint: str) -> str | None:
+    """The court a parenthetical names, when it names exactly one.
+
+    eyecite leaves the court empty for "977 P.2d 299 (Colo. App. 1999)": a
+    regional reporter serves many courts. The parenthetical says which. Only an
+    exact abbreviation with a single court id counts; anything looser stays None.
+    """
+    normalized = _normalize_court_text(hint)
+    for abbreviation, ids in _court_abbreviations():
+        if normalized == abbreviation:
+            return next(iter(ids)) if len(ids) == 1 else None
+    return None
 
 
 def _court_hint_matches(hint: str, resolved: str) -> bool:
@@ -566,6 +585,8 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
 
             record.court = getattr(meta, "court", None)
             record.court_text = court_hint
+            if record.court is None and court_hint:
+                record.court = _court_from_hint(court_hint)
             if (
                 record.court
                 and court_hint

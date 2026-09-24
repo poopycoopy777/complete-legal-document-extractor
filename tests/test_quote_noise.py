@@ -261,3 +261,10 @@ def test_a_non_adversarial_caption_names_its_card():
     text = "It exempts no one. In re Veal, 450 B.R. 897, 917-18 (9th Cir. BAP 2011)."
     (group,) = group_citations(text).as_dict()["groups"]
     assert group["caseName"] == "In re Veal"
+
+
+def test_a_regional_reporter_takes_its_court_from_the_parenthetical():
+    from caselaw.extract import extract
+
+    (cite,) = extract("It held. Reagan v. Investors Mtg. Co., 977 P.2d 299 (Colo. App. 1999).")
+    assert (cite.court, cite.flags) == ("coloctapp", [])
