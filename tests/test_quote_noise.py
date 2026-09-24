@@ -283,3 +283,16 @@ def test_a_case_first_cited_by_short_name_takes_its_caption_from_a_later_cite():
             "United States v. Hassan, 742 F.3d 104, 133 (10th Cir. 2014) (discussing methods).")
     (group,) = group_citations(text).as_dict()["groups"]
     assert group["caseName"] == "United States v. Hassan"
+
+
+def test_an_ecf_page_stamp_is_not_part_of_the_caption():
+    text = ("Filed 11/14/25   Page 6 of 33\n        PageID.1994\n\n\nMendocino Envtl. Ctr. v. "
+            "Mendocino Cnty.\n     192 F.3d 1283 (9th Cir. 1999) ........ 9\n")
+    (group,) = group_citations(text).as_dict()["groups"]
+    assert group["caseName"] == "Mendocino Envtl. Ctr. v. Mendocino Cnty."
+
+
+def test_an_en_dash_in_a_party_name_is_kept():
+    text = "It so held. Daniels–Hall v. Nat’l Educ. Ass’n, 629 F.3d 992, 998 (9th Cir. 2010)."
+    (group,) = group_citations(text).as_dict()["groups"]
+    assert group["caseName"] == "Daniels–Hall v. Nat’l Educ. Ass’n"

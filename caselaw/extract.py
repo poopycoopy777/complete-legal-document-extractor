@@ -52,9 +52,9 @@ _YEAR_PAREN = re.compile(r"\(([^()]{0,60}?)(\d{4})\s*\)")
 # allow whitespace (including newlines); the captured value is collapsed to
 # single spaces afterwards.
 _CASE_NAME = re.compile(
-    r"(?P<plaintiff>[A-Z][A-Za-z0-9'‘’\.\-&,\s]{0,140}?)"
+    r"(?P<plaintiff>[A-Z][A-Za-z0-9'‘’\.\-\u2013&,\s]{0,140}?)"
     r"\s+v\.?\s+"
-    r"(?P<defendant>[A-Z][A-Za-z0-9'‘’\.\-&,\s]{0,140}?)"
+    r"(?P<defendant>[A-Z][A-Za-z0-9'‘’\.\-\u2013&,\s]{0,140}?)"
     r"\s*,?\s*$"
 )
 
@@ -203,6 +203,10 @@ _TOA_CASES_PREFIX = re.compile(
     r"^(?:.*\s)?TABLE\s+OF\s+AUTHORITIES\s+(?:Cases\s+)?", re.IGNORECASE | re.DOTALL
 )
 
+# An ECF page stamp's last line sits directly above a table-of-authorities
+# entry: "PageID.1994 Mendocino Envtl. Ctr. v. Mendocino Cnty.".
+_PAGE_STAMP_PREFIX = re.compile(r"^(?:.*\s)?PageID\s*[.#:]?\s*\d+\s+", re.DOTALL)
+
 # A year parenthetical must appear close to the citation; pin cites and
 # court/year parentheticals are short.
 _TRAILING_LOOKAHEAD = 100
@@ -267,6 +271,7 @@ def _trim_lead_in(name: str) -> str:
     "See also Bell Atlantic Corp." -> "Bell Atlantic Corp."
     """
     name = _TOA_CASES_PREFIX.sub("", name)
+    name = _PAGE_STAMP_PREFIX.sub("", name)
     words = name.split()
     keep = len(words)
     for i in range(len(words) - 1, -1, -1):
