@@ -276,3 +276,10 @@ def test_ex_rel_stays_in_the_caption_and_the_proposition_is_found():
     (group,) = group_citations(text).as_dict()["groups"]
     assert group["caseName"] == "People ex rel. State Bd. of Equalization v. Hively"
     assert group["proposition"].startswith("A court may grant declaratory relief")
+
+
+def test_a_case_first_cited_by_short_name_takes_its_caption_from_a_later_cite():
+    text = ("It addressed authentication. Hassan, 742 F.3d 104, 133 (10th Cir. 2014). Later: See "
+            "United States v. Hassan, 742 F.3d 104, 133 (10th Cir. 2014) (discussing methods).")
+    (group,) = group_citations(text).as_dict()["groups"]
+    assert group["caseName"] == "United States v. Hassan"

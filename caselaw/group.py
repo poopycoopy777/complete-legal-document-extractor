@@ -141,8 +141,11 @@ class CitationGroup:
 
     @property
     def case_name(self) -> str | None:
-        if self.header.plaintiff and self.header.defendant:
-            return f"{self.header.plaintiff} v. {self.header.defendant}"
+        # The first citation may name the case only in passing ("Hassan, 742
+        # F.3d 104, 133"); a later full citation to it carries the caption.
+        for citation in (self.header, *self.children):
+            if citation.kind == "FullCaseCitation" and citation.plaintiff and citation.defendant:
+                return f"{citation.plaintiff} v. {citation.defendant}"
         # A non-adversarial caption: "In re Veal", "Ex parte Young".
         return self.header.case_name or None
 
