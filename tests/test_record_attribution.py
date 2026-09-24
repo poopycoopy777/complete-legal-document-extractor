@@ -53,7 +53,7 @@ def test_record_pins_follow_bluebook_id_rules():
     assert [(q["pin_cite"], q["pin_basis"]) for q in doc80["quotes"]] == [
         ("26", "printed"),
         ("26", "inherited_from_id"),  # bare Id. repeats the previous page
-        ("25", "printed"),            # "Id. at 25-26" starts at 25
+        ("25–26", "printed"),     # "Id. at 25-26" keeps its range
     ]
 
 

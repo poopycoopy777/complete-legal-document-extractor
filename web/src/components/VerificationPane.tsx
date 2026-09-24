@@ -14,9 +14,9 @@ import type {
  * rendering either like a failure would make an outage look like a document
  * full of fabricated authority.
  *
- * History never claims good law. The corpus reaches a fraction of the opinions
- * that cite any given case, so the honest answer is usually that coverage is
- * incomplete, and that is what it says.
+ * Citation-history coverage belongs in diagnostics, not on the citation card.
+ * A partial graph check is not a useful per-case verdict for the person reviewing
+ * the document.
  */
 
 const IDENTITY_CHECKS = [
@@ -29,7 +29,6 @@ const IDENTITY_CHECKS = [
 const STAGES = [
   { key: "pinCite", label: "Pin cite within opinion range" },
   { key: "quotation", label: "Quotation appears in opinion" },
-  { key: "history", label: "Subsequent history" },
 ] as const;
 
 /** What a state is called, and whether it reads as a finding. */
@@ -161,10 +160,28 @@ export function VerificationPane({
                     </div>
                   );
                 })}
+                {(result?.occurrences ?? []).filter((o) => o.opinionPart?.status !== "not_run").map((o) => {
+                  const part = o.opinionPart;
+                  const status = part?.status ?? "not_run";
+                  return (
+                    <div key={o.occurrenceId}
+                      className={status === "fail" ? "verify-check bad" : "verify-check later"}
+                      title={part?.detail ?? part?.reason}
+                      onClick={(event) => { event.stopPropagation(); onSelect(group.id, o.sourceSpan); }}>
+                      <span className={statusClass(status)} />
+                      <span className="label">Opinion part{part?.role ? ` (${part.role})` : ""}
+                        {part?.page != null ? ` — p. ${part.page}` : ""}: {o.text}</span>
+                      <span className="status">{STATUS_TEXT[status] ?? status}</span>
+                    </div>
+                  );
+                })}
                 {(result?.quotations ?? [])
                   .filter((q) => q.status === "fail")
                   .map((q, i) => (
-                    <div className="verify-check bad" key={`q${i}`} title={q.text}>
+                    <div className="verify-check bad" key={`q${i}`} title={q.text}
+                      onClick={(event) => {
+                        if (q.sourceSpan) { event.stopPropagation(); onSelect(group.id, q.sourceSpan); }
+                      }}>
                       <span className="dot bad" />
                       <span className="label">
                         Quote not found

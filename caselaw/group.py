@@ -98,8 +98,8 @@ class Quote:
         return asdict(self)
 
 
-# "Id. at 25-26" / "Id. at 25–26": the first page of a record pin.
-_ID_PIN = re.compile(r"\s*,?\s*at\s+(\d{1,4})")
+# "Id. at 25-26" / "Id. at 25–26": a record pin, kept whole.
+_ID_PIN = re.compile(r"\s*,?\s*at\s+(\d{1,4}(?:\s*[-–]\s*\d{1,4})?)")
 
 
 @dataclass(frozen=True)

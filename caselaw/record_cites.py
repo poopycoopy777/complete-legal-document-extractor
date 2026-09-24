@@ -23,17 +23,19 @@ import re
 from dataclasses import dataclass
 
 # "Doc. No. 80 at 26", "Doc. 54 at 11-12", "ECF No. 61". The pin is optional and
-# a range keeps its first page, which is where the quoted passage begins.
+# is kept whole: a quotation cited "at 25-26" may sit on either page, and a
+# verifier needs the range to say so.
 _DOCKET = re.compile(
     r"\b(?:Doc\.?|Document|ECF)\s*(?:No\.?\s*)?(\d{1,4})(?:\s*-\s*\d{1,3})?"
-    r"(?:\s*,?\s*at\s+(\d{1,4}))?",
+    r"(?:\s*,?\s*at\s+(\d{1,4}(?:\s*[-\u2013]\s*\d{1,4})?))?",
     re.IGNORECASE,
 )
 
-# "SAC para 45", "Compl. paras 65, 67, 69-70". Paragraph marks vary; the first
-# number is the one the quotation sits in.
+# "SAC para 45", "Compl. paras 65, 67, 69-70". The whole paragraph list is the
+# pin: the quotation may sit in any paragraph it names.
 _PLEADING = re.compile(
-    r"\b(SAC|TAC|FAC|Compl\.?|Complaint|Am\.?\s*Compl\.?)\s*¶{1,2}\s*(\d{1,4})",
+    r"\b(SAC|TAC|FAC|Compl\.?|Complaint|Am\.?\s*Compl\.?)\s*¶{1,2}\s*"
+    r"(\d{1,4}(?:\s*(?:,|[-\u2013])\s*\d{1,4})*)",
     re.IGNORECASE,
 )
 

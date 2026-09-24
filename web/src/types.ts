@@ -36,6 +36,7 @@ export interface Quote {
   text: string;
   span: Span;
   pin_cite: string | null;
+  citation_span?: Span | null;
 }
 
 export interface CitationGroup {
@@ -192,6 +193,7 @@ export interface StageResult {
 }
 
 export interface CheckedQuote {
+  sourceSpan?: Span | null;
   text: string;
   pinCite: string | null;
   pinPage: number | null;
@@ -216,6 +218,13 @@ export interface VerifiedCase {
   history?: StageResult;
   /** Every quotation checked, so a single bad one is locatable. */
   quotations?: CheckedQuote[];
+  occurrences?: {
+    occurrenceId: string;
+    sourceSpan: Span;
+    text: string;
+    pinCite?: StageResult;
+    opinionPart?: StageResult;
+  }[];
 }
 
 /**

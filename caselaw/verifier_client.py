@@ -58,6 +58,15 @@ def _case_name(group: dict[str, Any]) -> str:
 
 def to_case_payload(group: dict[str, Any]) -> dict[str, Any] | None:
     """Map an extracted citation group onto the service's case contract."""
+    full_group = group if "header" in group else None
+    if full_group is not None:
+        group = {
+            **full_group["header"],
+            "groupId": full_group["id"],
+            "caseName": full_group.get("caseName") or full_group["header"].get("case_name"),
+            "courtText": full_group["header"].get("court_text"),
+            "quotes": full_group.get("quotes", []),
+        }
     volume, reporter, page = group.get("volume"), group.get("reporter"), group.get("page")
     if not (volume and reporter and page):
         return None
@@ -100,6 +109,22 @@ def to_case_payload(group: dict[str, Any]) -> dict[str, Any] | None:
         payload["quoted_text"] = str(group["quotedText"])
     if group.get("proposition"):
         payload["proposition"] = str(group["proposition"])
+    if full_group is not None:
+        citations = [full_group["header"], *full_group.get("children", [])]
+        ids = {tuple(c["span"]): f"{full_group['id']}:c{i}" for i, c in enumerate(citations)}
+        payload["occurrences"] = [{
+            "occurrence_id": ids[tuple(c["span"])], "source_span": list(c["span"]),
+            "text": c["text"], "pin_cite": c.get("pin_cite"),
+            "claimed_opinion_part": c.get("parenthetical"),
+        } for c in citations]
+        payload["quotes"] = []
+        for index, quote in enumerate(full_group.get("quotes", [])):
+            entry = {"text": quote["text"], "pin_cite": quote.get("pin_cite")}
+            owner = ids.get(tuple(quote.get("citation_span") or ()))
+            if owner is not None:
+                entry.update(quote_id=f"{full_group['id']}:q{index}",
+                             source_span=list(quote["span"]), citation_occurrence_id=owner)
+            payload["quotes"].append(entry)
     return payload
 
 

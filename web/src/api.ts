@@ -4,6 +4,7 @@ import type {
   Extraction,
   LoadedDocument,
   StageResult,
+  Span,
   VerifiedCase,
 } from "./types";
 
@@ -58,32 +59,10 @@ export class VerifierUnavailable extends Error {}
 export async function verifyCases(
   groups: CitationGroup[],
 ): Promise<Record<string, VerifiedCase>> {
-  const payload = groups.map((g) => ({
-    groupId: g.id,
-    volume: g.header.volume,
-    reporter: g.header.reporter,
-    page: g.header.page,
-    plaintiff: g.header.plaintiff,
-    defendant: g.header.defendant,
-    year: g.header.year,
-    court: g.header.court,
-    // The parenthetical as printed. eyecite resolves "Colo." to a court id
-    // but not "Colo. App.", so this is often the only evidence of which
-    // court a citation belongs to.
-    courtText: g.header.court_text,
-    // Non-adversarial captions ("In re Marriage of ...") have one party, not
-    // two, so plaintiff and defendant are both null and this is the name.
-    caseName: g.header.case_name,
-    // Every quotation attributed to this case, with its pin cite as printed.
-    // Sending only one would leave every later fabricated quote unchecked, and
-    // the pin cites are the only page evidence the verifier receives.
-    quotes: g.quotes.map((q) => ({ text: q.text, pin_cite: q.pin_cite })),
-  }));
-
   const response = await fetch(`${BASE}/api/verify/cases`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ groups: payload }),
+    body: JSON.stringify({ groups }),
   });
 
   // 503 means the verifier is down or unconfigured. It must never be shown as
@@ -145,11 +124,16 @@ export async function verifyCases(
           }
         : undefined,
       quotations: (r.quotations ?? []).map((q) => ({
+        sourceSpan: q.source_span,
         text: q.text,
         pinCite: q.pin_cite ?? null,
         pinPage: q.pin_page ?? null,
         status: q.finding?.status ?? "not_run",
         reason: q.finding?.reason_code ?? "",
+      })),
+      occurrences: (r.occurrences ?? []).map((o) => ({
+        occurrenceId: o.occurrence_id, sourceSpan: o.source_span, text: o.text,
+        pinCite: stage(o.pin_cite), opinionPart: stage(o.opinion_part),
       })),
     };
   }
@@ -177,10 +161,18 @@ interface ServiceResult {
   quotation: ServiceFinding | null;
   treatment: { status: string; reason_code: string; message: string } | null;
   quotations?: {
+    source_span?: Span | null;
     text: string;
     pin_cite: string | null;
     pin_page: number | null;
     finding: ServiceFinding | null;
+  }[];
+  occurrences?: {
+    occurrence_id: string;
+    source_span: Span;
+    text: string;
+    pin_cite: ServiceFinding | null;
+    opinion_part: ServiceFinding | null;
   }[];
 }
 

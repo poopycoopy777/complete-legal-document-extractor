@@ -41,8 +41,9 @@ class TestDocketCitations:
     def test_pin_page_is_captured(self):
         assert extract_record_cites("Doc. No. 80 at 26")[0].pin == "26"
 
-    def test_page_range_keeps_the_first_page(self):
-        assert extract_record_cites("Doc. No. 80 at 17-18")[0].pin == "17"
+    def test_page_range_is_kept_whole(self):
+        # The quotation may sit on either page of the range.
+        assert extract_record_cites("Doc. No. 80 at 17-18")[0].pin == "17-18"
 
 
 class TestPleadingParagraphs:
@@ -50,7 +51,7 @@ class TestPleadingParagraphs:
         "text,label,pin",
         [
             ("SAC ¶ 45", "SAC", "45"),
-            ("SAC ¶¶ 65, 67, 69-70", "SAC", "65"),
+            ("SAC ¶¶ 65, 67, 69-70", "SAC", "65, 67, 69-70"),
             ("Compl. ¶ 12", "Complaint", "12"),
             ("TAC ¶ 101", "TAC", "101"),
         ],
