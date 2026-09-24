@@ -170,3 +170,13 @@ def test_citation_split_by_blank_lines_is_found_at_its_original_span():
     assert text[start:end] == "2016\n\n WL 165971"
     assert (group["header"]["volume"], group["header"]["reporter"], group["header"]["page"]) == (
         "2016", "WL", "165971")
+
+
+def test_district_court_abbreviations_are_not_reported_as_mismatches():
+    from caselaw.extract import _court_hint_matches
+
+    for hint, court in (("D. Colo.", "cod"), ("E.D. Ky.", "kyed"), ("S.D.N.Y.", "nysd"),
+                        ("D.N.M.", "nmd"), ("10th Cir.", "ca10"), ("Tex. App. Sept. 25,", "texapp")):
+        assert _court_hint_matches(hint, court), hint
+    assert not _court_hint_matches("E.D. Ky.", "cod")
+    assert not _court_hint_matches("10th Cir.", "ca4")

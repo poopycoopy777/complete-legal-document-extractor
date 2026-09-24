@@ -15,6 +15,7 @@ eyecite is recorded in Citation.flags rather than silently resolved.
 from __future__ import annotations
 
 import re
+from functools import lru_cache
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from typing import Any
@@ -315,6 +316,24 @@ def _derive_year_and_court(window: str) -> tuple[int | None, str | None]:
     return year, court
 
 
+def _normalize_court_text(text: str) -> str:
+    return " ".join(text.replace(".", ". ").split()).lower()
+
+
+@lru_cache(maxsize=1)
+def _court_abbreviations() -> tuple[tuple[str, frozenset[str]], ...]:
+    """Bluebook court abbreviations ("D. Colo.", "E.D. Ky.") and their court ids,
+    longest first so "E.D. Ky." is tried before "Ky."."""
+    from courts_db import courts
+
+    table: dict[str, set[str]] = {}
+    for court in courts:
+        abbreviation = court.get("citation_string")
+        if abbreviation:
+            table.setdefault(_normalize_court_text(abbreviation), set()).add(court["id"])
+    return tuple(sorted(((k, frozenset(v)) for k, v in table.items()), key=lambda kv: -len(kv[0])))
+
+
 def _court_hint_matches(hint: str, resolved: str) -> bool:
     """Loose consistency check between a parenthetical's court text and courts-db.
 
@@ -325,6 +344,12 @@ def _court_hint_matches(hint: str, resolved: str) -> bool:
     # A bare date parenthetical ("Mar. 3," / "") names no court.
     if not any(ch.isalpha() for ch in hint_l):
         return True
+    # The parenthetical's own abbreviation, when courts-db knows it, settles
+    # the question: "D. Colo." is "cod", which shares no three letters with it.
+    normalized = _normalize_court_text(hint)
+    for abbreviation, ids in _court_abbreviations():
+        if normalized == abbreviation or normalized.startswith(abbreviation + " "):
+            return resolved in ids
     digits = "".join(ch for ch in hint_l if ch.isdigit())
     if digits and digits in resolved:
         return True
