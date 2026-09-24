@@ -159,3 +159,14 @@ def test_ocr_ordinal_in_a_neutral_citation_is_read():
     (group,) = group_citations(text).as_dict()["groups"]
     start, end = group["header"]["span"]
     assert text[start:end] == "2013 IL App (Ist) 111279-U"
+
+
+def test_citation_split_by_blank_lines_is_found_at_its_original_span():
+    # Wadsworth v. Walmart, No. 23-cv-118 (D. Wyo.), ECF 141 at 11.
+    text = ("In Woods v. BNSF Railway Co., 2016\n\n WL 165971 (D. Wyo. 2016), the court held that "
+            "allowing a defendant to present evidence could skew the jury.")
+    (group,) = group_citations(text).as_dict()["groups"]
+    start, end = group["header"]["span"]
+    assert text[start:end] == "2016\n\n WL 165971"
+    assert (group["header"]["volume"], group["header"]["reporter"], group["header"]["page"]) == (
+        "2016", "WL", "165971")

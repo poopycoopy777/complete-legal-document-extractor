@@ -409,6 +409,38 @@ def _ocr_for_parsing(text: str) -> str:
     return _OCR_ORDINAL.sub(r"\1(1st)", text)
 
 
+_WHITESPACE_RUN = re.compile(r"\s+")
+
+
+def _collapse_whitespace(text: str) -> tuple[str, list[int]]:
+    """``text`` with each whitespace run as one space, and where each char came from."""
+    out: list[str] = []
+    origin: list[int] = []
+    last = 0
+    for match in _WHITESPACE_RUN.finditer(text):
+        out.append(text[last : match.start()])
+        origin.extend(range(last, match.start()))
+        out.append(" ")
+        origin.append(match.start())
+        last = match.end()
+    out.append(text[last:])
+    origin.extend(range(last, len(text)))
+    origin.append(len(text))
+    return "".join(out), origin
+
+
+def _map_span_back(cite: Any, origin: list[int]) -> None:
+    start, end = cite.span()
+    if start is None or end is None:
+        return
+    cite.span_start = origin[start]
+    cite.span_end = origin[end - 1] + 1 if end > start else origin[end]
+    for attr in ("full_span_start", "full_span_end"):
+        value = getattr(cite, attr, None)
+        if value is not None:
+            setattr(cite, attr, origin[value - 1] + 1 if attr.endswith("end") and value else origin[value])
+
+
 def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
     """Extract citations, keeping each eyecite object beside its record.
 
@@ -419,12 +451,17 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
         return []
 
     # PDF text layers break lines anywhere, including inside a citation
-    # ("Florida v. Jardines, 569\nU.S. 1"), and eyecite does not read a reporter
-    # across a line break. The citation was then missed, and its quotation was
-    # attributed to the next citation found -- in one filing, to the case inside
-    # the "(quoting ...)" parenthetical. Line breaks become spaces of the same
-    # length, so every span still indexes the original text.
-    found = get_citations(_ocr_for_parsing(text.replace("\r", " ").replace("\n", " ")))
+    # ("Florida v. Jardines, 569\nU.S. 1"; "Woods v. BNSF Railway Co., 2016\n\n
+    # WL 165971"), and eyecite reads neither a line break nor a run of spaces
+    # between volume and reporter. The citation was then missed, and its
+    # quotation attributed to the next citation found. eyecite parses a copy
+    # with every whitespace run collapsed to one space; each citation's span is
+    # then mapped back, so every span still indexes the original text.
+    parsed, origin = _collapse_whitespace(_ocr_for_parsing(text))
+    found = get_citations(parsed)
+    if len(parsed) != len(text):
+        for cite in found:
+            _map_span_back(cite, origin)
     # Case law only. eyecite also returns statute, journal and placeholder
     # citations; those are out of scope here and would otherwise arrive as
     # unattached noise (bare section symbols, C.F.R. cites, and so on).
