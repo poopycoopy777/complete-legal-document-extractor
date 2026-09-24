@@ -547,6 +547,29 @@ def _attribute_quote(
     return None, None
 
 
+def _echo_key(body: str) -> str:
+    return " ".join(re.findall(r"[a-z0-9]+", body.casefold()))
+
+
+_BACKWARD_BASES = {"same_sentence_preceding", "preceding_citation", "preceding_authority"}
+
+# "Plaintiff says ...", "Plaintiff's allegation that the City “divert[s]” ...":
+# the filing is quoting a party, not the case cited in the sentence before.
+_PARTY_SPEAKS = re.compile(
+    r"\b(?:plaintiffs?|defendants?|petitioners?|respondents?|movants?|he|she|they)(?:[\u2019']s?)?\s+"
+    r"(?:\w+\s+){0,3}?(?:alleg\w*|says?|said|claims?|claimed|asserts?|asserted|argues?|argued|"
+    r"contends?|contended|states?|stated|describes?|described|calls?|called|characteriz\w+|refers?|referred)\b",
+    re.IGNORECASE,
+)
+
+
+def _describes_a_party(text: str, quote_start: int) -> bool:
+    """The sentence holding the quotation says a party said or alleged it."""
+    head = text[max(0, quote_start - 300):quote_start]
+    sentence = re.split(r"(?<=[.!?][\u201d\"')\]])\s+|(?<=[.!?])\s+(?=[A-Z\u201c\"(])", head)[-1]
+    return bool(_PARTY_SPEAKS.search(sentence))
+
+
 def _group_authorities(text: str) -> list[AuthorityGroup]:
     """Cluster statutes, rules and regulations by the provision they cite.
 
@@ -833,6 +856,51 @@ def _inherited_case_pins(
     return pins
 
 
+def _groups_without_full_citation(
+    records: list[Citation], groups: list[CitationGroup], grouped_ids: set[int]
+) -> list[CitationGroup]:
+    """Cases the document cites only in short form: "See Carloss, 818 F.3d at 994-95."
+
+    A court order often gives the full citation in an earlier order and only the
+    short form here. eyecite resolves a short cite to nothing then, and every
+    Id. after it to whatever case it saw last. The short cite still names the
+    case, volume and reporter, so it heads its own group; an Id. belongs to the
+    citation immediately before it, taking it back from eyecite's guess.
+    """
+    new: dict[tuple, CitationGroup] = {}
+    owner: dict[int, CitationGroup] = {}
+    for group in groups:
+        for member in (group.header, *group.children):
+            owner[id(member)] = group
+    previous: CitationGroup | None = None
+    for record in sorted(records, key=lambda r: r.span[0]):
+        if record.kind == "ShortCaseCitation" and id(record) not in grouped_ids \
+                and record.antecedent and record.volume and record.reporter:
+            if not record.case_name:
+                record.case_name = record.antecedent
+            key = (record.volume, record.reporter, record.antecedent.strip().lower())
+            group = new.get(key)
+            if group is None:
+                group = new[key] = CitationGroup(id="", header=record, children=[])
+            else:
+                group.children.append(record)
+            grouped_ids.add(id(record))
+            owner[id(record)] = group
+            previous = group
+        elif record.kind == "IdCitation" and previous is not None and any(previous is g for g in new.values()):
+            current = owner.get(id(record))
+            if current is not previous:
+                if current is not None:
+                    current.children.remove(record)
+                previous.children.append(record)
+                previous.children.sort(key=lambda r: r.span[0])
+                grouped_ids.add(id(record))
+                owner[id(record)] = previous
+        elif record.kind != "IdCitation":
+            previous = owner.get(id(record))
+    return list(new.values())
+
+
 def group_citations(text: str) -> ExtractionResult:
     """Extract citations and cluster them under their full citation."""
     pairs = extract_pairs(text)
@@ -864,6 +932,7 @@ def group_citations(text: str) -> ExtractionResult:
         grouped_ids.update(id(r) for r in member_records)
 
     groups = _merge_parallel_citations(text, groups)
+    groups.extend(_groups_without_full_citation(records, groups, grouped_ids))
     groups.sort(key=lambda g: g.header.span[0])
     for i, g in enumerate(groups):
         g.id = f"g{i}"
@@ -965,13 +1034,24 @@ def group_citations(text: str) -> ExtractionResult:
     attribution_records = [*records, *authority_records, *record_cites]
 
     unattributed_quotes: list[Quote] = []
+    # A word quoted once from the record and echoed later ("the “siege”") is
+    # still the record's word, whatever case happens to be cited nearby.
+    record_words: dict[str, RecordCite] = {}
     for q_start, q_end, body in _find_quotes(text):
         quote = Quote(
             text=body,
             span=(q_start, q_end),
             raw_text=text[q_start:q_end],
         )
-        target, basis = _attribute_quote(q_start, q_end, attribution_records, text)
+        echo = record_words.get(_echo_key(body))
+        if echo is not None:
+            target, basis = echo, "echo_of_record_quote"
+        else:
+            target, basis = _attribute_quote(q_start, q_end, attribution_records, text)
+        if isinstance(target, RecordCite):
+            record_words.setdefault(_echo_key(body), target)
+        elif target is not None and basis in _BACKWARD_BASES and _describes_a_party(text, q_start):
+            target, basis = None, None
         if target is None:
             unattributed_quotes.append(quote)
             continue

@@ -91,3 +91,31 @@ def test_a_parenthetical_id_after_a_quote_sends_it_to_the_record_not_the_named_c
     record = next(r for r in result.records if r.label == "61")
     assert any("breezeway" in q.text for q in record.quotes)
     assert [c.pin for c in record.children] == ["25"]
+
+
+def test_a_word_quoted_from_the_record_and_echoed_later_stays_with_the_record():
+    text = ("Plaintiff claims the “siege” of his apartment was retaliation. (Doc. No. 42 at 32.) "
+            "He has not alleged that the “siege” was motivated by speech. “Mere allegations "
+            "will not suffice.” Frazer v. Dubois, 922 F.2d 560, 562 (10th Cir. 1990).")
+    result = group_citations(text)
+    frazer = next(g for g in result.groups if "Frazer" in (g.case_name or ""))
+    assert [q.text for q in frazer.quotes] == ["Mere allegations will not suffice."]
+
+
+def test_a_quote_of_what_a_party_alleges_does_not_attach_to_the_case_before_it():
+    text = ("A pattern is ordinarily necessary. Connick v. Thompson, 563 U.S. 51, 61 (2011). "
+            "Finally, Plaintiff’s allegation that the City “divert[s]” investigations "
+            "is under-alleged.")
+    result = group_citations(text)
+    connick = next(g for g in result.groups if "Connick" in (g.case_name or ""))
+    assert connick.quotes == []
+
+
+def test_a_case_cited_only_in_short_form_gets_its_own_group_and_its_ids():
+    text = ("A person may revoke the implied license. See Carloss, 818 F.3d at 994-95. "
+            "The occupant may decline to open the door. Carloss, 818 F.3d at 992. "
+            "Officers must leave. Id. at 998.")
+    result = group_citations(text)
+    carloss = next(g for g in result.groups if g.case_name == "Carloss")
+    assert len((carloss.header, *carloss.children)) == 3
+    assert not result.orphans
