@@ -116,3 +116,46 @@ def test_parenthetical_lead_in_words_are_allowed():
     groups = {" ".join(g["header"]["text"].split()): g for g in group_citations(text).as_dict()["groups"]}
     assert [q["text"][:10] for q in groups["450 F.3d 1132"]["quotes"]] == ["reputation"]
     assert groups["409 F.Supp.3d 1122"]["quotes"] == []
+
+
+# Mata v. Avianca, No. 22-cv-1461 (S.D.N.Y.), ECF 21 at 3.
+MATA = (
+    "In the case of Ashcroft v. Iqbal, 556 U.S. 662 (2009), the Supreme Court held that when\n"
+    "evaluating a motion to dismiss, the court must accept all well-pleaded factual allegations as\n"
+    "true, but need not accept legal conclusions or \"threadbare recitals of the elements\" of a claim.\n"
+    "The Court also held that the plaintiff must allege enough facts to state a plausible claim for\n"
+    "relief, and that the court should consider all plausible interpretations of the complaint when\n"
+    "making this determination.\n\n"
+    "In Doe _v. United States, 419 F.3d 1058 (9th Cir. 2005), the Ninth Circuit held that the\n"
+    "court must accept all well-pleaded factual allegations in the complaint as true."
+)
+
+
+def _quotes_by_cite(text):
+    return {" ".join(g["header"]["text"].split()): [q["text"] for q in g["quotes"]]
+            for g in group_citations(text).as_dict()["groups"]}
+
+
+def test_quote_in_the_sentence_of_an_earlier_citation_stays_with_it():
+    quotes = _quotes_by_cite(MATA)
+    assert quotes["556 U.S. 662"] == ["threadbare recitals of the elements"]
+    assert quotes["419 F.3d 1058"] == []
+
+
+def test_a_citation_sentence_after_the_quote_still_takes_it():
+    for text in (
+        'Smith v. Jones, 1 U.S. 1 (1990), is often cited. Courts reject "bare labels." '
+        "See Doe v. Roe, 2 U.S. 2 (1991).",
+        'In Smith v. Jones, 1 U.S. 1 (1990), the court said "bare labels do not suffice." '
+        "Doe v. Roe, 2 U.S. 2 (1991).",
+        'In Smith v. Jones, 1 U.S. 1 (1990), the court said "bare labels do not suffice." '
+        "See Doe v. Roe, 2 U.S. 2 (1991).",
+    ):
+        assert _quotes_by_cite(text)["2 U.S. 2"], text
+
+
+def test_ocr_ordinal_in_a_neutral_citation_is_read():
+    text = "In Shaboon v. Egyptair, 2013 IL App (Ist) 111279-U (Ill. App. Ct. 2013), the court held."
+    (group,) = group_citations(text).as_dict()["groups"]
+    start, end = group["header"]["span"]
+    assert text[start:end] == "2013 IL App (Ist) 111279-U"

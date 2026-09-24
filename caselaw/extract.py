@@ -397,6 +397,18 @@ def _assemble_full_citation(record: Citation) -> str:
     return body
 
 
+# OCR slips that stop eyecite recognising a citation at all, each replaced by a
+# string of the same length so every span still indexes the original text.
+# Scanned filings read the ordinal in a public-domain citation as "(Ist)" or
+# "(lst)": Mata v. Avianca, ECF 21, cites "Shaboon v. Egyptair, 2013 IL App
+# (Ist) 111279-U", which was then never extracted and so never checked.
+_OCR_ORDINAL = re.compile(r"(\bApp\.? )\([Il]st\)")
+
+
+def _ocr_for_parsing(text: str) -> str:
+    return _OCR_ORDINAL.sub(r"\1(1st)", text)
+
+
 def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
     """Extract citations, keeping each eyecite object beside its record.
 
@@ -412,7 +424,7 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
     # attributed to the next citation found -- in one filing, to the case inside
     # the "(quoting ...)" parenthetical. Line breaks become spaces of the same
     # length, so every span still indexes the original text.
-    found = get_citations(text.replace("\r", " ").replace("\n", " "))
+    found = get_citations(_ocr_for_parsing(text.replace("\r", " ").replace("\n", " ")))
     # Case law only. eyecite also returns statute, journal and placeholder
     # citations; those are out of scope here and would otherwise arrive as
     # unattached noise (bare section symbols, C.F.R. cites, and so on).

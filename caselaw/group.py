@@ -418,6 +418,49 @@ def _parenthetical_owner(
     return nearest if _PARENTHETICAL_GAP.fullmatch(gap) else None
 
 
+# A sentence ends at . ! or ? (after any closing quote or bracket) followed by
+# whitespace and a capital. Reporter abbreviations ("F.3d", "U.S.", "v.") are
+# followed by a digit or a lower-case word, so they do not end a sentence.
+_SENTENCE_END = re.compile(r"[.!?][\"'\u201d\u2019)\]]*\s+(?=[A-Z\u201c\"])")
+# A citation sentence opens with a signal or with the case name itself. A
+# sentence opening "In Doe v. United States, ..." is prose about that case.
+_TEXTUAL_OPENING = re.compile(r"\s*In\s+(?!re\b)")
+_SAME_SENTENCE_REACH = 400
+
+
+def _same_sentence_owner(
+    text: str, quote_start: int, quote_end: int, records: list[Citation | Authority | RecordCite]
+) -> Citation | Authority | RecordCite | None:
+    """The earlier citation, when the quotation is its sentence's own language.
+
+        In Ashcroft v. Iqbal, 556 U.S. 662 (2009), the Supreme Court held that
+        ... need not accept "threadbare recitals of the elements" of a claim.
+        The Court also held ... In Doe v. United States, 419 F.3d 1058 ...
+
+    The quote is Iqbal's; Doe begins a later sentence about a different case.
+    A following citation still wins when it is the citation sentence for the
+    quote ("... of a claim." See Doe, ... / Doe v. United States, 419 F.3d ...).
+    """
+    preceding = [c for c in records
+                 if c.span[1] <= quote_start and quote_start - c.span[1] <= _SAME_SENTENCE_REACH]
+    if not preceding:
+        return None
+    nearest = max(preceding, key=lambda c: c.span[1])
+    if _SENTENCE_END.search(text, nearest.span[1], quote_start):
+        return None
+    following = [c for c in records if c.span[0] >= quote_end]
+    if not following:
+        return None
+    after = min(following, key=lambda c: c.span[0])
+    gap = text[quote_end : after.span[0]]
+    ends = list(_SENTENCE_END.finditer(gap))
+    if not ends:
+        return None
+    if len(ends) >= 2 or _TEXTUAL_OPENING.match(gap, ends[0].end()):
+        return nearest
+    return None
+
+
 def _attribute_quote(
     quote_start: int,
     quote_end: int,
@@ -434,6 +477,9 @@ def _attribute_quote(
         owner = _parenthetical_owner(text, quote_start, records)
         if owner is not None:
             return owner, "own_parenthetical"
+        owner = _same_sentence_owner(text, quote_start, quote_end, records)
+        if owner is not None:
+            return owner, "same_sentence_preceding"
 
     following = [
         c
