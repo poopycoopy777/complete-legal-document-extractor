@@ -180,3 +180,23 @@ def test_district_court_abbreviations_are_not_reported_as_mismatches():
         assert _court_hint_matches(hint, court), hint
     assert not _court_hint_matches("E.D. Ky.", "cod")
     assert not _court_hint_matches("10th Cir.", "ca4")
+
+
+def test_case_name_does_not_run_across_a_sentence_end():
+    # Coomer v. Lindell, Doc. 283 at 7.
+    text = ("The Tenth Circuit has specifically addressed authentication and admissibility of social media "
+            "evidence in United States v. Hassan, holding that social media posts are admissible when "
+            "adequately authenticated and relevant to material issues. Hassan, 742 F.3d 104, 133 "
+            "(10th Cir. 2014).")
+    (group,) = group_citations(text).as_dict()["groups"]
+    name = group["header"]["full_citation"] or ""
+    assert "holding" not in name and "social media" not in name, name
+
+
+def test_captions_with_lower_case_abbreviations_survive():
+    text = ("New Mexico ex rel. Balderas v. Real Estate Law Center, P.C., 409 F. Supp. 3d 1122 (D.N.M. 2019). "
+            "Smith et al. v. Jones Co., 1 F.3d 1 (10th Cir. 1993).")
+    names = [g["header"]["full_citation"] for g in group_citations(text).as_dict()["groups"]]
+    # Unchanged by the sentence cut: "ex rel." and "et al." are not sentence ends.
+    assert names[0].startswith("Balderas v. Real Estate Law Center, P.C."), names
+    assert names[1] == "1 F.3d 1 (10th Cir. 1993)", names

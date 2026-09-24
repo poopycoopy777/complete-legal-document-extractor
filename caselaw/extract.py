@@ -362,8 +362,28 @@ def _collapse(value: str) -> str:
     return " ".join(value.split())
 
 
+# The end of a prose sentence inside a name window: a lower-case word of three
+# or more letters, a period, then a capital. Case-name abbreviations are
+# capitalised ("Co.", "Inc.", "U.S.") and the lower-case ones are excluded, so
+# the cut never lands inside a caption.
+_PROSE_SENTENCE_END = re.compile(
+    r"\b(?!(?:rel|seq|etc|viz|cit|supp|cert|den|aff|rev|mem)\.)[a-z]{3,}\.\s+(?=[A-Z])"
+)
+
+
+def _after_last_sentence(window: str) -> str:
+    """The window from the start of the sentence the citation sits in.
+
+    "... in United States v. Hassan, holding that social media posts are
+    admissible when adequately authenticated. Hassan, 742 F.3d 104" must not
+    yield a defendant that runs across the sentence end.
+    """
+    ends = list(_PROSE_SENTENCE_END.finditer(window))
+    return window[ends[-1].end():] if ends else window
+
+
 def _derive_parties(window: str) -> tuple[str | None, str | None]:
-    stripped = window.rstrip()
+    stripped = _after_last_sentence(window).rstrip()
     match = _CASE_NAME.search(stripped)
     if not match:
         return None, None
