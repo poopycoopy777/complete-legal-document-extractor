@@ -137,3 +137,14 @@ class TestPageFurniture:
 
     def test_stamp_repeated_across_pages_yields_nothing(self):
         assert extract_record_cites(" ".join([self.STAMP] * 12)) == []
+
+
+def test_a_parenthetical_id_points_back_at_the_preceding_record_cite():
+    text = "It is alleged. (Doc. No. 61 at 15.) More. (Id. at 25.) Again. (Id.)"
+    cites = extract_record_cites(text)
+    assert [(c.label, c.pin, c.text) for c in cites] == [
+        ("61", "15", "Doc. No. 61 at 15"), ("61", "25", "Id. at 25"), ("61", None, "Id.")]
+
+
+def test_a_parenthetical_id_with_no_record_cite_before_it_is_left_alone():
+    assert extract_record_cites("Smith v. Jones, 1 F.3d 2 (1st Cir. 1990). (Id. at 3.)") == []

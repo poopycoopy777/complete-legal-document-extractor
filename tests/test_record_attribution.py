@@ -77,3 +77,17 @@ def test_an_id_after_case_law_stays_with_the_case():
     assert [c["kind"] for c in browder["children"]] == ["IdCitation"]
     (record,) = extraction["records"]
     assert record["children"] == []
+
+
+def test_a_parenthetical_id_after_a_quote_sends_it_to_the_record_not_the_named_case():
+    # Cooper v. City of Pueblo, Doc. 80: the court quotes the plaintiff's brief.
+    text = ("Plaintiff argues the search was unlawful. (Doc. No. 61 at 15.) Plaintiff asserts that in "
+            "United States v. Reeves, 524 F.3d 1161 (10th Cir. 2008), the court found “a Fourth "
+            "Amendment violation where officers entered a locked, shared breezeway.” (Id. at 25.) "
+            "But Reeves involved a motel room.")
+    result = group_citations(text)
+    reeves = next(g for g in result.groups if "Reeves" in (g.case_name or ""))
+    assert not any("breezeway" in q.text for q in reeves.quotes)
+    record = next(r for r in result.records if r.label == "61")
+    assert any("breezeway" in q.text for q in record.quotes)
+    assert [c.pin for c in record.children] == ["25"]

@@ -108,7 +108,42 @@ def extract_record_cites(text: str) -> list[RecordCite]:
             )
 
     found.sort(key=lambda c: c.span[0])
-    return _drop_overlaps(found)
+    found = _drop_overlaps(found)
+    return _with_parenthetical_ids(text, found)
+
+
+# "(Id. at 25.)", "(Id.)", "(See id. ¶ 5)". eyecite does not see an Id. inside
+# parentheses at all, and that is exactly how courts and briefs cite the record
+# back: "(Doc. No. 61 at 15.) ... (Id. at 25.)". Unseen, the quotation in front
+# of it was handed to whatever case the sentence named -- the recommendation in
+# Cooper v. City of Pueblo quoting the plaintiff's brief was reported as a quote
+# missing from United States v. Reeves.
+_PAREN_ID = re.compile(
+    r"\(\s*(?:see\s+)?(Id\.(?:\s*,?\s*at\s+(?:pp?\.\s*)?(\d{1,4}(?:\s*[-\u2013]\s*\d{1,4})?)"
+    r"|\s*¶{1,2}\s*(\d{1,4}(?:\s*(?:,|[-\u2013])\s*\d{1,4})*))?)",
+    re.IGNORECASE,
+)
+
+
+def _with_parenthetical_ids(text: str, found: list[RecordCite]) -> list[RecordCite]:
+    """A parenthetical Id. points back at the most recent record citation.
+
+    Only when one precedes it: a parenthetical Id. with no record citation
+    before it is left alone rather than guessed at.
+    """
+    cites = list(found)
+    for match in _PAREN_ID.finditer(text):
+        start, end = match.span(1)
+        if any(c.span[0] < end and start < c.span[1] for c in cites):
+            continue
+        earlier = [c for c in cites if c.span[1] <= start]
+        if not earlier:
+            continue
+        referent = max(earlier, key=lambda c: c.span[1])
+        cites.append(RecordCite(kind=referent.kind, label=referent.label, span=(start, end),
+                                pin=match.group(2) or match.group(3), text=match.group(1).strip()))
+    cites.sort(key=lambda c: c.span[0])
+    return cites
 
 
 def _drop_overlaps(cites: list[RecordCite]) -> list[RecordCite]:
