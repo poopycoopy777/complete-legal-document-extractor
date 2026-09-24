@@ -52,6 +52,30 @@ _CAPTION_WINDOW = 300
 _CITATION_TAIL = re.compile(
     r"(?:[\s,;]*(?:at\s+)?[\d\u00b6\u00a7\-\u2013,\s]*)?(?:\s*\([^()]*\))*\s*[.;]?"
 )
+# Layout, not prose: table-of-contents / table-of-authorities dot leaders.
+_DOT_LEADER = re.compile(r"\.{4,}|\u2026|(?:\.\s){3,}")
+_WORD = re.compile(r"[a-z]{2,}")
+_MIN_WORDS = 3
+# Table of authorities / contents. Masked, never deleted: offsets must keep
+# addressing the original document.
+_TABLE_HEADING = re.compile(
+    r"^[ \t]*TABLE\s+OF\s+(AUTHORITIES|CONTENTS)[ \t]*$", re.IGNORECASE | re.MULTILINE
+)
+# Consecutive table lines may be this far apart (entries wrap across lines).
+_TABLE_LINE_GAP = 8
+# CM/ECF page stamp repeated at every page break of a filed document.
+_ECF_STAMP = re.compile(
+    r"^.*\bCase\s+(?:No\.\s*)?\d+:\d+-[a-z]{2}-\d+\S*.*?(?:\bpg|\bPage)\s*\d+\s*of\s*\d+.*$",
+    re.IGNORECASE | re.MULTILINE,
+)
+# A candidate that ends like this is the front of a caption, not a sentence.
+_CAPTION_FRAGMENT = re.compile(r"(?:\bv\.|\bex\s+rel\.|\bIn\s+re|\bon\s+behalf\s+of)\s*$")
+# A Bluebook introductory signal between the proposition and the citation. It is
+# kept, separately: "See" (indirect support) is not the same claim as no signal.
+_SIGNAL = re.compile(
+    r"(?:\b(?:[Ss]ee,?\s+e\.g\.,|[Ss]ee\s+also|[Bb]ut\s+see|[Bb]ut\s+cf\.|[Ss]ee\s+generally"
+    r"|[Cc]ompare|[Cc]f\.|[Aa]ccord|[Ss]ee|[Ee]\.g\.,|[Cc]ontra))\s*$"
+)
 
 
 @dataclass
@@ -80,6 +104,7 @@ class Proposition:
 
     text: str
     span: tuple[int, int]
+    signal: str | None = None
 
 
 @dataclass
@@ -90,7 +115,21 @@ class CitationGroup:
     header: Citation
     children: list[Citation] = field(default_factory=list)
     quotes: list[Quote] = field(default_factory=list)
-    proposition: Proposition | None = None
+    # One entry per occurrence, aligned with (header, *children).
+    occurrence_propositions: list[Proposition | None] = field(default_factory=list)
+    layout_regions: list[LayoutRegion] = field(default_factory=list)
+
+    @property
+    def proposition(self) -> tuple[Citation, Proposition] | None:
+        """The first occurrence, in document order, used for a real sentence.
+
+        The header is usually a table-of-authorities entry, which is used for
+        nothing; the body occurrences carry the propositions.
+        """
+        for citation, prop in zip((self.header, *self.children), self.occurrence_propositions):
+            if prop is not None:
+                return citation, prop
+        return None
 
     @property
     def case_name(self) -> str | None:
@@ -99,15 +138,37 @@ class CitationGroup:
         return None
 
     def as_dict(self) -> dict[str, Any]:
+        chosen = self.proposition
         return {
             "id": self.id,
             "caseName": self.case_name,
             "header": self.header.as_dict(),
             "children": [c.as_dict() for c in self.children],
             "quotes": [q.as_dict() for q in self.quotes],
-            "proposition": self.proposition.text if self.proposition else None,
-            "propositionSpan": list(self.proposition.span) if self.proposition else None,
+            "proposition": chosen[1].text if chosen else None,
+            "propositionSpan": list(chosen[1].span) if chosen else None,
+            "propositionCitationSpan": list(chosen[0].span) if chosen else None,
+            "propositionSignal": chosen[1].signal if chosen else None,
+            "occurrencePropositions": [
+                {
+                    "citationSpan": list(citation.span),
+                    "layout": _layout_kind(citation, self.layout_regions),
+                    "proposition": prop.text if prop else None,
+                    "propositionSpan": list(prop.span) if prop else None,
+                    "signal": prop.signal if prop else None,
+                }
+                for citation, prop in zip(
+                    (self.header, *self.children), self.occurrence_propositions
+                )
+            ],
         }
+
+
+def _layout_kind(citation: Citation, regions: list[LayoutRegion]) -> str | None:
+    for region in regions:
+        if region.span[0] <= citation.span[0] < region.span[1]:
+            return region.kind
+    return None
 
 
 @dataclass
@@ -140,6 +201,37 @@ class AuthorityGroup:
 CATEGORY_ORDER = ("statute", "regulation", "rule", "constitution")
 
 
+@dataclass(frozen=True)
+class LayoutRegion:
+    """A span of the document that is layout, not argument."""
+
+    kind: str
+    span: tuple[int, int]
+
+
+def find_table_regions(text: str) -> list[LayoutRegion]:
+    """Tables of authorities and contents, from heading to last leader line."""
+    regions: list[LayoutRegion] = []
+    for heading in _TABLE_HEADING.finditer(text):
+        kind = "table_of_" + heading.group(1).lower()
+        end = heading.end()
+        lines_since_leader = 0
+        position = heading.end()
+        while lines_since_leader <= _TABLE_LINE_GAP:
+            newline = text.find("\n", position + 1)
+            line_end = len(text) if newline < 0 else newline
+            if _DOT_LEADER.search(text, position, line_end):
+                end = line_end
+                lines_since_leader = 0
+            else:
+                lines_since_leader += 1
+            if newline < 0:
+                break
+            position = newline
+        regions.append(LayoutRegion(kind=kind, span=(heading.start(), end)))
+    return regions
+
+
 @dataclass
 class ExtractionResult:
     text: str
@@ -147,6 +239,7 @@ class ExtractionResult:
     orphans: list[Citation] = field(default_factory=list)
     authorities: list[AuthorityGroup] = field(default_factory=list)
     unattributed_quotes: list[Quote] = field(default_factory=list)
+    layout_regions: list[LayoutRegion] = field(default_factory=list)
 
     def as_dict(self) -> dict[str, Any]:
         authority_cites = sum(1 + len(a.children) for a in self.authorities)
@@ -163,6 +256,9 @@ class ExtractionResult:
             "orphans": [c.as_dict() for c in self.orphans],
             "authorities": [a.as_dict() for a in self.authorities],
             "unattributedQuotes": [q.as_dict() for q in self.unattributed_quotes],
+            "layoutRegions": [
+                {"kind": r.kind, "span": list(r.span)} for r in self.layout_regions
+            ],
             "stats": {
                 "groups": len(self.groups),
                 "citations": sum(1 + len(g.children) for g in self.groups)
@@ -294,26 +390,52 @@ def _group_authorities(text: str) -> list[AuthorityGroup]:
     return groups
 
 
-def _proposition(text: str, header: Citation, boundaries: list[int]) -> Proposition | None:
-    """The sentence immediately before a full citation's caption.
+def _caption_start(text: str, lo: int, start: int, names: list[str]) -> int:
+    """Where the caption ending immediately before ``start`` begins.
+
+    A name counts only if nothing but spaces and commas separates it from the
+    citation, so a party mentioned earlier in the prose is never mistaken for
+    the caption. Whitespace inside a name is matched loosely because PDF text
+    layers break lines anywhere. The earliest qualifying match wins, so a full
+    "Plaintiff v. Defendant" caption beats its defendant alone.
+    """
+    anchor = start
+    for name in names:
+        words = name.split()
+        if not words:
+            continue
+        pattern = re.compile(r"\s+".join(map(re.escape, words)) + r"[\s,]*$")
+        match = pattern.search(text, lo, start)
+        if match and match.start() < anchor:
+            anchor = match.start()
+    return anchor
+
+
+def _proposition(
+    text: str,
+    citation: Citation,
+    boundaries: list[int],
+    names: list[str],
+    regions: list[LayoutRegion] = (),
+) -> Proposition | None:
+    """The sentence immediately before a citation (and its caption, if any).
 
     Bounded below by the end of the nearest earlier citation and whatever
     trails it, so a proposition never absorbs another authority's text.
-    ``boundaries`` holds the end offset of every extracted citation.
+    ``boundaries`` holds the end offset of every extracted citation. Layout --
+    table-of-authorities dot leaders, heading lines -- is not a proposition.
     """
-    start = header.span[0]
+    start = citation.span[0]
+    if any(r.span[0] <= start < r.span[1] for r in regions):
+        return None  # a table entry is used for nothing
     floor = max((end for end in boundaries if end <= start), default=0)
+    floor = max([floor, *(r.span[1] for r in regions if r.span[1] <= start)])
     after_citation = floor > 0
     floor = max(floor, start - _PROP_WINDOW)
 
-    anchor = start
-    lo = max(floor, start - _CAPTION_WINDOW)
-    for name in (header.case_name, header.plaintiff):
-        if name:
-            found = text.rfind(name, lo, start)
-            if found >= 0:
-                anchor = found
-                break
+    own = [citation.case_name, citation.antecedent, citation.plaintiff, citation.defendant]
+    candidates = [n for n in (*own, *names) if n]
+    anchor = _caption_start(text, max(floor, start - _CAPTION_WINDOW), start, candidates)
 
     if after_citation:
         tail = _CITATION_TAIL.match(text, floor, anchor)
@@ -321,17 +443,63 @@ def _proposition(text: str, header: Citation, boundaries: list[int]) -> Proposit
             floor = tail.end()
 
     window = text[floor:anchor]
+    # A page break inside the window: start after the last CM/ECF stamp.
+    stamps = list(_ECF_STAMP.finditer(window))
+    if stamps:
+        floor += stamps[-1].end()
+        window = text[floor:anchor]
+    fragment = _CAPTION_FRAGMENT.search(window)
+    while fragment:
+        # "County of Sacramento v." / "Holland ex rel.": the caption started
+        # earlier than the matched name. Back the anchor up to that sentence.
+        cut = max((m.end() for m in _SENT_END.finditer(window, 0, fragment.start())), default=0)
+        anchor = floor + cut
+        window = text[floor:anchor]
+        fragment = _CAPTION_FRAGMENT.search(window)
+    if window.lstrip().startswith("("):
+        # "(quoting X, ...)" / "(citing X)": nested in another citation's
+        # parenthetical, it supports that citation's proposition, not its own.
+        return None
+
+    last_end = max((m.end() for m in _SENT_END.finditer(window)), default=None)
+    lead_in = window[last_end:].strip() if last_end is not None else ""
+    signal_only = (m := _SIGNAL.search(lead_in)) is not None and m.start() == 0
+    if 0 < len(lead_in) < 20 and _WORD.search(lead_in) and not signal_only:
+        # "Under United States v. Jones, ..." -- the citation sits inside its own
+        # sentence, which continues after it. The preceding sentence is not the
+        # proposition; report none rather than the wrong one.
+        return None
     begin = 0
-    for match in _SENT_END.finditer(window):
+    leaders = list(_DOT_LEADER.finditer(window))
+    if leaders:
+        newline = window.find("\n", leaders[-1].end())
+        begin = newline + 1 if newline >= 0 else len(window)
+    for match in _SENT_END.finditer(window, begin):
         if len(window[match.end():].strip()) >= 20:
             begin = match.end()
+    # Heading lines ("ARGUMENT", "II. STANDARD OF REVIEW") carry no lowercase.
+    while True:
+        newline = window.find("\n", begin)
+        if newline < 0 or re.search(r"[a-z]", window[begin:newline]):
+            break
+        begin = newline + 1
+
     segment = window[begin:]
     lead = len(segment) - len(segment.lstrip())
     trail = len(segment) - len(segment.rstrip())
     s, e = floor + begin + lead, anchor - trail
+    signal = None
+    found_signal = _SIGNAL.search(text, s, e)
+    if found_signal:
+        signal = found_signal.group(0).strip()
+        e = found_signal.start()
+        e -= len(text[s:e]) - len(text[s:e].rstrip())
     if e - s <= 12:
         return None
-    return Proposition(text=text[s:e], span=(s, e))
+    candidate = text[s:e]
+    if _DOT_LEADER.search(candidate) or len(_WORD.findall(candidate)) < _MIN_WORDS:
+        return None
+    return Proposition(text=candidate, span=(s, e), signal=signal)
 
 
 def group_citations(text: str) -> ExtractionResult:
@@ -365,12 +533,19 @@ def group_citations(text: str) -> ExtractionResult:
         grouped_ids.update(id(r) for r in member_records)
 
     groups.sort(key=lambda g: g.header.span[0])
+    regions = find_table_regions(text)
     boundaries = [r.span[1] for r in records] + [
         a.span[1] for group in authorities for a in (group.header, *group.children)
     ]
     for i, g in enumerate(groups):
         g.id = f"g{i}"
-        g.proposition = _proposition(text, g.header, boundaries)
+        names = [n for n in (g.case_name, g.header.case_name, g.header.plaintiff,
+                             g.header.defendant) if n]
+        g.layout_regions = regions
+        g.occurrence_propositions = [
+            _proposition(text, citation, boundaries, names, regions)
+            for citation in (g.header, *g.children)
+        ]
 
     orphans = sorted(
         (r for r in records if id(r) not in grouped_ids),
@@ -421,6 +596,7 @@ def group_citations(text: str) -> ExtractionResult:
 
     return ExtractionResult(
         text=text,
+        layout_regions=regions,
         groups=groups,
         orphans=orphans,
         authorities=authorities,
