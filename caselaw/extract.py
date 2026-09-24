@@ -183,6 +183,10 @@ _NAME_CONNECTORS = {"of", "the", "for", "de", "van", "der", "del", "la", "&"}
 # "III.", "A.", "2.". Matched against a token already stripped of punctuation,
 # so it must be the whole token to count.
 _NUMBERING = re.compile(r"[ivxlcdm]{1,7}|[a-z]|\d{1,3}", re.IGNORECASE)
+# A page marker fused onto the caption by a table of authorities or a page
+# stamp ("P13 County of Sacramento v. Lewis"). No party name is a letter
+# followed only by digits.
+_PAGE_MARK = re.compile(r"[a-z]{1,2}\d{1,4}", re.IGNORECASE)
 
 # PDF text layers sometimes map the capital I in Ion Media's name to a
 # lowercase l. Keep this correction deliberately narrow: changing arbitrary
@@ -291,7 +295,7 @@ def _trim_lead_in(name: str) -> str:
     # Never strip the final word: "In re Estate" and a one-word party must survive.
     while len(kept) > 1:
         head = kept[0].lower().strip(".,'‘’")
-        if head in _LEAD_IN_WORDS or _NUMBERING.fullmatch(head):
+        if head in _LEAD_IN_WORDS or _NUMBERING.fullmatch(head) or _PAGE_MARK.fullmatch(head):
             kept = kept[1:]
             continue
         break

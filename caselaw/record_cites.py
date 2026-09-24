@@ -27,7 +27,7 @@ from dataclasses import dataclass
 # verifier needs the range to say so.
 _DOCKET = re.compile(
     r"\b(?:Doc\.?|Document|ECF)\s*(?:No\.?\s*)?(\d{1,4})(?:\s*-\s*\d{1,3})?"
-    r"(?:\s*,?\s*at\s+(\d{1,4}(?:\s*[-\u2013]\s*\d{1,4})?))?",
+    r"(?:\s*,?\s*at\s+(?:pp?\.\s*)?(\d{1,4}(?:\s*[-\u2013]\s*\d{1,4})?))?",
     re.IGNORECASE,
 )
 

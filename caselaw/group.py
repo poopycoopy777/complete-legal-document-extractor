@@ -354,11 +354,45 @@ class ExtractionResult:
         }
 
 
+# A defined term is quoted, but it quotes nothing: ("Plaintiff"),
+# (collectively, "Defendants"), (the "City"). Checked against a source it can
+# only ever "pass" trivially, which inflates the count of verified quotations.
+_DEFINED_TERM_LEAD = re.compile(
+    r"\(\s*(?:(?:collectively|together|jointly|individually|hereinafter|each)\s*,?\s*)?"
+    r"(?:the\s+)?$",
+    re.IGNORECASE,
+)
+_DEFINED_TERM_TRAIL = re.compile(r"\s*\)")
+
+# What is left of a "quotation" once citations and pin words are removed. A span
+# such as "(Doc. 42 at p. 12)." is the gap between two quotations whose marks were
+# paired wrongly, not a quotation; checking it can only produce a false failure.
+_CITATION_RESIDUE = re.compile(r"\b(?:at|pp?|para|paras|id|see|also|and)\b\.?", re.IGNORECASE)
+
+
+def _is_defined_term(text: str, start: int, end: int, body: str) -> bool:
+    if len(body.split()) > 4:
+        return False
+    lead = text[max(0, start - 40) : start]
+    return bool(_DEFINED_TERM_LEAD.search(lead) and _DEFINED_TERM_TRAIL.match(text, end))
+
+
+def _is_citation_only(body: str) -> bool:
+    rest = body
+    for cite in extract_record_cites(body):
+        rest = rest.replace(cite.text, " ")
+    rest = _CITATION_RESIDUE.sub(" ", rest)
+    return not re.search(r"[A-Za-z]{2,}", rest)
+
+
 def _find_quotes(text: str) -> list[tuple[int, int, str]]:
     spans = []
     for m in _QUOTE.finditer(text):
         body = m.group(1) if m.group(1) is not None else m.group(2)
-        spans.append((m.start(), m.end(), " ".join(body.split())))
+        body = " ".join(body.split())
+        if _is_defined_term(text, m.start(), m.end(), body) or _is_citation_only(body):
+            continue
+        spans.append((m.start(), m.end(), body))
     return spans
 
 
