@@ -40,6 +40,19 @@ _QUOTE = re.compile(
 _QUOTE_FORWARD = 260
 _QUOTE_BACKWARD = 140
 
+# Proposition: the sentence a filing cites an authority for. A sentence ends at
+# . ! ? followed by whitespace and an uppercase letter or newline, which rules
+# out most abbreviations ("Corp.", "v.", "U.S.").
+_SENT_END = re.compile(r"[.!?]\s+(?=[A-Z\n])")
+_PROP_WINDOW = 800
+# How far before the reporter a caption may begin ("United States v. Carloss, ").
+_CAPTION_WINDOW = 300
+# What trails an earlier citation before the next sentence can begin: pin
+# pages, court/year and explanatory parentheticals, a closing period.
+_CITATION_TAIL = re.compile(
+    r"(?:[\s,;]*(?:at\s+)?[\d\u00b6\u00a7\-\u2013,\s]*)?(?:\s*\([^()]*\))*\s*[.;]?"
+)
+
 
 @dataclass
 class Quote:
@@ -51,9 +64,22 @@ class Quote:
     authority_id: str | None = None
     candidate_authorities: list[str] = field(default_factory=list)
     pin_cite: str | None = None
+    citation_span: tuple[int, int] | None = None
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+@dataclass(frozen=True)
+class Proposition:
+    """The sentence a citation is used for, as an exact slice of the source.
+
+    ``text == source[span[0]:span[1]]`` always holds. Nothing is normalized or
+    rewritten, so the proposition carries the same offsets the citations use.
+    """
+
+    text: str
+    span: tuple[int, int]
 
 
 @dataclass
@@ -64,6 +90,7 @@ class CitationGroup:
     header: Citation
     children: list[Citation] = field(default_factory=list)
     quotes: list[Quote] = field(default_factory=list)
+    proposition: Proposition | None = None
 
     @property
     def case_name(self) -> str | None:
@@ -78,6 +105,8 @@ class CitationGroup:
             "header": self.header.as_dict(),
             "children": [c.as_dict() for c in self.children],
             "quotes": [q.as_dict() for q in self.quotes],
+            "proposition": self.proposition.text if self.proposition else None,
+            "propositionSpan": list(self.proposition.span) if self.proposition else None,
         }
 
 
@@ -265,6 +294,46 @@ def _group_authorities(text: str) -> list[AuthorityGroup]:
     return groups
 
 
+def _proposition(text: str, header: Citation, boundaries: list[int]) -> Proposition | None:
+    """The sentence immediately before a full citation's caption.
+
+    Bounded below by the end of the nearest earlier citation and whatever
+    trails it, so a proposition never absorbs another authority's text.
+    ``boundaries`` holds the end offset of every extracted citation.
+    """
+    start = header.span[0]
+    floor = max((end for end in boundaries if end <= start), default=0)
+    after_citation = floor > 0
+    floor = max(floor, start - _PROP_WINDOW)
+
+    anchor = start
+    lo = max(floor, start - _CAPTION_WINDOW)
+    for name in (header.case_name, header.plaintiff):
+        if name:
+            found = text.rfind(name, lo, start)
+            if found >= 0:
+                anchor = found
+                break
+
+    if after_citation:
+        tail = _CITATION_TAIL.match(text, floor, anchor)
+        if tail:
+            floor = tail.end()
+
+    window = text[floor:anchor]
+    begin = 0
+    for match in _SENT_END.finditer(window):
+        if len(window[match.end():].strip()) >= 20:
+            begin = match.end()
+    segment = window[begin:]
+    lead = len(segment) - len(segment.lstrip())
+    trail = len(segment) - len(segment.rstrip())
+    s, e = floor + begin + lead, anchor - trail
+    if e - s <= 12:
+        return None
+    return Proposition(text=text[s:e], span=(s, e))
+
+
 def group_citations(text: str) -> ExtractionResult:
     """Extract citations and cluster them under their full citation."""
     pairs = extract_pairs(text)
@@ -296,8 +365,12 @@ def group_citations(text: str) -> ExtractionResult:
         grouped_ids.update(id(r) for r in member_records)
 
     groups.sort(key=lambda g: g.header.span[0])
+    boundaries = [r.span[1] for r in records] + [
+        a.span[1] for group in authorities for a in (group.header, *group.children)
+    ]
     for i, g in enumerate(groups):
         g.id = f"g{i}"
+        g.proposition = _proposition(text, g.header, boundaries)
 
     orphans = sorted(
         (r for r in records if id(r) not in grouped_ids),
@@ -334,6 +407,7 @@ def group_citations(text: str) -> ExtractionResult:
         quote.attribution_status = "linked"
         quote.attribution_basis = basis
         quote.authority_id = owner.id
+        quote.citation_span = target.span
         pin_cite = getattr(target, "pin_cite", None)
         quote.pin_cite = (
             re.sub(r"^at\s+", "", pin_cite, flags=re.IGNORECASE) if pin_cite else None
