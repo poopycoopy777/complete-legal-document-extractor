@@ -143,7 +143,8 @@ class CitationGroup:
     def case_name(self) -> str | None:
         if self.header.plaintiff and self.header.defendant:
             return f"{self.header.plaintiff} v. {self.header.defendant}"
-        return None
+        # A non-adversarial caption: "In re Veal", "Ex parte Young".
+        return self.header.case_name or None
 
     def as_dict(self) -> dict[str, Any]:
         chosen = self.proposition
@@ -718,6 +719,44 @@ def _proposition(
     return Proposition(text=candidate, span=(s, e), signal=signal)
 
 
+# Between the two halves of a parallel citation: an optional pin, then a comma.
+#   Au v. Au, 63 Haw. 210, 214, 626 P.2d 173, 176 (1981)
+_PARALLEL_GAP = re.compile(r"(?:,\s*\d+(?:\s*[-\u2013]\s*\d+)?(?:\s*n\.\s*\d+)?)?\s*,\s*")
+
+
+def _merge_parallel_citations(text: str, groups: list[CitationGroup]) -> list[CitationGroup]:
+    """One case cited in two reporters is one card, not two half-cards.
+
+        First Nat'l Bank of Greeley v. Conway, 34 Colo. 372, 83 P. 361 (1905)
+
+    eyecite reads two citations: the first carries the caption and no year, the
+    second the year and no caption. The second joins the first's group as a
+    child; each half lends the other what it lacks. Pins stay with their own
+    reporter's citation.
+    """
+    owner = {id(c): g for g in groups for c in (g.header, *g.children)}
+    fulls = sorted((c for g in groups for c in (g.header, *g.children)
+                    if c.kind == "FullCaseCitation"), key=lambda c: c.span[0])
+    for first, second in zip(fulls, fulls[1:]):
+        if not _PARALLEL_GAP.fullmatch(text, first.span[1], second.span[0]):
+            continue
+        g_first, g_second = owner[id(first)], owner[id(second)]
+        if g_first is g_second or second is not g_second.header:
+            continue
+        for attr in ("year", "court", "court_text"):
+            if getattr(first, attr, None) is None:
+                setattr(first, attr, getattr(second, attr, None))
+        if not (second.plaintiff and second.defendant):
+            second.plaintiff, second.defendant = first.plaintiff, first.defendant
+            second.case_name = second.case_name or first.case_name
+        g_first.children.extend((g_second.header, *g_second.children))
+        g_first.children.sort(key=lambda c: c.span[0])
+        for c in (g_second.header, *g_second.children):
+            owner[id(c)] = g_first
+        groups = [g for g in groups if g is not g_second]
+    return groups
+
+
 def _inside_parenthetical_of(outer: Citation, inner: Citation) -> bool:
     """Is ``inner`` cited inside ``outer``'s explanatory parenthetical?"""
     paren = outer.parenthetical or ""
@@ -821,6 +860,7 @@ def group_citations(text: str) -> ExtractionResult:
         )
         grouped_ids.update(id(r) for r in member_records)
 
+    groups = _merge_parallel_citations(text, groups)
     groups.sort(key=lambda g: g.header.span[0])
     for i, g in enumerate(groups):
         g.id = f"g{i}"

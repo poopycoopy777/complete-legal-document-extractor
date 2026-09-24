@@ -245,3 +245,19 @@ def test_capitalised_record_words_are_not_quotations():
 
 def test_table_of_authorities_heading_after_a_page_stamp_is_not_a_party():
     assert _trim_lead_in("pg 2 of 27 TABLE OF AUTHORITIES Cases Ashcroft") == "Ashcroft"
+
+
+def test_a_parallel_citation_is_one_case_not_two_half_cards():
+    text = ("It so held. First Nat'l Bank of Greeley v. Conway, 34 Colo. 372, 375, 83 P. 361, "
+            "362 (1905). Later: Conway, 83 P. at 363.")
+    (group,) = group_citations(text).as_dict()["groups"]
+    assert group["caseName"] == "First Nat'l Bank of Greeley v. Conway"
+    assert group["header"]["year"] == 1905
+    assert [(c["text"], c["pin_cite"]) for c in group["children"]] == [
+        ("83 P. 361", "362"), ("83 P. at 363", "363")]
+
+
+def test_a_non_adversarial_caption_names_its_card():
+    text = "It exempts no one. In re Veal, 450 B.R. 897, 917-18 (9th Cir. BAP 2011)."
+    (group,) = group_citations(text).as_dict()["groups"]
+    assert group["caseName"] == "In re Veal"
