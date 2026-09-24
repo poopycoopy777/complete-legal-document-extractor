@@ -47,18 +47,23 @@ class TestDocketCitations:
 
 class TestPleadingParagraphs:
     @pytest.mark.parametrize(
-        "text,label",
+        "text,label,pin",
         [
-            ("SAC ¶ 45", "45"),
-            ("SAC ¶¶ 65, 67, 69-70", "65"),
-            ("Compl. ¶ 12", "12"),
-            ("TAC ¶ 101", "101"),
+            ("SAC ¶ 45", "SAC", "45"),
+            ("SAC ¶¶ 65, 67, 69-70", "SAC", "65"),
+            ("Compl. ¶ 12", "Complaint", "12"),
+            ("TAC ¶ 101", "TAC", "101"),
         ],
     )
-    def test_paragraph_forms(self, text, label):
+    def test_paragraph_forms(self, text, label, pin):
+        # The pleading identifies the document; the paragraph is the pin.
         found = extract_record_cites(text)
         assert found and found[0].kind == "pleading"
-        assert found[0].label == label
+        assert (found[0].label, found[0].pin) == (label, pin)
+
+    def test_paragraphs_of_one_pleading_share_a_source(self):
+        found = extract_record_cites("SAC ¶ 45; SAC ¶ 46")
+        assert {c.source_id for c in found} == {"pleading:SAC"}
 
 
 class TestPolicyCitations:

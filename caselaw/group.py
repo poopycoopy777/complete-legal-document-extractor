@@ -21,6 +21,7 @@ from eyecite import resolve_citations
 
 from .authorities import Authority, extract_authorities
 from .extract import Citation, extract_pairs
+from .record_cites import RecordCite, extract_record_cites
 
 # Quoted material: straight or curly doubles.
 #
@@ -89,9 +90,16 @@ class Quote:
     candidate_authorities: list[str] = field(default_factory=list)
     pin_cite: str | None = None
     citation_span: tuple[int, int] | None = None
+    # "printed": the pin appears at the citation. "inherited_from_id": a bare
+    # Id. repeats the previous citation's page, as Bluebook reads it.
+    pin_basis: str | None = None
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+# "Id. at 25-26" / "Id. at 25–26": the first page of a record pin.
+_ID_PIN = re.compile(r"\s*,?\s*at\s+(\d{1,4})")
 
 
 @dataclass(frozen=True)
@@ -197,6 +205,73 @@ class AuthorityGroup:
         }
 
 
+def _occurrence_dict(citation: Citation | RecordCite) -> dict[str, Any]:
+    if isinstance(citation, RecordCite):
+        return {
+            "kind": "RecordCitation",
+            "recordKind": citation.kind,
+            "label": citation.label,
+            "text": citation.text,
+            "span": list(citation.span),
+            "pin_cite": citation.pin,
+        }
+    return citation.as_dict()
+
+
+@dataclass
+class RecordGroup:
+    """One document in the case record, and every citation that points at it.
+
+    ``Doc. No. 80 at 26`` and each ``Id.`` that follows it refer to the same
+    filing. Verifying these needs that document, not a published opinion, so
+    they are kept apart from the case-law groups.
+    """
+
+    id: str
+    kind: str
+    label: str
+    source_id: str
+    header: RecordCite
+    children: list[Citation | RecordCite] = field(default_factory=list)
+    quotes: list[Quote] = field(default_factory=list)
+    occurrence_propositions: list[Proposition | None] = field(default_factory=list)
+    layout_regions: list[LayoutRegion] = field(default_factory=list)
+
+    @property
+    def proposition(self) -> tuple[Citation | RecordCite, Proposition] | None:
+        for citation, prop in zip((self.header, *self.children), self.occurrence_propositions):
+            if prop is not None:
+                return citation, prop
+        return None
+
+    def as_dict(self) -> dict[str, Any]:
+        chosen = self.proposition
+        occurrences = (self.header, *self.children)
+        return {
+            "id": self.id,
+            "kind": self.kind,
+            "label": self.label,
+            "sourceId": self.source_id,
+            "header": _occurrence_dict(self.header),
+            "children": [_occurrence_dict(c) for c in self.children],
+            "quotes": [q.as_dict() for q in self.quotes],
+            "proposition": chosen[1].text if chosen else None,
+            "propositionSpan": list(chosen[1].span) if chosen else None,
+            "propositionCitationSpan": list(chosen[0].span) if chosen else None,
+            "propositionSignal": chosen[1].signal if chosen else None,
+            "occurrencePropositions": [
+                {
+                    "citationSpan": list(citation.span),
+                    "layout": _layout_kind(citation, self.layout_regions),
+                    "proposition": prop.text if prop else None,
+                    "propositionSpan": list(prop.span) if prop else None,
+                    "signal": prop.signal if prop else None,
+                }
+                for citation, prop in zip(occurrences, self.occurrence_propositions)
+            ],
+        }
+
+
 # Display order for the authority sections beneath the case law.
 CATEGORY_ORDER = ("statute", "regulation", "rule", "constitution")
 
@@ -240,6 +315,7 @@ class ExtractionResult:
     authorities: list[AuthorityGroup] = field(default_factory=list)
     unattributed_quotes: list[Quote] = field(default_factory=list)
     layout_regions: list[LayoutRegion] = field(default_factory=list)
+    records: list[RecordGroup] = field(default_factory=list)
 
     def as_dict(self) -> dict[str, Any]:
         authority_cites = sum(1 + len(a.children) for a in self.authorities)
@@ -259,6 +335,7 @@ class ExtractionResult:
             "layoutRegions": [
                 {"kind": r.kind, "span": list(r.span)} for r in self.layout_regions
             ],
+            "records": [r.as_dict() for r in self.records],
             "stats": {
                 "groups": len(self.groups),
                 "citations": sum(1 + len(g.children) for g in self.groups)
@@ -286,8 +363,8 @@ def _find_quotes(text: str) -> list[tuple[int, int, str]]:
 
 
 def _attribute_quote(
-    quote_start: int, quote_end: int, records: list[Citation | Authority]
-) -> tuple[Citation | Authority | None, str | None]:
+    quote_start: int, quote_end: int, records: list[Citation | Authority | RecordCite]
+) -> tuple[Citation | Authority | RecordCite | None, str | None]:
     """Attach a quotation to a citation.
 
     Legal writing puts the quotation before its citation, so a following
@@ -300,7 +377,9 @@ def _attribute_quote(
     ]
     if following:
         target = min(following, key=lambda c: c.span[0])
-        if isinstance(target, Authority):
+        if isinstance(target, RecordCite):
+            basis = "following_record"
+        elif isinstance(target, Authority):
             basis = "following_authority"
         else:
             basis = {
@@ -319,11 +398,12 @@ def _attribute_quote(
     ]
     if preceding:
         target = max(preceding, key=lambda c: c.span[1])
-        basis = (
-            "preceding_authority"
-            if isinstance(target, Authority)
-            else "preceding_citation"
-        )
+        if isinstance(target, RecordCite):
+            basis = "preceding_record"
+        elif isinstance(target, Authority):
+            basis = "preceding_authority"
+        else:
+            basis = "preceding_citation"
         return target, basis
     return None, None
 
@@ -433,7 +513,8 @@ def _proposition(
     after_citation = floor > 0
     floor = max(floor, start - _PROP_WINDOW)
 
-    own = [citation.case_name, citation.antecedent, citation.plaintiff, citation.defendant]
+    own = [getattr(citation, attr, None)
+           for attr in ("case_name", "antecedent", "plaintiff", "defendant")]
     candidates = [n for n in (*own, *names) if n]
     anchor = _caption_start(text, max(floor, start - _CAPTION_WINDOW), start, candidates)
 
@@ -533,12 +614,77 @@ def group_citations(text: str) -> ExtractionResult:
         grouped_ids.update(id(r) for r in member_records)
 
     groups.sort(key=lambda g: g.header.span[0])
-    regions = find_table_regions(text)
-    boundaries = [r.span[1] for r in records] + [
-        a.span[1] for group in authorities for a in (group.header, *group.children)
-    ]
     for i, g in enumerate(groups):
         g.id = f"g{i}"
+    regions = find_table_regions(text)
+
+    orphans = sorted(
+        (r for r in records if id(r) not in grouped_ids),
+        key=lambda r: r.span[0],
+    )
+
+    # The case record: "Doc. No. 80 at 26", "SAC para 45", "Policy 1010.4.2".
+    record_cites = extract_record_cites(text)
+    record_groups: dict[str, RecordGroup] = {}
+    owner_of_record: dict[int, RecordGroup] = {}
+    record_pins: dict[int, tuple[str, str]] = {
+        id(cite): (cite.pin, "printed") for cite in record_cites if cite.pin
+    }
+    for cite in record_cites:
+        group = record_groups.get(cite.source_id)
+        if group is None:
+            group = RecordGroup(id=f"r{len(record_groups)}", kind=cite.kind, label=cite.label,
+                                source_id=cite.source_id, header=cite)
+            record_groups[cite.source_id] = group
+        else:
+            group.children.append(cite)
+        owner_of_record[id(cite)] = group
+
+    # eyecite resolves Id. to the last *case* it saw and knows nothing of the
+    # record, so "Doc. No. 80 at 26 ... Id." lands on whatever case came
+    # before. An Id. refers to the citation immediately preceding it, of any
+    # kind; when that is the record, the Id. belongs to the record.
+    authority_records: list[Authority] = [
+        a for group in authorities for a in (group.header, *group.children)
+    ]
+    # CiteURL also reports each "Id." as a statute short form with the same
+    # span; keep one entry per span, preferring the record, then case law.
+    def rank(citation) -> int:
+        return 0 if isinstance(citation, RecordCite) else 1 if isinstance(citation, Citation) else 2
+
+    by_span: dict[tuple[int, int], Citation | Authority | RecordCite] = {}
+    for citation in (*records, *authority_records, *record_cites):
+        key = tuple(citation.span)
+        if key not in by_span or rank(citation) < rank(by_span[key]):
+            by_span[key] = citation
+    timeline = sorted(by_span.values(), key=lambda c: c.span[0])
+    case_owner = {id(r): g for g in groups for r in (g.header, *g.children)}
+    for position, citation in enumerate(timeline):
+        if getattr(citation, "kind", None) != "IdCitation":
+            continue
+        previous = timeline[position - 1] if position else None
+        owner = owner_of_record.get(id(previous)) if previous is not None else None
+        if owner is None:
+            continue
+        case_group = case_owner.pop(id(citation), None)
+        if case_group is not None:
+            case_group.children.remove(citation)
+        elif citation in orphans:
+            orphans.remove(citation)
+        owner.children.append(citation)
+        owner_of_record[id(citation)] = owner
+        printed = _ID_PIN.match(text, citation.span[1])
+        if printed:
+            record_pins[id(citation)] = (printed.group(1), "printed")
+        elif id(previous) in record_pins:
+            record_pins[id(citation)] = (record_pins[id(previous)][0], "inherited_from_id")
+
+    ordered_records = list(record_groups.values())
+    for group in ordered_records:
+        group.children.sort(key=lambda c: c.span[0])
+
+    boundaries = [c.span[1] for c in timeline]
+    for g in groups:
         names = [n for n in (g.case_name, g.header.case_name, g.header.plaintiff,
                              g.header.defendant) if n]
         g.layout_regions = regions
@@ -546,23 +692,23 @@ def group_citations(text: str) -> ExtractionResult:
             _proposition(text, citation, boundaries, names, regions)
             for citation in (g.header, *g.children)
         ]
-
-    orphans = sorted(
-        (r for r in records if id(r) not in grouped_ids),
-        key=lambda r: r.span[0],
-    )
+    for group in ordered_records:
+        group.layout_regions = regions
+        group.occurrence_propositions = [
+            _proposition(text, citation, boundaries, [], regions)
+            for citation in (group.header, *group.children)
+        ]
 
     # Attribute quotations to whichever citation they support.
-    owner_of: dict[int, CitationGroup | AuthorityGroup] = {}
+    owner_of: dict[int, CitationGroup | AuthorityGroup | RecordGroup] = {}
     for g in groups:
         for rec in (g.header, *g.children):
             owner_of[id(rec)] = g
-    authority_records: list[Authority] = []
     for authority_group in authorities:
         for authority in (authority_group.header, *authority_group.children):
             owner_of[id(authority)] = authority_group
-            authority_records.append(authority)
-    attribution_records: list[Citation | Authority] = [*records, *authority_records]
+    owner_of.update(owner_of_record)
+    attribution_records = [*records, *authority_records, *record_cites]
 
     unattributed_quotes: list[Quote] = []
     for q_start, q_end, body in _find_quotes(text):
@@ -583,20 +729,27 @@ def group_citations(text: str) -> ExtractionResult:
         quote.attribution_basis = basis
         quote.authority_id = owner.id
         quote.citation_span = target.span
-        pin_cite = getattr(target, "pin_cite", None)
-        quote.pin_cite = (
-            re.sub(r"^at\s+", "", pin_cite, flags=re.IGNORECASE) if pin_cite else None
-        )
+        if id(target) in record_pins:
+            quote.pin_cite, quote.pin_basis = record_pins[id(target)]
+        else:
+            pin_cite = getattr(target, "pin_cite", None) or getattr(target, "pin", None)
+            quote.pin_cite = (
+                re.sub(r"^at\s+", "", pin_cite, flags=re.IGNORECASE) if pin_cite else None
+            )
+            quote.pin_basis = "printed" if quote.pin_cite else None
         owner.quotes.append(quote)
 
     for g in groups:
         g.quotes.sort(key=lambda q: q.span[0])
     for authority_group in authorities:
         authority_group.quotes.sort(key=lambda q: q.span[0])
+    for group in ordered_records:
+        group.quotes.sort(key=lambda q: q.span[0])
 
     return ExtractionResult(
         text=text,
         layout_regions=regions,
+        records=ordered_records,
         groups=groups,
         orphans=orphans,
         authorities=authorities,

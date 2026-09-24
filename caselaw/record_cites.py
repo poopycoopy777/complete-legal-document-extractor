@@ -43,6 +43,16 @@ _POLICY = re.compile(r"\bPolicy\s+(\d{1,4}(?:\.\d{1,3})*)", re.IGNORECASE)
 
 _KINDS = (("docket", _DOCKET), ("pleading", _PLEADING), ("policy", _POLICY))
 
+# One pleading, however it is abbreviated. The paragraph is a pin, not part of
+# the document's identity: "SAC para 45" and "SAC para 46" cite one document.
+_PLEADING_NAMES = {"sac": "SAC", "tac": "TAC", "fac": "FAC", "compl": "Complaint",
+                   "complaint": "Complaint", "amcompl": "Amended Complaint"}
+
+
+def _pleading_name(token: str) -> str:
+    key = "".join(ch for ch in token.lower() if ch.isalpha())
+    return _PLEADING_NAMES.get(key, token.strip())
+
 # The ECF header stamped on every page -- "Case No. 1:25-cv-02263-RMR-MDB
 # Document 84-1 filed 07/02/26 USDC Colorado" -- names a document number on
 # every single page. It is page furniture identifying the filing itself, not a
@@ -78,7 +88,7 @@ def extract_record_cites(text: str) -> list[RecordCite]:
     for kind, pattern in _KINDS:
         for match in pattern.finditer(text):
             if kind == "pleading":
-                label, pin = match.group(2), None
+                label, pin = _pleading_name(match.group(1)), match.group(2)
             elif kind == "docket":
                 label, pin = match.group(1), match.group(2)
             else:
