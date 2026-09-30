@@ -678,6 +678,7 @@ def _proposition(
     boundaries: list[int],
     names: list[str],
     regions: list[LayoutRegion] = (),
+    original_text: str | None = None,
 ) -> Proposition | None:
     """The sentence immediately before a citation (and its caption, if any).
 
@@ -761,7 +762,14 @@ def _proposition(
     candidate = text[s:e]
     if _DOT_LEADER.search(candidate) or len(_WORD.findall(candidate)) < _MIN_WORDS:
         return None
-    return Proposition(text=candidate, span=(s, e), signal=signal)
+    # ``text`` here is the masked working copy: court stamps are blanked in place
+    # so they never become prose, and every character position is preserved. The
+    # caller receives spans against the unmasked document, so the reported text
+    # has to be read back out of it -- otherwise the span addresses one string
+    # while the text comes from another, and the two disagree wherever a stamp
+    # sits inside the span. Same treatment Quote.raw_text already gets.
+    original = original_text if original_text is not None else text
+    return Proposition(text=original[s:e], span=(s, e), signal=signal)
 
 
 # Between the two halves of a parallel citation: an optional pin, then a comma.
@@ -1033,13 +1041,13 @@ def group_citations(text: str) -> ExtractionResult:
                              g.header.defendant) if n]
         g.layout_regions = regions
         g.occurrence_propositions = [
-            _proposition(text, citation, boundaries, names, regions)
+            _proposition(text, citation, boundaries, names, regions, original_text)
             for citation in (g.header, *g.children)
         ]
     for group in ordered_records:
         group.layout_regions = regions
         group.occurrence_propositions = [
-            _proposition(text, citation, boundaries, [], regions)
+            _proposition(text, citation, boundaries, [], regions, original_text)
             for citation in (group.header, *group.children)
         ]
 

@@ -232,3 +232,34 @@ def test_citation_inside_its_own_sentence_reports_no_proposition():
     )
     (group,) = group_citations(text).as_dict()["groups"]
     assert group["proposition"] is None
+
+
+def test_a_stamp_inside_a_proposition_slices_back_to_the_original():
+    """The span and its text must describe the same string, stamps included.
+
+    Court stamps are masked in place -- length preserved -- so offsets still
+    address the submitted document. The reported proposition has to be read back
+    out of the *original* text: reading it out of the masked copy desynchronises
+    it from its own span wherever a stamp sits inside the span, and every
+    consumer that slices the document to check the proposition rejects the
+    extraction. The span here straddles the stamp, which is what breaks it.
+    """
+    stamp = (
+        "3Case No. 1:25-cv-02263-RMR-MDB  Document 74    filed 03/03/26  USDC Colorado\n"
+        "pg 4 of 11\n"
+    )
+    text = (
+        "Knocking is lawful. A v. B, 1 U.S. 1 (1990). Indeed, 'asserting a qualified immunity"
+        "\n\n" + stamp + "\n\n\n\n\n\ndefense via a Rule 12(b)(6) motion subjects the defendant to a more"
+        " challenging standard of\n\nreview than would apply on summary judgment.'"
+        " Peterson v. Jensen, 371 F.3d 1199, 1201 (10th Cir. 2004)."
+    )
+    groups = group_citations(text).as_dict()["groups"]
+    straddling = [g for g in groups if g["proposition"] is not None
+                  and "Case No." in text[g["propositionSpan"][0]:g["propositionSpan"][1]]]
+    assert straddling, "the fixture must put a stamp inside a proposition's span"
+    for group in straddling:
+        span = group["propositionSpan"]
+        assert text[span[0]:span[1]] == group["proposition"], (
+            "proposition text must be the document's own characters at its span"
+        )
