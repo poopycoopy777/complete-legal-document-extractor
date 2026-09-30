@@ -79,6 +79,7 @@ _IN_RE_BODY = re.compile(r"^[A-Za-z0-9'‘’\.\-&,\s]{0,160}$")
 # at the start of a sentence, so capitalisation alone cannot separate them from
 # a party name.
 _LEAD_IN_WORDS = {
+    "as",
     "see",
     "accord",
     "cf",

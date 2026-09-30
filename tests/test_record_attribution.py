@@ -119,3 +119,18 @@ def test_a_case_cited_only_in_short_form_gets_its_own_group_and_its_ids():
     carloss = next(g for g in result.groups if g.case_name == "Carloss")
     assert len((carloss.header, *carloss.children)) == 3
     assert not result.orphans
+
+
+def test_appendix_citations_are_recognised_as_record_cites():
+    text = ('The change from "did not interfere physically" to "blocked our path" '
+            'was material. App. 58, 71–72. Torres v. City of Red Mesa, '
+            '48 F.4th 801, 810 (10th Cir. 2022), holds that an appellate court '
+            'should not choose between those inferences.')
+    result = group_citations(text)
+    torres = next(g for g in result.groups if "Torres" in (g.case_name or ""))
+    assert torres.quotes == []
+    (appendix,) = result.records
+    assert appendix.label == "Appendix"
+    assert len(appendix.quotes) == 2
+    assert {q.text for q in appendix.quotes} == {
+        "did not interfere physically", "blocked our path"}

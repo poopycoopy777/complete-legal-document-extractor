@@ -193,6 +193,7 @@ def test_no_citation_is_dropped_or_duplicated():
     [
         "Under",
         "See",
+        "As",
         "See also",
         "Accord",
         "Citing",

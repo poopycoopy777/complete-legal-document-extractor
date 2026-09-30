@@ -39,11 +39,20 @@ _PLEADING = re.compile(
     re.IGNORECASE,
 )
 
+# "App. 58", "App. 41-43", "App. at 58", "Appellant's App. 136-38".
+# The appendix is a single document; the page number is a pin cite.
+_APPENDIX = re.compile(
+    r"\b(?:(?:Appellant|Appellee|Petitioner|Respondent)(?:['’]s)?\s+)?"
+    r"App\.?\s*(?:at\s+)?(?:pp?\.\s*)?(\d{1,4}(?:\s*[-–]\s*\d{1,4})?)"
+    r"(?:\s*,\s*(\d{1,4}(?:\s*[-–]\s*\d{1,4})?))*",
+    re.IGNORECASE,
+)
+
 # "Policy 1010.4.2", "Policy 321.5.9(f)-(g)". Subsection letters are dropped:
 # the policy number is what identifies the source document.
 _POLICY = re.compile(r"\bPolicy\s+(\d{1,4}(?:\.\d{1,3})*)", re.IGNORECASE)
 
-_KINDS = (("docket", _DOCKET), ("pleading", _PLEADING), ("policy", _POLICY))
+_KINDS = (("docket", _DOCKET), ("pleading", _PLEADING), ("appendix", _APPENDIX), ("policy", _POLICY))
 
 # One pleading, however it is abbreviated. The paragraph is a pin, not part of
 # the document's identity: "SAC para 45" and "SAC para 46" cite one document.
@@ -93,6 +102,8 @@ def extract_record_cites(text: str) -> list[RecordCite]:
                 label, pin = _pleading_name(match.group(1)), match.group(2)
             elif kind == "docket":
                 label, pin = match.group(1), match.group(2)
+            elif kind == "appendix":
+                label, pin = "Appendix", match.group(1)
             else:
                 label, pin = match.group(1), None
             if kind == "docket" and _is_page_stamp(text, match.span()):
