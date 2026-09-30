@@ -1,13 +1,12 @@
 # Agent Operating Guide
 
-This file is the operational source of truth for agents working in this
-repository. It describes the system as it exists on September 20, 2026. Read it
-before starting, stopping, debugging, or changing the application.
+This file is the operational guide for agents working in this repository.
+Read it before starting, stopping, debugging, or changing the application.
 
 ## Repository identity and boundaries
 
-- Repository root: `D:\Coopers legit caselaw statute rules ect estractor`
-- Active development branch at the time of this snapshot: `codex/development`
+- Repository root: `D:\complete-legal-document-extractor`
+- Current local branch: `master`
 - Frontend: `web/` (React, TypeScript, Vite)
 - API: `server/app.py` (FastAPI)
 - Extraction code: `caselaw/`
