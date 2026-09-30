@@ -82,6 +82,14 @@ def test_lead_in_prose_is_stripped_from_the_plaintiff():
     assert cite.plaintiff == "Monell"
 
 
+def test_capitalized_sentence_before_narrative_citation_is_not_a_party():
+    text = ("Non-threatening persons can violate the Fourth Amendment. In Cortez v. "
+            "McCauley, 478 F.3d 1108, 1131 (10th Cir. 2007), the court rejected severe force.")
+    cite = next(c for c in extract(text) if c.text == "478 F.3d 1108")
+    assert cite.plaintiff == "Cortez"
+    assert cite.defendant == "McCauley"
+
+
 def test_pdf_lowercase_l_for_capital_i_does_not_drop_ion_from_case_name():
     text = (
         "redactions based on a general Interpretation of the ELEIA and lon Media\n"

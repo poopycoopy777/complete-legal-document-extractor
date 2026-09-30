@@ -273,6 +273,13 @@ def _trim_lead_in(name: str) -> str:
     """
     name = _TOA_CASES_PREFIX.sub("", name)
     name = _PAGE_STAMP_PREFIX.sub("", name)
+    # A narrative citation can follow a sentence ending in a capitalized
+    # legal term: "Fourth Amendment. In Cortez v. McCauley". The ordinary
+    # lowercase sentence-end rule deliberately preserves party abbreviations.
+    # This explicit prose opener supplies the boundary without cutting those.
+    narrative = list(re.finditer(r"\.\s+In\s+(?=[A-Z])", name))
+    if narrative:
+        name = name[narrative[-1].end():]
     words = name.split()
     keep = len(words)
     for i in range(len(words) - 1, -1, -1):
