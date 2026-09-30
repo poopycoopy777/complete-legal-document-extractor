@@ -90,11 +90,22 @@ class RecordCite:
         return f"{self.kind}:{self.label}"
 
 
-def extract_record_cites(text: str) -> list[RecordCite]:
-    """Find every record or evidence citation, in order of appearance."""
+def extract_record_cites(text: str, original: str | None = None) -> list[RecordCite]:
+    """Find every record or evidence citation, in order of appearance.
+
+    ``text`` may be a masked working copy, in which case spans are still
+    offsets into the document the caller will be handed back. Court stamps are
+    blanked in place, so a citation matched across a page break reports text
+    that no longer matches the characters its span addresses -- and the
+    orchestrator refuses an extraction whose spans do not slice back to the
+    text it was sent. Pass the unmasked document as ``original`` and every
+    cite's text is read back out of it, the same way propositions and
+    quotations already are.
+    """
     if not text:
         return []
 
+    source = original if original is not None else text
     found: list[RecordCite] = []
     for kind, pattern in _KINDS:
         for match in pattern.finditer(text):
@@ -108,19 +119,20 @@ def extract_record_cites(text: str) -> list[RecordCite]:
                 label, pin = match.group(1), None
             if kind == "docket" and _is_page_stamp(text, match.span()):
                 continue
+            span = match.span()
             found.append(
                 RecordCite(
                     kind=kind,
                     label=label,
-                    span=match.span(),
+                    span=span,
                     pin=pin,
-                    text=match.group(0).strip(),
+                    text=source[span[0] : span[1]].strip(),
                 )
             )
 
     found.sort(key=lambda c: c.span[0])
     found = _drop_overlaps(found)
-    return _with_parenthetical_ids(text, found)
+    return _with_parenthetical_ids(text, found, source)
 
 
 # "(Id. at 25.)", "(Id.)", "(See id. ¶ 5)". eyecite does not see an Id. inside
@@ -136,12 +148,13 @@ _PAREN_ID = re.compile(
 )
 
 
-def _with_parenthetical_ids(text: str, found: list[RecordCite]) -> list[RecordCite]:
+def _with_parenthetical_ids(text: str, found: list[RecordCite], source: str | None = None) -> list[RecordCite]:
     """A parenthetical Id. points back at the most recent record citation.
 
     Only when one precedes it: a parenthetical Id. with no record citation
     before it is left alone rather than guessed at.
     """
+    origin = source if source is not None else text
     cites = list(found)
     for match in _PAREN_ID.finditer(text):
         start, end = match.span(1)
@@ -152,7 +165,7 @@ def _with_parenthetical_ids(text: str, found: list[RecordCite]) -> list[RecordCi
             continue
         referent = max(earlier, key=lambda c: c.span[1])
         cites.append(RecordCite(kind=referent.kind, label=referent.label, span=(start, end),
-                                pin=match.group(2) or match.group(3), text=match.group(1).strip()))
+                                pin=match.group(2) or match.group(3), text=origin[start:end].strip()))
     cites.sort(key=lambda c: c.span[0])
     return cites
 

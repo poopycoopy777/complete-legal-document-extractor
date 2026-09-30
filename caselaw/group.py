@@ -973,7 +973,10 @@ def group_citations(text: str) -> ExtractionResult:
     )
 
     # The case record: "Doc. No. 80 at 26", "SAC para 45", "Policy 1010.4.2".
-    record_cites = extract_record_cites(text)
+    # Matched on the masked copy, but read back out of the original: a "Doc. 54
+    # ... at 4" whose pin sits past a page break would otherwise report text
+    # that its own span does not address, and the caller rejects the extraction.
+    record_cites = extract_record_cites(text, original=original_text)
     record_groups: dict[str, RecordGroup] = {}
     owner_of_record: dict[int, RecordGroup] = {}
     record_pins: dict[int, tuple[str, str]] = {

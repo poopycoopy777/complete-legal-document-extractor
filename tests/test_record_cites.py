@@ -148,3 +148,54 @@ def test_a_parenthetical_id_points_back_at_the_preceding_record_cite():
 
 def test_a_parenthetical_id_with_no_record_cite_before_it_is_left_alone():
     assert extract_record_cites("Smith v. Jones, 1 F.3d 2 (1st Cir. 1990). (Id. at 3.)") == []
+
+class TestStampsInsideARecordCiteSpan:
+    """A pin read across a page break must still slice back to the document.
+
+    The report the caller gets is the unmasked document, but record cites are
+    matched against a working copy whose court stamps are blanked in place.
+    "Doc. 54 ... at 4" with the stamp between the number and the pin therefore
+    reported text its own span did not address, and the orchestrator refused the
+    whole extraction: "record r0 citation span does not match text".
+    """
+
+    STAMP = "Case No. 1:25-cv-02263-RMR-MDB  Document 61    filed 10/13/25  USDC Colorado\npg 17 of 27"
+
+    def _filing(self) -> str:
+        return (
+            'Counsel wrote "Officer Albaugh entered without a warrant." (Doc. 54\n'
+            "\n\n                    16" + self.STAMP + "\n\n\n\nat 4). Yet on page 13, "
+            "Doc. 42 at 7 says otherwise."
+        )
+
+    def test_every_record_cite_slices_back_out_of_the_unmasked_document(self):
+        from caselaw.group import group_citations
+
+        text = self._filing()
+        extraction = group_citations(text)
+
+        cites = [g.header for g in extraction.records] + [
+            child for g in extraction.records for child in g.children
+        ]
+        assert cites, "the filing states two record citations"
+        for cite in cites:
+            assert text[cite.span[0]:cite.span[1]] == cite.text, (
+                f"{cite.source_id} text does not match its own span"
+            )
+
+    def test_the_masked_copy_would_have_broken_it(self):
+        """Guards the guard: if masking stopped mattering, this test is inert."""
+        from caselaw.group import _mask_court_stamps
+
+        text = self._filing()
+        masked = _mask_court_stamps(text)
+        assert masked != text, "the stamp must actually be blanked"
+        assert len(masked) == len(text), "masking must preserve every offset"
+        assert "USDC" not in masked and "USDC" in text
+
+    def test_the_pin_across_the_break_still_reports_its_page(self):
+        from caselaw.group import group_citations
+
+        extraction = group_citations(self._filing())
+        pins = [c.pin for g in extraction.records for c in (*([g.header] if g.header else []), *g.children)]
+        assert "4" in pins
