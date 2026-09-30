@@ -8,6 +8,8 @@ document. Each upload records a SHA-256 taken before anything reads it.
 from __future__ import annotations
 
 import hashlib
+import os
+import subprocess
 import sys
 import uuid
 from dataclasses import dataclass
@@ -38,7 +40,36 @@ MAX_TEXT_CHARS = 2_000_000
 MAX_PDF_PAGES = 500
 TEXT_SUFFIXES = {".txt", ".text", ".md"}
 
-app = FastAPI(title="Caselaw Extraction API", version="0.1.0")
+API_VERSION = "0.1.0"
+
+
+def _build_commit() -> str | None:
+    """The commit this process is serving, so a caller can tell it apart from another.
+
+    The orchestrator pins this checkout by commit and checks the running service
+    against that pin. A service that will not say which build it is cannot be
+    checked, so absence here is reported rather than passed off as agreement.
+    BUILD_COMMIT wins when set, for an image or a copy without its .git.
+    """
+    configured = os.environ.get("BUILD_COMMIT", "").strip()
+    if configured:
+        return configured
+    try:
+        return subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=Path(__file__).resolve().parents[1],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=5,
+        ).stdout.strip() or None
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+BUILD_COMMIT = _build_commit()
+
+app = FastAPI(title="Caselaw Extraction API", version=API_VERSION)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
@@ -227,8 +258,9 @@ def _highlight_rects(
 
 
 @app.get("/api/health")
-def health() -> dict[str, str]:
-    return {"status": "ok"}
+def health() -> dict[str, str | None]:
+    """Liveness, and which build is answering. Says nothing about extraction quality."""
+    return {"status": "ok", "version": API_VERSION, "commit_sha": BUILD_COMMIT}
 
 
 @app.post("/api/extract")

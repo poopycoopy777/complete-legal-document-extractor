@@ -67,6 +67,25 @@ def test_upload_rejects_pdf_over_page_limit_and_removes_file(monkeypatch):
     assert list(api.STORAGE.iterdir()) == []
 
 
+def test_health_reports_the_build_answering():
+    """The orchestrator checks the running service against its pinned commit.
+
+    A build that cannot be named cannot be checked, so this must report one --
+    from BUILD_COMMIT when set, otherwise from the checkout's own HEAD.
+    """
+    body = api.health()
+
+    assert body["status"] == "ok"
+    assert body["version"] == api.API_VERSION
+    assert body["commit_sha"] == api.BUILD_COMMIT
+
+
+def test_build_commit_prefers_the_configured_value(monkeypatch):
+    monkeypatch.setenv("BUILD_COMMIT", "abc1234")
+
+    assert api._build_commit() == "abc1234"
+
+
 def test_pdf_highlights_include_unattributed_quotations():
     pdf = pymupdf.open()
     page = pdf.new_page()
