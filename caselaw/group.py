@@ -69,6 +69,24 @@ _ECF_STAMP = re.compile(
     r"^.*\bCase\s+(?:No\.\s*)?\d+:\d+-[a-z]{2}-\d+\S*.*?(?:\bpg|\bPage)\s*\d+\s*of\s*\d+.*$",
     re.IGNORECASE | re.MULTILINE,
 )
+# Mask only a complete docket/date/court/page stamp, including a fused footer
+# number. Keep every character position and newline for document navigation.
+_COMPLETE_ECF_STAMP = re.compile(
+    r"(?m)^[ \t]*(?:\d+[ \t]*(?:\r?\n[ \t]*)*)?Case[ \t]+(?:No\.?[ \t]*)?"
+    r"\d+:\d+-[a-z]{2}-\d+[^\r\n]*?\bDocument[ \t]+\d+(?:-\d+)?"
+    r"[^\r\n]*?\bfiled[ \t]+\d{1,2}/\d{1,2}/\d{2,4}"
+    r"[^\r\n]*?\bUSDC[^\r\n]*?(?:[ \t]*\r?\n[ \t]*)?"
+    r"(?:pg\.?|Page)[ \t]+\d+[ \t]+of[ \t]+\d+",
+    re.IGNORECASE,
+)
+
+
+def _mask_court_stamps(text: str) -> str:
+    return _COMPLETE_ECF_STAMP.sub(
+        lambda match: "".join(c if c in "\r\n" else " " for c in match.group()), text,
+    )
+
+
 # A candidate that ends like this is the front of a caption, not a sentence.
 _CAPTION_FRAGMENT = re.compile(r"(?:\bv\.|\bex\s+rel\.|\bIn\s+re|\bon\s+behalf\s+of)\s*$")
 # A Bluebook introductory signal between the proposition and the citation. It is
@@ -400,6 +418,7 @@ def _is_shouted_label(body: str) -> bool:
 
 
 def _find_quotes(text: str) -> list[tuple[int, int, str]]:
+    text = _mask_court_stamps(text)
     spans = []
     for m in _QUOTE.finditer(text):
         body = m.group(1) if m.group(1) is not None else m.group(2)
@@ -903,6 +922,8 @@ def _groups_without_full_citation(
 
 def group_citations(text: str) -> ExtractionResult:
     """Extract citations and cluster them under their full citation."""
+    original_text = text
+    text = _mask_court_stamps(text)
     pairs = extract_pairs(text)
     authorities = _group_authorities(text)
 
@@ -1041,7 +1062,7 @@ def group_citations(text: str) -> ExtractionResult:
         quote = Quote(
             text=body,
             span=(q_start, q_end),
-            raw_text=text[q_start:q_end],
+            raw_text=original_text[q_start:q_end],
         )
         echo = record_words.get(_echo_key(body))
         if echo is not None:
@@ -1081,7 +1102,7 @@ def group_citations(text: str) -> ExtractionResult:
         group.quotes.sort(key=lambda q: q.span[0])
 
     return ExtractionResult(
-        text=text,
+        text=original_text,
         layout_regions=regions,
         records=ordered_records,
         groups=groups,

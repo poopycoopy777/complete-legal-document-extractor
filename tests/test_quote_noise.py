@@ -302,3 +302,34 @@ def test_an_ocr_underscore_before_v_does_not_lose_the_caption():
     text = "It so held. In Doe _v. United States, 419 F.3d 1058 (9th Cir. 2005), the court held."
     (group,) = group_citations(text).as_dict()["groups"]
     assert group["caseName"] == "Doe v. United States"
+
+
+def test_multiline_ecf_stamp_inside_quote_is_not_quoted_evidence():
+    text = ('"A court properly may deny a motion for leave to amend as futile when the '
+            'proposed amended complaint would be subject to\n\n   4Case No. 1:25-cv-02263-RMR-MDB '
+            ' Document 86    filed 07/23/26  USDC Colorado\n   pg 5 of 10\n\n'
+            'dismissal for any reason, including that the amendment would not survive a motion '
+            'for summary judgment." Bauchman v. West High School, 132 F.3d 542, 562 (10th Cir. 1997).')
+    result = group_citations(text).as_dict()
+    quote = result["groups"][0]["quotes"][0]
+    assert "subject to dismissal" in quote["text"]
+    assert "Case No" not in quote["text"]
+    assert "4Case" not in quote["text"]
+    assert result["text"] == text
+    start, end = quote["span"]
+    assert quote["raw_text"] == text[start:end]
+    assert result["groups"][0]["header"]["span"][0] == text.index("132 F.3d 542")
+
+
+def test_substantive_docket_language_is_not_removed_from_quotes():
+    text = ('"Case No. 12 was dismissed. Document 86 was filed as evidence." '
+            'Bauchman v. West High School, 132 F.3d 542, 562 (10th Cir. 1997).')
+    assert group_citations(text).as_dict()["groups"][0]["quotes"][0]["text"] == (
+        "Case No. 12 was dismissed. Document 86 was filed as evidence.")
+
+
+def test_ecf_stamp_removes_a_separate_footer_and_keeps_body_on_same_line():
+    text = ('"A claim may survive\n4\n\nCase No. 1:25-cv-02263-RMR-MDB '
+            'Document 86 filed 07/23/26 USDC Colorado pg 5 of 10 dismissal." '
+            'Bauchman v. West High School, 132 F.3d 542, 562 (10th Cir. 1997).')
+    assert group_citations(text).as_dict()["groups"][0]["quotes"][0]["text"] == "A claim may survive dismissal."
