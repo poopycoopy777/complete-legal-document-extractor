@@ -52,9 +52,9 @@ _YEAR_PAREN = re.compile(r"\(([^()]{0,60}?)(\d{4})\s*\)")
 # allow whitespace (including newlines); the captured value is collapsed to
 # single spaces afterwards.
 _CASE_NAME = re.compile(
-    r"(?P<plaintiff>[A-Z][A-Za-z0-9'‘’\.\-\u2013&,\s]{0,140}?)"
+    r"(?P<plaintiff>[A-Z](?:[A-Za-z0-9'‘’\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}?)"
     r"\s+_?v\.?\s+"  # OCR of a scanned brief: "Doe _v. United States"
-    r"(?P<defendant>[A-Z][A-Za-z0-9'‘’\.\-\u2013&,\s]{0,140}?)"
+    r"(?P<defendant>[A-Z](?:[A-Za-z0-9'‘’\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}?)"
     r"\s*,?\s*$"
 )
 
@@ -284,7 +284,7 @@ def _trim_lead_in(name: str) -> str:
     keep = len(words)
     for i in range(len(words) - 1, -1, -1):
         word = words[i]
-        if word[:1].isupper() or word.lower().strip(",") in _NAME_CONNECTORS:
+        if word.lstrip("(")[:1].isupper() or word.lower().strip(",") in _NAME_CONNECTORS:
             keep = i
         else:
             break
@@ -421,6 +421,19 @@ def _derive_parties(window: str) -> tuple[str | None, str | None]:
     match = _CASE_NAME.search(stripped)
     if not match:
         return None, None
+    # Parentheses inside corporate captions are literal source text. Require
+    # balanced pairs so an incomplete caption cannot become a partial party.
+    for party in (match.group("plaintiff"), match.group("defendant")):
+        depth = 0
+        for char in party:
+            if char == "(":
+                depth += 1
+            elif char == ")":
+                depth -= 1
+            if depth < 0:
+                return None, None
+        if depth:
+            return None, None
     plaintiff = _trim_lead_in(_collapse(match.group("plaintiff")))
     defendant = _collapse(match.group("defendant")).strip(",")
     if not plaintiff or not defendant:
