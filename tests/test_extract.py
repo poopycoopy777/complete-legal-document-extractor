@@ -377,3 +377,15 @@ class TestNonAdversarialCaptions:
         )
         full = [c for _, c in extract_pairs(text) if c.kind == "FullCaseCitation"]
         assert full[0].case_name == "In re Marriage of Rubio"
+
+
+@pytest.mark.parametrize("text,expected", [
+    ("In re: Marriage of Durie, 459 P. 3d 637 (2018).", "In re: Marriage of Durie"),
+    ("People in Interest of M.M., 2017 COA 144", "People in Interest of M.M."),
+    ("People   in Interest  of\n M.M., 2017COA   144", "People in Interest of M.M."),
+])
+def test_colon_and_optional_article_nonadversarial_captions(text, expected):
+    full = [c for _, c in extract_pairs(text) if c.kind == "FullCaseCitation"]
+    assert full
+    assert full[0].case_name == expected
+    assert text[slice(*full[0].span)] == full[0].text

@@ -293,12 +293,59 @@ def _base_source(template_name: str) -> str:
     return re.sub(r"\s*\[[^\]]+\]\s*$", "", template_name)
 
 
+# Colorado civil rules are absent from CiteURL's bundled templates. Require
+# the explicit designator, and extend it only across an adjacent numeric list.
+_COLORADO_CIVIL_RULE = re.compile(
+    r"\bC\.?\s*R\.?\s*C\.?\s*P\.?\s*(?P<rule>\d+(?:\.\d+)?)(?![A-Za-z0-9])"
+    r"(?P<subsection>(?:\s*\([A-Za-z0-9]+\))*)"
+    r"(?:\s+Section\s+(?P<section>\d+-\d+)"
+    r"(?:\s+subsection\s*(?P<section_subsection>\([A-Za-z0-9]+\)))?)?",
+    re.IGNORECASE,
+)
+_COLORADO_RULE_CONTINUATION = re.compile(
+    r"\s*(?:,\s*(?:(?:and|or)\s+)?|(?:and|or)\s+)"
+    r"(?P<rule>\d{1,3}(?:\.\d+)?)(?P<subsection>(?:\s*\([A-Za-z0-9]+\))*)"
+    r"(?![A-Za-z0-9])", re.IGNORECASE,
+)
+
+
+def _colorado_civil_rules(text: str) -> list[Authority]:
+    found = []
+    for match in _COLORADO_CIVIL_RULE.finditer(text):
+        members = [(match, match.start(), False)]
+        cursor = match.end()
+        while continuation := _COLORADO_RULE_CONTINUATION.match(text, cursor):
+            members.append((continuation, continuation.start("rule"), True))
+            cursor = continuation.end()
+        for item, start, short in members:
+            rule = item.group("rule")
+            subsection = re.sub(r"\s+", "", item.group("subsection") or "")
+            section = item.groupdict().get("section")
+            section_subsection = item.groupdict().get("section_subsection") or ""
+            provision = rule + subsection
+            tokens = {"rule": rule, "section": provision}
+            if subsection:
+                tokens["subsection"] = subsection
+            if section:
+                provision = f"{rule} Section {section}{section_subsection}"
+                tokens["section"] = provision
+                tokens["practice_standard"] = section
+                if section_subsection:
+                    tokens["subsection"] = section_subsection
+            found.append(Authority(
+                category="rule", source="Colorado Rules of Civil Procedure",
+                text=text[start:item.end()], span=(start, item.end()),
+                name=f"C.R.C.P. {provision}", tokens=tokens, is_shortform=short,
+            ))
+    return found
+
+
 def extract_authorities(text: str) -> list[Authority]:
     """Extract statutes, regulations, rules and constitutions, in order."""
     if not text or not text.strip():
         return []
 
-    results: list[Authority] = []
+    results: list[Authority] = _colorado_civil_rules(text)
     for cite in _citator().list_cites(text):
         source = _base_source(cite.template.name)
         start, end = cite.span

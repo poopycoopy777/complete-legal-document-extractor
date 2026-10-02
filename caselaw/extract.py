@@ -88,14 +88,14 @@ _CASE_NAME = re.compile(
 #   In re Marriage of Rubio, 313 P.3d 623 (Colo. App. 2011)
 #   People in the Interest of C.A.G., 903 P.2d 1229 (Colo. App. 1995)
 _IN_RE_OPENER = re.compile(
-    r"(?:In\s+re(?:\s+the)?|In\s+the\s+Matter\s+of|Matter\s+of|Ex\s+parte|"
-    r"(?:People|State|Commonwealth)\s+in\s+the\s+Interest\s+of|"
-    r"In\s+the\s+Interest\s+of|In\s+re:)",
+    r"(?:In\s+re:?(?:\s+the)?|In\s+the\s+Matter\s+of|Matter\s+of|Ex\s+parte|"
+    r"(?:People|State|Commonwealth)\s+in\s+(?:the\s+)?Interest\s+of|"
+    r"In\s+the\s+Interest\s+of)",
     re.IGNORECASE,
 )
 # What may follow the opener. Initials with periods are common in juvenile
 # captions ("C.A.G."), so periods and spaces are allowed.
-_IN_RE_BODY = re.compile(r"^[A-Za-z0-9'‘’\.\-&,\s]{0,160}$")
+_IN_RE_BODY = re.compile(r"^[A-Za-z0-9'\u2018\u2019:.\-&,\s]{0,160}$")
 
 # Bluebook introductory signals and common lead-in verbs. These are capitalised
 # at the start of a sentence, so capitalisation alone cannot separate them from

@@ -210,3 +210,30 @@ def test_real_shortforms_survive_the_bare_number_filter():
     )
     found = extract_authorities(text)
     assert len(found) >= 3, [f.text for f in found]
+
+
+@pytest.mark.parametrize("text,sections", [
+    ("C.R.C.P.12(f)", ["12(f)"]),
+    ("C.R.C.P. 121 Section 1-15 subsection (3)", ["121 Section 1-15(3)"]),
+    ("C.R.C.P. 8", ["8"]),
+    ("C.R.C.P. 12 or 56", ["12", "56"]),
+])
+def test_colorado_civil_rules_have_source_bound_occurrences(text, sections):
+    found = extract_authorities(text)
+    assert [a.tokens.get("section") for a in found] == sections
+    for a in found:
+        assert (a.category, a.source) == ("rule", "Colorado Rules of Civil Procedure")
+        assert text[slice(*a.span)] == a.text
+        assert a.name
+
+
+def test_colorado_civil_rules_group_repeated_spellings():
+    result = group_citations("C.R.C.P.12(f) and C. R. C. P. 12 (f).")
+    assert len(result.authorities) == 1
+    assert len(result.authorities[0].children) == 1
+
+
+@pytest.mark.parametrize("text", ["Rules 12 or 56", "C.R.C.P. 12foo", "C.R.C.P. 8, 2026"])
+def test_colorado_civil_rules_do_not_infer_unmarked_numbers(text):
+    found = extract_authorities(text)
+    assert [a.tokens["rule"] for a in found if a.source == "Colorado Rules of Civil Procedure"] == (["8"] if "8," in text else [])
