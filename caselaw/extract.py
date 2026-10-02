@@ -52,9 +52,9 @@ _YEAR_PAREN = re.compile(r"\(([^()]{0,60}?)(\d{4})\s*\)")
 # allow whitespace (including newlines); the captured value is collapsed to
 # single spaces afterwards.
 _CASE_NAME = re.compile(
-    r"(?P<plaintiff>[A-Z](?:[A-Za-z0-9'‘’\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}?)"
+    r"(?P<plaintiff>[A-Z](?:[A-Za-z0-9'\u2018\u2019\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}?)"
     r"\s+_?v\.?\s+"  # OCR of a scanned brief: "Doe _v. United States"
-    r"(?P<defendant>[A-Z](?:[A-Za-z0-9'‘’\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}?)"
+    r"(?P<defendant>[A-Z](?:[A-Za-z0-9'\u2018\u2019\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}?)"
     r"\s*,?\s*$"
 )
 
