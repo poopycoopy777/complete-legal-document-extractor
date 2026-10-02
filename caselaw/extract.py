@@ -47,14 +47,36 @@ _MAX_YEAR = datetime.now(timezone.utc).year + 1
 # "(rejecting Conley)" or "(en banc)" do not match.
 _YEAR_PAREN = re.compile(r"\(([^()]{0,60}?)(\d{4})\s*\)")
 
+# Reporters print a party's foreign particle the way the caption has it, which
+# is often lower case: "Ashcroft v. al-Kidd", "United States v. van der
+# Linden", "de la Cruz v. Homan". Requiring BOTH parties to open with a capital
+# dropped that class of caption entirely, and a citation extracted without a
+# name is reported downstream as a caption mismatch against the very case it
+# cites. The list is explicit: accepting any lower-case word would turn the
+# prose that precedes a citation into a party.
+_PARTY_PARTICLES = (
+    "al", "bin", "bint", "da", "das", "de", "del", "della", "den", "der",
+    "di", "dos", "du", "el", "ibn", "la", "le", "ten", "ter", "van", "von",
+)
+_PARTICLE_ALT = "|".join(_PARTY_PARTICLES)
+# A run of leading particles, each followed by the separator the caption
+# prints: "al-Kidd", "van der Linden", "della Robbia".
+_PARTICLE_RUN = rf"(?:(?:{_PARTICLE_ALT})[-'\u2019\s])*"
+# A party opens on a capital, or on a particle that the caption leaves lower
+# case. The lookahead that keeps prose out is the [A-Z] itself: a lower-case
+# word is only ever consumed when a capital follows it ("de Novo" is not a
+# party, "de la Cruz" is).
+_PARTY_HEAD = rf"{_PARTICLE_RUN}[A-Z]"
+_PARTY_BODY = r"(?:[A-Za-z0-9'\u2018\u2019\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}"
+
 # "Plaintiff v. Defendant," immediately preceding the citation.
 # Party names wrap across lines in real filings, so the character classes
 # allow whitespace (including newlines); the captured value is collapsed to
 # single spaces afterwards.
 _CASE_NAME = re.compile(
-    r"(?P<plaintiff>[A-Z](?:[A-Za-z0-9'\u2018\u2019\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}?)"
+    rf"(?P<plaintiff>{_PARTY_HEAD}{_PARTY_BODY}?)"
     r"\s+_?v\.?\s+"  # OCR of a scanned brief: "Doe _v. United States"
-    r"(?P<defendant>[A-Z](?:[A-Za-z0-9'\u2018\u2019\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}?)"
+    rf"(?P<defendant>{_PARTY_HEAD}{_PARTY_BODY}?)"
     r"\s*,?\s*$"
 )
 
@@ -183,6 +205,19 @@ _SIGNAL_WORDS = {
 # Equalization v. Hively. Cut at "rel." the caption lost "People ex rel.".
 _NAME_CONNECTORS = {"of", "the", "for", "de", "van", "der", "del", "la", "&", "ex", "rel."}
 
+# The connectors that may be left over from the prose a caption follows. The
+# particles are deliberately excluded: a leading particle belongs to the
+# caption itself, so "de la Cruz v. Davis" must not be cut down to
+# "Cruz v. Davis".
+_STRIPPABLE_CONNECTORS = _NAME_CONNECTORS - set(_PARTY_PARTICLES)
+
+# A word that may close a party name: a capitalised word, a connector, or a
+# particle-led word such as "al-Kidd". The lookahead keeps ordinary lower-case
+# prose out -- neither "also" nor "derivative" opens on a whole particle -- and
+# excluding a trailing period keeps the abbreviation "et al." out, which is
+# prose, not a party.
+_PARTICLE_WORD = re.compile(rf"(?:{_PARTICLE_ALT})(?=[-'\u2019\s]|$)")
+
 # Section-heading numbering that can sit immediately before a citation:
 # "III.", "A.", "2.". Matched against a token already stripped of punctuation,
 # so it must be the whole token to count.
@@ -265,6 +300,21 @@ def _leading_window(text: str, start: int, end: int) -> str:
     return text[start:end]
 
 
+def _is_party_word(word: str) -> bool:
+    """A word that may sit at the closing edge of a party name.
+
+    Capitalised words, the lower-case connectors reporters print inside a
+    caption ("of", "the"), and particle-led words ("al-Kidd") all qualify;
+    ordinary lower-case prose does not.
+    """
+    stripped = word.lstrip("(").strip(",")
+    if not stripped:
+        return False
+    if stripped[:1].isupper():
+        return True
+    return stripped.lower() in _NAME_CONNECTORS or bool(_PARTICLE_WORD.match(stripped))
+
+
 def _trim_lead_in(name: str) -> str:
     """Strip introductory prose, keeping the trailing run of name-like words.
 
@@ -284,7 +334,7 @@ def _trim_lead_in(name: str) -> str:
     keep = len(words)
     for i in range(len(words) - 1, -1, -1):
         word = words[i]
-        if word.lstrip("(")[:1].isupper() or word.lower().strip(",") in _NAME_CONNECTORS:
+        if _is_party_word(word):
             keep = i
         else:
             break
@@ -315,7 +365,7 @@ def _trim_lead_in(name: str) -> str:
             kept = kept[1:]
             continue
         break
-    while len(kept) > 1 and kept[0].lower().strip(".,") in _NAME_CONNECTORS:
+    while len(kept) > 1 and kept[0].lower().strip(".,") in _STRIPPABLE_CONNECTORS:
         kept = kept[1:]
     return " ".join(kept).strip().strip(",")
 

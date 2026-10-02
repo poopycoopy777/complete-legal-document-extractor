@@ -245,6 +245,61 @@ def test_curly_apostrophes_in_party_names():
     assert cite.defendant == "Brown"
 
 
+class TestLowerCasePartyParticles:
+    """A caption's foreign particle is printed as the caption has it, which is
+    often lower case ("Ashcroft v. al-Kidd").
+
+    Both parties used to be required to open with a capital, so that class of
+    caption produced no name at all and the citation reached verification
+    unnamed -- reported there as a caption mismatch against the case it
+    actually cites.
+    """
+
+    @pytest.mark.parametrize(
+        "text,plaintiff,defendant",
+        [
+            ("See Ashcroft v. al-Kidd, 563 U.S. 731 (2011).", "Ashcroft", "al-Kidd"),
+            ("See United States v. van Zandt, 563 U.S. 731 (2011).", "United States", "van Zandt"),
+            (
+                "See United States v. van der Linden, 563 U.S. 731 (2011).",
+                "United States",
+                "van der Linden",
+            ),
+            ("See de la Cruz v. Homan, 563 U.S. 731 (2011).", "de la Cruz", "Homan"),
+            ("See United States v. el-Shabazz, 563 U.S. 731 (2011).", "United States", "el-Shabazz"),
+            ("See United States v. bin Laden, 563 U.S. 731 (2011).", "United States", "bin Laden"),
+        ],
+    )
+    def test_the_particle_stays_in_the_party(self, text, plaintiff, defendant):
+        (cite,) = [c for c in extract(text) if c.kind == "FullCaseCitation"]
+        assert (cite.plaintiff, cite.defendant) == (plaintiff, defendant)
+        assert cite.full_citation.startswith(f"{plaintiff} v. {defendant},")
+
+    def test_a_quoting_parenthetical_does_not_leave_the_citation_nameless(self):
+        """The reported reproduction: a pin cite and "(quoting ...)" sit between
+        the previous citation's span and this one."""
+        text = (
+            "that the right was \u201cclearly established\u201d at the time of the "
+            "challenged conduct.\u201d Quinn v. Young, \n780 F.3d 998, 1004 "
+            "(10th Cir. 2015) (quoting Ashcroft v. al-Kidd, 563 U.S. 731, 735 (2011))."
+        )
+        (cite,) = [c for c in extract(text) if c.text == "563 U.S. 731"]
+        assert (cite.plaintiff, cite.defendant) == ("Ashcroft", "al-Kidd")
+        assert cite.full_citation == "Ashcroft v. al-Kidd, 563 U.S. 731 (2011)"
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "The court reviewed the claim de novo in Smith v. Jones, 563 U.S. 731 (2011).",
+            "See also derivative works in Smith v. Jones, 563 U.S. 731 (2011).",
+            "The rule of lenity applies here. Smith v. Jones, 563 U.S. 731 (2011).",
+        ],
+    )
+    def test_lower_case_prose_is_not_turned_into_a_party(self, text):
+        (cite,) = [c for c in extract(text) if c.kind == "FullCaseCitation"]
+        assert (cite.plaintiff, cite.defendant) == ("Smith", "Jones")
+
+
 class TestNonAdversarialCaptions:
     """Captions with no "v." at all: one party, not two.
 

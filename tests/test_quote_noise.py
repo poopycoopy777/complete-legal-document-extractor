@@ -222,6 +222,22 @@ def test_id_after_a_quoting_parenthetical_refers_to_the_cited_case():
     assert _group(result, "Twombly")["quotes"] == []
 
 
+def test_a_lower_case_particle_caption_names_its_card():
+    """(quoting Ashcroft v. al-Kidd, ...) used to produce a nameless card: the
+    defendant's lower-case particle did not match the party pattern, so the
+    citation went to verification as "563 U.S. 731" and came back there as a
+    caption mismatch against al-Kidd."""
+    text = (
+        "Quinn v. Young, 780 F.3d 998, 1004 (10th Cir. 2015) (quoting "
+        "Ashcroft v. al-Kidd, 563 U.S. 731, 735 (2011))."
+    )
+    groups = {
+        " ".join(g["header"]["text"].split()): g
+        for g in group_citations(text).as_dict()["groups"]
+    }
+    assert groups["563 U.S. 731"]["caseName"] == "Ashcroft v. al-Kidd"
+
+
 def test_a_quote_two_argument_sentences_before_a_citation_is_not_its():
     text = (
         'Their logic is perverse: "It is lawful to besiege a home without probable cause." '
