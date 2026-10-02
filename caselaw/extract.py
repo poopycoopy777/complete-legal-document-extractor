@@ -623,6 +623,14 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
                         "party_name_ocr_corrected: 'lon Media Networks' -> "
                         "'Ion Media Networks'"
                     )
+                # A missing PDF word boundary in the narrative opener is not a
+                # spelling correction to the party. Parse a copy and preserve
+                # the original text/spans; never rewrite Igbal into Iqbal.
+                corrected_before, joined = re.subn(
+                    r"\b(In the case of)(?=[A-Z])", r"\1 ", corrected_before
+                )
+                if joined:
+                    record.flags.append("party_name_boundary_normalized: joined narrative preposition")
                 plaintiff, defendant = _derive_parties(corrected_before)
                 record.plaintiff = plaintiff
                 record.defendant = defendant
