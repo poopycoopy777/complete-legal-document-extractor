@@ -3,12 +3,19 @@
 Uploaded files are written to storage/ byte-for-byte and never modified; the
 viewer is served those original bytes so the left pane renders the real
 document. Each upload records a SHA-256 taken before anything reads it.
+
+The document registry is rebuilt from storage/ at startup: a small
+``documents.json`` beside the files records what each upload knew at the time,
+and the files themselves are scanned when it is absent. A service restart
+therefore never orphans a document the user already uploaded.
 """
 
 from __future__ import annotations
 
 import hashlib
+import json
 import os
+import re
 import subprocess
 import sys
 import uuid
@@ -98,6 +105,167 @@ class ExtractRequest(BaseModel):
 
 def _sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+# Uploads land on disk as "<32-hex doc id><suffix>". Nothing else in storage
+# matches, so scanning the directory is unambiguous and the registry file
+# itself (and any half-written temporary file) is skipped automatically.
+_REGISTRY_NAME = "documents.json"
+_STORED_FILE = re.compile(r"^([0-9a-f]{32})(\.pdf|\.txt|\.text|\.md)$", re.IGNORECASE)
+
+
+def _kind_for_suffix(suffix: str) -> str | None:
+    suffix = suffix.lower()
+    if suffix == ".pdf":
+        return "pdf"
+    if suffix in TEXT_SUFFIXES:
+        return "text"
+    return None
+
+
+def _document_from_registry_entry(entry: dict) -> StoredDocument | None:
+    """A document from a ``documents.json`` entry, or None when it is unusable.
+
+    The registry is this process's own file, but it is read back without
+    trust: the id must be a real document id, the file name is taken from the
+    basename so a mangled entry cannot point outside storage/, and the file
+    must still exist.
+    """
+    try:
+        doc_id = entry["id"]
+        file = Path(entry["file"]).name
+        kind = entry["kind"]
+        sha256 = entry["sha256"]
+        uploaded_at = entry["uploaded_at"]
+        pages = int(entry.get("pages", 0))
+    except (KeyError, TypeError, ValueError):
+        return None
+    if not re.fullmatch(r"[0-9a-f]{32}", doc_id) or kind not in ("pdf", "text"):
+        return None
+    path = STORAGE / file
+    if not path.is_file():
+        return None
+    return StoredDocument(
+        id=doc_id,
+        name=str(entry.get("name") or file),
+        kind=kind,
+        path=path,
+        sha256=sha256,
+        uploaded_at=uploaded_at,
+        pages=pages,
+    )
+
+
+def _document_from_scan(path: Path) -> StoredDocument | None:
+    """Recover what a stored file alone can prove about its upload.
+
+    Used when the registry is absent: documents uploaded before the registry
+    existed must survive the restart just like newer ones. The checksum and
+    page count are recomputed from the file's own bytes; the upload name is
+    gone, so the stored file name stands in for it and the timestamp is the
+    file's modification time.
+    """
+    match = _STORED_FILE.fullmatch(path.name)
+    if match is None:
+        return None
+    doc_id, suffix = match.group(1), match.group(2).lower()
+    kind = _kind_for_suffix(suffix)
+    if kind is None:
+        return None
+    try:
+        sha256 = _sha256(path.read_bytes())
+    except OSError:
+        return None
+    pages = 0
+    if kind == "pdf":
+        try:
+            with pymupdf.open(path) as doc:
+                pages = doc.page_count
+        except Exception:  # noqa: BLE001 - recovery is best effort
+            pages = 0
+    try:
+        uploaded_at = datetime.fromtimestamp(
+            path.stat().st_mtime, tz=timezone.utc
+        ).isoformat()
+    except OSError:
+        uploaded_at = ""
+    return StoredDocument(
+        id=doc_id,
+        name=path.name,
+        kind=kind,
+        path=path,
+        sha256=sha256,
+        uploaded_at=uploaded_at,
+        pages=pages,
+    )
+
+
+def _load_documents() -> dict[str, StoredDocument]:
+    """Rebuild the document registry from storage/ after a restart.
+
+    The directory is always scanned, because the files are the evidence and
+    they are always there; a registry entry then overrides the scan with the
+    facts only the upload knew (its display name, checksum, page count and
+    timestamp). A missing, unreadable or truncated registry therefore costs
+    nothing but the name, and a document is never orphaned by a restart.
+    """
+    documents: dict[str, StoredDocument] = {}
+    try:
+        paths = [path for path in STORAGE.iterdir() if path.is_file()]
+    except OSError:
+        paths = []
+    for path in paths:
+        document = _document_from_scan(path)
+        if document is not None:
+            documents[document.id] = document
+
+    registry = STORAGE / _REGISTRY_NAME
+    try:
+        entries = json.loads(registry.read_text("utf-8"))
+    except (OSError, ValueError):
+        entries = None
+    if isinstance(entries, list):
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            document = _document_from_registry_entry(entry)
+            if document is not None:
+                documents[document.id] = document
+    return documents
+
+
+def _persist_registry() -> bool:
+    """Write the in-memory registry beside the files it describes.
+
+    Atomic by construction: a temporary file is written and then moved into
+    place, so a crash mid-write leaves the previous registry intact and never
+    a half-written one. A failure here must not fail the upload itself: the
+    file is already safe on disk, and the next start can still recover it by
+    scanning.
+    """
+    payload = [
+        {
+            "id": document.id,
+            "name": document.name,
+            "kind": document.kind,
+            "file": document.path.name,
+            "sha256": document.sha256,
+            "uploaded_at": document.uploaded_at,
+            "pages": document.pages,
+        }
+        for document in _DOCUMENTS.values()
+    ]
+    temporary = STORAGE / f".{_REGISTRY_NAME}.{uuid.uuid4().hex}.tmp"
+    try:
+        temporary.write_text(json.dumps(payload, indent=2), "utf-8")
+        os.replace(temporary, STORAGE / _REGISTRY_NAME)
+        return True
+    except OSError:
+        temporary.unlink(missing_ok=True)
+        return False
+
+
+_DOCUMENTS = _load_documents()
 
 
 async def _read_upload_limited(file: UploadFile, limit: int = MAX_BYTES) -> bytes:
@@ -411,6 +579,11 @@ async def upload_document(file: Annotated[UploadFile, File()]) -> dict:
         pages=page_count,
     )
     _DOCUMENTS[doc_id] = stored
+    if not _persist_registry():
+        notes.append(
+            "Document stored, but its registry entry could not be written; "
+            "it may not be served after a service restart."
+        )
 
     extraction = group_citations(text).as_dict()
     if text_source == "ocr":
