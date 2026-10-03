@@ -1,0 +1,837 @@
+{
+  "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\04-2025CV111-2026-05-22-12b5-dismissal.pdf",
+  "sha256": "ec77b49376a82b1743a1ccceadbdac5abf9511dd66be50cac363b658eb5ff518",
+  "bytes": 226500,
+  "pdf_pages": 4,
+  "text_chars": 11063,
+  "stats": {
+    "groups": 10,
+    "citations": 23,
+    "quotes": 1,
+    "linkedQuotes": 1,
+    "ambiguousQuotes": 0,
+    "unattributedQuotes": 0,
+    "flagged": 6,
+    "authorities": 13,
+    "authorityCitations": 22
+  },
+  "warnings": null,
+  "flags": null,
+  "groups": [
+    {
+      "id": "g0",
+      "name": "Warne v. Hall",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "2016 CO 50",
+        "span": [
+          1356,
+          1366
+        ],
+        "volume": "2016",
+        "reporter": "CO",
+        "page": "50",
+        "pin_cite": null,
+        "year": null,
+        "court": null,
+        "plaintiff": "Warne",
+        "defendant": "Hall",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "2016 CO 50",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Warne v. Hall, 2016 CO 50",
+        "flags": []
+      },
+      "children": [
+        {
+          "kind": "FullCaseCitation",
+          "text": "373 P.3d 588",
+          "span": [
+            1378,
+            1390
+          ],
+          "pin_cite": "593",
+          "flags": []
+        },
+        {
+          "kind": "IdCitation",
+          "text": "Id.",
+          "span": [
+            1592,
+            1595
+          ],
+          "pin_cite": null,
+          "flags": []
+        },
+        {
+          "kind": "ShortCaseCitation",
+          "text": "373 P.3d at 594",
+          "span": [
+            1609,
+            1624
+          ],
+          "pin_cite": "594",
+          "flags": []
+        },
+        {
+          "kind": "FullCaseCitation",
+          "text": "2016 CO 50",
+          "span": [
+            1832,
+            1842
+          ],
+          "pin_cite": null,
+          "flags": [
+            "parties_unverified: eyecite reported '' v. 'Rule 12(b)(5). Warne', no 'v.' pattern in this citation's own window"
+          ]
+        },
+        {
+          "kind": "ShortCaseCitation",
+          "text": "373 P.3d at 596",
+          "span": [
+            1854,
+            1869
+          ],
+          "pin_cite": "596",
+          "flags": []
+        },
+        {
+          "kind": "FullCaseCitation",
+          "text": "2016 CO 50",
+          "span": [
+            5546,
+            5556
+          ],
+          "pin_cite": null,
+          "flags": [
+            "parties_unverified: eyecite reported '' v. 'Warne', no 'v.' pattern in this citation's own window"
+          ]
+        },
+        {
+          "kind": "ShortCaseCitation",
+          "text": "373 P.3d at 595",
+          "span": [
+            5568,
+            5583
+          ],
+          "pin_cite": "595",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "g1",
+      "name": "Bell Atlantic Corp. v. Twombly",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "550 U.S. 544",
+        "span": [
+          1740,
+          1752
+        ],
+        "volume": "550",
+        "reporter": "U.S.",
+        "page": "544",
+        "pin_cite": null,
+        "year": 2007,
+        "court": "scotus",
+        "plaintiff": "Bell Atlantic Corp.",
+        "defendant": "Twombly",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "550 U.S. 544",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Bell Atlantic Corp. v. Twombly, 550 U.S. 544 (2007)",
+        "flags": []
+      },
+      "children": [
+        {
+          "kind": "ShortCaseCitation",
+          "text": "550 U.S. at 570",
+          "span": [
+            2245,
+            2260
+          ],
+          "pin_cite": "570",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "g2",
+      "name": "Ashcroft v. Iqbal",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "556 U.S. 662",
+        "span": [
+          1784,
+          1796
+        ],
+        "volume": "556",
+        "reporter": "U.S.",
+        "page": "662",
+        "pin_cite": null,
+        "year": 2009,
+        "court": "scotus",
+        "plaintiff": "Ashcroft",
+        "defendant": "Iqbal",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "556 U.S. 662",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Ashcroft v. Iqbal, 556 U.S. 662 (2009)",
+        "flags": [
+          "year_corrected: eyecite reported 2007, citation's own parenthetical says 2009",
+          "parties_corrected: eyecite reported '' v. 'Twombly'"
+        ]
+      },
+      "children": [
+        {
+          "kind": "ShortCaseCitation",
+          "text": "556\nU.S. at 679",
+          "span": [
+            2375,
+            2390
+          ],
+          "pin_cite": "679",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "g3",
+      "name": "Dunlap v. Colorado Springs Coach Co.",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "618 P.2d 517",
+        "span": [
+          3334,
+          3346
+        ],
+        "volume": "618",
+        "reporter": "P.2d",
+        "page": "517",
+        "pin_cite": "519",
+        "year": 1980,
+        "court": "colo",
+        "plaintiff": "Dunlap",
+        "defendant": "Colorado Springs Coach Co.",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "618 P.2d 517",
+        "court_text": "Colo.",
+        "case_name": null,
+        "full_citation": "Dunlap v. Colorado Springs Coach Co., 618 P.2d 517, 519 (Colo. 1980)",
+        "flags": []
+      },
+      "children": [
+        {
+          "kind": "ShortCaseCitation",
+          "text": "618 P.2d\nat 519",
+          "span": [
+            6963,
+            6978
+          ],
+          "pin_cite": "519",
+          "flags": []
+        },
+        {
+          "kind": "ShortCaseCitation",
+          "text": "618 P.2d at 519",
+          "span": [
+            7281,
+            7296
+          ],
+          "pin_cite": "519",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "g4",
+      "name": "Continental Air Lines, Inc. v. Keenan",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "731 P.2d 708",
+        "span": [
+          3733,
+          3745
+        ],
+        "volume": "731",
+        "reporter": "P.2d",
+        "page": "708",
+        "pin_cite": "711",
+        "year": 1987,
+        "court": "colo",
+        "plaintiff": "Continental Air Lines, Inc.",
+        "defendant": "Keenan",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "731 P.2d 708",
+        "court_text": "Colo.",
+        "case_name": null,
+        "full_citation": "Continental Air Lines, Inc. v. Keenan, 731 P.2d 708, 711 (Colo. 1987)",
+        "flags": []
+      },
+      "children": []
+    },
+    {
+      "id": "g5",
+      "name": "Sullivan v. Davis",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "39 Colo. App. 306",
+        "span": [
+          4089,
+          4106
+        ],
+        "volume": "39",
+        "reporter": "Colo. App.",
+        "page": "306",
+        "pin_cite": null,
+        "year": 1977,
+        "court": null,
+        "plaintiff": "Sullivan",
+        "defendant": "Davis",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "39 Colo. App. 306",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Sullivan v. Davis, 39 Colo. App. 306",
+        "flags": [
+          "year_unverified: eyecite reports 1977, no year parenthetical in this citation's own window"
+        ]
+      },
+      "children": [
+        {
+          "kind": "FullCaseCitation",
+          "text": "571 P.2d 1103",
+          "span": [
+            4108,
+            4121
+          ],
+          "pin_cite": "1105",
+          "flags": [
+            "parties_unverified: eyecite reported 'Sullivan' v. 'Davis', no 'v.' pattern in this citation's own window"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6",
+      "name": "Bly v. Story",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "241 P.3d 529",
+        "span": [
+          5319,
+          5331
+        ],
+        "volume": "241",
+        "reporter": "P.3d",
+        "page": "529",
+        "pin_cite": "532",
+        "year": 2010,
+        "court": "colo",
+        "plaintiff": "Bly",
+        "defendant": "Story",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "241 P.3d 529",
+        "court_text": "Colo.",
+        "case_name": null,
+        "full_citation": "Bly v. Story, 241 P.3d 529, 532 (Colo. 2010)",
+        "flags": []
+      },
+      "children": []
+    },
+    {
+      "id": "g7",
+      "name": "Kaiser Foundation Health Plan of Colorado v. Sharp",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "741 P.2d 714",
+        "span": [
+          7579,
+          7591
+        ],
+        "volume": "741",
+        "reporter": "P.2d",
+        "page": "714",
+        "pin_cite": "719",
+        "year": 1987,
+        "court": "colo",
+        "plaintiff": "Kaiser Foundation Health Plan of Colorado",
+        "defendant": "Sharp",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "741 P.2d 714",
+        "court_text": "Colo.",
+        "case_name": null,
+        "full_citation": "Kaiser Foundation Health Plan of Colorado v. Sharp, 741 P.2d 714, 719 (Colo. 1987)",
+        "flags": [
+          "parties_corrected: eyecite reported 'Kaiser Foundation Health Plan  Colorado' v. 'Sharp'"
+        ]
+      },
+      "children": []
+    },
+    {
+      "id": "g8",
+      "name": "Alpine Bank v. Hubbell",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "2017 COA 155",
+        "span": [
+          8200,
+          8212
+        ],
+        "volume": "2017",
+        "reporter": "COA",
+        "page": "155",
+        "pin_cite": null,
+        "year": null,
+        "court": null,
+        "plaintiff": "Alpine Bank",
+        "defendant": "Hubbell",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "2017 COA 155",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Alpine Bank v. Hubbell, 2017 COA 155",
+        "flags": []
+      },
+      "children": [
+        {
+          "kind": "FullCaseCitation",
+          "text": "418 P.3d 604",
+          "span": [
+            8224,
+            8236
+          ],
+          "pin_cite": "608",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "g9",
+      "name": "E-470 Public Highway Authority v. Revenig",
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "91 P.3d 1038",
+        "span": [
+          9254,
+          9266
+        ],
+        "volume": "91",
+        "reporter": "P.3d",
+        "page": "1038",
+        "pin_cite": "1045",
+        "year": 2004,
+        "court": "coloctapp",
+        "plaintiff": "E-470 Public Highway Authority",
+        "defendant": "Revenig",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "91 P.3d 1038",
+        "court_text": "Colo. App.",
+        "case_name": null,
+        "full_citation": "E-470 Public Highway Authority v. Revenig, 91 P.3d 1038, 1045 (Colo. App. 2004)",
+        "flags": []
+      },
+      "children": []
+    }
+  ],
+  "authorities": [
+    {
+      "id": "a0",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 12(b)(5)",
+        "span": [
+          238,
+          255
+        ],
+        "name": "C.R.C.P. 12(b)(5)",
+        "url": null,
+        "tokens": {
+          "rule": "12",
+          "section": "12(b)(5)",
+          "subsection": "(b)(5)"
+        },
+        "is_shortform": false
+      },
+      "children": [
+        {
+          "kind": null,
+          "text": "C.R.C.P. 12(b)(5)",
+          "span": [
+            463,
+            480
+          ]
+        },
+        {
+          "kind": null,
+          "text": "C.R.C.P. 12(b)(5)",
+          "span": [
+            876,
+            893
+          ]
+        },
+        {
+          "kind": null,
+          "text": "C.R.C.P. 12(b)(5)",
+          "span": [
+            4293,
+            4310
+          ]
+        },
+        {
+          "kind": null,
+          "text": "C.R.C.P. 12(b)(5)",
+          "span": [
+            5177,
+            5194
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 8(a)",
+        "span": [
+          3076,
+          3089
+        ],
+        "name": "C.R.C.P. 8(a)",
+        "url": null,
+        "tokens": {
+          "rule": "8",
+          "section": "8(a)",
+          "subsection": "(a)"
+        },
+        "is_shortform": false
+      },
+      "children": [
+        {
+          "kind": null,
+          "text": "C.R.C.P. 8(a)",
+          "span": [
+            3792,
+            3805
+          ]
+        },
+        {
+          "kind": null,
+          "text": "C.R.C.P. 8(a)",
+          "span": [
+            5922,
+            5935
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 56",
+        "span": [
+          3505,
+          3516
+        ],
+        "name": "C.R.C.P. 56",
+        "url": null,
+        "tokens": {
+          "rule": "56",
+          "section": "56"
+        },
+        "is_shortform": false
+      },
+      "children": [
+        {
+          "kind": null,
+          "text": "C.R.C.P. 56",
+          "span": [
+            8037,
+            8048
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 8(c)",
+        "span": [
+          3929,
+          3942
+        ],
+        "name": "C.R.C.P. 8(c)",
+        "url": null,
+        "tokens": {
+          "rule": "8",
+          "section": "8(c)",
+          "subsection": "(c)"
+        },
+        "is_shortform": false
+      },
+      "children": []
+    },
+    {
+      "id": "a4",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 12(f)",
+        "span": [
+          5991,
+          6005
+        ],
+        "name": "C.R.C.P. 12(f)",
+        "url": null,
+        "tokens": {
+          "rule": "12",
+          "section": "12(f)",
+          "subsection": "(f)"
+        },
+        "is_shortform": false
+      },
+      "children": [
+        {
+          "kind": null,
+          "text": "C.R.C.P. 12(f)",
+          "span": [
+            10267,
+            10281
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a5",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 56(e)",
+        "span": [
+          8561,
+          8575
+        ],
+        "name": "C.R.C.P. 56(e)",
+        "url": null,
+        "tokens": {
+          "rule": "56",
+          "section": "56(e)",
+          "subsection": "(e)"
+        },
+        "is_shortform": false
+      },
+      "children": []
+    },
+    {
+      "id": "a6",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 26(b)(1)",
+        "span": [
+          8627,
+          8644
+        ],
+        "name": "C.R.C.P. 26(b)(1)",
+        "url": null,
+        "tokens": {
+          "rule": "26",
+          "section": "26(b)(1)",
+          "subsection": "(b)(1)"
+        },
+        "is_shortform": false
+      },
+      "children": []
+    },
+    {
+      "id": "a7",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 15(a)",
+        "span": [
+          9026,
+          9040
+        ],
+        "name": "C.R.C.P. 15(a)",
+        "url": null,
+        "tokens": {
+          "rule": "15",
+          "section": "15(a)",
+          "subsection": "(a)"
+        },
+        "is_shortform": false
+      },
+      "children": [
+        {
+          "kind": null,
+          "text": "C.R.C.P. 15(a)",
+          "span": [
+            10944,
+            10958
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a8",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 59(a)",
+        "span": [
+          9519,
+          9533
+        ],
+        "name": "C.R.C.P. 59(a)",
+        "url": null,
+        "tokens": {
+          "rule": "59",
+          "section": "59(a)",
+          "subsection": "(a)"
+        },
+        "is_shortform": false
+      },
+      "children": []
+    },
+    {
+      "id": "a9",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 60",
+        "span": [
+          9538,
+          9549
+        ],
+        "name": "C.R.C.P. 60",
+        "url": null,
+        "tokens": {
+          "rule": "60",
+          "section": "60"
+        },
+        "is_shortform": false
+      },
+      "children": []
+    },
+    {
+      "id": "a10",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 12(c)",
+        "span": [
+          10328,
+          10342
+        ],
+        "name": "C.R.C.P. 12(c)",
+        "url": null,
+        "tokens": {
+          "rule": "12",
+          "section": "12(c)",
+          "subsection": "(c)"
+        },
+        "is_shortform": false
+      },
+      "children": []
+    },
+    {
+      "id": "a11",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 16",
+        "span": [
+          10460,
+          10471
+        ],
+        "name": "C.R.C.P. 16",
+        "url": null,
+        "tokens": {
+          "rule": "16",
+          "section": "16"
+        },
+        "is_shortform": false
+      },
+      "children": []
+    },
+    {
+      "id": "a12",
+      "category": "rule",
+      "source": "Colorado Rules of Civil Procedure",
+      "header": {
+        "category": "rule",
+        "source": "Colorado Rules of Civil Procedure",
+        "text": "C.R.C.P. 121",
+        "span": [
+          10476,
+          10488
+        ],
+        "name": "C.R.C.P. 121",
+        "url": null,
+        "tokens": {
+          "rule": "121",
+          "section": "121"
+        },
+        "is_shortform": false
+      },
+      "children": []
+    }
+  ],
+  "quotations": [],
+  "records": []
+}

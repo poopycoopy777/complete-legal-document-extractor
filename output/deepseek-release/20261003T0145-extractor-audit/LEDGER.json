@@ -1,0 +1,299 @@
+{
+  "session": {
+    "owner": "DeepSeek",
+    "repository": "D:/complete-legal-document-extractor",
+    "branch": "master",
+    "head_sha": "4ee5fb058dfb174fb85479bbab8eae5c3c1d82f0",
+    "committed": false,
+    "dirty_state": "7 modified tracked files, 10 new untracked files (4 source/script sets + 3 test modules + output/)",
+    "integration_owner": "Codex (commit, push, service pin, restart of port 8010)",
+    "environment": {
+      "python": ".venv/Scripts/python.exe",
+      "ruff": "%LOCALAPPDATA%/Programs/Python/Python312/Scripts/ruff.exe",
+      "ocr_engine": "tesseract v5.5.0.20241111",
+      "live_extractor": "http://127.0.0.1:8010",
+      "live_extractor_reports_commit": "4ee5fb058dfb174fb85479bbab8eae5c3c1d82f0",
+      "live_service_serving_repaired_code": false,
+      "live_service_note": "The process was started before these edits, so it still serves the pre-repair behaviour. /api/health commit_sha is read from the checkout at import time, so after an edit it names the new HEAD while the running code is older. This is exactly the app-provenance limitation RELEASE_CHECKLIST G01 records."
+    },
+    "test_results": {
+      "full_suite": "414 passed",
+      "command": ".venv\\Scripts\\python.exe -m pytest tests -q",
+      "lint": "ruff check . -> All checks passed",
+      "new_tests": 39
+    }
+  },
+  "defects": [
+    {
+      "id": "EXT-1",
+      "title": "A reporter abbreviation was parsed as an appendix record citation",
+      "state": "REPAIRED",
+      "severity": "evidence attached to the wrong source",
+      "input": {
+        "path": "D:/legal-app/output/orderbench-briefs/pdf/04-2025CV111-2026-05-22-12b5-dismissal.pdf",
+        "sha256": "ec77b49376a82b1743a1ccceadbdac5abf9511dd66be50cac363b658eb5ff518",
+        "bytes": 226500,
+        "pages": 4
+      },
+      "observed_before": "extract_record_cites reported two appendix citations: 'App. 306, 571' at span (4098,4111) with pin '306', and 'App. 2004' at span (9280,9289). Both are the reporter abbreviation 'Colo. App.'; the first took the parallel reporter's volume (571) as the appendix page.",
+      "root_cause": {
+        "file": "caselaw/record_cites.py",
+        "symbol": "_APPENDIX",
+        "detail": "The appendix pattern matched the 'App.' inside 'Colo. App.' with no guard for a preceding reporter token. The false cites also entered caselaw/authorities.py::_keep_supported_id_forms as intervening citations, which can suppress a legitimate Id. attachment."
+      },
+      "repair": {
+        "file": "caselaw/record_cites.py",
+        "symbols": ["_is_reporter_app", "_REPORTER_TAILS", "_APPENDIX_LEAD", "_ABBREV_TOKEN"],
+        "detail": "Reject an appendix match whose immediately preceding abbreviation token is a reporter tail (Colo., C. in N.C., Ill., Ind., Fla., Ct., ...), unless the text before 'App.' names a document (Appellant's, Joint, Record, App. to)."
+      },
+      "regression": "tests/test_record_cites.py::TestScopeDiscipline (5 new cases)",
+      "verified_after": "record cites on the fixture: 2 -> 0. 'App. 58', 'Appellant's App. 136-38' still extracted.",
+      "replay": ".venv\\Scripts\\python.exe scripts\\repro_pdf.py \"D:\\legal-app\\output\\orderbench-briefs\\pdf\\04-2025CV111-2026-05-22-12b5-dismissal.pdf\""
+    },
+    {
+      "id": "EXT-2",
+      "title": "OCR discarded the whole page table, so no citation had a page",
+      "state": "REPAIRED",
+      "severity": "lost page provenance and viewer highlights",
+      "inputs": [
+        {
+          "path": "storage/5a29ad8948434101afcfa0446dc3ee9d.pdf",
+          "sha256": "8ee886bc3aa026bbd9caf6afcf4bf87d00d3ef6dad7bb5695ae23c7228b000f2",
+          "pages": 2,
+          "text_layer": "none on either page"
+        },
+        {
+          "path": "storage/35996a83a8024e21ac11b477062694d5.pdf",
+          "pages": 1,
+          "text_layer": "none"
+        }
+      ],
+      "observed_before": "POST /api/documents to the live service answered textSource=ocr pageCount=2 with pages=[] and highlights=[]. Every citation span in a scanned filing had no page.",
+      "root_cause": {
+        "files": ["server/app.py", "caselaw/ocr.py"],
+        "detail": "upload_document set pages = [] when OCR text replaced the embedded text, because the embedded-layer offsets no longer described the text. The information needed to rebuild them existed but was discarded: OcrResult.page_chars counts stripped text, so it cannot rebuild offsets, and the raw per-page length was never recorded."
+      },
+      "repair": {
+        "files": ["caselaw/ocr.py", "server/app.py"],
+        "symbols": ["OcrResult.raw_page_chars", "OcrResult.page_ranges", "page_ranges", "page_table"],
+        "detail": "Record the verbatim length of each recognised page, and rebuild the response page table from it. Only pages carrying text get a range, so no offset resolves to two pages and the table covers the whole text."
+      },
+      "regression": "tests/test_document_pages.py::TestOcrUploadKeepsPageProvenance, ::TestPageRanges, ::TestOcrPageProvenance (14 new)",
+      "verified_after": "in-process repaired checkout on the real scan: pageCount 2, pages_table 2, highlights 1 (all with a page), page_table_last_end 1386 == text_length 1386, spans_ambiguous 0, spans_without_page 0.",
+      "remaining": "Not live. The port 8010 process still answers pages_table 0 for the same file until Codex restarts it.",
+      "replay": ".venv\\Scripts\\python.exe scripts\\verify_ocr_pages.py storage\\5a29ad8948434101afcfa0446dc3ee9d.pdf --in-process"
+    },
+    {
+      "id": "EXT-3",
+      "title": "Blank pages inside a text-layer filing were never disclosed",
+      "state": "REPAIRED",
+      "severity": "silent missing evidence",
+      "input": {
+        "path": "storage/263afae0799f45b2b45306907ce00975.pdf",
+        "sha256": "a4ace67a6666200c41f9c049ae52440ff8c10cd9d387dc3802d2cbb53cb6e355",
+        "pages": 50,
+        "text_chars": 70889,
+        "pages_with_almost_no_text": [1, 31, 40]
+      },
+      "observed_before": "warning was null. The document-wide average is 1,400 characters per page, far above _MIN_CHARS_PER_PAGE, so neither branch of _text_layer_warning fired.",
+      "root_cause": {
+        "file": "server/app.py",
+        "symbol": "_text_layer_warning",
+        "detail": "Only a document-wide average was tested, so a partial scan inside a normal filing was invisible. The checklist names this failure by name (B05): no silent empty extraction or page loss."
+      },
+      "repair": {
+        "file": "server/app.py",
+        "symbols": ["_text_layer_warning (page_lengths argument)", "_pdf_text_and_pages (returns per-page lengths)"],
+        "detail": "Also report pages that carry almost no text, naming the page numbers and summarising when there are many."
+      },
+      "regression": "tests/test_document_pages.py::TestPartialScanIsReported (5 new)",
+      "verified_after": "the real 50-page filing now reports: '3 of 50 page(s) carry almost no text (pages 1, 31, 40). Those pages may be scans, photographs or images, and any citation printed on them is missing from this result.'",
+      "replay": ".venv\\Scripts\\python.exe scripts\\verify_ocr_pages.py storage\\263afae0799f45b2b45306907ce00975.pdf --in-process"
+    },
+    {
+      "id": "EXT-4",
+      "title": "Hallucinated OCR could replace a real but thin text layer",
+      "state": "REPAIRED",
+      "severity": "fabricated evidence replacing exact text",
+      "input": {
+        "path": "synthetic two-page PDF with one short citation per page",
+        "found_during": "the tests for EXT-2"
+      },
+      "observed_before": "The upload path replaced the embedded text with Tesseract output whenever the OCR text was longer. On a page whose embedded layer held one exact case citation, Tesseract returned more characters than the layer did, so garbled recognition replaced text already present in the document.",
+      "root_cause": {
+        "file": "server/app.py",
+        "detail": "The gate to try OCR was _text_layer_warning (which fires below 100 characters per page) and the gate to accept it was 'longer', so a thin-but-exact layer could be overwritten by recognition noise."
+      },
+      "repair": {
+        "file": "server/app.py",
+        "symbol": "_NO_TEXT_LAYER_CHARS_PER_PAGE",
+        "detail": "Try OCR only below 20 characters per page, where the layer is unusable rather than merely thin. Between 20 and 100 characters per page the layer is kept and disclosed through EXT-3's warning."
+      },
+      "regression": "covered by tests/test_document_pages.py (the embedded-layer upload test would otherwise become OCR)",
+      "verified_after": "a two-page PDF with a short embedded citation keeps textSource=embedded and its exact text.",
+      "replay": ".venv\\Scripts\\python.exe -m pytest tests\\test_document_pages.py -q"
+    },
+    {
+      "id": "EXT-5",
+      "title": "A repeated full citation lost the short name printed in front of it",
+      "state": "REPAIRED",
+      "severity": "naming evidence dropped; false parties_unverified flag",
+      "input": {
+        "path": "D:/legal-app/output/orderbench-briefs/pdf/04-2025CV111-2026-05-22-12b5-dismissal.pdf",
+        "sha256": "ec77b49376a82b1743a1ccceadbdac5abf9511dd66be50cac363b658eb5ff518",
+        "occurrences": ["span (1832,1842) 'Warne, 2016 CO 50, para. 24'", "span (5546,5556) 'Warne, 2016 CO 50, para. 19'"]
+      },
+      "observed_before": "Both occurrences returned plaintiff=None, defendant=None, case_name=None and the flag \"parties_unverified: eyecite reported '' v. 'Rule 12(b)(5). Warne'\". The filing prints the name on the page.",
+      "root_cause": {
+        "file": "caselaw/extract.py",
+        "detail": "Two parts. (1) The short name was read from metadata.antecedent_guess, which is always None on the pinned eyecite version, so the branch never fired. (2) The available substitute, metadata.defendant, crosses sentence boundaries and reported 'Rule 12(b)(5). Warne' for one occurrence, so adopting it directly would name a case after a rule citation."
+      },
+      "repair": {
+        "file": "caselaw/extract.py",
+        "symbols": ["_derive_short_case_name", "_clause_tail", "_CASE_NAME_CLAUSE_BREAK", "_CASE_NAME_SENTENCE_END", "_CASE_NAME_RUN", "_norm_word"],
+        "detail": "Derive the name from the last clause before the citation with an abbreviation-aware sentence boundary, validate it as capitalized tokens with known connectors, and refuse a lone introductory signal. Non-adversarial clauses are delegated to the existing _derive_case_name."
+      },
+      "regression": "tests/test_parallel_paragraphs.py (5 new)",
+      "verified_after": "both occurrences carry case_name='Warne'; parties_unverified flags in the fixture 2 -> 1 (the remaining one is a parallel reporter with no name in its own window, which is correct); groups without a caseName 0; groups 10.",
+      "replay": ".venv\\Scripts\\python.exe scripts\\dump_extraction.py output\\deepseek-release\\20261003T0145-extractor-audit\\dismissal-text.txt"
+    },
+    {
+      "id": "EXT-6",
+      "title": "Typographic ligatures and accents dropped the whole party caption",
+      "state": "REPAIRED",
+      "severity": "naming evidence lost; downstream caption mismatch",
+      "input": {
+        "path": "D:/legal-app/output/orderbench-briefs/pdf/01-2025CV36-2026-04-22-msj-denied.pdf",
+        "span": [7868, 8349],
+        "text": "Pinnacol Assurance v. Hoff, 2016 CO 53",
+        "note": "the 'ff' in Hoff is U+FB00"
+      },
+      "observed_before": "_derive_parties returned (None, None) for a full caption; the citation group was the only unnamed group in the 21-document corpus outside its index.",
+      "root_cause": {
+        "file": "caselaw/extract.py",
+        "symbols": ["_PARTY_BODY", "_PARTY_HEAD"],
+        "detail": "Party character classes accepted only ASCII letters and the head was a literal [A-Z], so a ligature ended the match early and no party was captured."
+      },
+      "repair": {
+        "file": "caselaw/extract.py",
+        "symbols": ["_PARTY_BODY (Unicode letters)", "_PARTY_HEAD (lookahead)"],
+        "detail": "Accept any Unicode letter in a party and move the 'must open on a capital' rule into a lookahead so lower-case prose is still rejected."
+      },
+      "regression": "tests/test_ligature_captions.py (11 new)",
+      "verified_after": "the unnamed-group count on the 21-document corpus went 39 -> 38; the remaining 38 are all in 00-INDEX.pdf, whose table of authorities prints names and citations in separate columns.",
+      "replay": ".venv\\Scripts\\python.exe -m pytest tests\\test_ligature_captions.py -q"
+    },
+    {
+      "id": "EXT-7",
+      "title": "Subsequent history became a separate group named after the wrong case",
+      "state": "REPAIRED",
+      "severity": "evidence attached to the wrong authority",
+      "inputs": [
+        "storage/23fb36fee64f48aa952c765bfc3be0e7.pdf",
+        "storage/359a46773baa472d832558e027afa22e.pdf",
+        "storage/0385b985cbe443ba9e7e297f664764c3.pdf"
+      ],
+      "observed_before": "A filing writing '..., aff'd, 908 F.3d 1219' produced two groups. The history group had no party and no name, and the only caption before it belonged to the case it affirms.",
+      "root_cause": {
+        "file": "caselaw/group.py",
+        "symbol": "_merge_parallel_citations",
+        "detail": "The merge recognised a parallel reporter gap (a pin and a comma) but had no rule for a history phrase, so the affirmance never joined its case."
+      },
+      "repair": {
+        "file": "caselaw/group.py",
+        "symbols": ["_HISTORY_PHRASE", "_PIN_OR_PARENTHETICAL", "_split_outside_parentheses", "_is_subsequent_history", "_HISTORY_GAP_MAX"],
+        "detail": "Accept a gap made of a pin, the original's own court-and-year parenthetical, and a history phrase. Commas inside a parenthetical are not separators. A history merge keeps the later citation's own year, court and pin, because an affirmance is a different decision of the same case."
+      },
+      "regression": "tests/test_subsequent_history.py (18 new)",
+      "verified_after": "on the three real filings the rule accepts exactly 2 merges, both correct in context, and refuses 0 that should have merged. Unnamed groups in that three-document sample went 8 -> 6. On the 21-document corpus the rule accepts 0 (no filing there carries subsequent history), so it changes nothing there.",
+      "replay": ".venv\\Scripts\\python.exe scripts\\audit_history_merges.py --inputs storage --out output\\deepseek-release\\20261003T0145-extractor-audit\\history-merges-storage.json"
+    }
+  ],
+  "corpus_evidence": [
+    {
+      "name": "span contract, 21 orderbench PDFs",
+      "command": "python scripts/audit_contract.py --inputs D:\\legal-app\\output\\orderbench-briefs\\pdf --out <report>",
+      "result_before": "0 violations",
+      "result_after": "0 violations",
+      "note": "The span/text contract was already sound; the defects above are semantic, not offset, failures."
+    },
+    {
+      "name": "page furniture in propositions, 21 orderbench PDFs",
+      "command": "python scripts/audit_furniture.py --inputs D:\\legal-app\\output\\orderbench-briefs\\pdf --out <report>",
+      "result_before": "0 contaminated, 0 reused",
+      "result_after": "0 contaminated, 0 reused",
+      "note": "A running head is not being promoted to a legal proposition on this corpus."
+    },
+    {
+      "name": "storage corpus characterisation",
+      "command": "python scripts/audit_corpus_probe.py --inputs storage --out <report>",
+      "result": "351 PDFs, 100 unique hashes, 98 with a usable embedded layer, 2 with none, 3 partially scanned, 0 silent empty results, 0 page-range overlaps, 0 read errors"
+    },
+    {
+      "name": "naming coverage",
+      "command": "python scripts/audit_naming_coverage.py --inputs <21 orderbench PDFs + 5 real storage filings> --out <report>",
+      "result": "26 documents, 400 groups: 330 named from parties, 25 named from a caption on a non-header member, 45 with no naming evidence. All 20 orderbench briefs are 100 percent named; the 45 sit in 00-INDEX.pdf (38) and five real filings (7).",
+      "note": "An earlier count of 39 used only the header occurrence and overstated the gap. A group is named when any member carries the caption, which is what CitationGroup.case_name already does."
+    },
+    {
+      "name": "split authorities",
+      "command": "python scripts/audit_split_authorities.py --inputs <filings with tables of authorities> --out <report>",
+      "result": "2 documents, 71 groups, 0 citations appearing in more than one group",
+      "note": "A case named in the body and repeated in a table of authorities is grouped once, so the table does not create a second wrongly named card in these filings."
+    },
+    {
+      "name": "subsequent-history acceptance",
+      "command": "python scripts/audit_history_merges.py --inputs storage --out <report>",
+      "result": "356 documents, 4896 groups, 6700 adjacent full-citation pairs, 123 parallel merges, 0 history merges",
+      "note": "Zero over the whole corpus because the history pairs in this corpus are separated by more than one adjacent pair. The rule was verified on the three filings where it does apply (2 accepted, 0 wrongly refused), and its guards are covered by tests."
+    }
+  ],
+  "open_gaps": [
+    {
+      "id": "GAP-1",
+      "title": "Seven real-filing citation groups carry no naming evidence at all",
+      "evidence": "scripts/audit_naming_coverage.py over the 21 orderbench PDFs plus five real storage filings: 400 groups, 330 named from parties, 25 named from a caption on a non-header member, 45 with no naming evidence on any member. All 20 orderbench briefs are 100 percent named; every one of the 45 sits in an index or in one of five real filings.",
+      "breakdown": {
+        "00-INDEX.pdf": 38,
+        "23fb36fee64f48aa952c765bfc3be0e7.pdf": 3,
+        "0385b985cbe443ba9e7e297f664764c3.pdf": 2,
+        "1e2056140eda449b9faaf2db9c5652a2.pdf": 1,
+        "359a46773baa472d832558e027afa22e.pdf": 1
+      },
+      "impact": "A group with no name cannot be checked for identity downstream, so the identity stage has nothing to compare. The filing in every sampled case does print the name.",
+      "distinct_causes": [
+        "A markdown index table prints the name and the citation in separate cells (all 38 in 00-INDEX.pdf).",
+        "A real table of authorities prints the case name on one line and the citation on the next, separated by a dot leader (1e2056140eda449b9faaf2db9c5652a2.pdf g12, 'Fantasy, Inc. v. Fogerty' / '510 U.S. 517').",
+        "A citation inside a nested parenthetical takes the inner caption (0385b985cbe443ba9e7e297f664764c3.pdf g8).",
+        "A caption shaped 'Case, No. CIV 16-0318 JB/SCY,' is not read (23fb36fee64f48aa952c765bfc3be0e7.pdf g2).",
+        "A name that wraps onto the line before its citation is missed (359a46773baa472d832558e027afa22e.pdf g6, 'Trinidad Sch. Dist. No. 1 v.' / 'Lopez, 963 P.2d 1095')."
+      ],
+      "next_step": "Pair a table row's name with its citation before grouping, and teach the caption matcher the wrapped and docket-bearing shapes. Read-only database work is not involved."
+    },
+    {
+      "id": "GAP-2",
+      "title": "No live proof of the repairs",
+      "evidence": "The extractor process on 8010 was started before these edits.",
+      "impact": "EXT-2, EXT-3 and EXT-4 are verified in-process against the repaired checkout and are NOT live. That in-process run exercises the same module functions the application calls, with STORAGE redirected to a temporary directory; it is not an integrated end-to-end replay through the running service. A live /api/extract call still returns the pre-repair appendix record cite for the supplied dismissal text.",
+      "next_step": "Codex restarts the extractor, then `scripts/verify_ocr_pages.py <scan> --live` and a replay of 04-2025CV111-2026-05-22-12b5-dismissal.pdf through the app."
+    },
+    {
+      "id": "GAP-3",
+      "title": "Unadjudicated dimensions are untouched",
+      "evidence": "fullbench/README.md and RELEASE_CHECKLIST A04.",
+      "impact": "Natural-filing semantic gold, treatment, and rules coverage remain unadjudicated. Extracting a rule citation is not proof its authoritative text is verified, and nothing in this session changes that.",
+      "next_step": "Belongs to the coordinator's release evaluation, not to this repository."
+    }
+  ],
+  "invariants_preserved": [
+    "storage/ was never written except by the API's own normal upload path; probe scripts redirect it to a temporary directory",
+    "data/ and the Colorado opinion packages were not touched",
+    "no environment file was read, printed or modified",
+    "no database was connected to, written to, or diagnosed",
+    "D:/legal-app runs/ and fullbench/results/ were read only",
+    "no commit, push, branch, worktree, reset, clean, stash or checkout",
+    "no service was restarted, stopped or reconfigured",
+    "no port was changed",
+    "D:/legal-app and D:/The Verifyer were not edited"
+  ]
+}

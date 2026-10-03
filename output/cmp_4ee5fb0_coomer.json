@@ -1,0 +1,2867 @@
+[
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-coomer-v-lindell-ecf283.pdf",
+    "name": "court-coomer-v-lindell-ecf283.pdf",
+    "chars": 35868,
+    "old": {
+      "stats": {
+        "groups": 47,
+        "citations": 71,
+        "quotes": 23,
+        "linkedQuotes": 19,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 4,
+        "flagged": 17,
+        "authorities": 5,
+        "authorityCitations": 7
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": null,
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              2035,
+              2047
+            ],
+            "text": "16 F.3d 1083",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "16 F.3d 1083, 1086 (10th Cir. 1994)",
+            "antecedent": null,
+            "pin": "1086",
+            "flags": [
+              "parties_unverified: eyecite reported '' v. 'Mo. Pac. R.R. Co.', no 'v.' pattern in this citation's own window"
+            ]
+          },
+          "children": [],
+          "proposition": "Robinson  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25  USDC Colorado\n                                  pg 2 of 17\n\n\n\n\nv. Mo. Pac. R.R. Co.,",
+          "propositionSpan": [
+            1876,
+            2034
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                2035,
+                2047
+              ],
+              "proposition": "Robinson  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25  USDC Colorado\n                                  pg 2 of 17\n\n\n\n\nv. Mo. Pac. R.R. Co.,",
+              "propositionSpan": [
+                1876,
+                2034
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g1",
+          "caseName": "United States v. Golden",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              2106,
+              2118
+            ],
+            "text": "671 F.2d 369",
+            "plaintiff": "United States",
+            "defendant": "Golden",
+            "case_name": null,
+            "full_citation": "United States v. Golden, 671 F.2d 369, 371 (10th Cir. 1982)",
+            "antecedent": null,
+            "pin": "371",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                2106,
+                2118
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g2",
+          "caseName": null,
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              2628,
+              2644
+            ],
+            "text": "2019 WL\n\n1085179",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "2019 WL 1085179, at *78 (D.N.M. Mar. 7 2019)",
+            "antecedent": null,
+            "pin": "at *78",
+            "flags": [
+              "parties_unverified: eyecite reported 'Rivero' v. 'Bd. of Regents of Univ. of New Mexico, No. CIV 16-0318 JB\\\\SCY', no 'v.' pattern in this citation's own window"
+            ]
+          },
+          "children": [],
+          "proposition": "Bd. of Regents of Univ. of New Mexico, No. CIV 16-0318 JB\\SCY,",
+          "propositionSpan": [
+            2565,
+            2627
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                2628,
+                2644
+              ],
+              "proposition": "Bd. of Regents of Univ. of New Mexico, No. CIV 16-0318 JB\\SCY,",
+              "propositionSpan": [
+                2565,
+                2627
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g3",
+          "caseName": null,
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              2683,
+              2695
+            ],
+            "text": "950 F.3d 754",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "950 F.3d 754 (10th Cir. 2020)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                2683,
+                2695
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g4",
+          "caseName": "United States v. Naranjo",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              2965,
+              2978
+            ],
+            "text": "710 F.2d 1465",
+            "plaintiff": "United States",
+            "defendant": "Naranjo",
+            "case_name": null,
+            "full_citation": "United States v. Naranjo, 710 F.2d 1465, 1469 (10th Cir. 1983)",
+            "antecedent": null,
+            "pin": "1469",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "\u201cRelevant evidence  is inherently  prejudicial; but  it  is only unfair prejudice, substantially\n\noutweighing probative value, which permits exclusion of relevant matter under Rule 403.\u201d",
+          "propositionSpan": [
+            2751,
+            2937
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                2965,
+                2978
+              ],
+              "proposition": "\u201cRelevant evidence  is inherently  prejudicial; but  it  is only unfair prejudice, substantially\n\noutweighing probative value, which permits exclusion of relevant matter under Rule 403.\u201d",
+              "propositionSpan": [
+                2751,
+                2937
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                2751,
+                2937
+              ],
+              "raw_text": "\u201cRelevant evidence  is inherently  prejudicial; but  it  is only unfair prejudice, substantially\n\noutweighing probative value, which permits exclusion of relevant matter under Rule 403.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g4",
+              "pin_cite": "1469",
+              "pin_basis": "printed",
+              "citation_span": [
+                2965,
+                2978
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g5",
+          "caseName": "United States v. Smalls",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              3304,
+              3316
+            ],
+            "text": "605 F.3d 765",
+            "plaintiff": "United States",
+            "defendant": "Smalls",
+            "case_name": null,
+            "full_citation": "United States v. Smalls, 605 F.3d 765, 787 (10th Cir. 2010)",
+            "antecedent": null,
+            "pin": "787",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "The Tenth\n\nCircuit has reminded district courts that they should be \u201cmindful\u201d that \u201cexclusion of evidence under Rule\n\n403 that is otherwise admissible under the other rules is an extraordinary remedy and should be used\n\nsparingly.\u201d",
+          "propositionSpan": [
+            3047,
+            3278
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                3304,
+                3316
+              ],
+              "proposition": "The Tenth\n\nCircuit has reminded district courts that they should be \u201cmindful\u201d that \u201cexclusion of evidence under Rule\n\n403 that is otherwise admissible under the other rules is an extraordinary remedy and should be used\n\nsparingly.\u201d",
+              "propositionSpan": [
+                3047,
+                3278
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                3115,
+                3124
+              ],
+              "raw_text": "\u201cmindful\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g5",
+              "pin_cite": "787",
+              "pin_basis": "printed",
+              "citation_span": [
+                3304,
+                3316
+              ]
+            },
+            {
+              "span": [
+                3130,
+                3278
+              ],
+              "raw_text": "\u201cexclusion of evidence under Rule\n\n403 that is otherwise admissible under the other rules is an extraordinary remedy and should be used\n\nsparingly.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g5",
+              "pin_cite": "787",
+              "pin_basis": "printed",
+              "citation_span": [
+                3304,
+                3316
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g6",
+          "caseName": "United States v. Begay",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              3517,
+              3537
+            ],
+            "text": "497 F. Supp. 3d 1025",
+            "plaintiff": "United States",
+            "defendant": "Begay",
+            "case_name": null,
+            "full_citation": "United States v. Begay, 497 F. Supp. 3d 1025, 1052 (D.N.M. 2020)",
+            "antecedent": null,
+            "pin": "1052",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                7546,
+                7566
+              ],
+              "text": "497 F. Supp. 3d 1025",
+              "plaintiff": "United States",
+              "defendant": "Begay",
+              "case_name": null,
+              "full_citation": "United States v. Begay, 497 F. Supp. 3d 1025, 1061 (D.N.M. 2020)",
+              "antecedent": null,
+              "pin": "1061",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                25250,
+                25270
+              ],
+              "text": "497 F. Supp. 3d 1025",
+              "plaintiff": "United States",
+              "defendant": "Begay",
+              "case_name": null,
+              "full_citation": "United States v. Begay, 497 F. Supp. 3d 1025, 1066 (D.N.M. 2020)",
+              "antecedent": null,
+              "pin": "1066",
+              "flags": []
+            }
+          ],
+          "proposition": "The trial court's discretion to balance possible unfair prejudice against probative value is broad.",
+          "propositionSpan": [
+            3392,
+            3491
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                3517,
+                3537
+              ],
+              "proposition": "The trial court's discretion to balance possible unfair prejudice against probative value is broad.",
+              "propositionSpan": [
+                3392,
+                3491
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                7546,
+                7566
+              ],
+              "proposition": "Courts in the Tenth Circuit have admitted\n\nevidence of uncharged acts where the evidence is relevant to showing credibility and honesty. See e.g.",
+              "propositionSpan": [
+                7375,
+                7520
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                25250,
+                25270
+              ],
+              "proposition": "When evidence is critical to core issues and its probative value substantial to assess those issues,\n           it should rarely be excluded under Rule 403.",
+              "propositionSpan": [
+                25065,
+                25221
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g7",
+          "caseName": "World Wide Ass\u2019n of Specialty Programs v. Pure, Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              4040,
+              4053
+            ],
+            "text": "450 F.3d 1132",
+            "plaintiff": "World Wide Ass\u2019n of Specialty Programs",
+            "defendant": "Pure, Inc.",
+            "case_name": null,
+            "full_citation": "World Wide Ass\u2019n of Specialty Programs v. Pure, Inc., 450 F.3d 1132, 1139 (2006)",
+            "antecedent": null,
+            "pin": "1139",
+            "flags": [
+              "parties_corrected: eyecite reported 'World Wide Ass\u2019  Specialty Programs' v. 'Pure, Inc.'"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                23945,
+                23958
+              ],
+              "text": "450 F.3d 1132",
+              "plaintiff": "World Wide Ass\u2019n of Specialty Programs",
+              "defendant": "Pure, Inc.",
+              "case_name": null,
+              "full_citation": "World Wide Ass\u2019n of Specialty Programs v. Pure, Inc., 450 F.3d 1132, 1144 (10th Cir. 2006)",
+              "antecedent": null,
+              "pin": "1144",
+              "flags": [
+                "parties_corrected: eyecite reported 'World Wide Ass\u2019  Specialty Programs' v. 'Pure, Inc.'"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                29432,
+                29445
+              ],
+              "text": "450 F.3d 1132",
+              "plaintiff": "World Wide Ass'n of Specialty Programs",
+              "defendant": "Pure, Inc.",
+              "case_name": null,
+              "full_citation": "World Wide Ass'n of Specialty Programs v. Pure, Inc., 450 F.3d 1132, 1144 (10th Cir. 2006)",
+              "antecedent": null,
+              "pin": "1144",
+              "flags": [
+                "parties_corrected: eyecite reported \"World Wide Ass'  Specialty Programs\" v. 'Pure, Inc.'"
+              ]
+            }
+          ],
+          "proposition": "The Tenth Circuit consistently holds that character evidence is particularly\n\nrelevant in defamation cases where reputation is directly at issue.",
+          "propositionSpan": [
+            3835,
+            3980
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                4040,
+                4053
+              ],
+              "proposition": "The Tenth Circuit consistently holds that character evidence is particularly\n\nrelevant in defamation cases where reputation is directly at issue.",
+              "propositionSpan": [
+                3835,
+                3980
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                23945,
+                23958
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                29432,
+                29445
+              ],
+              "proposition": "Temporal Considerations\n\nThe timing of evidence must be considered under multiple frameworks:\n\n   \uf0b7   Pre-existing reputation evidence (relevant to baseline damages);\n\n   \uf0b7  Contemporaneous evidence during alleged defamation (relevant to actual malice);\n\n   \uf0b7  Subsequent evidence showing impact (relevant to causation).",
+              "propositionSpan": [
+                29051,
+                29371
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                4085,
+                4141
+              ],
+              "raw_text": "\"reputation and character are\n\ninextricably intertwined\"",
+              "attribution_status": "linked",
+              "attribution_basis": "own_parenthetical",
+              "authority_id": "g7",
+              "pin_cite": "1139",
+              "pin_basis": "printed",
+              "citation_span": [
+                4040,
+                4053
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g8",
+          "caseName": "Balderas v. Real Estate Law Center, P.C.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              4539,
+              4557
+            ],
+            "text": "409 F.Supp.3d 1122",
+            "plaintiff": "Balderas",
+            "defendant": "Real Estate Law Center, P.C.",
+            "case_name": null,
+            "full_citation": "Balderas v. Real Estate Law Center, P.C., 409 F.Supp.3d 1122, 1128 (2019)",
+            "antecedent": null,
+            "pin": "1128",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Additionally, under Rule 608(b), specific instances of\n\nconduct may be inquired into on cross-examination if probative of truthfulness.",
+          "propositionSpan": [
+            4164,
+            4299
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                4539,
+                4557
+              ],
+              "proposition": "Additionally, under Rule 608(b), specific instances of\n\nconduct may be inquired into on cross-examination if probative of truthfulness.",
+              "propositionSpan": [
+                4164,
+                4299
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g9",
+          "caseName": "Mata v. City of Farmington",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5016,
+              5034
+            ],
+            "text": "798 F.Supp.2d 1215",
+            "plaintiff": "Mata",
+            "defendant": "City of Farmington",
+            "case_name": null,
+            "full_citation": "Mata v. City of Farmington, 798 F.Supp.2d 1215, 1227 (D.N.M. 2011)",
+            "antecedent": null,
+            "pin": "1227",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                12441,
+                12460
+              ],
+              "text": "798\n\nF.Supp.2d 1215",
+              "plaintiff": "Mata",
+              "defendant": "City of Farmington",
+              "case_name": null,
+              "full_citation": "Mata v. City of Farmington, 798 F.Supp.2d 1215, 1227 (D.N.M. 2011)",
+              "antecedent": null,
+              "pin": "1227",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                14358,
+                14378
+              ],
+              "text": "798 F. Supp. 2d 1215",
+              "plaintiff": "Mata",
+              "defendant": "City of Farmington",
+              "case_name": null,
+              "full_citation": "Mata v. City of Farmington, 798 F. Supp. 2d 1215 (2011)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "advisory committee notes.",
+          "propositionSpan": [
+            4953,
+            4978
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                5016,
+                5034
+              ],
+              "proposition": "advisory committee notes.",
+              "propositionSpan": [
+                4953,
+                4978
+              ],
+              "signal": "See also"
+            },
+            {
+              "citationSpan": [
+                12441,
+                12460
+              ],
+              "proposition": "District courts within the Tenth Circuit have specifically addressed the admissibility of addiction\n\nand mental health evidence when relevant to damages claims. In",
+              "propositionSpan": [
+                12249,
+                12412
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                14358,
+                14378
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                5057,
+                5175
+              ],
+              "raw_text": "\u201cThe prejudice must be unfair in the sense that it would affect the jury's ability to weigh the evidence\n\nrationally.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "own_parenthetical",
+              "authority_id": "g9",
+              "pin_cite": "1227",
+              "pin_basis": "printed",
+              "citation_span": [
+                5016,
+                5034
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g10",
+          "caseName": "United States v. Cerno",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5395,
+              5407
+            ],
+            "text": "529 F.3d 926",
+            "plaintiff": "United States",
+            "defendant": "Cerno",
+            "case_name": null,
+            "full_citation": "United States v. Cerno, 529 F.3d 926, 935 (10th Cir. 2008)",
+            "antecedent": null,
+            "pin": "935",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "ShortCaseCitation",
+              "span": [
+                15695,
+                15710
+              ],
+              "text": "529 F.3d at 935",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Cerno",
+              "pin": "935",
+              "flags": []
+            },
+            {
+              "kind": "ShortCaseCitation",
+              "span": [
+                24905,
+                24920
+              ],
+              "text": "529 F.3d at 935",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Cerno",
+              "pin": "935",
+              "flags": []
+            }
+          ],
+          "proposition": "Coomer cannot show any prejudice \u201csubstantially outweighs\u201d the probative value.",
+          "propositionSpan": [
+            5286,
+            5365
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                5395,
+                5407
+              ],
+              "proposition": "Coomer cannot show any prejudice \u201csubstantially outweighs\u201d the probative value.",
+              "propositionSpan": [
+                5286,
+                5365
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                15695,
+                15710
+              ],
+              "proposition": "Coomer prior to any alleged statements at issue.",
+              "propositionSpan": [
+                15443,
+                15491
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                24905,
+                24920
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                5319,
+                5344
+              ],
+              "raw_text": "\u201csubstantially outweighs\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g10",
+              "pin_cite": "935",
+              "pin_basis": "printed",
+              "citation_span": [
+                5395,
+                5407
+              ]
+            },
+            {
+              "span": [
+                15744,
+                15830
+              ],
+              "raw_text": "\u201cits maximum reasonable probative force and its\n\nminimum reasonable prejudicial value\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "own_parenthetical",
+              "authority_id": "g10",
+              "pin_cite": "935",
+              "pin_basis": "printed",
+              "citation_span": [
+                15695,
+                15710
+              ]
+            },
+            {
+              "span": [
+                24962,
+                25054
+              ],
+              "raw_text": "\u201cits maximum\n       reasonable probative force and its minimum reasonable prejudicial value\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "own_parenthetical",
+              "authority_id": "g10",
+              "pin_cite": "935",
+              "pin_basis": "printed",
+              "citation_span": [
+                24905,
+                24920
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g11",
+          "caseName": "Perrin v. Anderson",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              6344,
+              6357
+            ],
+            "text": "784 F.2d 1040",
+            "plaintiff": "Perrin",
+            "defendant": "Anderson",
+            "case_name": null,
+            "full_citation": "Perrin v. Anderson, 784 F.2d 1040, 1045 (10th Cir. 1986)",
+            "antecedent": null,
+            "pin": "1045",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "In defamation actions particularly, courts routinely admit evidence probative of truthfulness given\n\nthat a plaintiff's reputation and credibility are directly at issue.",
+          "propositionSpan": [
+            6150,
+            6319
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                6344,
+                6357
+              ],
+              "proposition": "In defamation actions particularly, courts routinely admit evidence probative of truthfulness given\n\nthat a plaintiff's reputation and credibility are directly at issue.",
+              "propositionSpan": [
+                6150,
+                6319
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                6443,
+                6497
+              ],
+              "raw_text": "\u201can essential element\n\nof a charge, claim, or defense\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "own_parenthetical",
+              "authority_id": "g11",
+              "pin_cite": "1045",
+              "pin_basis": "printed",
+              "citation_span": [
+                6344,
+                6357
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g12",
+          "caseName": "Ginter v. Northwestern Mut. Life Ins. Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              6863,
+              6879
+            ],
+            "text": "576 F. Supp. 627",
+            "plaintiff": "Ginter",
+            "defendant": "Northwestern Mut. Life Ins. Co.",
+            "case_name": null,
+            "full_citation": "Ginter v. Northwestern Mut. Life Ins. Co., 576 F. Supp. 627, 630 (D. Colo. 1984)",
+            "antecedent": null,
+            "pin": "630",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "The District of Colorado has specifically addressed the admissibility of evidence showing\n\nuntruthful conduct in similar contexts. In",
+          "propositionSpan": [
+            6686,
+            6819
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                6863,
+                6879
+              ],
+              "proposition": "The District of Colorado has specifically addressed the admissibility of evidence showing\n\nuntruthful conduct in similar contexts. In",
+              "propositionSpan": [
+                6686,
+                6819
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                6923,
+                7051
+              ],
+              "raw_text": "\u201cwhere the focal issue in a case is the plaintiff's character... evidence\n\nof specific instances of conduct becomes admissible.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "preceding_citation",
+              "authority_id": "g12",
+              "pin_cite": "630",
+              "pin_basis": "printed",
+              "citation_span": [
+                6863,
+                6879
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g13",
+          "caseName": "Cerca v. Thomas",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              8410,
+              8425
+            ],
+            "text": "30 F. App'x 931",
+            "plaintiff": "Cerca",
+            "defendant": "Thomas",
+            "case_name": null,
+            "full_citation": "Cerca v. Thomas, 30 F. App'x 931, 933 (10th Cir. 2002)",
+            "antecedent": null,
+            "pin": "933",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                13767,
+                13783
+              ],
+              "text": "30 F.\n\nApp'x 931",
+              "plaintiff": "Cerca",
+              "defendant": "Thomas",
+              "case_name": null,
+              "full_citation": "Cerca v. Thomas, 30 F. App'x 931, 933 (10th Cir. 2002)",
+              "antecedent": null,
+              "pin": "933",
+              "flags": []
+            }
+          ],
+          "proposition": "Coomer\u2019s mental state and\n\npre-existing conditions effecting his psychological well-being, both of which the plaintiff here has put at\n\nissue.",
+          "propositionSpan": [
+            8246,
+            8388
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                8410,
+                8425
+              ],
+              "proposition": "Coomer\u2019s mental state and\n\npre-existing conditions effecting his psychological well-being, both of which the plaintiff here has put at\n\nissue.",
+              "propositionSpan": [
+                8246,
+                8388
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                13767,
+                13783
+              ],
+              "proposition": "The Tenth Circuit notes that Rule 608 permits exclusion only if the Defendants\u2019 introduction is\n\ndone for the \u201csole purpose\u201d of attacking a witness\u2019s character for truthfulness.",
+              "propositionSpan": [
+                13572,
+                13749
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                13682,
+                13696
+              ],
+              "raw_text": "\u201csole purpose\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g13",
+              "pin_cite": "933",
+              "pin_basis": "printed",
+              "citation_span": [
+                13767,
+                13783
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g14",
+          "caseName": "Spacecon Specialty Contractors, LLC v. Bensinger",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10262,
+              10275
+            ],
+            "text": "713 F.3d 1028",
+            "plaintiff": "Spacecon Specialty Contractors, LLC",
+            "defendant": "Bensinger",
+            "case_name": null,
+            "full_citation": "Spacecon Specialty Contractors, LLC v. Bensinger, 713 F.3d 1028 (10th Cir. 2013)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Lindell\u2019s alleged statements on public concern and to rebut Coomer\u2019s \u201cactual\n\nmalice\u201d evidence.",
+          "propositionSpan": [
+            10116,
+            10211
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                10262,
+                10275
+              ],
+              "proposition": "Lindell\u2019s alleged statements on public concern and to rebut Coomer\u2019s \u201cactual\n\nmalice\u201d evidence.",
+              "propositionSpan": [
+                10116,
+                10211
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                10185,
+                10201
+              ],
+              "raw_text": "\u201cactual\n\nmalice\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g14",
+              "pin_cite": null,
+              "pin_basis": null,
+              "citation_span": [
+                10262,
+                10275
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g15",
+          "caseName": "St. Amant v. Thompson",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10334,
+              10346
+            ],
+            "text": "390 U.S. 727",
+            "plaintiff": "St. Amant",
+            "defendant": "Thompson",
+            "case_name": null,
+            "full_citation": "St. Amant v. Thompson, 390 U.S. 727, 731",
+            "antecedent": null,
+            "pin": "731",
+            "flags": [
+              "parties_corrected: eyecite reported '' v. 'St. Amant'",
+              "year_unverified: eyecite reports 1968, no year parenthetical in this citation's own window"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                10353,
+                10366
+              ],
+              "text": "88 S.Ct. 1323",
+              "plaintiff": "St. Amant",
+              "defendant": "Thompson",
+              "case_name": null,
+              "full_citation": "88 S.Ct. 1323",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "parties_unverified: eyecite reported '' v. 'St. Amant', no 'v.' pattern in this citation's own window",
+                "year_unverified: eyecite reports 1968, no year parenthetical in this citation's own window"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                10368,
+                10382
+              ],
+              "text": "20 L.Ed.2d 262",
+              "plaintiff": "St. Amant",
+              "defendant": "Thompson",
+              "case_name": null,
+              "full_citation": "20 L.Ed.2d 262 (1968)",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "parties_unverified: eyecite reported '' v. 'St. Amant', no 'v.' pattern in this citation's own window"
+              ]
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                10334,
+                10346
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                10353,
+                10366
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                10368,
+                10382
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g16",
+          "caseName": "Garrison v. Louisiana",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10415,
+              10426
+            ],
+            "text": "379 U.S. 64",
+            "plaintiff": "Garrison",
+            "defendant": "Louisiana",
+            "case_name": null,
+            "full_citation": "Garrison v. Louisiana, 379 U.S. 64, 74",
+            "antecedent": null,
+            "pin": "74",
+            "flags": [
+              "year_unverified: eyecite reports 1964, no year parenthetical in this citation's own window"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                10432,
+                10444
+              ],
+              "text": "85 S.Ct. 209",
+              "plaintiff": "Garrison",
+              "defendant": "Louisiana",
+              "case_name": null,
+              "full_citation": "85 S.Ct. 209",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "parties_unverified: eyecite reported 'Garrison' v. 'Louisiana', no 'v.' pattern in this citation's own window",
+                "year_unverified: eyecite reports 1964, no year parenthetical in this citation's own window"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                10446,
+                10460
+              ],
+              "text": "13 L.Ed.2d 125",
+              "plaintiff": "Garrison",
+              "defendant": "Louisiana",
+              "case_name": null,
+              "full_citation": "13 L.Ed.2d 125 (1964)",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "parties_unverified: eyecite reported 'Garrison' v. 'Louisiana', no 'v.' pattern in this citation's own window"
+              ]
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                10415,
+                10426
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                10432,
+                10444
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                10446,
+                10460
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g17",
+          "caseName": "Perkins v. Fed. Fruit & Produce Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              11971,
+              11984
+            ],
+            "text": "945 F.3d 1242",
+            "plaintiff": "Perkins",
+            "defendant": "Fed. Fruit & Produce Co.",
+            "case_name": null,
+            "full_citation": "Perkins v. Fed. Fruit & Produce Co., 945 F.3d 1242, 1251 (10th Cir. 2019)",
+            "antecedent": null,
+            "pin": "1251",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "The Tenth Circuit\n\nhas repeatedly held that defendants must be permitted to present evidence of alternative causes for claimed\n\nemotional injuries.",
+          "propositionSpan": [
+            11782,
+            11929
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                11971,
+                11984
+              ],
+              "proposition": "The Tenth Circuit\n\nhas repeatedly held that defendants must be permitted to present evidence of alternative causes for claimed\n\nemotional injuries.",
+              "propositionSpan": [
+                11782,
+                11929
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g18",
+          "caseName": "Jones v. Denver Post Corp.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              12120,
+              12132
+            ],
+            "text": "203 F.3d 748",
+            "plaintiff": "Jones",
+            "defendant": "Denver Post Corp.",
+            "case_name": null,
+            "full_citation": "Jones v. Denver Post Corp., 203 F.3d 748, 756 (10th Cir. 2000)",
+            "antecedent": null,
+            "pin": "756",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                12120,
+                12132
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g19",
+          "caseName": "Sanchez v. Duffy",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              12631,
+              12649
+            ],
+            "text": "416 F.Supp.3d 1131",
+            "plaintiff": "Sanchez",
+            "defendant": "Duffy",
+            "case_name": null,
+            "full_citation": "Sanchez v. Duffy, 416 F.Supp.3d 1131 (D. Colo. 2018)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                20662,
+                20680
+              ],
+              "text": "416 F.Supp.3d 1131",
+              "plaintiff": "Sanchez",
+              "defendant": "Duffy",
+              "case_name": null,
+              "full_citation": "Sanchez v. Duffy, 416 F.Supp.3d 1131, 1142 (D. Colo. 2018)",
+              "antecedent": null,
+              "pin": "1142",
+              "flags": []
+            },
+            {
+              "kind": "ShortCaseCitation",
+              "span": [
+                25953,
+                25974
+              ],
+              "text": "416 F.Supp.3d at 1145",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Duffy",
+              "pin": "1145",
+              "flags": []
+            }
+          ],
+          "proposition": "The District of Colorado in",
+          "propositionSpan": [
+            12585,
+            12612
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                12631,
+                12649
+              ],
+              "proposition": "The District of Colorado in",
+              "propositionSpan": [
+                12585,
+                12612
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                20662,
+                20680
+              ],
+              "proposition": "Courts within the District of Colorado have consistently admitted social media evidence in similar\n\ncontexts.",
+              "propositionSpan": [
+                20530,
+                20639
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                25953,
+                25974
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g20",
+          "caseName": "Boeser v. Sharp, No. CIVA03CV00031WDMMEH",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              13002,
+              13017
+            ],
+            "text": "2007 WL 1430100",
+            "plaintiff": "Boeser",
+            "defendant": "Sharp, No. CIVA03CV00031WDMMEH",
+            "case_name": null,
+            "full_citation": "Boeser v. Sharp, No. CIVA03CV00031WDMMEH, 2007 WL 1430100, at *7 (D. Colo. May 14 2007)",
+            "antecedent": null,
+            "pin": "at *7",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Sharp, the court recognized that when a plaintiff places mental state at issue evidence\n\nof  pre-existing conditions becomes highly relevant  to assessing damages.",
+          "propositionSpan": [
+            12794,
+            12957
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                13002,
+                13017
+              ],
+              "proposition": "Sharp, the court recognized that when a plaintiff places mental state at issue evidence\n\nof  pre-existing conditions becomes highly relevant  to assessing damages.",
+              "propositionSpan": [
+                12794,
+                12957
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g21",
+          "caseName": null,
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              13141,
+              13156
+            ],
+            "text": "2013 WL 1658203",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "2013 WL 1658203, at *20 (D.N.M. Mar. 28 2013)",
+            "antecedent": null,
+            "pin": "at *20",
+            "flags": [
+              "parties_unverified: eyecite reported '' v. 'Cnty. of Bernalillo, No. CIV 11-0107 JB/KBM', no 'v.' pattern in this citation's own window"
+            ]
+          },
+          "children": [],
+          "proposition": "Bd. of Comm'rs for Cnty. of Bernalillo, No. CIV 11-0107 JB/KBM,",
+          "propositionSpan": [
+            13077,
+            13140
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                13141,
+                13156
+              ],
+              "proposition": "Bd. of Comm'rs for Cnty. of Bernalillo, No. CIV 11-0107 JB/KBM,",
+              "propositionSpan": [
+                13077,
+                13140
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g22",
+          "caseName": "United States v. Jones",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              16516,
+              16529
+            ],
+            "text": "530 F.3d 1292",
+            "plaintiff": "United States",
+            "defendant": "Jones",
+            "case_name": null,
+            "full_citation": "United States v. Jones, 530 F.3d 1292, 1302 (10th Cir. 2008)",
+            "antecedent": null,
+            "pin": "1302",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                25687,
+                25707
+              ],
+              "text": "530\n       F.3d 1292",
+              "plaintiff": "United States",
+              "defendant": "Jones",
+              "case_name": null,
+              "full_citation": "United States v. Jones, 530 F.3d 1292, 1302 (10th Cir. 2008)",
+              "antecedent": null,
+              "pin": "1302",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                28443,
+                28456
+              ],
+              "text": "530 F.3d 1292",
+              "plaintiff": "United States",
+              "defendant": "Jones",
+              "case_name": null,
+              "full_citation": "United States v. Jones, 530 F.3d 1292, 1302 (10th Cir. 2008)",
+              "antecedent": null,
+              "pin": "1302",
+              "flags": []
+            }
+          ],
+          "proposition": "Wholesale exclusion is not warranted.",
+          "propositionSpan": [
+            16450,
+            16487
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                16516,
+                16529
+              ],
+              "proposition": "Wholesale exclusion is not warranted.",
+              "propositionSpan": [
+                16450,
+                16487
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                25687,
+                25707
+              ],
+              "proposition": "Limiting instructions can effectively address potential prejudice.",
+              "propositionSpan": [
+                25592,
+                25658
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                28443,
+                28456
+              ],
+              "proposition": "Limiting Instructions and Jury Management\n\nWhen evidence serves multiple purposes - some permissible and some potentially problematic - courts\n\nregularly employ limiting instructions rather than excluding the evidence entirely.",
+              "propositionSpan": [
+                28186,
+                28413
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g23",
+          "caseName": "Michelson v. United States",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              17433,
+              17445
+            ],
+            "text": "335 U.S. 469",
+            "plaintiff": "Michelson",
+            "defendant": "United States",
+            "case_name": null,
+            "full_citation": "Michelson v. United States, 335 U.S. 469, 479 (1948)",
+            "antecedent": null,
+            "pin": "479",
+            "flags": [
+              "year_corrected: eyecite reported 1997, citation's own parenthetical says 1948"
+            ]
+          },
+          "children": [],
+          "proposition": "Courts have long recognized that when a party introduces\n\nevidence of good character, the opposing party is entitled to rebut with contrary character evidence.",
+          "propositionSpan": [
+            17240,
+            17399
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                17433,
+                17445
+              ],
+              "proposition": "Courts have long recognized that when a party introduces\n\nevidence of good character, the opposing party is entitled to rebut with contrary character evidence.",
+              "propositionSpan": [
+                17240,
+                17399
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                17474,
+                17488
+              ],
+              "raw_text": "\u201cdoor opening\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "own_parenthetical",
+              "authority_id": "g23",
+              "pin_cite": "479",
+              "pin_basis": "printed",
+              "citation_span": [
+                17433,
+                17445
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g24",
+          "caseName": "United States v. Morales",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              17551,
+              17564
+            ],
+            "text": "108 F.3d 1213",
+            "plaintiff": "United States",
+            "defendant": "Morales",
+            "case_name": null,
+            "full_citation": "United States v. Morales, 108 F.3d 1213, 1222 (10th Cir. 1997)",
+            "antecedent": null,
+            "pin": "1222",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                30672,
+                30685
+              ],
+              "text": "108 F.3d 1213",
+              "plaintiff": "United States",
+              "defendant": "Morales",
+              "case_name": null,
+              "full_citation": "United States v. Morales, 108 F.3d 1213, 1222 (10th Cir. 1997)",
+              "antecedent": null,
+              "pin": "1222",
+              "flags": []
+            }
+          ],
+          "proposition": "Coomer opens the door to certain topics through his own testimony or evidence, additional\n\nevidence may become admissible under the doctrine of curative admissibility.",
+          "propositionSpan": [
+            30473,
+            30640
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                17551,
+                17564
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                30672,
+                30685
+              ],
+              "proposition": "Coomer opens the door to certain topics through his own testimony or evidence, additional\n\nevidence may become admissible under the doctrine of curative admissibility.",
+              "propositionSpan": [
+                30473,
+                30640
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g25",
+          "caseName": "Roberts v. McAfee, Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              18521,
+              18534
+            ],
+            "text": "660 F.3d 1156",
+            "plaintiff": "Roberts",
+            "defendant": "McAfee, Inc.",
+            "case_name": null,
+            "full_citation": "Roberts v. McAfee, Inc., 660 F.3d 1156, 1167-68 (9th Cir. 2011)",
+            "antecedent": null,
+            "pin": "1167-68",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Courts regularly admit social media evidence in defamation cases when relevant to reputation and\n\ndamages.",
+          "propositionSpan": [
+            18385,
+            18491
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                18521,
+                18534
+              ],
+              "proposition": "Courts regularly admit social media evidence in defamation cases when relevant to reputation and\n\ndamages.",
+              "propositionSpan": [
+                18385,
+                18491
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g26",
+          "caseName": "Lohrenz v. Donnelly",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              18670,
+              18683
+            ],
+            "text": "350 F.3d 1272",
+            "plaintiff": "Lohrenz",
+            "defendant": "Donnelly",
+            "case_name": null,
+            "full_citation": "Lohrenz v. Donnelly, 350 F.3d 1272, 1282-83 (D.C. Cir. 2003)",
+            "antecedent": null,
+            "pin": "1282-83",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                18670,
+                18683
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g27",
+          "caseName": "United States v. Hassan",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              19059,
+              19071
+            ],
+            "text": "742 F.3d 104",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "742 F.3d 104, 133 (10th Cir. 2014)",
+            "antecedent": null,
+            "pin": "133",
+            "flags": [
+              "parties_unverified: eyecite reported '' v. 'Hassan', no 'v.' pattern in this citation's own window"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                27929,
+                27941
+              ],
+              "text": "742 F.3d 104",
+              "plaintiff": "United States",
+              "defendant": "Hassan",
+              "case_name": null,
+              "full_citation": "United States v. Hassan, 742 F.3d 104, 133 (10th Cir. 2014)",
+              "antecedent": null,
+              "pin": "133",
+              "flags": []
+            }
+          ],
+          "proposition": "Authentication and Chain of Evidence\n\n      For social media and electronic evidence, authentication requirements can be satisfied through\n\nmultiple methods:\n\n   \uf0b7   Direct testimony from witnesses with knowledge (Rule 901(b)(1));\n\n   \uf0b7   Distinctive characteristics and circumstantial evidence (Rule 901(b)(4));\n\n\n\n                                            12  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25  USDC Colorado\n                                 pg 13 of 17\n\n\n\n   \uf0b7  System metadata and digital signatures;\n\n   \uf0b7  Business records certifications (Rule 902(11)).",
+          "propositionSpan": [
+            27308,
+            27898
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                19059,
+                19071
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                27929,
+                27941
+              ],
+              "proposition": "Authentication and Chain of Evidence\n\n      For social media and electronic evidence, authentication requirements can be satisfied through\n\nmultiple methods:\n\n   \uf0b7   Direct testimony from witnesses with knowledge (Rule 901(b)(1));\n\n   \uf0b7   Distinctive characteristics and circumstantial evidence (Rule 901(b)(4));\n\n\n\n                                            12  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25  USDC Colorado\n                                 pg 13 of 17\n\n\n\n   \uf0b7  System metadata and digital signatures;\n\n   \uf0b7  Business records certifications (Rule 902(11)).",
+              "propositionSpan": [
+                27308,
+                27898
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g28",
+          "caseName": "Anaya v. CBS Broad. Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              19514,
+              19534
+            ],
+            "text": "626 F. Supp. 2d 1158",
+            "plaintiff": "Anaya",
+            "defendant": "CBS Broad. Inc.",
+            "case_name": null,
+            "full_citation": "Anaya v. CBS Broad. Inc., 626 F. Supp. 2d 1158, 1198 (D.N.M. 2009)",
+            "antecedent": null,
+            "pin": "1198",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Coomer\u2019s role in essentially programming equipment for United States elections gives the general\n\npublic heightened interest in his statements about political or public issues\u2014specifically regarding issues\n\nof importance during the 2020 election.",
+          "propositionSpan": [
+            19241,
+            19487
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                19514,
+                19534
+              ],
+              "proposition": "Coomer\u2019s role in essentially programming equipment for United States elections gives the general\n\npublic heightened interest in his statements about political or public issues\u2014specifically regarding issues\n\nof importance during the 2020 election.",
+              "propositionSpan": [
+                19241,
+                19487
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g29",
+          "caseName": "Baer",
+          "header": {
+            "kind": "ShortCaseCitation",
+            "span": [
+              19584,
+              19598
+            ],
+            "text": "383 U.S. at 85",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "Baer",
+            "full_citation": null,
+            "antecedent": "Baer",
+            "pin": "85",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                19584,
+                19598
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g30",
+          "caseName": "Estate of Martinelli v. City & Cty. of Denver, No. 19- cv-02737",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              20852,
+              20867
+            ],
+            "text": "2021 WL 4133804",
+            "plaintiff": "Estate of Martinelli",
+            "defendant": "City & Cty. of Denver, No. 19- cv-02737",
+            "case_name": null,
+            "full_citation": "Estate of Martinelli v. City & Cty. of Denver, No. 19- cv-02737, 2021 WL 4133804, at *6-7 (D. Colo. Sept. 10 2021)",
+            "antecedent": null,
+            "pin": "at *6-7",
+            "flags": [
+              "parties_corrected: eyecite reported '' v. ''"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                26258,
+                26273
+              ],
+              "text": "2021 WL 4133804",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": "2021 WL 4133804, at *8",
+              "antecedent": null,
+              "pin": "at *8",
+              "flags": [
+                "parties_unverified: eyecite reported '' v. 'Estate of Martinelli', no 'v.' pattern in this citation's own window"
+              ]
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                20852,
+                20867
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                26258,
+                26273
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g31",
+          "caseName": "Peterson v. Nelnet Diversified Sols., LLC",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              21012,
+              21030
+            ],
+            "text": "400 F.Supp.3d 1122",
+            "plaintiff": "Peterson",
+            "defendant": "Nelnet Diversified Sols., LLC",
+            "case_name": null,
+            "full_citation": "Peterson v. Nelnet Diversified Sols., LLC, 400 F.Supp.3d 1122, 1131 (D. Colo. 2019)",
+            "antecedent": null,
+            "pin": "1131",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "ShortCaseCitation",
+              "span": [
+                26131,
+                26153
+              ],
+              "text": "400\n\nF.Supp.3d at 1133",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Nelnet Diversified Sols., LLC",
+              "pin": "1133",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                28926,
+                28944
+              ],
+              "text": "400 F.Supp.3d 1122",
+              "plaintiff": "Peterson",
+              "defendant": "Nelnet Diversified Sols., LLC",
+              "case_name": null,
+              "full_citation": "Peterson v. Nelnet Diversified Sols., LLC, 400 F.Supp.3d 1122, 1135 (D. Colo. 2019)",
+              "antecedent": null,
+              "pin": "1135",
+              "flags": []
+            }
+          ],
+          "proposition": "Sept. 10, 2021) (admitting social media evidence as\n\nrelevant to damages claims);",
+          "propositionSpan": [
+            20887,
+            20968
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                21012,
+                21030
+              ],
+              "proposition": "Sept. 10, 2021) (admitting social media evidence as\n\nrelevant to damages claims);",
+              "propositionSpan": [
+                20887,
+                20968
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                26131,
+                26153
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                28926,
+                28944
+              ],
+              "proposition": "The District of Colorado has approved similar limiting instructions in comparable cases.",
+              "propositionSpan": [
+                28789,
+                28877
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g32",
+          "caseName": "United States v. Hoffman",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              21401,
+              21414
+            ],
+            "text": "806 F.3d 1288",
+            "plaintiff": "United States",
+            "defendant": "Hoffman",
+            "case_name": null,
+            "full_citation": "United States v. Hoffman, 806 F.3d 1288, 1295 (10th Cir. 2015)",
+            "antecedent": null,
+            "pin": "1295",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "While Rule 610 prohibits evidence of religious beliefs \u201cto attack or support the witness\u2019s\n\ncredibility,\u201d it does not bar such evidence when offered for other relevant purposes.",
+          "propositionSpan": [
+            21192,
+            21369
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                21401,
+                21414
+              ],
+              "proposition": "While Rule 610 prohibits evidence of religious beliefs \u201cto attack or support the witness\u2019s\n\ncredibility,\u201d it does not bar such evidence when offered for other relevant purposes.",
+              "propositionSpan": [
+                21192,
+                21369
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                21247,
+                21297
+              ],
+              "raw_text": "\u201cto attack or support the witness\u2019s\n\ncredibility,\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g32",
+              "pin_cite": "1295",
+              "pin_basis": "printed",
+              "citation_span": [
+                21401,
+                21414
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g33",
+          "caseName": "Gulino v. Board of Education",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              22178,
+              22195
+            ],
+            "text": "236 F.Supp.2d 314",
+            "plaintiff": "Gulino",
+            "defendant": "Board of Education",
+            "case_name": null,
+            "full_citation": "Gulino v. Board of Education, 236 F.Supp.2d 314, 322 (S.D.N.Y. 2002)",
+            "antecedent": null,
+            "pin": "322",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                22178,
+                22195
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g34",
+          "caseName": "Bains LLC v. Arco Products Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              22322,
+              22334
+            ],
+            "text": "405 F.3d 764",
+            "plaintiff": "Bains LLC",
+            "defendant": "Arco Products Co.",
+            "case_name": null,
+            "full_citation": "Bains LLC v. Arco Products Co., 405 F.3d 764, 772 (9th Cir. 2005)",
+            "antecedent": null,
+            "pin": "772",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                22322,
+                22334
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g35",
+          "caseName": "United States v. Kalaydjian",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              22483,
+              22494
+            ],
+            "text": "784 F.2d 53",
+            "plaintiff": "United States",
+            "defendant": "Kalaydjian",
+            "case_name": null,
+            "full_citation": "United States v. Kalaydjian, 784 F.2d 53, 56 (2d Cir. 1986)",
+            "antecedent": null,
+            "pin": "56",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                22483,
+                22494
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g36",
+          "caseName": "United States v. Cesareo-Ayala",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              23112,
+              23125
+            ],
+            "text": "576 F.3d 1120",
+            "plaintiff": "United States",
+            "defendant": "Cesareo-Ayala",
+            "case_name": null,
+            "full_citation": "United States v. Cesareo-Ayala, 576 F.3d 1120, 1127-28 (10th Cir. 2009)",
+            "antecedent": null,
+            "pin": "1127-28",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Non-Hearsay Treatment of Background Documents\n\n\n\n                                            10  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25  USDC Colorado\n                                 pg 11 of 17\n\n\n\n\n      The 118-page background document should be admitted as it is not being offered for the truth of\n\nthe matters asserted but rather for multiple non-hearsay purposes recognized by courts:\n\n   \uf0b7  To show notice and state of mind.",
+          "propositionSpan": [
+            22620,
+            23075
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                23112,
+                23125
+              ],
+              "proposition": "Non-Hearsay Treatment of Background Documents\n\n\n\n                                            10  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25  USDC Colorado\n                                 pg 11 of 17\n\n\n\n\n      The 118-page background document should be admitted as it is not being offered for the truth of\n\nthe matters asserted but rather for multiple non-hearsay purposes recognized by courts:\n\n   \uf0b7  To show notice and state of mind.",
+              "propositionSpan": [
+                22620,
+                23075
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g37",
+          "caseName": "New York Times Co. v. Sullivan",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              23339,
+              23351
+            ],
+            "text": "376 U.S. 254",
+            "plaintiff": "New York Times Co.",
+            "defendant": "Sullivan",
+            "case_name": null,
+            "full_citation": "New York Times Co. v. Sullivan, 376 U.S. 254, 286 (1964)",
+            "antecedent": null,
+            "pin": "286",
+            "flags": [
+              "year_corrected: eyecite reported 1992, citation's own parenthetical says 1964"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                31689,
+                31701
+              ],
+              "text": "376 U.S. 254",
+              "plaintiff": "New York Times Co.",
+              "defendant": "Sullivan",
+              "case_name": null,
+              "full_citation": "New York Times Co. v. Sullivan, 376 U.S. 254 (1964)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "\uf0b7  To demonstrate the context and basis for Defendants' statements.",
+          "propositionSpan": [
+            23227,
+            23294
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                23339,
+                23351
+              ],
+              "proposition": "\uf0b7  To demonstrate the context and basis for Defendants' statements.",
+              "propositionSpan": [
+                23227,
+                23294
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                31689,
+                31701
+              ],
+              "proposition": "Constitutional Considerations\n\n      The constitutional dimensions of defamation law affect evidentiary analysis.",
+              "propositionSpan": [
+                31538,
+                31651
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g38",
+          "caseName": "Brown v. Petrolite Corp.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              23580,
+              23591
+            ],
+            "text": "965 F.2d 38",
+            "plaintiff": "Brown",
+            "defendant": "Petrolite Corp.",
+            "case_name": null,
+            "full_citation": "Brown v. Petrolite Corp., 965 F.2d 38, 46 (5th Cir. 1992)",
+            "antecedent": null,
+            "pin": "46",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                29553,
+                29564
+              ],
+              "text": "965 F.2d 38",
+              "plaintiff": "Brown",
+              "defendant": "Petrolite Corp.",
+              "case_name": null,
+              "full_citation": "Brown v. Petrolite Corp., 965 F.2d 38, 46 (5th Cir. 1992)",
+              "antecedent": null,
+              "pin": "46",
+              "flags": []
+            }
+          ],
+          "proposition": "\uf0b7  To establish the reasonableness of Defendants' conduct.",
+          "propositionSpan": [
+            23491,
+            23549
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                23580,
+                23591
+              ],
+              "proposition": "\uf0b7  To establish the reasonableness of Defendants' conduct.",
+              "propositionSpan": [
+                23491,
+                23549
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                29553,
+                29564
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g39",
+          "caseName": "Schwartz v. American College of Emergency Physicians",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              24100,
+              24113
+            ],
+            "text": "215 F.3d 1140",
+            "plaintiff": "Schwartz",
+            "defendant": "American College of Emergency Physicians",
+            "case_name": null,
+            "full_citation": "Schwartz v. American College of Emergency Physicians, 215 F.3d 1140, 1146 (10th Cir. 2000)",
+            "antecedent": null,
+            "pin": "1146",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                24100,
+                24113
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g40",
+          "caseName": "United States v. Caraway",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              24622,
+              24635
+            ],
+            "text": "534 F.3d 1290",
+            "plaintiff": "United States",
+            "defendant": "Caraway",
+            "case_name": null,
+            "full_citation": "United States v. Caraway, 534 F.3d 1290 (10th Cir. 2008)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Rule 403 Balancing in Defamation Cases\n\n       Courts in the Tenth Circuit lend careful consideration to Rule 403 balancing in defamation or\n\nintentional infliction cases because, unlike other legal claims, evidence that is central to reputation and\n\nreputational or emotional damages is far more probative to these claims regardless of purported prejudice\n\nto a plaintiff.",
+          "propositionSpan": [
+            24218,
+            24591
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                24622,
+                24635
+              ],
+              "proposition": "Rule 403 Balancing in Defamation Cases\n\n       Courts in the Tenth Circuit lend careful consideration to Rule 403 balancing in defamation or\n\nintentional infliction cases because, unlike other legal claims, evidence that is central to reputation and\n\nreputational or emotional damages is far more probative to these claims regardless of purported prejudice\n\nto a plaintiff.",
+              "propositionSpan": [
+                24218,
+                24591
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g41",
+          "caseName": "United States v. Reaves",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              26896,
+              26908
+            ],
+            "text": "649 F.3d 862",
+            "plaintiff": "United States",
+            "defendant": "Reaves",
+            "case_name": null,
+            "full_citation": "United States v. Reaves, 649 F.3d 862, 867-68 (8th Cir. 2011)",
+            "antecedent": null,
+            "pin": "867-68",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Courts\n\nrecognize that evidence often serves multiple purposes and implicates multiple evidentiary rules.",
+          "propositionSpan": [
+            26760,
+            26865
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                26896,
+                26908
+              ],
+              "proposition": "Courts\n\nrecognize that evidence often serves multiple purposes and implicates multiple evidentiary rules.",
+              "propositionSpan": [
+                26760,
+                26865
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g42",
+          "caseName": "Lorraine v. Markel American Ins. Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              28065,
+              28079
+            ],
+            "text": "241 F.R.D. 534",
+            "plaintiff": "Lorraine",
+            "defendant": "Markel American Ins. Co.",
+            "case_name": null,
+            "full_citation": "Lorraine v. Markel American Ins. Co., 241 F.R.D. 534, 541-42 (D. Md. 2007)",
+            "antecedent": null,
+            "pin": "541-42",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                28065,
+                28079
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g43",
+          "caseName": "United States v. Lopez-Medina",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              30035,
+              30047
+            ],
+            "text": "596 F.3d 716",
+            "plaintiff": "United States",
+            "defendant": "Lopez-Medina",
+            "case_name": null,
+            "full_citation": "United States v. Lopez-Medina, 596 F.3d 716, 735 (10th Cir. 2010)",
+            "antecedent": null,
+            "pin": "735",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Completeness Doctrine\n\n      The rule of completeness (Rule 106) may require admission of otherwise excludable evidence to\n\nprovide necessary context.",
+          "propositionSpan": [
+            29849,
+            29999
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                30035,
+                30047
+              ],
+              "proposition": "Completeness Doctrine\n\n      The rule of completeness (Rule 106) may require admission of otherwise excludable evidence to\n\nprovide necessary context.",
+              "propositionSpan": [
+                29849,
+                29999
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g44",
+          "caseName": "United States v. Rucker",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              30993,
+              31011
+            ],
+            "text": "188 Fed. Appx. 772",
+            "plaintiff": "United States",
+            "defendant": "Rucker",
+            "case_name": null,
+            "full_citation": "United States v. Rucker, 188 Fed. Appx. 772, 778 (10th Cir. 2006)",
+            "antecedent": null,
+            "pin": "778",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "The doctrine\n\nof curative admissibility allows for the admission of evidence which the Court finds otherwise\n\ninadmissible, only to the extent necessary to remove any unfair prejudice to the Defendants here.",
+          "propositionSpan": [
+            30755,
+            30962
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                30993,
+                31011
+              ],
+              "proposition": "The doctrine\n\nof curative admissibility allows for the admission of evidence which the Court finds otherwise\n\ninadmissible, only to the extent necessary to remove any unfair prejudice to the Defendants here.",
+              "propositionSpan": [
+                30755,
+                30962
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g45",
+          "caseName": "United States v. Morales- Quinones",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              31079,
+              31091
+            ],
+            "text": "812 F.2d 604",
+            "plaintiff": "United States",
+            "defendant": "Morales- Quinones",
+            "case_name": null,
+            "full_citation": "United States v. Morales- Quinones, 812 F.2d 604, 609-10 (10th Cir. 1987)",
+            "antecedent": null,
+            "pin": "609-10",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                31079,
+                31091
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g46",
+          "caseName": "Jefferson County School District v. Moody's Investor's Services",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              32232,
+              32244
+            ],
+            "text": "175 F.3d 848",
+            "plaintiff": "Jefferson County School District",
+            "defendant": "Moody's Investor's Services",
+            "case_name": null,
+            "full_citation": "Jefferson County School District v. Moody's Investor's Services, 175 F.3d 848, 857-58 (10th Cir. 1999)",
+            "antecedent": null,
+            "pin": "857-58",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Indeed, the Tenth Circuit requires \u201cbreathing space\u201d for defamation defendants to present their defense.",
+          "propositionSpan": [
+            32057,
+            32161
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                32232,
+                32244
+              ],
+              "proposition": "Indeed, the Tenth Circuit requires \u201cbreathing space\u201d for defamation defendants to present their defense.",
+              "propositionSpan": [
+                32057,
+                32161
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                32092,
+                32109
+              ],
+              "raw_text": "\u201cbreathing space\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g46",
+              "pin_cite": "857-58",
+              "pin_basis": "printed",
+              "citation_span": [
+                32232,
+                32244
+              ]
+            }
+          ]
+        }
+      ],
+      "authorities": [
+        {
+          "id": "a0",
+          "category": "rule",
+          "source": "Federal Rules of Evidence",
+          "header": {
+            "span": [
+              2392,
+              2409
+            ],
+            "text": "Fed. R. Evid. 401",
+            "name": "Fed. R. Evid. 401",
+            "short": false
+          },
+          "children": []
+        },
+        {
+          "id": "a1",
+          "category": "rule",
+          "source": "Federal Rules of Evidence",
+          "header": {
+            "span": [
+              4934,
+              4951
+            ],
+            "text": "Fed. R. Evid. 403",
+            "name": "Fed. R. Evid. 403",
+            "short": false
+          },
+          "children": []
+        },
+        {
+          "id": "a2",
+          "category": "rule",
+          "source": "Federal Rules of Evidence",
+          "header": {
+            "span": [
+              7779,
+              7810
+            ],
+            "text": "Federal Rule of Evidence 608(b)",
+            "name": "Fed. R. Evid. 608(b)",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                8001,
+                8004
+              ],
+              "text": "id.",
+              "name": "Fed. R. Evid. 608(b)",
+              "short": true
+            },
+            {
+              "span": [
+                8006,
+                8026
+              ],
+              "text": "Fed. R. Evid. 608(b)",
+              "name": "Fed. R. Evid. 608(b)",
+              "short": false
+            }
+          ]
+        },
+        {
+          "id": "a3",
+          "category": "rule",
+          "source": "Federal Rules of Evidence",
+          "header": {
+            "span": [
+              13807,
+              13824
+            ],
+            "text": "Fed. R. Evid. 608",
+            "name": "Fed. R. Evid. 608",
+            "short": false
+          },
+          "children": []
+        },
+        {
+          "id": "a4",
+          "category": "rule",
+          "source": "Federal Rules of Evidence",
+          "header": {
+            "span": [
+              21678,
+              21695
+            ],
+            "text": "Fed. R. Evid. 601",
+            "name": "Fed. R. Evid. 601",
+            "short": false
+          },
+          "children": []
+        }
+      ],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": [
+        {
+          "span": [
+            987,
+            1033
+          ],
+          "raw_text": "\u201cintentional infliction of emotional distress\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            1088,
+            1112
+          ],
+          "raw_text": "\u201cextreme and outrageous\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            16098,
+            16122
+          ],
+          "raw_text": "\u201cextreme and outrageous\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            16995,
+            17000
+          ],
+          "raw_text": "\u201cDr.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        }
+      ]
+    }
+  }
+]

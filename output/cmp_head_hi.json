@@ -1,0 +1,81 @@
+[
+  {
+    "path": "output\\probe_hi.txt",
+    "name": "probe_hi.txt",
+    "chars": 279,
+    "old": {
+      "stats": {
+        "groups": 0,
+        "citations": 0,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 3,
+        "authorityCitations": 4
+      },
+      "groups": [],
+      "authorities": [
+        {
+          "id": "a0",
+          "category": "statute",
+          "source": "U.S. Code",
+          "header": {
+            "span": [
+              35,
+              51
+            ],
+            "text": "42 U.S.C. \u00a7 1983",
+            "name": "42 U.S.C. \u00a7 1983",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                80,
+                96
+              ],
+              "text": "42 U.S.C. \u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": false
+            }
+          ]
+        },
+        {
+          "id": "a1",
+          "category": "statute",
+          "source": "Hawaii Revised Statutes",
+          "header": {
+            "span": [
+              158,
+              184
+            ],
+            "text": "Haw. Rev. Stat. \u00a7\u00a7 11-\n351",
+            "name": "Haw. Rev. Stat. \u00a7 11-351",
+            "short": false
+          },
+          "children": []
+        },
+        {
+          "id": "a2",
+          "category": "statute",
+          "source": "Hawaii Revised Statutes",
+          "header": {
+            "span": [
+              261,
+              267
+            ],
+            "text": "\u00a7 1983",
+            "name": null,
+            "short": true
+          },
+          "children": []
+        }
+      ],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  }
+]

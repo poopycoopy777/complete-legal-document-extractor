@@ -1,0 +1,22 @@
+old=1 new=1
+[CASENAME] probe_priv.txt g@162 old='In re Facebook, Inc. Consumer Priv. User Profile Litig., No. 18-md-02843-JSC' new='Facebook, Inc. Consumer Pri v. User Profile Litig., No. 18-md-02843-JSC'
+[PROPOSITION] probe_priv.txt g@162
+    old='Courts routinely strike allegations referencing unrelated criminal proceedings.'
+    new=None
+
+TOTALS {
+  "lost_citations": 0,
+  "gained_citations": 0,
+  "lost_groups": 0,
+  "gained_groups": 0,
+  "lost_quotes": 0,
+  "gained_quotes": 0,
+  "lost_records": 0,
+  "gained_records": 0,
+  "lost_authorities": 0,
+  "gained_authorities": 0,
+  "attr_changed": 0,
+  "text_changed": 0,
+  "proposition_changed": 1,
+  "caseName_changed": 1
+}

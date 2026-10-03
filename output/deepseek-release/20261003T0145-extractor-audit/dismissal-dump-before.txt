@@ -1,0 +1,63 @@
+STATS: {
+  "groups": 10,
+  "citations": 23,
+  "quotes": 1,
+  "linkedQuotes": 1,
+  "ambiguousQuotes": 0,
+  "unattributedQuotes": 0,
+  "flagged": 6,
+  "authorities": 13,
+  "authorityCitations": 22
+}
+ORPHANS: 0
+ORPHAN DETAIL: []
+AUTHORITIES: 13
+    {"id": "a0", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 12(b)(5)", "span": [238, 255], "name": "C.R.C.P. 12(b)(5)", "url": null, "tokens": {"rule": "12", "section": "12(b)(5)", "subsection": "(b)(5)"}, "is_shortform": false}, "children": [{"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 12(b)(5)", "span": [463, 480], "name": "C.R.C.P. 12(b)(5)", "url": null, "tokens": {"rule": "12", "section": "12(b)(5)", "subsection": "(b)(5)"}, "is_short
+    {"id": "a1", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 8(a)", "span": [3076, 3089], "name": "C.R.C.P. 8(a)", "url": null, "tokens": {"rule": "8", "section": "8(a)", "subsection": "(a)"}, "is_shortform": false}, "children": [{"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 8(a)", "span": [3792, 3805], "name": "C.R.C.P. 8(a)", "url": null, "tokens": {"rule": "8", "section": "8(a)", "subsection": "(a)"}, "is_shortform": false}, {"category": 
+    {"id": "a2", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 56", "span": [3505, 3516], "name": "C.R.C.P. 56", "url": null, "tokens": {"rule": "56", "section": "56"}, "is_shortform": false}, "children": [{"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 56", "span": [8037, 8048], "name": "C.R.C.P. 56", "url": null, "tokens": {"rule": "56", "section": "56"}, "is_shortform": false}], "quotes": []}
+    {"id": "a3", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 8(c)", "span": [3929, 3942], "name": "C.R.C.P. 8(c)", "url": null, "tokens": {"rule": "8", "section": "8(c)", "subsection": "(c)"}, "is_shortform": false}, "children": [], "quotes": []}
+    {"id": "a4", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 12(f)", "span": [5991, 6005], "name": "C.R.C.P. 12(f)", "url": null, "tokens": {"rule": "12", "section": "12(f)", "subsection": "(f)"}, "is_shortform": false}, "children": [{"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 12(f)", "span": [10267, 10281], "name": "C.R.C.P. 12(f)", "url": null, "tokens": {"rule": "12", "section": "12(f)", "subsection": "(f)"}, "is_shortform": false}], "q
+    {"id": "a5", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 56(e)", "span": [8561, 8575], "name": "C.R.C.P. 56(e)", "url": null, "tokens": {"rule": "56", "section": "56(e)", "subsection": "(e)"}, "is_shortform": false}, "children": [], "quotes": []}
+    {"id": "a6", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 26(b)(1)", "span": [8627, 8644], "name": "C.R.C.P. 26(b)(1)", "url": null, "tokens": {"rule": "26", "section": "26(b)(1)", "subsection": "(b)(1)"}, "is_shortform": false}, "children": [], "quotes": []}
+    {"id": "a7", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 15(a)", "span": [9026, 9040], "name": "C.R.C.P. 15(a)", "url": null, "tokens": {"rule": "15", "section": "15(a)", "subsection": "(a)"}, "is_shortform": false}, "children": [{"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 15(a)", "span": [10944, 10958], "name": "C.R.C.P. 15(a)", "url": null, "tokens": {"rule": "15", "section": "15(a)", "subsection": "(a)"}, "is_shortform": false}], "q
+    {"id": "a8", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 59(a)", "span": [9519, 9533], "name": "C.R.C.P. 59(a)", "url": null, "tokens": {"rule": "59", "section": "59(a)", "subsection": "(a)"}, "is_shortform": false}, "children": [], "quotes": []}
+    {"id": "a9", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 60", "span": [9538, 9549], "name": "C.R.C.P. 60", "url": null, "tokens": {"rule": "60", "section": "60"}, "is_shortform": false}, "children": [], "quotes": []}
+    {"id": "a10", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 12(c)", "span": [10328, 10342], "name": "C.R.C.P. 12(c)", "url": null, "tokens": {"rule": "12", "section": "12(c)", "subsection": "(c)"}, "is_shortform": false}, "children": [], "quotes": []}
+    {"id": "a11", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 16", "span": [10460, 10471], "name": "C.R.C.P. 16", "url": null, "tokens": {"rule": "16", "section": "16"}, "is_shortform": false}, "children": [], "quotes": []}
+    {"id": "a12", "category": "rule", "source": "Colorado Rules of Civil Procedure", "header": {"category": "rule", "source": "Colorado Rules of Civil Procedure", "text": "C.R.C.P. 121", "span": [10476, 10488], "name": "C.R.C.P. 121", "url": null, "tokens": {"rule": "121", "section": "121"}, "is_shortform": false}, "children": [], "quotes": []}
+UNATTRIBUTED QUOTES: 0
+[g0] caseName='Warne v. Hall' header='2016 CO 50' kind=FullCaseCitation pin=None flags=[]
+        child kind=FullCaseCitation text='373 P.3d 588' span=(1378, 1390) pin='593' flags=[]
+        child kind=IdCitation text='Id.' span=(1592, 1595) pin=None flags=[]
+        child kind=ShortCaseCitation text='373 P.3d at 594' span=(1609, 1624) pin='594' flags=[]
+        child kind=FullCaseCitation text='2016 CO 50' span=(1832, 1842) pin=None flags=["parties_unverified: eyecite reported '' v. 'Rule 12(b)(5). Warne', no 'v.' pattern in this citation's own window"]
+        child kind=ShortCaseCitation text='373 P.3d at 596' span=(1854, 1869) pin='596' flags=[]
+        child kind=FullCaseCitation text='2016 CO 50' span=(5546, 5556) pin=None flags=["parties_unverified: eyecite reported '' v. 'Warne', no 'v.' pattern in this citation's own window"]
+        child kind=ShortCaseCitation text='373 P.3d at 595' span=(5568, 5583) pin='595' flags=[]
+        quotes=0 proposition='If, under any circumstances the plaintiﬀ is entitled to relief, dismissal is improper.' propositionSpan=[1254, 1340]
+[g1] caseName='Bell Atlantic Corp. v. Twombly' header='550 U.S. 544' kind=FullCaseCitation pin=None flags=[]
+        child kind=ShortCaseCitation text='550 U.S. at 570' span=(2245, 2260) pin='570' flags=[]
+        quotes=0 proposition='Colorado has deliberately declined to import the federal plausibility standard of' propositionSpan=[1626, 1707]
+[g2] caseName='Ashcroft v. Iqbal' header='556 U.S. 662' kind=FullCaseCitation pin=None flags=["year_corrected: eyecite reported 2007, citation's own parenthetical says 2009", "parties_corrected: eyecite reported '' v. 'Twombly'"]
+        child kind=ShortCaseCitation text='556\nU.S. at 679' span=(2375, 2390) pin='679' flags=[]
+        quotes=0 proposition='and as a standard that\ncalls for the reviewing court to draw on its judicial experience and common sense,' propositionSpan=[2262, 2367]
+[g3] caseName='Dunlap v. Colorado Springs Coach Co.' header='618 P.2d 517' kind=FullCaseCitation pin='519' flags=[]
+        child kind=ShortCaseCitation text='618 P.2d\nat 519' span=(6963, 6978) pin='519' flags=[]
+        child kind=ShortCaseCitation text='618 P.2d at 519' span=(7281, 7296) pin='519' flags=[]
+        quotes=0 proposition='A complaint that does so is\nsuﬃcient, and the plaintiﬀ is entitled to discovery to develop the facts that will prove it.' propositionSpan=[3175, 3295]
+[g4] caseName='Continental Air Lines, Inc. v. Keenan' header='731 P.2d 708' kind=FullCaseCitation pin='711' flags=[]
+        quotes=0 proposition=': the party moving for a terminal disposition must demonstrate that\nthere is nothing left to try, and the responding party is not required to prove its case in advance\nof trial.' propositionSpan=[3516, 3693]
+[g5] caseName='Sullivan v. Davis' header='39 Colo. App. 306' kind=FullCaseCitation pin=None flags=["year_unverified: eyecite reports 1977, no year parenthetical in this citation's own window"]
+        child kind=FullCaseCitation text='571 P.2d 1103' span=(4108, 4121) pin='1105' flags=["parties_unverified: eyecite reported 'Sullivan' v. 'Davis', no 'v.' pattern in this citation's own window"]
+        quotes=0 proposition='assigns that function to\nthe answering party, who bears the burden of pleading and proving the aﬃrmative matters it\nrelies on.' propositionSpan=[3943, 4069]
+[g6] caseName='Bly v. Story' header='241 P.3d 529' kind=FullCaseCitation pin='532' flags=[]
+        quotes=0 proposition='is reviewed de novo, and the appellate court applies the same\nstandard the trial court was required to apply.' propositionSpan=[5195, 5304]
+[g7] caseName='Kaiser Foundation Health Plan of Colorado v. Sharp' header='741 P.2d 714' kind=FullCaseCitation pin='719' flags=["parties_corrected: eyecite reported 'Kaiser Foundation Health Plan  Colorado' v. 'Sharp'"]
+        quotes=0 proposition="The rule that all doubts are resolved in\nthe pleader's favor is the pleading-stage counterpart of the rule that governs summary\njudgment, under which all doubts are resolved in favor of the party opposing a terminal\ndisposition." propositionSpan=[7298, 7526]
+[g8] caseName='Alpine Bank v. Hubbell' header='2017 COA 155' kind=FullCaseCitation pin=None flags=[]
+        child kind=FullCaseCitation text='418 P.3d 604' span=(8224, 8236) pin='608' flags=[]
+        quotes=0 proposition='and the parties must\nbe given the notice and the reasonable opportunity to present the material that the rule makes\nrelevant.' propositionSpan=[8050, 8175]
+[g9] caseName='E-470 Public Highway Authority v. Revenig' header='91 P.3d 1038' kind=FullCaseCitation pin='1045' flags=[]
+        quotes=0 proposition='directs that leave to amend "shall be freely given when justice so\nrequires," and it embodies a policy of deciding cases on their merits rather than on pleading\ndefects.' propositionSpan=[9041, 9210]
+REC appendix 'Appendix' (4098, 4111) '306' 'App. 306, 571'
+REC appendix 'Appendix' (9280, 9289) '2004' 'App. 2004'

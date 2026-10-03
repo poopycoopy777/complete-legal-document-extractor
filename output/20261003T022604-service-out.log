@@ -1,0 +1,9 @@
+INFO:     127.0.0.1:43260 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56542 - "GET /api/documents/ac267da186dd48658fe88a8a6beeecff/raw HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:26974 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:4699 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:4702 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:24315 - "POST /api/extract HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45656 - "POST /api/extract HTTP/1.1" 200 OK
+INFO:     127.0.0.1:22635 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:22638 - "POST /api/extract HTTP/1.1" 200 OK

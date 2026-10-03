@@ -1,0 +1,83 @@
+{
+  "shape_counts": {
+    "subsequent_history": 1,
+    "unclassified": 2,
+    "caption_split_across_a_line": 1,
+    "docket_bearing_caption": 4,
+    "name_separated_from_citation": 1
+  },
+  "findings": [
+    {
+      "path": "0385b985cbe443ba9e7e297f664764c3.pdf",
+      "group": "g8",
+      "citation": "2023 WL 6064599",
+      "shapes": [
+        "subsequent_history"
+      ],
+      "before": " the federal Constitution.\u201d (cleaned up and\ninternal quotations omitted) (quoting CF&I Steel, L.P. v. United Steel Workers of Am., 23 P.3d\n1197, 1200 (Colo. 2001)), report and recommendation adopted, ",
+      "after": " (D. Colo.\nSept. 18, 2023).\n\n\n                                               4Case No. 1:2"
+    },
+    {
+      "path": "0385b985cbe443ba9e7e297f664764c3.pdf",
+      "group": "g43",
+      "citation": "908 F.3d 1219",
+      "shapes": [
+        "unclassified"
+      ],
+      "before": "tates v. Shrum, police officers responding to the death of the defendant\u2019s wife\n\n\u201csecured\u201d the couples\u2019 home, thus preventing the defendant from entering, until he consented to\n\na search of the home. ",
+      "after": ", 1225-27 (10th Cir. 2018). The Tenth Circuit held that the\n\npolice, by \u201csecuring\u201d the def"
+    },
+    {
+      "path": "1e2056140eda449b9faaf2db9c5652a2.pdf",
+      "group": "g12",
+      "citation": "510 U.S. 517",
+      "shapes": [
+        "unclassified"
+      ],
+      "before": "24-cv-00253-GPC-WRP  Document 166   Filed 11/14/25  Page 5 of 33\n                               PageID.1993\n\n\nFantasy, Inc. v. Fogerty\n     984 F.2d 1524 (9th Cir. 1993), rev\u2019d on other grounds,\n     ",
+      "after": " (1994) \u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026... 6, 19\n\nFerdik v. Bonzelet\n     963 F.2d 1258 (9th Cir. 1992"
+    },
+    {
+      "path": "359a46773baa472d832558e027afa22e.pdf",
+      "group": "g6",
+      "citation": "963 P.2d 1095",
+      "shapes": [
+        "caption_split_across_a_line",
+        "docket_bearing_caption"
+      ],
+      "before": "\n2004)). Whether a claim is moot, or whether an exception to the mootness doctrine applies to\n\npreserve judicial review, is also an issue of law reviewed de novo (Trinidad Sch. Dist. No. 1 v.\n\nLopez, ",
+      "after": ", 1102 (Colo. 1998); Colo. Off-Highway Vehicle Coal. v. Colo. Bd. of Parks\n\n& Outdoor Recr"
+    },
+    {
+      "path": "23fb36fee64f48aa952c765bfc3be0e7.pdf",
+      "group": "g0",
+      "citation": "16 F.3d 1083",
+      "shapes": [
+        "docket_bearing_caption"
+      ],
+      "before": "the sound discretion of the trial court. Robinson  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25  USDC Colorado\n                                  pg 2 of 17\n\n\n\n\nv. Mo. Pac. R.R. Co., ",
+      "after": ", 1086 (10th Cir. 1994); see also United States v. Golden, 671 F.2d 369,\n\n371 (10th Cir. 1"
+    },
+    {
+      "path": "23fb36fee64f48aa952c765bfc3be0e7.pdf",
+      "group": "g2",
+      "citation": "2019 WL\n\n1085179",
+      "shapes": [
+        "docket_bearing_caption"
+      ],
+      "before": " relevancy is\n\nparticularly loose under rule 401, because \u2018[a]ny more stringent requirement  is unworkable and\n\nunrealistic.\u2019\u201d Rivero v. Bd. of Regents of Univ. of New Mexico, No. CIV 16-0318 JB\\SCY, ",
+      "after": ", at *78 (D.N.M. Mar. 7, 2019), aff'd, 950 F.3d 754 (10th Cir. 2020) (internal citations o"
+    },
+    {
+      "path": "23fb36fee64f48aa952c765bfc3be0e7.pdf",
+      "group": "g20",
+      "citation": "2013 WL 1658203",
+      "shapes": [
+        "name_separated_from_citation",
+        "docket_bearing_caption"
+      ],
+      "before": "sessing damages. Boeser  v. Sharp, No.\n\nCIVA03CV00031WDMMEH, 2007 WL 1430100, at *7 (D. Colo. May 14, 2007); see also Solis-Marrufo\n\nv. Bd. of Comm'rs for Cnty. of Bernalillo, No. CIV 11-0107 JB/KBM, ",
+      "after": ", at *20 (D.N.M.\n\nMar. 28, 2013) (permitting Defendants to contradict a plaintiff\u2019s assert"
+    }
+  ]
+}

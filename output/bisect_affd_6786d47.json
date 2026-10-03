@@ -1,0 +1,1446 @@
+[
+  {
+    "path": "storage\\081d6d3e70254dbeb27f6a4d4b8ca8da.pdf",
+    "name": "081d6d3e70254dbeb27f6a4d4b8ca8da.pdf",
+    "chars": 24027,
+    "old": {
+      "stats": {
+        "groups": 21,
+        "citations": 25,
+        "quotes": 12,
+        "linkedQuotes": 7,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 5,
+        "flagged": 2,
+        "authorities": 15,
+        "authorityCitations": 25
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Ion Media Networks, Inc. v. West",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              3706,
+              3718
+            ],
+            "text": "576 P.3d 225",
+            "plaintiff": "Ion Media Networks, Inc.",
+            "defendant": "West",
+            "case_name": null,
+            "full_citation": "Ion Media Networks, Inc. v. West, 576 P.3d 225 (Colo. App. 2025)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'Media Networks, Inc.' v. 'West'",
+              "party_name_ocr_corrected: 'lon Media Networks' -> 'Ion Media Networks'"
+            ]
+          },
+          "children": [],
+          "proposition": "occurring    incidents (2)                                                                                         the BWC footage,                                                                           City for                                                            requests                                                                           to the                                                multiple                               made                                   that  he                      alleged              Plaintiff 019623).\n but that the Defendants  delayed  processing   his requests,  or producing  the footage,  for\n nearly  five  (5) months.",
+          "propositionSpan": [
+            2916,
+            3596
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                3706,
+                3718
+              ],
+              "proposition": "occurring    incidents (2)                                                                                         the BWC footage,                                                                           City for                                                            requests                                                                           to the                                                multiple                               made                                   that  he                      alleged              Plaintiff 019623).\n but that the Defendants  delayed  processing   his requests,  or producing  the footage,  for\n nearly  five  (5) months.",
+              "propositionSpan": [
+                2916,
+                3596
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g1",
+          "caseName": "Warne v. Hall",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              8823,
+              8835
+            ],
+            "text": "373 P.3d 588",
+            "plaintiff": "Warne",
+            "defendant": "Hall",
+            "case_name": null,
+            "full_citation": "Warne v. Hall, 373 P.3d 588 (Colo. 2016)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                8823,
+                8835
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g2",
+          "caseName": "Begley v. Ireson",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              8886,
+              8899
+            ],
+            "text": "399  P.3d 777",
+            "plaintiff": "Begley",
+            "defendant": "Ireson",
+            "case_name": null,
+            "full_citation": "Begley v. Ireson, 399 P.3d 777 (Colo. App. 2017)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                8886,
+                8899
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g3",
+          "caseName": "Ashcroft v. Igbal",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              9606,
+              9618
+            ],
+            "text": "556 U.S. 662",
+            "plaintiff": "Ashcroft",
+            "defendant": "Igbal",
+            "case_name": null,
+            "full_citation": "Ashcroft v. Igbal, 556 U.S. 662, 678 (2009)",
+            "antecedent": null,
+            "pin": "678",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "IdCitation",
+              "span": [
+                9778,
+                9781
+              ],
+              "text": "Id.",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            },
+            {
+              "kind": "ShortCaseCitation",
+              "span": [
+                9968,
+                9983
+              ],
+              "text": "556 U.S. at 678",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Igbal",
+              "pin": "678",
+              "flags": []
+            }
+          ],
+          "proposition": "\u201cA claim has facial plausibility when the pleaded factual content allows the court to\ndraw the reasonable   inference  that the defendant   is liable for the misconduct   alleged.\u201d",
+          "propositionSpan": [
+            9403,
+            9583
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                9606,
+                9618
+              ],
+              "proposition": "\u201cA claim has facial plausibility when the pleaded factual content allows the court to\ndraw the reasonable   inference  that the defendant   is liable for the misconduct   alleged.\u201d",
+              "propositionSpan": [
+                9403,
+                9583
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                9778,
+                9781
+              ],
+              "proposition": "The allegations   must  include  more  than\nthreadbare  recitals of a cause  of action's elements  supported by mere conclusory\nstatements.",
+              "propositionSpan": [
+                9635,
+                9774
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                9968,
+                9983
+              ],
+              "proposition": "\u201cThe plausibility  standard   is not akin to a \u2018probability  requirement,   but  it asks for more\nthan  a sheer   possibility   that  a defendant    has  acted   unlawfully.\u201d",
+              "propositionSpan": [
+                9784,
+                9958
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                9403,
+                9583
+              ],
+              "raw_text": "\u201cA claim has facial plausibility when the pleaded factual content allows the court to\ndraw the reasonable   inference  that the defendant   is liable for the misconduct   alleged.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g3",
+              "pin_cite": "678",
+              "pin_basis": "printed",
+              "citation_span": [
+                9606,
+                9618
+              ]
+            },
+            {
+              "span": [
+                9784,
+                9958
+              ],
+              "raw_text": "\u201cThe plausibility  standard   is not akin to a \u2018probability  requirement,   but  it asks for more\nthan  a sheer   possibility   that  a defendant    has  acted   unlawfully.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_short_citation",
+              "authority_id": "g3",
+              "pin_cite": "678",
+              "pin_basis": "printed",
+              "citation_span": [
+                9968,
+                9983
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g4",
+          "caseName": "Rivell v. Private Health Care Sys., Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10193,
+              10207
+            ],
+            "text": "520  F.3d 1308",
+            "plaintiff": "Rivell",
+            "defendant": "Private Health Care Sys., Inc.",
+            "case_name": null,
+            "full_citation": "Rivell v. Private Health Care Sys., Inc., 520 F.3d 1308, 1309-10 (11th Cir. 2008)",
+            "antecedent": null,
+            "pin": "1309-10",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "\u201c[T]he  standard   \u2018simply  calls  for enough   fact  to raise  a reasonable    expectation    that\n discovery  will reveal evidence\u2019  of the required  element.\u201d",
+          "propositionSpan": [
+            9986,
+            10147
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                10193,
+                10207
+              ],
+              "proposition": "\u201c[T]he  standard   \u2018simply  calls  for enough   fact  to raise  a reasonable    expectation    that\n discovery  will reveal evidence\u2019  of the required  element.\u201d",
+              "propositionSpan": [
+                9986,
+                10147
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                9986,
+                10147
+              ],
+              "raw_text": "\u201c[T]he  standard   \u2018simply  calls  for enough   fact  to raise  a reasonable    expectation    that\n discovery  will reveal evidence\u2019  of the required  element.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g4",
+              "pin_cite": "1309-10",
+              "pin_basis": "printed",
+              "citation_span": [
+                10193,
+                10207
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g5",
+          "caseName": "Pirraglia v. Novell, Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10457,
+              10471
+            ],
+            "text": "339  F.3d 1182",
+            "plaintiff": "Pirraglia",
+            "defendant": "Novell, Inc.",
+            "case_name": null,
+            "full_citation": "Pirraglia v. Novell, Inc., 339 F.3d 1182, 1187 (10th Cir. 2003)",
+            "antecedent": null,
+            "pin": "1187",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "The court's  function  under a motion  to dismiss  is not to weigh potential  evidence,  but to\n assess  whether   plaintiff's  complaint  alone  is legally sufficient  to state  claim.",
+          "propositionSpan": [
+            10240,
+            10425
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                10457,
+                10471
+              ],
+              "proposition": "The court's  function  under a motion  to dismiss  is not to weigh potential  evidence,  but to\n assess  whether   plaintiff's  complaint  alone  is legally sufficient  to state  claim.",
+              "propositionSpan": [
+                10240,
+                10425
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g6",
+          "caseName": "Denver",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10798,
+              10811
+            ],
+            "text": "122 P.3d 1010",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "Denver",
+            "full_citation": "Denver, 122 P.3d 1010 (Colo. App. 2005)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                10798,
+                10811
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g7",
+          "caseName": null,
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10855,
+              10870
+            ],
+            "text": "2005 WL 3074095",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "2005 WL 3074095",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                10855,
+                10870
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g8",
+          "caseName": "Silverstein v. Sisters of Charity",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              14419,
+              14431
+            ],
+            "text": "559 P.2d 716",
+            "plaintiff": "Silverstein",
+            "defendant": "Sisters of Charity",
+            "case_name": null,
+            "full_citation": "Silverstein v. Sisters of Charity, 559 P.2d 716 (1976)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": "With that  said, Colorado  law is clear  that \u201cone whose  rights are affected  by a statute   is\n    entitled  to seek a judicial  determination   thereof  so long as the court  is provided with a\n    properly adverse  context.\u201d",
+          "propositionSpan": [
+            14152,
+            14380
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                14419,
+                14431
+              ],
+              "proposition": "With that  said, Colorado  law is clear  that \u201cone whose  rights are affected  by a statute   is\n    entitled  to seek a judicial  determination   thereof  so long as the court  is provided with a\n    properly adverse  context.\u201d",
+              "propositionSpan": [
+                14152,
+                14380
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                14198,
+                14380
+              ],
+              "raw_text": "\u201cone whose  rights are affected  by a statute   is\n    entitled  to seek a judicial  determination   thereof  so long as the court  is provided with a\n    properly adverse  context.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g8",
+              "pin_cite": null,
+              "pin_basis": null,
+              "citation_span": [
+                14419,
+                14431
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g9",
+          "caseName": "Near v. Calkins",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              14922,
+              14934
+            ],
+            "text": "946 P.2d 537",
+            "plaintiff": "Near",
+            "defendant": "Calkins",
+            "case_name": null,
+            "full_citation": "Near v. Calkins, 946 P.2d 537 (Colo. App. 1997)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": "As well,  declaratory  judgment  does not constitute  an absolute  bar to subsequent\n   proceedings where parties are seeking other remedies, even though based upon claims\n   which could have been  asserted   in the original action.",
+          "propositionSpan": [
+            14670,
+            14902
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                14922,
+                14934
+              ],
+              "proposition": "As well,  declaratory  judgment  does not constitute  an absolute  bar to subsequent\n   proceedings where parties are seeking other remedies, even though based upon claims\n   which could have been  asserted   in the original action.",
+              "propositionSpan": [
+                14670,
+                14902
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g10",
+          "caseName": "Cacioppo v. Eagle County School Dist.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              15249,
+              15260
+            ],
+            "text": "92 P.3d 453",
+            "plaintiff": "Cacioppo",
+            "defendant": "Eagle County School Dist.",
+            "case_name": null,
+            "full_citation": "Cacioppo v. Eagle County School Dist., 92 P.3d 453 (2004)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "IdCitation",
+              "span": [
+                15469,
+                15472
+              ],
+              "text": "Id.",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "However, a court's  jurisdiction  in declaratory  judgment  actions  exists  \"only if the case\n    contains  a currently  justiciable   issue or an existing legal controversy,  rather than  the\n    mere  possibility   of a future  claim.\u201d",
+          "propositionSpan": [
+            14963,
+            15201
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                15249,
+                15260
+              ],
+              "proposition": "However, a court's  jurisdiction  in declaratory  judgment  actions  exists  \"only if the case\n    contains  a currently  justiciable   issue or an existing legal controversy,  rather than  the\n    mere  possibility   of a future  claim.\u201d",
+              "propositionSpan": [
+                14963,
+                15201
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                15469,
+                15472
+              ],
+              "proposition": "The Colorado  Supreme  Court has emphasized   that \"there must be a present  and actual\n    legal controversy  and not a mere  possibility  of a future  legal dispute  over some  issue.\u201d",
+              "propositionSpan": [
+                15277,
+                15463
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g11",
+          "caseName": "Lot Thirty-Four Venture, L.L.C v. Town of Telluride",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              15889,
+              15902
+            ],
+            "text": "976  P.2d 303",
+            "plaintiff": "Lot Thirty-Four Venture, L.L.C",
+            "defendant": "Town of Telluride",
+            "case_name": null,
+            "full_citation": "Lot Thirty-Four Venture, L.L.C v. Town of Telluride, 976 P.2d 303 (Colo. App. 1998)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                15889,
+                15902
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g12",
+          "caseName": null,
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              15952,
+              15961
+            ],
+            "text": "3 P.3d 30",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "3 P.3d 30 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": "aff\u2019d on other\n    grounds,",
+          "propositionSpan": [
+            15923,
+            15950
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                15952,
+                15961
+              ],
+              "proposition": "aff\u2019d on other\n    grounds,",
+              "propositionSpan": [
+                15923,
+                15950
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g13",
+          "caseName": "Connecticut General Life Ins. Co. v. A.A.A. Waterproofing, Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              16309,
+              16321
+            ],
+            "text": "911 P.2d 684",
+            "plaintiff": "Connecticut General Life Ins. Co.",
+            "defendant": "A.A.A. Waterproofing, Inc.",
+            "case_name": null,
+            "full_citation": "Connecticut General Life Ins. Co. v. A.A.A. Waterproofing, Inc., 911 P.2d 684 (1995)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Colorado  courts  consistently  hold that  declaratory  judgment  proceedings  \"may not be\n    invoked to resolve an issue which does not currently  exist, even  though   it can be\n   assumed   that  the question  may arise  at some  future  time.\"",
+          "propositionSpan": [
+            15982,
+            16230
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                16309,
+                16321
+              ],
+              "proposition": "Colorado  courts  consistently  hold that  declaratory  judgment  proceedings  \"may not be\n    invoked to resolve an issue which does not currently  exist, even  though   it can be\n   assumed   that  the question  may arise  at some  future  time.\"",
+              "propositionSpan": [
+                15982,
+                16230
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                16061,
+                16230
+              ],
+              "raw_text": "\"may not be\n    invoked to resolve an issue which does not currently  exist, even  though   it can be\n   assumed   that  the question  may arise  at some  future  time.\"",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g13",
+              "pin_cite": null,
+              "pin_basis": null,
+              "citation_span": [
+                16309,
+                16321
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g14",
+          "caseName": "Farmers Ins. Exchange v. District Court for Fourth Judicia Distr.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              16608,
+              16620
+            ],
+            "text": "862 P.2d 944",
+            "plaintiff": "Farmers Ins. Exchange",
+            "defendant": "District Court for Fourth Judicia Distr.",
+            "case_name": null,
+            "full_citation": "Farmers Ins. Exchange v. District Court for Fourth Judicia Distr., 862 P.2d 944 (1993)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported '' v. 'Fourth Judicia Distr.'"
+            ]
+          },
+          "children": [],
+          "proposition": "A declaratory  judgment  action  \"calls, not for an advisory opinion upon a hypothetical\n    basis,  but for an adjudication   of present  right upon established   facts.\u201d",
+          "propositionSpan": [
+            16356,
+            16527
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                16608,
+                16620
+              ],
+              "proposition": "A declaratory  judgment  action  \"calls, not for an advisory opinion upon a hypothetical\n    basis,  but for an adjudication   of present  right upon established   facts.\u201d",
+              "propositionSpan": [
+                16356,
+                16527
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g15",
+          "caseName": "Meyer",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              16854,
+              16865
+            ],
+            "text": "855 P.2d 31",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "Meyer",
+            "full_citation": "Meyer, 855 P.2d 31 (1993)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": "The authority   to\n    grant declaratory   relief \"does  not properly extend  to entering  advisory  rulings as to\n    hypothetical   issues  which may never arise.\u201d National  Insti      of Nutritional  Educ. V.",
+          "propositionSpan": [
+            16631,
+            16842
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                16854,
+                16865
+              ],
+              "proposition": "The authority   to\n    grant declaratory   relief \"does  not properly extend  to entering  advisory  rulings as to\n    hypothetical   issues  which may never arise.\u201d National  Insti      of Nutritional  Educ. V.",
+              "propositionSpan": [
+                16631,
+                16842
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g16",
+          "caseName": "Hickman v. Catholic Health Initiatives",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              18227,
+              18239
+            ],
+            "text": "328 P.3d 266",
+            "plaintiff": "Hickman",
+            "defendant": "Catholic Health Initiatives",
+            "case_name": null,
+            "full_citation": "Hickman v. Catholic Health Initiatives, 328 P.3d 266 (Colo. 2013)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Parties  generally  cannot  raise new issues  for the first time  in a response   or reply brief,\n    as appellate courts consistently  decline to consider arguments not presented  in\n    opening  briefs.",
+          "propositionSpan": [
+            17979,
+            18183
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                18227,
+                18239
+              ],
+              "proposition": "Parties  generally  cannot  raise new issues  for the first time  in a response   or reply brief,\n    as appellate courts consistently  decline to consider arguments not presented  in\n    opening  briefs.",
+              "propositionSpan": [
+                17979,
+                18183
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g17",
+          "caseName": "Katzenbach v. McClung",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              18424,
+              18436
+            ],
+            "text": "379 U.S. 294",
+            "plaintiff": "Katzenbach",
+            "defendant": "McClung",
+            "case_name": null,
+            "full_citation": "Katzenbach v. McClung, 379 U.S. 294, 295-96 (1964)",
+            "antecedent": null,
+            "pin": "295-96",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "IdCitation",
+              "span": [
+                19049,
+                19059
+              ],
+              "text": "Id. at 295",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": null,
+              "pin": "at 295",
+              "flags": []
+            }
+          ],
+          "proposition": "Further,  declaratory  judgment  relief  is generally  not available  where a statute  already\n     exists  that  provides   relief.",
+          "propositionSpan": [
+            18259,
+            18391
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                18424,
+                18436
+              ],
+              "proposition": "Further,  declaratory  judgment  relief  is generally  not available  where a statute  already\n     exists  that  provides   relief.",
+              "propositionSpan": [
+                18259,
+                18391
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                19049,
+                19059
+              ],
+              "proposition": "App.  p. 5178  (1958  ed.)  Title  Il provides   for such  a\n    statutory  proceeding  for the determination   of rights and duties  arising thereunder,   ss\n   204\u2014207, and courts  should,  therefore,  ordinarily  refrain from exercising  their\n    jurisdiction   in such  cases.\u201d",
+              "propositionSpan": [
+                18765,
+                19047
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                18454,
+                19047
+              ],
+              "raw_text": "\u201c\n   But even though Rule 57 of the Federal Rules of Civil Procedure  permits  declaratory\n     relief although  another  adequate  remedy  exists,   it should  not be granted where  a\n    special  statutory  proceeding  has been provided.  See Notes on Rule 57 of Advisory\n    Committee   on Rules,  28 U.S.C. App.  p. 5178  (1958  ed.)  Title  Il provides   for such  a\n    statutory  proceeding  for the determination   of rights and duties  arising thereunder,   ss\n   204\u2014207, and courts  should,  therefore,  ordinarily  refrain from exercising  their\n    jurisdiction   in such  cases.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "own_parenthetical",
+              "authority_id": "g17",
+              "pin_cite": "295-96",
+              "pin_basis": "printed",
+              "citation_span": [
+                18424,
+                18436
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g18",
+          "caseName": "Rathke v. MacFarlane",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              20499,
+              20512
+            ],
+            "text": "648  P.2d 648",
+            "plaintiff": "Rathke",
+            "defendant": "MacFarlane",
+            "case_name": null,
+            "full_citation": "Rathke v. MacFarlane, 648 P.2d 648, 653-54 (Colo. 1982)",
+            "antecedent": null,
+            "pin": "653-54",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "The legal standard  for preliminary  injunctive  relief is well established   under",
+          "propositionSpan": [
+            20386,
+            20469
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                20499,
+                20512
+              ],
+              "proposition": "The legal standard  for preliminary  injunctive  relief is well established   under",
+              "propositionSpan": [
+                20386,
+                20469
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g19",
+          "caseName": "Dallman v. Ritter",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              21201,
+              21214
+            ],
+            "text": "225  P.3d 610",
+            "plaintiff": "Dallman",
+            "defendant": "Ritter",
+            "case_name": null,
+            "full_citation": "Dallman v. Ritter, 225 P.3d 610, 620 (Colo. 2010)",
+            "antecedent": null,
+            "pin": "620",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "33.The  six elements  a court must  consider  are:  (1) whether  there  is a reasonable\n     probability   of success   on the  merits;   (2) whether   there   is a danger   of real,  immediate,\n    and irreparable  injury which may be prevented  by injunctive  relief; (3) whether  there  is a\n     plain, speedy,  and adequate  remedy  at law; (4) whether  the granting of a preliminary\n     injunction   will disserve   the  public   interest;   (5) whether   the  balance   of equities   favors\n     the  injunction;   and  (6) whether   the  injunction   will preserve   the  status  quo  pending  a\n      trial on the  merits.   /d.;",
+          "propositionSpan": [
+            20539,
+            21178
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                21201,
+                21214
+              ],
+              "proposition": "33.The  six elements  a court must  consider  are:  (1) whether  there  is a reasonable\n     probability   of success   on the  merits;   (2) whether   there   is a danger   of real,  immediate,\n    and irreparable  injury which may be prevented  by injunctive  relief; (3) whether  there  is a\n     plain, speedy,  and adequate  remedy  at law; (4) whether  the granting of a preliminary\n     injunction   will disserve   the  public   interest;   (5) whether   the  balance   of equities   favors\n     the  injunction;   and  (6) whether   the  injunction   will preserve   the  status  quo  pending  a\n      trial on the  merits.   /d.;",
+              "propositionSpan": [
+                20539,
+                21178
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g20",
+          "caseName": "Scott",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              21803,
+              21815
+            ],
+            "text": "428 P.3d 626",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "Scott",
+            "full_citation": "Scott, 428 P.3d 626 (Colo. App. 2018)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                21803,
+                21815
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [
+        {
+          "id": "a0",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              1718,
+              1736
+            ],
+            "text": "C.R.S. \u00a7 13-51-106",
+            "name": "Colo. Rev. Stat. \u00a7 13-51-106",
+            "short": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a1",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              1800,
+              1811
+            ],
+            "text": "\u00a7 13-51-112",
+            "name": "Colo. Rev. Stat. \u00a7 13-51-112",
+            "short": true
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a2",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              1903,
+              1922
+            ],
+            "text": "C.R.S.  \u00a7 24-72-301",
+            "name": "Colo. Rev. Stat. \u00a7 24-72-301",
+            "short": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a3",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              2267,
+              2288
+            ],
+            "text": "C.R.S. \u00a7 24-72-304(5)",
+            "name": "Colo. Rev. Stat. \u00a7 24-72-304(5)",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                23289,
+                23311
+              ],
+              "text": "C.R.S. \u00a7\u00a7 24-72-304(5)",
+              "name": "Colo. Rev. Stat. \u00a7 24-72-304(5)",
+              "short": false
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "a4",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              2295,
+              2309
+            ],
+            "text": "\u00a724-72-\n305(7)",
+            "name": "Colo. Rev. Stat. \u00a7 24-72-305(7)",
+            "short": true
+          },
+          "children": [
+            {
+              "span": [
+                19133,
+                19155
+              ],
+              "text": "C.R.S.  \u00a7 24-72-305(7)",
+              "name": "Colo. Rev. Stat. \u00a7 24-72-305(7)",
+              "short": false
+            },
+            {
+              "span": [
+                23137,
+                23156
+              ],
+              "text": "C.R.S. 24-72-305(7)",
+              "name": "Colo. Rev. Stat. \u00a7 24-72-305(7)",
+              "short": false
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "a5",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              5313,
+              5331
+            ],
+            "text": "C.R.S. \u00a7 24-72-302",
+            "name": "Colo. Rev. Stat. \u00a7 24-72-302",
+            "short": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a6",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              5728,
+              5748
+            ],
+            "text": "C.R.S. \u00a724-72-305(5)",
+            "name": "Colo. Rev. Stat. \u00a7 24-72-305(5)",
+            "short": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a7",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              7019,
+              7036
+            ],
+            "text": "24-31-902   C.R.S",
+            "name": "Colo. Rev. Stat. \u00a7 24-31-902",
+            "short": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a8",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              13345,
+              13363
+            ],
+            "text": "C.R.S. \u00a7 13-51-105",
+            "name": "Colo. Rev. Stat. \u00a7 13-51-105",
+            "short": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a9",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "span": [
+              13785,
+              13805
+            ],
+            "text": "C.R.S.A. \u00a7 13-51-102",
+            "name": "Colo. Rev. Stat. \u00a7 13-51-102",
+            "short": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a10",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "span": [
+              922,
+              940
+            ],
+            "text": "C.R.C.P.  12(b)(5)",
+            "name": "C.R.C.P. 12(b)(5)",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                4094,
+                4111
+              ],
+              "text": "C.R.C.P. 12(b)(5)",
+              "name": "C.R.C.P. 12(b)(5)",
+              "short": false
+            },
+            {
+              "span": [
+                8396,
+                8413
+              ],
+              "text": "C.R.C.P. 12(b)(5)",
+              "name": "C.R.C.P. 12(b)(5)",
+              "short": false
+            },
+            {
+              "span": [
+                8446,
+                8463
+              ],
+              "text": "C.R.C.P. 12(b)(5)",
+              "name": "C.R.C.P. 12(b)(5)",
+              "short": false
+            },
+            {
+              "span": [
+                8786,
+                8804
+              ],
+              "text": "C.R.C.P.  12(b)(5)",
+              "name": "C.R.C.P. 12(b)(5)",
+              "short": false
+            },
+            {
+              "span": [
+                23511,
+                23529
+              ],
+              "text": "C.R.C.P.  12(b)(5)",
+              "name": "C.R.C.P. 12(b)(5)",
+              "short": false
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "a11",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "span": [
+              1741,
+              1752
+            ],
+            "text": "C.R.C.P. 57",
+            "name": "C.R.C.P. 57",
+            "short": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a12",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "span": [
+              1817,
+              1829
+            ],
+            "text": "C. R.C.P. 65",
+            "name": "C.R.C.P. 65",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                20369,
+                20379
+              ],
+              "text": "C.R.C.P.65",
+              "name": "C.R.C.P. 65",
+              "short": false
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "a13",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "span": [
+              12491,
+              12503
+            ],
+            "text": "C.R.C.P.\n\n\n1",
+            "name": "C.R.C.P. 1",
+            "short": false
+          },
+          "children": [],
+          "quotes": [
+            {
+              "span": [
+                12134,
+                12281
+              ],
+              "raw_text": "\u201cPlaintiff  is entitled  to an injunction commanding  Defendant  to provide access,\n        forthwith,  to the unmuted  BWC recordings   at issue.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_authority",
+              "authority_id": "a13",
+              "pin_cite": null,
+              "pin_basis": null,
+              "citation_span": [
+                12491,
+                12503
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a14",
+          "category": "rule",
+          "source": "Federal Rules of Civil Procedure",
+          "header": {
+            "span": [
+              18475,
+              18522
+            ],
+            "text": "Rule 57 of the Federal Rules of Civil Procedure",
+            "name": "Fed. R. Civ. P. 57",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                19049,
+                19052
+              ],
+              "text": "Id.",
+              "name": "Fed. R. Civ. P. 57",
+              "short": true
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": [
+        {
+          "span": [
+            4787,
+            4808
+          ],
+          "raw_text": "\u201cMemorandum   of Law\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            6684,
+            7261
+          ],
+          "raw_text": "\u201cThe April 5, 2026  Order  resolved   certain   discrete   audio  segments   through  an  in\n       camera  review.  It did not resolve  Plaintiff\u2019s claims  for declaratory  and injunctive\n          relief. Those claims  seek  a declaration   of    the parties\u2019rights  under  the\n       Enhance[d]   Law Enforcement    Integrity  Act, 24-31-902   C.R.S.,  and an injunction\n       against  the Defendants\u2019  ongoing practice  of muting body-worn camera audio in\n        esponses   to     ues     ade  after  a complaint   of  peace officer    misconduct h:\n       been  lodged.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            7402,
+            7975
+          ],
+          "raw_text": "\u201cThe legal controversy  underlying  these  claims  remains  live.  Defendants   continue\n          to assert   authority    to    mute body-worn       camera audio  under        neral  Colorado\n           riminatJustice     Records   Act     balancing  framework.   That  asserted     authorit)\n         overns  future  requests   unless  and    until this Court  or a reviewing  court    holds\n        otherwise.  A case  is not moot where  declaratory  or injunctive  relief would  still have\n          practical    legal  effect  on an  existing,  ongoing  controversy.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            11926,
+            12060
+          ],
+          "raw_text": "\u201cPlaintiff  is entitled  to an Order declaring  his right to receive  the unmuted  BWC\n        recordings   at issue  from Defendant.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            21494,
+            21537
+          ],
+          "raw_text": "\u201cis suffering and will continue  to suffer\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        }
+      ]
+    }
+  }
+]

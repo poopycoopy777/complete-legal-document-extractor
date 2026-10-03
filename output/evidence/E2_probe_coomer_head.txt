@@ -1,0 +1,8 @@
+=== HEAD groups ===
+g0 @251-263 caseName='Co.' text='16 F.3d 1083' P=None D=None case_name='Co.' pins='1086'
+    full='Co., 16 F.3d 1083, 1086 (10th Cir. 1994)' flags=[]
+    prop@92: 'Robinson  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25  USDC Colorado\n                                  pg 2 of 17\n\n\n\n\nv. Mo. Pac. R.R.'
+=== HEAD authorities ===
+=== HEAD records ===
+=== orphans ===
+=== quotes ===

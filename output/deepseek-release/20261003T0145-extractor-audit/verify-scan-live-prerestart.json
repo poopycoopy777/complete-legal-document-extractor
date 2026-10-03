@@ -1,0 +1,101 @@
+{
+  "summary": {
+    "textSource": "ocr",
+    "pageCount": 2,
+    "pages_table": 0,
+    "highlights": 0,
+    "highlights_with_page": 0,
+    "ocr": {
+      "engine": "tesseract v5.5.0.20241111",
+      "dpi": 300,
+      "language": "eng",
+      "pages": 2,
+      "emptyPages": 0,
+      "chars": 1386
+    },
+    "stats": {
+      "groups": 0,
+      "citations": 0,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 1,
+      "authorityCitations": 1
+    },
+    "page_table_last_end": null,
+    "text_length": 1386,
+    "spans": 0,
+    "spans_ambiguous": 0,
+    "spans_without_page": 0
+  },
+  "response": {
+    "id": "8441928284434a4685e3390567d7a21e",
+    "name": "5a29ad8948434101afcfa0446dc3ee9d.pdf",
+    "kind": "pdf",
+    "sha256": "8ee886bc3aa026bbd9caf6afcf4bf87d00d3ef6dad7bb5695ae23c7228b000f2",
+    "uploadedAt": "2026-10-03T07:35:38.795031+00:00",
+    "pageCount": 2,
+    "pages": [],
+    "highlights": [],
+    "warning": "Text recovered by OCR, not read from the document. This document had no text layer. OCR misreads characters -- observed examples include \"Coffman\" read as \"Coffinan\" and lost section signs -- so every citation below is lower confidence and must be checked against the page image before it is relied on.",
+    "textSource": "ocr",
+    "ocr": {
+      "engine": "tesseract v5.5.0.20241111",
+      "dpi": 300,
+      "language": "eng",
+      "pages": 2,
+      "emptyPages": 0,
+      "chars": 1386
+    },
+    "notes": [],
+    "rawUrl": "/api/documents/8441928284434a4685e3390567d7a21e/raw",
+    "extraction": {
+      "text": "Cn\neerryrnrtnnnnnnnnnnnnininnnnenennininninennnnnEnEAnnnEREEEIEEEEEEEEEEEEnEn\nDA\nD\nDistrict of Colorado Pueblo County\nJanuary 8, 2026 1:05 PM\nAddress: 501 N Elizabeth S Pueblo co 81003\nPlaintiff:\nites\nRECEIVED INTHEOFFICE OF ie '~a\nCOMBINED COUR:\nHARRY COOPER,\nOF THE PUEBLO\nJAN - 7 2026\nv.\nPUEBLO COUNTY, COLORADO\nDefendants:\nJENNA INGO, in her official capacity as the Custodian\nCourt Use Only\u201d\nof Records for the Pueblo Police Department; and the\nCITY OF PUEBLO, COLORADO, a political\nCaseNumber:25CV111\nsubdivision of the State of Colorado.\nDivision: 405\nCourtroom:405\nORDER RE: MOTION FOR ORDER TO SHOW CAUSE PURSUANT TO C.R.S. \u00a7\n24-72-305(7)\nTHIS MATTER COMES before the court on plaintiff\u2019s motion for order to show cause pursuant\nto C.R.S 24-72-305(7). Having reviewed the Motion, the court file, and otherwise being advised\non the premises therein, the Motion is hereby:\n] GRANTED, it is further ordered,\nPlaintiff shall serve a copy of this Show Cause Order on Counsel for Defendants, at least\nseven (7) days prior to the Hearing.\nAll exhibits must be filed with the Court at least 48 hours prior the Hearing.\nShow Cause Hearing SHALL come before The Court on\nJanuary 2\n;\n2026, at\n2:00 PM\nin Courtroom 405, at\nam/pm\n|\nOr,\ne8pne Nod MWSIG\nUHN.LSOHD ANNV ATTISAHOIN \u2018NOH\nszoz \"g Auenouy :ayep onss]\neee\nnani sane\nse ne\n:suosBal\nSUIMOTIOJ Ot JO} CHINA [\nER\nMRE\nPRA RTE\na\nEN\na\nET\n",
+      "groups": [],
+      "orphans": [],
+      "authorities": [
+        {
+          "id": "a0",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "category": "statute",
+            "source": "Colorado Revised Statutes",
+            "text": "C.R.S 24-72-305(7)",
+            "span": [
+              741,
+              759
+            ],
+            "name": "Colo. Rev. Stat. \u00a7 24-72-305(7)",
+            "url": "https://colorado.public.law/statutes/crs_24-72-305",
+            "tokens": {
+              "title": "24",
+              "article": "72",
+              "section": "305",
+              "subsection": "(7)"
+            },
+            "is_shortform": false
+          },
+          "children": [],
+          "quotes": []
+        }
+      ],
+      "unattributedQuotes": [],
+      "layoutRegions": [],
+      "records": [],
+      "stats": {
+        "groups": 0,
+        "citations": 0,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 1,
+        "authorityCitations": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,338 @@
+[
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-coomer-v-lindell-ecf283.pdf",
+    "bytes": 547064,
+    "stats": {
+      "groups": 46,
+      "citations": 71,
+      "quotes": 23,
+      "linkedQuotes": 19,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 4,
+      "flagged": 15,
+      "authorities": 5,
+      "authorityCitations": 7
+    },
+    "problem_count": 26,
+    "problems": [
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g3.quote[0].text",
+        "span": [
+          2751,
+          2937
+        ],
+        "claimed": "Relevant evidence is inherently prejudicial; but it is only unfair prejudice, substantially outweighing probative value, which permits exclusion of relevant mat",
+        "actual": "\u201cRelevant evidence  is inherently  prejudicial; but  it  is only unfair prejudice, substantially\n\noutweighing probative value, which permits exclusion of releva",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g4.quote[0].text",
+        "span": [
+          3115,
+          3124
+        ],
+        "claimed": "mindful",
+        "actual": "\u201cmindful\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g4.quote[1].text",
+        "span": [
+          3130,
+          3278
+        ],
+        "claimed": "exclusion of evidence under Rule 403 that is otherwise admissible under the other rules is an extraordinary remedy and should be used sparingly.",
+        "actual": "\u201cexclusion of evidence under Rule\n\n403 that is otherwise admissible under the other rules is an extraordinary remedy and should be used\n\nsparingly.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g6.quote[0].text",
+        "span": [
+          4085,
+          4141
+        ],
+        "claimed": "reputation and character are inextricably intertwined",
+        "actual": "\"reputation and character are\n\ninextricably intertwined\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g8.quote[0].text",
+        "span": [
+          5057,
+          5175
+        ],
+        "claimed": "The prejudice must be unfair in the sense that it would affect the jury's ability to weigh the evidence rationally.",
+        "actual": "\u201cThe prejudice must be unfair in the sense that it would affect the jury's ability to weigh the evidence\n\nrationally.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g9.quote[0].text",
+        "span": [
+          5319,
+          5344
+        ],
+        "claimed": "substantially outweighs",
+        "actual": "\u201csubstantially outweighs\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g9.quote[1].text",
+        "span": [
+          15744,
+          15830
+        ],
+        "claimed": "its maximum reasonable probative force and its minimum reasonable prejudicial value",
+        "actual": "\u201cits maximum reasonable probative force and its\n\nminimum reasonable prejudicial value\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g9.quote[2].text",
+        "span": [
+          24962,
+          25054
+        ],
+        "claimed": "its maximum reasonable probative force and its minimum reasonable prejudicial value",
+        "actual": "\u201cits maximum\n       reasonable probative force and its minimum reasonable prejudicial value\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g10.quote[0].text",
+        "span": [
+          6443,
+          6497
+        ],
+        "claimed": "an essential element of a charge, claim, or defense",
+        "actual": "\u201can essential element\n\nof a charge, claim, or defense\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g11.quote[0].text",
+        "span": [
+          6923,
+          7051
+        ],
+        "claimed": "where the focal issue in a case is the plaintiff's character... evidence of specific instances of conduct becomes admissible.",
+        "actual": "\u201cwhere the focal issue in a case is the plaintiff's character... evidence\n\nof specific instances of conduct becomes admissible.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g12.quote[0].text",
+        "span": [
+          13682,
+          13696
+        ],
+        "claimed": "sole purpose",
+        "actual": "\u201csole purpose\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g13.quote[0].text",
+        "span": [
+          10185,
+          10201
+        ],
+        "claimed": "actual malice",
+        "actual": "\u201cactual\n\nmalice\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g22.quote[0].text",
+        "span": [
+          17474,
+          17488
+        ],
+        "claimed": "door opening",
+        "actual": "\u201cdoor opening\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g26.occurrence[1]",
+        "span": [
+          27308,
+          27898
+        ],
+        "claimed": "Authentication and Chain of Evidence\n\n      For social media and electronic evidence, authentication requirements can be satisfied through\n\nmultiple methods:\n\n ",
+        "actual": "Authentication and Chain of Evidence\n\n      For social media and electronic evidence, authentication requirements can be satisfied through\n\nmultiple methods:\n\n ",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g31.quote[0].text",
+        "span": [
+          21247,
+          21297
+        ],
+        "claimed": "to attack or support the witness\u2019s credibility,",
+        "actual": "\u201cto attack or support the witness\u2019s\n\ncredibility,\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g35.proposition",
+        "span": [
+          22620,
+          23075
+        ],
+        "claimed": "Non-Hearsay Treatment of Background Documents\n\n\n\n                                            10  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25 ",
+        "actual": "Non-Hearsay Treatment of Background Documents\n\n\n\n                                                                                                               ",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g35.occurrence[0]",
+        "span": [
+          22620,
+          23075
+        ],
+        "claimed": "Non-Hearsay Treatment of Background Documents\n\n\n\n                                            10  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25 ",
+        "actual": "Non-Hearsay Treatment of Background Documents\n\n\n\n                                                                                                               ",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g45.quote[0].text",
+        "span": [
+          32092,
+          32109
+        ],
+        "claimed": "breathing space",
+        "actual": "\u201cbreathing space\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "a0.quote[0].text",
+        "span": [
+          2238,
+          2391
+        ],
+        "claimed": "has any tendency to make a fact more or less probable than it would be without the evidence; and the fact is of consequence in determining the action.",
+        "actual": "\u201chas any tendency to make a fact more or less probable than it would be without the evidence; and\n\nthe fact is of consequence in determining the action.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "a0.quote[1].text",
+        "span": [
+          2411,
+          2554
+        ],
+        "claimed": "The standard for relevancy is particularly loose under rule 401, because \u2018[a]ny more stringent requirement is unworkable and unrealistic.\u2019",
+        "actual": "\u201cThe standard for relevancy is\n\nparticularly loose under rule 401, because \u2018[a]ny more stringent requirement  is unworkable and\n\nunrealistic.\u2019\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "a1.quote[0].text",
+        "span": [
+          4872,
+          4933
+        ],
+        "claimed": "an undue tendency to suggest decision on an improper basis.",
+        "actual": "\u201can undue tendency to suggest decision on an improper basis.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "a4.quote[0].text",
+        "span": [
+          21607,
+          21677
+        ],
+        "claimed": "does not bar evidence of religious beliefs when otherwise relevant.",
+        "actual": "\u201cdoes not bar evidence of religious\n\nbeliefs when otherwise relevant.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[0].text",
+        "span": [
+          987,
+          1033
+        ],
+        "claimed": "intentional infliction of emotional distress",
+        "actual": "\u201cintentional infliction of emotional distress\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[1].text",
+        "span": [
+          1088,
+          1112
+        ],
+        "claimed": "extreme and outrageous",
+        "actual": "\u201cextreme and outrageous\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[2].text",
+        "span": [
+          16098,
+          16122
+        ],
+        "claimed": "extreme and outrageous",
+        "actual": "\u201cextreme and outrageous\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[3].text",
+        "span": [
+          16995,
+          17000
+        ],
+        "claimed": "Dr.",
+        "actual": "\u201cDr.\u201d",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 23,
+      "occurrence[1]": 1,
+      "proposition": 1,
+      "occurrence[0]": 1
+    }
+  }
+]

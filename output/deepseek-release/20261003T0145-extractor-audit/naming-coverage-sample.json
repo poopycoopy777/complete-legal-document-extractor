@@ -1,0 +1,546 @@
+{
+  "overall": {
+    "no_evidence": 45,
+    "parties": 330,
+    "caption_on_a_member": 25
+  },
+  "per_document": [
+    {
+      "path": "00-INDEX.pdf",
+      "text_chars": 8833,
+      "groups": 38,
+      "counts": {
+        "no_evidence": 38
+      }
+    },
+    {
+      "path": "01-2025CV36-2026-04-22-msj-denied.pdf",
+      "text_chars": 11424,
+      "groups": 8,
+      "counts": {
+        "parties": 8
+      }
+    },
+    {
+      "path": "02-2025CV36-2026-07-07-trial-findings.pdf",
+      "text_chars": 25216,
+      "groups": 5,
+      "counts": {
+        "parties": 5
+      }
+    },
+    {
+      "path": "03-2025CV111-2026-04-05-ccjra-show-cause.pdf",
+      "text_chars": 15099,
+      "groups": 2,
+      "counts": {
+        "parties": 2
+      }
+    },
+    {
+      "path": "04-2025CV111-2026-05-22-12b5-dismissal.pdf",
+      "text_chars": 11063,
+      "groups": 10,
+      "counts": {
+        "parties": 10
+      }
+    },
+    {
+      "path": "05-2025CV36-2025-11-17-12c-counterclaims.pdf",
+      "text_chars": 8830,
+      "groups": 6,
+      "counts": {
+        "parties": 6
+      }
+    },
+    {
+      "path": "06-2025CV36-2025-11-17-mtd-denied.pdf",
+      "text_chars": 25011,
+      "groups": 8,
+      "counts": {
+        "parties": 8
+      }
+    },
+    {
+      "path": "07-2025CR884-2026-02-09-reseal-denied.pdf",
+      "text_chars": 16538,
+      "groups": 2,
+      "counts": {
+        "parties": 2
+      }
+    },
+    {
+      "path": "08-2025CR884-2026-01-21-unseal-granted.pdf",
+      "text_chars": 15084,
+      "groups": 4,
+      "counts": {
+        "parties": 4
+      }
+    },
+    {
+      "path": "09-2025CV36-2026-02-17-pino-in-camera.pdf",
+      "text_chars": 12878,
+      "groups": 2,
+      "counts": {
+        "parties": 2
+      }
+    },
+    {
+      "path": "10-2026CV10-2026-02-18-cora-show-cause.pdf",
+      "text_chars": 11736,
+      "groups": 2,
+      "counts": {
+        "parties": 2
+      }
+    },
+    {
+      "path": "11-25CA0869-2026-01-22-opinion.pdf",
+      "text_chars": 17520,
+      "groups": 5,
+      "counts": {
+        "caption_on_a_member": 4,
+        "parties": 1
+      }
+    },
+    {
+      "path": "12-2018DR98-2025-02-20-minute-order.pdf",
+      "text_chars": 17608,
+      "groups": 5,
+      "counts": {
+        "caption_on_a_member": 4,
+        "parties": 1
+      }
+    },
+    {
+      "path": "13-2018DR98-2025-10-23-contempt-citation-denied.pdf",
+      "text_chars": 16277,
+      "groups": 6,
+      "counts": {
+        "caption_on_a_member": 4,
+        "parties": 2
+      }
+    },
+    {
+      "path": "14-2018DR98-2026-07-15-casa-written-order.pdf",
+      "text_chars": 16542,
+      "groups": 5,
+      "counts": {
+        "caption_on_a_member": 4,
+        "parties": 1
+      }
+    },
+    {
+      "path": "15-2025CV36-2025-05-12-case-management-16-1.pdf",
+      "text_chars": 15140,
+      "groups": 5,
+      "counts": {
+        "parties": 5
+      }
+    },
+    {
+      "path": "16-2025CV36-2026-01-06-mediation-order.pdf",
+      "text_chars": 15339,
+      "groups": 4,
+      "counts": {
+        "parties": 4
+      }
+    },
+    {
+      "path": "17-2025CV36-2026-01-06-pretrial-order.pdf",
+      "text_chars": 19353,
+      "groups": 9,
+      "counts": {
+        "parties": 9
+      }
+    },
+    {
+      "path": "18-2025CV111-2026-01-20-show-cause-setting.pdf",
+      "text_chars": 12025,
+      "groups": 3,
+      "counts": {
+        "parties": 3
+      }
+    },
+    {
+      "path": "19-25CA0869-2025-12-26-supplement-record.pdf",
+      "text_chars": 18246,
+      "groups": 3,
+      "counts": {
+        "parties": 3
+      }
+    },
+    {
+      "path": "20-2026CA1239-2026-08-24-amended-record.pdf",
+      "text_chars": 15945,
+      "groups": 4,
+      "counts": {
+        "parties": 4
+      }
+    },
+    {
+      "path": "0385b985cbe443ba9e7e297f664764c3.pdf",
+      "text_chars": 81693,
+      "groups": 109,
+      "counts": {
+        "parties": 103,
+        "no_evidence": 2,
+        "caption_on_a_member": 4
+      }
+    },
+    {
+      "path": "1e2056140eda449b9faaf2db9c5652a2.pdf",
+      "text_chars": 56816,
+      "groups": 46,
+      "counts": {
+        "parties": 42,
+        "no_evidence": 1,
+        "caption_on_a_member": 3
+      }
+    },
+    {
+      "path": "020068ab417a4afc92b7d3dad36224d6.pdf",
+      "text_chars": 55502,
+      "groups": 25,
+      "counts": {
+        "parties": 25
+      }
+    },
+    {
+      "path": "359a46773baa472d832558e027afa22e.pdf",
+      "text_chars": 14601,
+      "groups": 38,
+      "counts": {
+        "parties": 36,
+        "caption_on_a_member": 1,
+        "no_evidence": 1
+      }
+    },
+    {
+      "path": "23fb36fee64f48aa952c765bfc3be0e7.pdf",
+      "text_chars": 35868,
+      "groups": 46,
+      "counts": {
+        "no_evidence": 3,
+        "parties": 42,
+        "caption_on_a_member": 1
+      }
+    }
+  ],
+  "no_evidence_groups": [
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g0",
+      "citation": "731 P.2d 708",
+      "group_case_name": null,
+      "before": " sections that use it.\n| Case | Sections | Citation as used | | :--- | :--- | :--- | | Continental Air Lines, Inc. v. Keenan | 01,\n02, 04, 06, 15, 17, 19, 20 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g1",
+      "citation": "152 Colo. 173",
+      "group_case_name": null,
+      "before": "Inc. v. Keenan | 01,\n02, 04, 06, 15, 17, 19, 20 | 731 P.2d 708, 711 (Colo. 1987) | | Mountain States Tel. & Tel. Co. v.\nAnimas Mosquito Control District | 01 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g2",
+      "citation": "39 Colo. App. 306",
+      "group_case_name": null,
+      "before": ". 1987) | | Mountain States Tel. & Tel. Co. v.\nAnimas Mosquito Control District | 01 | 152 Colo. 173, 380 P.2d 560, 563 (1963) | | Sullivan v.\nDavis | 01, 04 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g3",
+      "citation": "196 Colo. 203",
+      "group_case_name": null,
+      "before": " | 152 Colo. 173, 380 P.2d 560, 563 (1963) | | Sullivan v.\nDavis | 01, 04 | 39 Colo. App. 306, 571 P.2d 1103, 1105 (1977) | | Ginter v. Palmer & Co. | 01,\n05 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g4",
+      "citation": "741 P.2d 714",
+      "group_case_name": null,
+      "before": "03, 1105 (1977) | | Ginter v. Palmer & Co. | 01,\n05 | 196 Colo. 203, 585 P.2d 583, 585 (1978) | | Kaiser Foundation Health Plan of Colorado v.\nSharp | 01, 04 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g5",
+      "citation": "759 P.2d\n1336",
+      "group_case_name": null,
+      "before": "5 P.2d 583, 585 (1978) | | Kaiser Foundation Health Plan of Colorado v.\nSharp | 01, 04 | 741 P.2d 714, 719 (Colo. 1987) | | Churchey v. Adolph Coors Co. | 01 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g6",
+      "citation": "2016 CO 53",
+      "group_case_name": null,
+      "before": ".\nSharp | 01, 04 | 741 P.2d 714, 719 (Colo. 1987) | | Churchey v. Adolph Coors Co. | 01 | 759 P.2d\n1336, 1344 (Colo. 1988) | | Pinnacol Assurance v. Ho\ufb00 | 01 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g7",
+      "citation": "2017 COA 96",
+      "group_case_name": null,
+      "before": "ph Coors Co. | 01 | 759 P.2d\n1336, 1344 (Colo. 1988) | | Pinnacol Assurance v. Ho\ufb00 | 01 | 2016 CO 53, para. 16, 375 P.3d\n1214, 1219 | | Rogers v. Sagers | 01 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g8",
+      "citation": "898 P.2d 520",
+      "group_case_name": null,
+      "before": " 53, para. 16, 375 P.3d\n1214, 1219 | | Rogers v. Sagers | 01 | 2017 COA 96, para. 22, 418 P.3d 1193, 1198 | | Todd v.\nBear Valley Village Apartments | 02, 17 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g9",
+      "citation": "762 P.2d 158",
+      "group_case_name": null,
+      "before": " 22, 418 P.3d 1193, 1198 | | Todd v.\nBear Valley Village Apartments | 02, 17 | 898 P.2d 520, 524 (Colo. 1995) | | Nagy v. District Court\n| 02, 15, 16, 17, 19 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g10",
+      "citation": "745 P.2d 672",
+      "group_case_name": null,
+      "before": "98 P.2d 520, 524 (Colo. 1995) | | Nagy v. District Court\n| 02, 15, 16, 17, 19 | 762 P.2d 158, 161 (Colo. 1988) | | Kwik Way Stores, Inc. v. Caldwell | 02,\n17 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g11",
+      "citation": "616 P.2d\n954",
+      "group_case_name": null,
+      "before": "2 P.2d 158, 161 (Colo. 1988) | | Kwik Way Stores, Inc. v. Caldwell | 02,\n17 | 745 P.2d 672, 676 (Colo. 1987) | | Kaitz v. District Court | 02, 15, 16, 17, 20 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g12",
+      "citation": "2016 CO 50",
+      "group_case_name": null,
+      "before": " 02,\n17 | 745 P.2d 672, 676 (Colo. 1987) | | Kaitz v. District Court | 02, 15, 16, 17, 20 | 616 P.2d\n954, 957 (Colo. 1980) | | Warne v. Hall | 04, 05, 06, 17 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g13",
+      "citation": "550 U.S. 544",
+      "group_case_name": null,
+      "before": " 957 (Colo. 1980) | | Warne v. Hall | 04, 05, 06, 17 | 2016 CO 50, para. 12, 373 P.3d 588,\n593; paras. 19, 24 | | Bell Atlantic Corp. v. Twombly | 04, 05, 06 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g14",
+      "citation": "556 U.S. 662",
+      "group_case_name": null,
+      "before": "16 CO 50, para. 12, 373 P.3d 588,\n593; paras. 19, 24 | | Bell Atlantic Corp. v. Twombly | 04, 05, 06 | 550 U.S. 544 (2007) | |\nAshcroft v. Iqbal | 04, 05, 06 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g15",
+      "citation": "241 P.3d 529",
+      "group_case_name": null,
+      "before": ", 24 | | Bell Atlantic Corp. v. Twombly | 04, 05, 06 | 550 U.S. 544 (2007) | |\nAshcroft v. Iqbal | 04, 05, 06 | 556 U.S. 662 (2009) | | Bly v. Story | 04, 06 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g16",
+      "citation": "618 P.2d 517",
+      "group_case_name": null,
+      "before": "roft v. Iqbal | 04, 05, 06 | 556 U.S. 662 (2009) | | Bly v. Story | 04, 06 | 241 P.3d 529, 532\n(Colo. 2010) | | Dunlap v. Colorado Springs Coach Co. | 04, 05 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g17",
+      "citation": "2017 COA 155",
+      "group_case_name": null,
+      "before": " | 04, 06 | 241 P.3d 529, 532\n(Colo. 2010) | | Dunlap v. Colorado Springs Coach Co. | 04, 05 | 618 P.2d 517, 519 (Colo. 1980)\n| | Alpine Bank v. Hubbell | 04 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g18",
+      "citation": "91 P.3d 1038",
+      "group_case_name": null,
+      "before": "P.2d 517, 519 (Colo. 1980)\n| | Alpine Bank v. Hubbell | 04 | 2017 COA 155, para. 14, 418 P.3d 604, 608 | | E-470 Public\nHighway Authority v. Revenig | 04, 05 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g19",
+      "citation": "365 U.S. 127",
+      "group_case_name": null,
+      "before": "lic\nHighway Authority v. Revenig | 04, 05 | 91 P.3d 1038, 1045 (Colo. App. 2004) | | Eastern\nRailroad Presidents Conference v. Noerr Motor Freight, Inc. | 06 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g20",
+      "citation": "381 U.S. 657",
+      "group_case_name": null,
+      "before": "olo. App. 2004) | | Eastern\nRailroad Presidents Conference v. Noerr Motor Freight, Inc. | 06 | 365 U.S. 127 (1961) | | United\nMine Workers v. Pennington | 06 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g21",
+      "citation": "508 U.S. 49",
+      "group_case_name": null,
+      "before": "961) | | United\nMine Workers v. Pennington | 06 | 381 U.S. 657 (1965) | | Professional Real Estate Investors, Inc. v.\nColumbia Pictures Industries, Inc. | 06 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g22",
+      "citation": "81 P.3d 360",
+      "group_case_name": null,
+      "before": ".\nColumbia Pictures Industries, Inc. | 06 | 508 U.S. 49 (1993) | | Wick Communications Co. v.\nMontrose County Memorial Hospital District | 03, 07, 09, 10, 18 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g23",
+      "citation": "2016 CO 58",
+      "group_case_name": null,
+      "before": "trose County Memorial Hospital District | 03, 07, 09, 10, 18 | 81 P.3d 360, 363-366 (Colo.\n2003) | | Denver Publishing Co. v. Dreyer | 03, 07, 08, 09, 10, 18 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g24",
+      "citation": "448 U.S. 555",
+      "group_case_name": null,
+      "before": " (Colo.\n2003) | | Denver Publishing Co. v. Dreyer | 03, 07, 08, 09, 10, 18 | 2016 CO 58, paras. 11, 12,\n20, 21 | | Richmond Newspapers, Inc. v. Virginia | 08 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g25",
+      "citation": "457 U.S. 596",
+      "group_case_name": null,
+      "before": "016 CO 58, paras. 11, 12,\n20, 21 | | Richmond Newspapers, Inc. v. Virginia | 08 | 448 U.S. 555, 569-574 (1980) | | Globe\nNewspaper Co. v. Superior Court | 08 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g26",
+      "citation": "478 U.S. 1",
+      "group_case_name": null,
+      "before": " | 448 U.S. 555, 569-574 (1980) | | Globe\nNewspaper Co. v. Superior Court | 08 | 457 U.S. 596, 603-607 (1982) | | Press-Enterprise Co. v.\nSuperior Court | 08 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g27",
+      "citation": "299 U.S. 248",
+      "group_case_name": null,
+      "before": " U.S. 596, 603-607 (1982) | | Press-Enterprise Co. v.\nSuperior Court | 08 | 478 U.S. 1, 8-14 (1986) | | Landis v. North American Co. | 15, 16, 17, 18,\n19, 20 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g28",
+      "citation": "424 U.S. 319",
+      "group_case_name": null,
+      "before": "8 | 478 U.S. 1, 8-14 (1986) | | Landis v. North American Co. | 15, 16, 17, 18,\n19, 20 | 299 U.S. 248, 254-255 (1936) | | Mathews v. Eldridge | 13, 16, 17, 20 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g29",
+      "citation": "510 P.2d 440",
+      "group_case_name": null,
+      "before": "| 424 U.S. 319,\n\n\n\nAppealAppeal andand ResponseResponse BriefsBriefs -- ArgumentArgument SectionsSections333-335 (1976) | | Palmer v. District Court | 15, 17 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g30",
+      "citation": "113 P.3d 135",
+      "group_case_name": null,
+      "before": "mentArgument SectionsSections333-335 (1976) | | Palmer v. District Court | 15, 17 | 510 P.2d 440, 443 (Colo. 1973) | | In re\nMarriage of Ciesluk | 11, 12, 14 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g31",
+      "citation": "919 P.2d 776",
+      "group_case_name": null,
+      "before": "7 | 510 P.2d 440, 443 (Colo. 1973) | | In re\nMarriage of Ciesluk | 11, 12, 14 | 113 P.3d 135, 140-141 (Colo. 2005) | | In re Marriage of\nFrancis | 11, 12, 14 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g32",
+      "citation": "974 P.2d 493",
+      "group_case_name": null,
+      "before": "13 P.3d 135, 140-141 (Colo. 2005) | | In re Marriage of\nFrancis | 11, 12, 14 | 919 P.2d 776, 781 (Colo. 1996) | | In re Marriage of Nussbeck | 11, 12, 13,\n14 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g33",
+      "citation": "25 P.3d 28",
+      "group_case_name": null,
+      "before": "9 P.2d 776, 781 (Colo. 1996) | | In re Marriage of Nussbeck | 11, 12, 13,\n14 | 974 P.2d 493, 497 (Colo. 1999) | | In re Marriage of Balanson | 11, 12, 13, 14 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g34",
+      "citation": "530 U.S. 57",
+      "group_case_name": null,
+      "before": "2, 13,\n14 | 974 P.2d 493, 497 (Colo. 1999) | | In re Marriage of Balanson | 11, 12, 13, 14 | 25 P.3d 28,\n34 (Colo. 2001) | | Troxel v. Granville | 11, 12, 14 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g35",
+      "citation": "333 U.S. 257",
+      "group_case_name": null,
+      "before": "re Marriage of Balanson | 11, 12, 13, 14 | 25 P.3d 28,\n34 (Colo. 2001) | | Troxel v. Granville | 11, 12, 14 | 530 U.S. 57, 65-72 (2000) | | In re Oliver |\n13 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g36",
+      "citation": "512 U.S. 821",
+      "group_case_name": null,
+      "before": ", 14 | 530 U.S. 57, 65-72 (2000) | | In re Oliver |\n13 | 333 U.S. 257, 273-276 (1948) | | International Union, United Mine Workers of America v.\nBagwell | 13 | "
+    },
+    {
+      "path": "00-INDEX.pdf",
+      "group": "g37",
+      "citation": "709 P.2d 1383",
+      "group_case_name": null,
+      "before": " 257, 273-276 (1948) | | International Union, United Mine Workers of America v.\nBagwell | 13 | 512 U.S. 821, 827-839 (1994) | | In re Marriage of Rogers | 13 | "
+    },
+    {
+      "path": "0385b985cbe443ba9e7e297f664764c3.pdf",
+      "group": "g8",
+      "citation": "2023 WL 6064599",
+      "group_case_name": null,
+      "before": "and\ninternal quotations omitted) (quoting CF&I Steel, L.P. v. United Steel Workers of Am., 23 P.3d\n1197, 1200 (Colo. 2001)), report and recommendation adopted, "
+    },
+    {
+      "path": "0385b985cbe443ba9e7e297f664764c3.pdf",
+      "group": "g43",
+      "citation": "908 F.3d 1219",
+      "group_case_name": null,
+      "before": "ng to the death of the defendant\u2019s wife\n\n\u201csecured\u201d the couples\u2019 home, thus preventing the defendant from entering, until he consented to\n\na search of the home. "
+    },
+    {
+      "path": "1e2056140eda449b9faaf2db9c5652a2.pdf",
+      "group": "g12",
+      "citation": "510 U.S. 517",
+      "group_case_name": null,
+      "before": "d 11/14/25  Page 5 of 33\n                               PageID.1993\n\n\nFantasy, Inc. v. Fogerty\n     984 F.2d 1524 (9th Cir. 1993), rev\u2019d on other grounds,\n     "
+    },
+    {
+      "path": "359a46773baa472d832558e027afa22e.pdf",
+      "group": "g6",
+      "citation": "963 P.2d 1095",
+      "group_case_name": null,
+      "before": "ther an exception to the mootness doctrine applies to\n\npreserve judicial review, is also an issue of law reviewed de novo (Trinidad Sch. Dist. No. 1 v.\n\nLopez, "
+    },
+    {
+      "path": "23fb36fee64f48aa952c765bfc3be0e7.pdf",
+      "group": "g0",
+      "citation": "16 F.3d 1083",
+      "group_case_name": null,
+      "before": " Robinson  Case No. 1:22-cv-01129-NYW-SBP  Document 283    filed 02/25/25  USDC Colorado\n                                  pg 2 of 17\n\n\n\n\nv. Mo. Pac. R.R. Co., "
+    },
+    {
+      "path": "23fb36fee64f48aa952c765bfc3be0e7.pdf",
+      "group": "g2",
+      "citation": "2019 WL\n\n1085179",
+      "group_case_name": null,
+      "before": "rule 401, because \u2018[a]ny more stringent requirement  is unworkable and\n\nunrealistic.\u2019\u201d Rivero v. Bd. of Regents of Univ. of New Mexico, No. CIV 16-0318 JB\\SCY, "
+    },
+    {
+      "path": "23fb36fee64f48aa952c765bfc3be0e7.pdf",
+      "group": "g20",
+      "citation": "2013 WL 1658203",
+      "group_case_name": null,
+      "before": "CIVA03CV00031WDMMEH, 2007 WL 1430100, at *7 (D. Colo. May 14, 2007); see also Solis-Marrufo\n\nv. Bd. of Comm'rs for Cnty. of Bernalillo, No. CIV 11-0107 JB/KBM, "
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "summary": {
+    "textSource": "ocr",
+    "pageCount": 1,
+    "pages_table": 1,
+    "highlights": 12,
+    "highlights_with_page": 12,
+    "ocr": {
+      "engine": "tesseract v5.5.0.20241111",
+      "dpi": 300,
+      "language": "eng",
+      "pages": 1,
+      "emptyPages": 0,
+      "chars": 2695
+    },
+    "stats": {
+      "groups": 0,
+      "citations": 0,
+      "quotes": 2,
+      "linkedQuotes": 1,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 1,
+      "flagged": 0,
+      "authorities": 7,
+      "authorityCitations": 10
+    },
+    "page_table_last_end": 2695,
+    "text_length": 2695,
+    "spans": 0,
+    "spans_ambiguous": 0,
+    "spans_without_page": 0
+  },
+  "response": {
+    "id": "ac7a5dea19004f4a94a11495ff0ba9e7",
+    "name": "35996a83a8024e21ac11b477062694d5.pdf",
+    "kind": "pdf",
+    "sha256": "2ed9dc481024d0446194f8f6d6a70d78f2627de00a567bea0380f87d4d2cb3d3",
+    "uploadedAt": "2026-10-03T07:35:45.563571+00:00",
+    "pageCount": 1,
+    "pages": [
+      {
+        "index": 0,
+        "start": 0,
+        "end": 2695
+      }
+    ],
+    "highlights": [
+      {
+        "span": [
+          361,
+          375
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          509,
+          523
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          984,
+          1009
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          1028,
+          1068
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          1070,
+          1260
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          1138,
+          1149
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          1153,
+          1155
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          1535,
+          1960
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          1733,
+          1743
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          1944,
+          1958
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          2380,
+          2392
+        ],
+        "page": 0,
+        "rects": []
+      },
+      {
+        "span": [
+          2398,
+          2412
+        ],
+        "page": 0,
+        "rects": []
+      }
+    ],
+    "warning": "Text recovered by OCR, not read from the document. This document had no text layer. OCR misreads characters -- observed examples include \"Coffman\" read as \"Coffinan\" and lost section signs -- so every citation below is lower confidence and must be checked against the page image before it is relied on.",
+    "textSource": "ocr",
+    "ocr": {
+      "engine": "tesseract v5.5.0.20241111",
+      "dpi": 300,
+      "language": "eng",
+      "pages": 1,
+      "emptyPages": 0,
+      "chars": 2695
+    },
+    "notes": [],
+    "rawUrl": "/api/documents/ac7a5dea19004f4a94a11495ff0ba9e7/raw",
+    "extraction": {
+      "text": "DISTRICT COURT, PUEBLO COUNTY, COLORADO\nCourt Address:\n.\n501 N ELIZABETH, ROOM 116, PUEBLO, CO, 81003\nPlaintiff(s) HARRY COOPER\nDATE FILED\nV.\nFebruary 25, 2026 11:45 AM\nDefendant(s) BRENDARAE BACA\nZ\\ COURT USE ONLY /\\\n.\nCase Number: 2025CV36\nDivision: 405\nCourtroom:\nPLAINTIFF'S MOTION TO STRIKE DEFENDANT'S COUNTERCLAIMS FORFAILURE TO COMPLY WITH\nCOURT ORDER (C.R.C.P. 12(f))\nTHIS MATTER COMES BEFORE THE COURT on Plaintiff's Motion to Strike Defendant's Counterclaim for Failure to\nComply with Court Order (C.R.C.P. 12(f)). Having reviewed Plaintiffs Motion, the Court file, and otherwise being advised of\n;\nthe premises therein, the Court issues the following Order:\n:\n:\nBackground/Findings.\na\n,\n1. On January 30, 2026, Plaintiff filed a Motion requesting that the Court strike the Defendant's Counterclaims, based on\n:\n_\nDefendant's failure to comply with the Court's Order issued on November 17, 2025.\n;\n2. No Objection or Response was filed to Plaintiffs Motion, as required by C.R.C.P. 121 Section 1-15.\n\u2018\n3. Pursuant to C.R.C.P. 121 Section 1-15 subsection (3); \"Other than motions seeking to resolve a claim or defense under.\nos\nC.R.C.P. 12 or 56, failure of a responding party to file a responsive brief may be considered a confession of the motion.\"\n:\n* 4, In this case, the Court issued an Order on November 17, 2025 regarding Defendant's Counterclaims. Specifically, the\n.\n.\nCourt Ordered as follows:\n\u2018\n.\n,\n\"A. The Court orders Defendant to file an Amended Answer, with amended Counterclaims: The Amended Answer must . eS\n\u201c\ninclude Counterclaims with a definite statement of the facts, how those facts pertain to the elements of those claims, and the\n\u2018\n;\nbasis for any requested relief. This Order is in compliance with C.R.C.P. 8 and the Twombly and Iqbal. cases. Failure to\na!\n\u2018\namend the Answer and Counterclaims within 21 days, as required by this Order, will result in the Court.striking those\n.\n.\n*\nCounterclaims pursuant to C.R.C.P. 12(f).\u201d\n:\n.\noo\n-.\n\u20185, At this time, the Court has not received an Amended Answer and/or any other document Amending Defendant's\n.\n7\nCounterclaims.\noe\neee\n7\nCo\n6. More than 21 days has elapsed since the Court issued it's Order. As well, the timeframes for amending pleadings, without\u2019\n,\n_\nrequesting leave of the Court, has also passed.\n.\n,\n.\n;\n-\n:\n\u2018\n;\n\"5\n@\nOrder.\nSO\nSo\noe\nTHEREFORE, considering the foregoing, and considering C.R.C.P. 121, and C.R.C.P. 12(f), the Court hereby strikes\n.\n|\n,\n: :\nDefendant's three (3) counterclaims. The Defendant will not be permitted to pursue any counterclaims at the Court Trial\n\u2018\n;\n\u2018\ncurrently scheduled for June 16, 2026.\noe\nae\nwae\neB\n\u00bb\nIssue Date:. 2/25/2026\nsoa\na\n.\npat\nCO\na\not\na\n\u2018\na.\nwes,\n. Page of2\n",
+      "groups": [],
+      "orphans": [],
+      "authorities": [
+        {
+          "id": "a0",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "category": "rule",
+            "source": "Colorado Rules of Civil Procedure",
+            "text": "C.R.C.P. 12(f)",
+            "span": [
+              361,
+              375
+            ],
+            "name": "C.R.C.P. 12(f)",
+            "url": null,
+            "tokens": {
+              "rule": "12",
+              "section": "12(f)",
+              "subsection": "(f)"
+            },
+            "is_shortform": false
+          },
+          "children": [
+            {
+              "category": "rule",
+              "source": "Colorado Rules of Civil Procedure",
+              "text": "C.R.C.P. 12(f)",
+              "span": [
+                509,
+                523
+              ],
+              "name": "C.R.C.P. 12(f)",
+              "url": null,
+              "tokens": {
+                "rule": "12",
+                "section": "12(f)",
+                "subsection": "(f)"
+              },
+              "is_shortform": false
+            },
+            {
+              "category": "rule",
+              "source": "Colorado Rules of Civil Procedure",
+              "text": "C.R.C.P. 12(f)",
+              "span": [
+                1944,
+                1958
+              ],
+              "name": "C.R.C.P. 12(f)",
+              "url": null,
+              "tokens": {
+                "rule": "12",
+                "section": "12(f)",
+                "subsection": "(f)"
+              },
+              "is_shortform": false
+            },
+            {
+              "category": "rule",
+              "source": "Colorado Rules of Civil Procedure",
+              "text": "C.R.C.P. 12(f)",
+              "span": [
+                2398,
+                2412
+              ],
+              "name": "C.R.C.P. 12(f)",
+              "url": null,
+              "tokens": {
+                "rule": "12",
+                "section": "12(f)",
+                "subsection": "(f)"
+              },
+              "is_shortform": false
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "a1",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "category": "rule",
+            "source": "Colorado Rules of Civil Procedure",
+            "text": "C.R.C.P. 121 Section 1-15",
+            "span": [
+              984,
+              1009
+            ],
+            "name": "C.R.C.P. 121 Section 1-15",
+            "url": null,
+            "tokens": {
+              "rule": "121",
+              "section": "121 Section 1-15",
+              "practice_standard": "1-15"
+            },
+            "is_shortform": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a2",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "category": "rule",
+            "source": "Colorado Rules of Civil Procedure",
+            "text": "C.R.C.P. 121 Section 1-15 subsection (3)",
+            "span": [
+              1028,
+              1068
+            ],
+            "name": "C.R.C.P. 121 Section 1-15(3)",
+            "url": null,
+            "tokens": {
+              "rule": "121",
+              "section": "121 Section 1-15(3)",
+              "practice_standard": "1-15",
+              "subsection": "(3)"
+            },
+            "is_shortform": false
+          },
+          "children": [],
+          "quotes": [
+            {
+              "text": "Other than motions seeking to resolve a claim or defense under. os C.R.C.P. 12 or 56, failure of a responding party to file a responsive brief may be considered a confession of the motion.",
+              "span": [
+                1070,
+                1260
+              ],
+              "raw_text": "\"Other than motions seeking to resolve a claim or defense under.\nos\nC.R.C.P. 12 or 56, failure of a responding party to file a responsive brief may be considered a confession of the motion.\"",
+              "attribution_status": "linked",
+              "attribution_basis": "same_sentence_preceding",
+              "authority_id": "a2",
+              "candidate_authorities": [],
+              "pin_cite": null,
+              "citation_span": [
+                1028,
+                1068
+              ],
+              "pin_basis": null
+            }
+          ]
+        },
+        {
+          "id": "a3",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "category": "rule",
+            "source": "Colorado Rules of Civil Procedure",
+            "text": "C.R.C.P. 12",
+            "span": [
+              1138,
+              1149
+            ],
+            "name": "C.R.C.P. 12",
+            "url": null,
+            "tokens": {
+              "rule": "12",
+              "section": "12"
+            },
+            "is_shortform": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a4",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "category": "rule",
+            "source": "Colorado Rules of Civil Procedure",
+            "text": "56",
+            "span": [
+              1153,
+              1155
+            ],
+            "name": "C.R.C.P. 56",
+            "url": null,
+            "tokens": {
+              "rule": "56",
+              "section": "56"
+            },
+            "is_shortform": true
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a5",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "category": "rule",
+            "source": "Colorado Rules of Civil Procedure",
+            "text": "C.R.C.P. 8",
+            "span": [
+              1733,
+              1743
+            ],
+            "name": "C.R.C.P. 8",
+            "url": null,
+            "tokens": {
+              "rule": "8",
+              "section": "8"
+            },
+            "is_shortform": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a6",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "category": "rule",
+            "source": "Colorado Rules of Civil Procedure",
+            "text": "C.R.C.P. 121",
+            "span": [
+              2380,
+              2392
+            ],
+            "name": "C.R.C.P. 121",
+            "url": null,
+            "tokens": {
+              "rule": "121",
+              "section": "121"
+            },
+            "is_shortform": false
+          },
+          "children": [],
+          "quotes": []
+        }
+      ],
+      "unattributedQuotes": [
+        {
+          "text": "include Counterclaims with a definite statement of the facts, how those facts pertain to the elements of those claims, and the \u2018 ; basis for any requested relief. This Order is in compliance with C.R.C.P. 8 and the Twombly and Iqbal. cases. Failure to a! \u2018 amend the Answer and Counterclaims within 21 days, as required by this Order, will result in the Court.striking those . . * Counterclaims pursuant to C.R.C.P. 12(f).",
+          "span": [
+            1535,
+            1960
+          ],
+          "raw_text": "\u201c\ninclude Counterclaims with a definite statement of the facts, how those facts pertain to the elements of those claims, and the\n\u2018\n;\nbasis for any requested relief. This Order is in compliance with C.R.C.P. 8 and the Twombly and Iqbal. cases. Failure to\na!\n\u2018\namend the Answer and Counterclaims within 21 days, as required by this Order, will result in the Court.striking those\n.\n.\n*\nCounterclaims pursuant to C.R.C.P. 12(f).\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        }
+      ],
+      "layoutRegions": [],
+      "records": [],
+      "stats": {
+        "groups": 0,
+        "citations": 0,
+        "quotes": 2,
+        "linkedQuotes": 1,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 1,
+        "flagged": 0,
+        "authorities": 7,
+        "authorityCitations": 10
+      }
+    }
+  }
+}

@@ -1,0 +1,602 @@
+{
+  "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\04-2025CV111-2026-05-22-12b5-dismissal.pdf",
+  "sha256": "ec77b49376a82b1743a1ccceadbdac5abf9511dd66be50cac363b658eb5ff518",
+  "bytes": 226500,
+  "pdf_pages": 4,
+  "text_chars": 11063,
+  "stats": {
+    "groups": 10,
+    "citations": 23,
+    "quotes": 1,
+    "linkedQuotes": 1,
+    "ambiguousQuotes": 0,
+    "unattributedQuotes": 0,
+    "flagged": 6,
+    "authorities": 13,
+    "authorityCitations": 22
+  },
+  "warnings": null,
+  "flags": null,
+  "groups": [
+    {
+      "id": "g0",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "2016 CO 50",
+        "span": [
+          1356,
+          1366
+        ],
+        "volume": "2016",
+        "reporter": "CO",
+        "page": "50",
+        "pin_cite": null,
+        "year": null,
+        "court": null,
+        "plaintiff": "Warne",
+        "defendant": "Hall",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "2016 CO 50",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Warne v. Hall, 2016 CO 50",
+        "flags": []
+      },
+      "children": [
+        {
+          "kind": "FullCaseCitation",
+          "text": "373 P.3d 588",
+          "span": [
+            1378,
+            1390
+          ],
+          "pin_cite": "593",
+          "flags": []
+        },
+        {
+          "kind": "IdCitation",
+          "text": "Id.",
+          "span": [
+            1592,
+            1595
+          ],
+          "pin_cite": null,
+          "flags": []
+        },
+        {
+          "kind": "ShortCaseCitation",
+          "text": "373 P.3d at 594",
+          "span": [
+            1609,
+            1624
+          ],
+          "pin_cite": "594",
+          "flags": []
+        },
+        {
+          "kind": "FullCaseCitation",
+          "text": "2016 CO 50",
+          "span": [
+            1832,
+            1842
+          ],
+          "pin_cite": null,
+          "flags": [
+            "parties_unverified: eyecite reported '' v. 'Rule 12(b)(5). Warne', no 'v.' pattern in this citation's own window"
+          ]
+        },
+        {
+          "kind": "ShortCaseCitation",
+          "text": "373 P.3d at 596",
+          "span": [
+            1854,
+            1869
+          ],
+          "pin_cite": "596",
+          "flags": []
+        },
+        {
+          "kind": "FullCaseCitation",
+          "text": "2016 CO 50",
+          "span": [
+            5546,
+            5556
+          ],
+          "pin_cite": null,
+          "flags": [
+            "parties_unverified: eyecite reported '' v. 'Warne', no 'v.' pattern in this citation's own window"
+          ]
+        },
+        {
+          "kind": "ShortCaseCitation",
+          "text": "373 P.3d at 595",
+          "span": [
+            5568,
+            5583
+          ],
+          "pin_cite": "595",
+          "flags": []
+        }
+      ],
+      "citations": []
+    },
+    {
+      "id": "g1",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "550 U.S. 544",
+        "span": [
+          1740,
+          1752
+        ],
+        "volume": "550",
+        "reporter": "U.S.",
+        "page": "544",
+        "pin_cite": null,
+        "year": 2007,
+        "court": "scotus",
+        "plaintiff": "Bell Atlantic Corp.",
+        "defendant": "Twombly",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "550 U.S. 544",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Bell Atlantic Corp. v. Twombly, 550 U.S. 544 (2007)",
+        "flags": []
+      },
+      "children": [
+        {
+          "kind": "ShortCaseCitation",
+          "text": "550 U.S. at 570",
+          "span": [
+            2245,
+            2260
+          ],
+          "pin_cite": "570",
+          "flags": []
+        }
+      ],
+      "citations": []
+    },
+    {
+      "id": "g2",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "556 U.S. 662",
+        "span": [
+          1784,
+          1796
+        ],
+        "volume": "556",
+        "reporter": "U.S.",
+        "page": "662",
+        "pin_cite": null,
+        "year": 2009,
+        "court": "scotus",
+        "plaintiff": "Ashcroft",
+        "defendant": "Iqbal",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "556 U.S. 662",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Ashcroft v. Iqbal, 556 U.S. 662 (2009)",
+        "flags": [
+          "year_corrected: eyecite reported 2007, citation's own parenthetical says 2009",
+          "parties_corrected: eyecite reported '' v. 'Twombly'"
+        ]
+      },
+      "children": [
+        {
+          "kind": "ShortCaseCitation",
+          "text": "556\nU.S. at 679",
+          "span": [
+            2375,
+            2390
+          ],
+          "pin_cite": "679",
+          "flags": []
+        }
+      ],
+      "citations": []
+    },
+    {
+      "id": "g3",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "618 P.2d 517",
+        "span": [
+          3334,
+          3346
+        ],
+        "volume": "618",
+        "reporter": "P.2d",
+        "page": "517",
+        "pin_cite": "519",
+        "year": 1980,
+        "court": "colo",
+        "plaintiff": "Dunlap",
+        "defendant": "Colorado Springs Coach Co.",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "618 P.2d 517",
+        "court_text": "Colo.",
+        "case_name": null,
+        "full_citation": "Dunlap v. Colorado Springs Coach Co., 618 P.2d 517, 519 (Colo. 1980)",
+        "flags": []
+      },
+      "children": [
+        {
+          "kind": "ShortCaseCitation",
+          "text": "618 P.2d\nat 519",
+          "span": [
+            6963,
+            6978
+          ],
+          "pin_cite": "519",
+          "flags": []
+        },
+        {
+          "kind": "ShortCaseCitation",
+          "text": "618 P.2d at 519",
+          "span": [
+            7281,
+            7296
+          ],
+          "pin_cite": "519",
+          "flags": []
+        }
+      ],
+      "citations": []
+    },
+    {
+      "id": "g4",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "731 P.2d 708",
+        "span": [
+          3733,
+          3745
+        ],
+        "volume": "731",
+        "reporter": "P.2d",
+        "page": "708",
+        "pin_cite": "711",
+        "year": 1987,
+        "court": "colo",
+        "plaintiff": "Continental Air Lines, Inc.",
+        "defendant": "Keenan",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "731 P.2d 708",
+        "court_text": "Colo.",
+        "case_name": null,
+        "full_citation": "Continental Air Lines, Inc. v. Keenan, 731 P.2d 708, 711 (Colo. 1987)",
+        "flags": []
+      },
+      "children": [],
+      "citations": []
+    },
+    {
+      "id": "g5",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "39 Colo. App. 306",
+        "span": [
+          4089,
+          4106
+        ],
+        "volume": "39",
+        "reporter": "Colo. App.",
+        "page": "306",
+        "pin_cite": null,
+        "year": 1977,
+        "court": null,
+        "plaintiff": "Sullivan",
+        "defendant": "Davis",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "39 Colo. App. 306",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Sullivan v. Davis, 39 Colo. App. 306",
+        "flags": [
+          "year_unverified: eyecite reports 1977, no year parenthetical in this citation's own window"
+        ]
+      },
+      "children": [
+        {
+          "kind": "FullCaseCitation",
+          "text": "571 P.2d 1103",
+          "span": [
+            4108,
+            4121
+          ],
+          "pin_cite": "1105",
+          "flags": [
+            "parties_unverified: eyecite reported 'Sullivan' v. 'Davis', no 'v.' pattern in this citation's own window"
+          ]
+        }
+      ],
+      "citations": []
+    },
+    {
+      "id": "g6",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "241 P.3d 529",
+        "span": [
+          5319,
+          5331
+        ],
+        "volume": "241",
+        "reporter": "P.3d",
+        "page": "529",
+        "pin_cite": "532",
+        "year": 2010,
+        "court": "colo",
+        "plaintiff": "Bly",
+        "defendant": "Story",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "241 P.3d 529",
+        "court_text": "Colo.",
+        "case_name": null,
+        "full_citation": "Bly v. Story, 241 P.3d 529, 532 (Colo. 2010)",
+        "flags": []
+      },
+      "children": [],
+      "citations": []
+    },
+    {
+      "id": "g7",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "741 P.2d 714",
+        "span": [
+          7579,
+          7591
+        ],
+        "volume": "741",
+        "reporter": "P.2d",
+        "page": "714",
+        "pin_cite": "719",
+        "year": 1987,
+        "court": "colo",
+        "plaintiff": "Kaiser Foundation Health Plan of Colorado",
+        "defendant": "Sharp",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "741 P.2d 714",
+        "court_text": "Colo.",
+        "case_name": null,
+        "full_citation": "Kaiser Foundation Health Plan of Colorado v. Sharp, 741 P.2d 714, 719 (Colo. 1987)",
+        "flags": [
+          "parties_corrected: eyecite reported 'Kaiser Foundation Health Plan  Colorado' v. 'Sharp'"
+        ]
+      },
+      "children": [],
+      "citations": []
+    },
+    {
+      "id": "g8",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "2017 COA 155",
+        "span": [
+          8200,
+          8212
+        ],
+        "volume": "2017",
+        "reporter": "COA",
+        "page": "155",
+        "pin_cite": null,
+        "year": null,
+        "court": null,
+        "plaintiff": "Alpine Bank",
+        "defendant": "Hubbell",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "2017 COA 155",
+        "court_text": null,
+        "case_name": null,
+        "full_citation": "Alpine Bank v. Hubbell, 2017 COA 155",
+        "flags": []
+      },
+      "children": [
+        {
+          "kind": "FullCaseCitation",
+          "text": "418 P.3d 604",
+          "span": [
+            8224,
+            8236
+          ],
+          "pin_cite": "608",
+          "flags": []
+        }
+      ],
+      "citations": []
+    },
+    {
+      "id": "g9",
+      "name": null,
+      "non_adversarial": null,
+      "header": {
+        "kind": "FullCaseCitation",
+        "text": "91 P.3d 1038",
+        "span": [
+          9254,
+          9266
+        ],
+        "volume": "91",
+        "reporter": "P.3d",
+        "page": "1038",
+        "pin_cite": "1045",
+        "year": 2004,
+        "court": "coloctapp",
+        "plaintiff": "E-470 Public Highway Authority",
+        "defendant": "Revenig",
+        "parenthetical": null,
+        "antecedent": null,
+        "corrected": "91 P.3d 1038",
+        "court_text": "Colo. App.",
+        "case_name": null,
+        "full_citation": "E-470 Public Highway Authority v. Revenig, 91 P.3d 1038, 1045 (Colo. App. 2004)",
+        "flags": []
+      },
+      "children": [],
+      "citations": []
+    }
+  ],
+  "authorities": [
+    {
+      "id": "a0",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a1",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a2",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a3",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a4",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a5",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a6",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a7",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a8",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a9",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a10",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a11",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    },
+    {
+      "id": "a12",
+      "name": null,
+      "kind": null,
+      "text": null,
+      "section": null,
+      "citations": []
+    }
+  ],
+  "quotations": [],
+  "record_cites": [
+    {
+      "kind": "appendix",
+      "label": "Appendix",
+      "span": [
+        4098,
+        4111
+      ],
+      "pin": "306",
+      "text": "App. 306, 571",
+      "source_id": "appendix:Appendix"
+    },
+    {
+      "kind": "appendix",
+      "label": "Appendix",
+      "span": [
+        9280,
+        9289
+      ],
+      "pin": "2004",
+      "text": "App. 2004",
+      "source_id": "appendix:Appendix"
+    }
+  ]
+}

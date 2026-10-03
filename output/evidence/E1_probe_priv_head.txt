@@ -1,0 +1,8 @@
+=== HEAD groups ===
+g0 @162-176 caseName='Facebook, Inc. Consumer Pri v. User Profile Litig., No. 18-md-02843-JSC' text='2020 WL 614956' P='Facebook, Inc. Consumer Pri' D='User Profile Litig., No. 18-md-02843-JSC' case_name=None pins='at *2'
+    full='Facebook, Inc. Consumer Pri v. User Profile Litig., No. 18-md-02843-JSC, 2020 WL 614956, at *2 (N.D. Cal. Feb. 10 2020)' flags=["parties_corrected: eyecite reported '' v. 'Facebook, Inc. Consumer Priv. User Profile Litig., No. 18-md-02843-JSC'"]
+    prop@None: None
+=== HEAD authorities ===
+=== HEAD records ===
+=== orphans ===
+=== quotes ===

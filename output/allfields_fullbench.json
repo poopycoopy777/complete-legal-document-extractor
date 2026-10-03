@@ -1,0 +1,2348 @@
+[
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-coomer-v-lindell-ecf283.pdf",
+    "bytes": 547064,
+    "stats": {
+      "groups": 46,
+      "citations": 71,
+      "quotes": 23,
+      "linkedQuotes": 19,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 4,
+      "flagged": 15,
+      "authorities": 5,
+      "authorityCitations": 7
+    },
+    "problem_count": 23,
+    "problems": [
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g3.quote[0].text",
+        "span": [
+          2751,
+          2937
+        ],
+        "claimed": "Relevant evidence is inherently prejudicial; but it is only unfair prejudice, substantially outweighing probative value, which permits exclusion of relevant mat",
+        "actual": "\u201cRelevant evidence  is inherently  prejudicial; but  it  is only unfair prejudice, substantially\n\noutweighing probative value, which permits exclusion of releva",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g4.quote[0].text",
+        "span": [
+          3115,
+          3124
+        ],
+        "claimed": "mindful",
+        "actual": "\u201cmindful\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g4.quote[1].text",
+        "span": [
+          3130,
+          3278
+        ],
+        "claimed": "exclusion of evidence under Rule 403 that is otherwise admissible under the other rules is an extraordinary remedy and should be used sparingly.",
+        "actual": "\u201cexclusion of evidence under Rule\n\n403 that is otherwise admissible under the other rules is an extraordinary remedy and should be used\n\nsparingly.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g6.quote[0].text",
+        "span": [
+          4085,
+          4141
+        ],
+        "claimed": "reputation and character are inextricably intertwined",
+        "actual": "\"reputation and character are\n\ninextricably intertwined\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g8.quote[0].text",
+        "span": [
+          5057,
+          5175
+        ],
+        "claimed": "The prejudice must be unfair in the sense that it would affect the jury's ability to weigh the evidence rationally.",
+        "actual": "\u201cThe prejudice must be unfair in the sense that it would affect the jury's ability to weigh the evidence\n\nrationally.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g9.quote[0].text",
+        "span": [
+          5319,
+          5344
+        ],
+        "claimed": "substantially outweighs",
+        "actual": "\u201csubstantially outweighs\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g9.quote[1].text",
+        "span": [
+          15744,
+          15830
+        ],
+        "claimed": "its maximum reasonable probative force and its minimum reasonable prejudicial value",
+        "actual": "\u201cits maximum reasonable probative force and its\n\nminimum reasonable prejudicial value\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g9.quote[2].text",
+        "span": [
+          24962,
+          25054
+        ],
+        "claimed": "its maximum reasonable probative force and its minimum reasonable prejudicial value",
+        "actual": "\u201cits maximum\n       reasonable probative force and its minimum reasonable prejudicial value\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g10.quote[0].text",
+        "span": [
+          6443,
+          6497
+        ],
+        "claimed": "an essential element of a charge, claim, or defense",
+        "actual": "\u201can essential element\n\nof a charge, claim, or defense\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g11.quote[0].text",
+        "span": [
+          6923,
+          7051
+        ],
+        "claimed": "where the focal issue in a case is the plaintiff's character... evidence of specific instances of conduct becomes admissible.",
+        "actual": "\u201cwhere the focal issue in a case is the plaintiff's character... evidence\n\nof specific instances of conduct becomes admissible.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g12.quote[0].text",
+        "span": [
+          13682,
+          13696
+        ],
+        "claimed": "sole purpose",
+        "actual": "\u201csole purpose\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g13.quote[0].text",
+        "span": [
+          10185,
+          10201
+        ],
+        "claimed": "actual malice",
+        "actual": "\u201cactual\n\nmalice\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g22.quote[0].text",
+        "span": [
+          17474,
+          17488
+        ],
+        "claimed": "door opening",
+        "actual": "\u201cdoor opening\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g31.quote[0].text",
+        "span": [
+          21247,
+          21297
+        ],
+        "claimed": "to attack or support the witness\u2019s credibility,",
+        "actual": "\u201cto attack or support the witness\u2019s\n\ncredibility,\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "g45.quote[0].text",
+        "span": [
+          32092,
+          32109
+        ],
+        "claimed": "breathing space",
+        "actual": "\u201cbreathing space\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "a0.quote[0].text",
+        "span": [
+          2238,
+          2391
+        ],
+        "claimed": "has any tendency to make a fact more or less probable than it would be without the evidence; and the fact is of consequence in determining the action.",
+        "actual": "\u201chas any tendency to make a fact more or less probable than it would be without the evidence; and\n\nthe fact is of consequence in determining the action.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "a0.quote[1].text",
+        "span": [
+          2411,
+          2554
+        ],
+        "claimed": "The standard for relevancy is particularly loose under rule 401, because \u2018[a]ny more stringent requirement is unworkable and unrealistic.\u2019",
+        "actual": "\u201cThe standard for relevancy is\n\nparticularly loose under rule 401, because \u2018[a]ny more stringent requirement  is unworkable and\n\nunrealistic.\u2019\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "a1.quote[0].text",
+        "span": [
+          4872,
+          4933
+        ],
+        "claimed": "an undue tendency to suggest decision on an improper basis.",
+        "actual": "\u201can undue tendency to suggest decision on an improper basis.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "a4.quote[0].text",
+        "span": [
+          21607,
+          21677
+        ],
+        "claimed": "does not bar evidence of religious beliefs when otherwise relevant.",
+        "actual": "\u201cdoes not bar evidence of religious\n\nbeliefs when otherwise relevant.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[0].text",
+        "span": [
+          987,
+          1033
+        ],
+        "claimed": "intentional infliction of emotional distress",
+        "actual": "\u201cintentional infliction of emotional distress\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[1].text",
+        "span": [
+          1088,
+          1112
+        ],
+        "claimed": "extreme and outrageous",
+        "actual": "\u201cextreme and outrageous\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[2].text",
+        "span": [
+          16098,
+          16122
+        ],
+        "claimed": "extreme and outrageous",
+        "actual": "\u201cextreme and outrageous\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-coomer-v-lindell-ecf283.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[3].text",
+        "span": [
+          16995,
+          17000
+        ],
+        "claimed": "Dr.",
+        "actual": "\u201cDr.\u201d",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 23
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-cooper-v-pueblo-ecf61.pdf",
+    "bytes": 365308,
+    "stats": {
+      "groups": 25,
+      "citations": 63,
+      "quotes": 26,
+      "linkedQuotes": 16,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 10,
+      "flagged": 17,
+      "authorities": 3,
+      "authorityCitations": 5
+    },
+    "problem_count": 75,
+    "problems": [
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          24088,
+          24195
+        ],
+        "claimed": "sufficient factual matter, accepted as true, to \u2018state a claim to relief that is plausible on its face.\u2019",
+        "actual": "\u201csufficient factual matter, accepted as true, to \u2018state a claim to relief\n\nthat is plausible on its face.\u2019\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[1].text",
+        "span": [
+          24387,
+          24496
+        ],
+        "claimed": "allows the court to draw the reasonable inference that the defendant is liable for the misconduct alleged.",
+        "actual": "\u201callows the court to draw the reasonable inference that the defendant\n\nis liable for the misconduct alleged.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[2].text",
+        "span": [
+          24524,
+          24550
+        ],
+        "claimed": "probability requirement,",
+        "actual": "\u201cprobability requirement,\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[3].text",
+        "span": [
+          24568,
+          24638
+        ],
+        "claimed": "more than a sheer possibility that a defendant has acted unlawfully.",
+        "actual": "\u201cmore than a sheer possibility that a defendant has acted unlawfully.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[4].text",
+        "span": [
+          24675,
+          24786
+        ],
+        "claimed": "context-specific task that requires the reviewing court to draw on its judicial experience and common sense.",
+        "actual": "\u201ccontext-specific task that requires the reviewing court to draw\n\non its judicial experience and common sense.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g1.quote[0].text",
+        "span": [
+          25341,
+          25437
+        ],
+        "claimed": "give[s] the defendant fair notice of what the...claim is and the grounds upon which it rests.",
+        "actual": "\u201cgive[s] the defendant fair notice of what the...claim is\n\nand the grounds upon which it rests.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g3.quote[0].text",
+        "span": [
+          30588,
+          30736
+        ],
+        "claimed": "The statute of limitations does not begin to run until the plaintiff discovers, or reasonably should have discovered, the fraudulent concealment.",
+        "actual": "\"The statute of limitations does not begin to run\n\nuntil the plaintiff discovers, or reasonably should have discovered, the fraudulent concealment.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g3.quote[1].text",
+        "span": [
+          30833,
+          30856
+        ],
+        "claimed": "reasonably discovered",
+        "actual": "\"reasonably discovered\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g6.quote[0].text",
+        "span": [
+          34435,
+          34446
+        ],
+        "claimed": "very core",
+        "actual": "\u201cvery core\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g6.quote[1].text",
+        "span": [
+          34590,
+          34602
+        ],
+        "claimed": "curtilage.",
+        "actual": "\u201ccurtilage.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g6.quote[2].text",
+        "span": [
+          35711,
+          35744
+        ],
+        "claimed": "customarily open to the public.",
+        "actual": "\"customarily open to the public.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g6.quote[3].text",
+        "span": [
+          49344,
+          49444
+        ],
+        "claimed": "approach the home and knock, precisely because that is no more than any private citizen might do.",
+        "actual": "\u201capproach the home and knock, precisely because that is no more than any private\n\ncitizen might do.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g10.quote[0].text",
+        "span": [
+          25750,
+          25817
+        ],
+        "claimed": "less stringent standard than formal pleadings drafted by lawyers.",
+        "actual": "\u201cless stringent standard than formal pleadings drafted by lawyers.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g10.quote[1].text",
+        "span": [
+          25972,
+          26255
+        ],
+        "claimed": "if the court can reasonably read the pleadings to state a valid claim on which the plaintiff could prevail, it should do so despite the plaintiff\u2019s failure to c",
+        "actual": "\u201cif the court can reasonably read the pleadings to state a valid\n\nclaim on which the plaintiff could prevail, it should do so despite the plaintiff\u2019s failure to",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g12.quote[0].text",
+        "span": [
+          31602,
+          31782
+        ],
+        "claimed": "when a defendant's conduct is part of a continuing practice, an action is timely so long as the last act evidencing the continuing practice falls within the lim",
+        "actual": "\"when a defendant's conduct is part of a continuing practice, an action is\n\ntimely so long as the last act evidencing the continuing practice falls within the l",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "g19.quote[0].text",
+        "span": [
+          38431,
+          38512
+        ],
+        "claimed": "meaningfully interferes with an individual\u2019s possessory interests in property,",
+        "actual": "\u201cmeaningfully interferes\n\nwith an individual\u2019s possessory interests in property,\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[0].text",
+        "span": [
+          696,
+          770
+        ],
+        "claimed": "Good thing we got the guy 'cause we had no probable cause for a warrant.",
+        "actual": "\u201cGood thing we got the guy 'cause we had no probable cause for a warrant.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[1].text",
+        "span": [
+          19919,
+          19993
+        ],
+        "claimed": "Good thing we got the guy \u2019cause we had no probable cause for a warrant.",
+        "actual": "\u201cGood thing we got the guy \u2019cause we had no probable cause for a warrant.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[2].text",
+        "span": [
+          33532,
+          33729
+        ],
+        "claimed": "absent a seizure of a person or property, it is unclear how law enforcement presence and efforts to carry out an investigation without entering or seizing a per",
+        "actual": "\"absent a seizure of a person or property, it is unclear how law\n\nenforcement presence and efforts to carry out an investigation without entering or seizing a\n\n",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[3].text",
+        "span": [
+          34785,
+          34870
+        ],
+        "claimed": "Officer Albaugh had entered Cooper's private residence without obtaining a warrant.",
+        "actual": "\"Officer Albaugh had entered Cooper's private residence without obtaining a warrant.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[4].text",
+        "span": [
+          35082,
+          35176
+        ],
+        "claimed": "there are no allegations to indicate that any Defendant ever went through Plaintiff's door.",
+        "actual": "\"there are no allegations to indicate that any Defendant ever\n\nwent through Plaintiff's door.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[5].text",
+        "span": [
+          36346,
+          36475
+        ],
+        "claimed": "not aware of case law holding that manipulating a door handle, without more, rises to the level of a constitutional violation.",
+        "actual": "\"not aware of case law holding that manipulating a door\n\nhandle, without more, rises to the level of a constitutional violation.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[6].text",
+        "span": [
+          37949,
+          38026
+        ],
+        "claimed": "Plaintiff was not arrested, charged, or subjected to any property seizure.",
+        "actual": "\u201cPlaintiff was not arrested, charged, or\n\nsubjected to any property seizure.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[7].text",
+        "span": [
+          38681,
+          38744
+        ],
+        "claimed": "no Defendant ever pointed a gun or other weapon at Plaintiff",
+        "actual": "\"no Defendant ever pointed a gun\n\nor other weapon at Plaintiff\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[8].text",
+        "span": [
+          38749,
+          38773
+        ],
+        "claimed": "SWAT was not deployed.",
+        "actual": "\"SWAT was not deployed.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[9].text",
+        "span": [
+          39187,
+          39261
+        ],
+        "claimed": "Good thing we got the guy 'cause we had no probable cause for a warrant.",
+        "actual": "\"Good thing we got the guy 'cause we had no probable cause for a warrant.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[10].text",
+        "span": [
+          39388,
+          39544
+        ],
+        "claimed": "It's constitutional to conduct a five-hour armed siege without probable cause as long as you don't actually submit the warrant you know will be rejected.",
+        "actual": "\"It's constitutional to conduct a five-hour armed siege without probable cause as long\n\nas you don't actually submit the warrant you know will be rejected.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[11].text",
+        "span": [
+          40189,
+          40230
+        ],
+        "claimed": "mere disagreement with police actions.",
+        "actual": "\u201cmere\n\ndisagreement with police actions.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[12].text",
+        "span": [
+          48241,
+          48259
+        ],
+        "claimed": "shotgun pleading",
+        "actual": "\u201cshotgun pleading\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[0].text",
+        "span": [
+          14317,
+          14349
+        ],
+        "claimed": "I guess I\u2019ll mark it abandon,",
+        "actual": "\u201cI\n\nguess I\u2019ll mark it abandon,\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[1].text",
+        "span": [
+          14648,
+          14693
+        ],
+        "claimed": "challenge the police and face consequences.",
+        "actual": "\u201cchallenge the police and face consequences.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[2].text",
+        "span": [
+          17685,
+          17691
+        ],
+        "claimed": "guns",
+        "actual": "\u201cguns\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[3].text",
+        "span": [
+          17697,
+          17704
+        ],
+        "claimed": "drugs",
+        "actual": "\u201cdrugs\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[4].text",
+        "span": [
+          17905,
+          17986
+        ],
+        "claimed": "The SWAT team doesn\u2019t care if you want to comply, they gas first then come in.",
+        "actual": "\u201cThe SWAT team doesn\u2019t care if you want\n\nto comply, they gas first then come in.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[5].text",
+        "span": [
+          18291,
+          18300
+        ],
+        "claimed": "offense",
+        "actual": "\u201coffense\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[6].text",
+        "span": [
+          18497,
+          18550
+        ],
+        "claimed": "allowed and participated in the escalating threats.",
+        "actual": "\u201callowed and participated in the escalating threats.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[7].text",
+        "span": [
+          19142,
+          19189
+        ],
+        "claimed": "no one is going up and no one is coming down,",
+        "actual": "\u201cno one is going up and no one is coming down,\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[8].text",
+        "span": [
+          19472,
+          19498
+        ],
+        "claimed": "We Had No Probable Cause",
+        "actual": "\u201cWe Had No Probable Cause\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[9].text",
+        "span": [
+          20026,
+          20067
+        ],
+        "claimed": "That eliminates all our probable cause.",
+        "actual": "\u201cThat eliminates all our probable cause.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-cooper-v-pueblo-ecf61.pdf",
+        "kind": "mismatch",
+        "where": "r1.quote[10].text",
+        "span": [
+          20482,
+          20515
+        ],
+        "claimed": "Off camera and all that stuff.",
+        "actual": "\u201cOff camera and all that\n\nstuff.\u201d",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 75
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-hanson-v-nest-osc.pdf",
+    "bytes": 3399,
+    "stats": {
+      "groups": 11,
+      "citations": 12,
+      "quotes": 2,
+      "linkedQuotes": 2,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 4,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 2,
+    "problems": [
+      {
+        "doc": "court-hanson-v-nest-osc.pdf",
+        "kind": "mismatch",
+        "where": "g4.quote[0].text",
+        "span": [
+          975,
+          1098
+        ],
+        "claimed": "quiet title and foreclosure disputes arise under state law and are not removable absent a substantial federal question.",
+        "actual": "\"quiet title and foreclosure disputes arise under state law and\n  are not removable absent a substantial federal question.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-hanson-v-nest-osc.pdf",
+        "kind": "mismatch",
+        "where": "g6.quote[0].text",
+        "span": [
+          1301,
+          1357
+        ],
+        "claimed": "settle rights where clarity of ownership is essential.",
+        "actual": "\"settle rights where clarity of ownership is essential.\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 2
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-mata-v-avianca-ecf21.pdf",
+    "bytes": 451276,
+    "stats": {
+      "groups": 0,
+      "citations": 0,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-mau-v-honolulu-ecf166.pdf",
+    "bytes": 827295,
+    "stats": {
+      "groups": 45,
+      "citations": 122,
+      "quotes": 44,
+      "linkedQuotes": 27,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 17,
+      "flagged": 31,
+      "authorities": 9,
+      "authorityCitations": 22
+    },
+    "problem_count": 56,
+    "problems": [
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          34010,
+          34075
+        ],
+        "claimed": "does not itself create a cause of action or right of recovery.",
+        "actual": "\u201cdoes not itself create a cause of\n\naction or right of recovery.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g2.quote[0].text",
+        "span": [
+          20333,
+          20351
+        ],
+        "claimed": "naked assertions",
+        "actual": "\u201cnaked assertions\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g2.quote[1].text",
+        "span": [
+          20356,
+          20381
+        ],
+        "claimed": "labels and conclusions.",
+        "actual": "\u201clabels and conclusions.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g2.quote[2].text",
+        "span": [
+          27599,
+          27613
+        ],
+        "claimed": "joint action",
+        "actual": "\u201cjoint action\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g2.quote[3].text",
+        "span": [
+          27709,
+          27722
+        ],
+        "claimed": "coordinated",
+        "actual": "\u201ccoordinated\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g2.quote[4].text",
+        "span": [
+          27726,
+          27737
+        ],
+        "claimed": "conspired",
+        "actual": "\u201cconspired\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g3.quote[0].text",
+        "span": [
+          20609,
+          20801
+        ],
+        "claimed": "[f]actual allegations must be enough to raise a right to relief above the speculative level on the assumption that all the allegations in the complaint are true",
+        "actual": "\u201c[f]actual allegations must be enough to\n\nraise a right to relief above the speculative level on the assumption that all the\n\nallegations in the complaint are t",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g6.quote[0].text",
+        "span": [
+          41904,
+          41971
+        ],
+        "claimed": "separate and apart from the discovery of the underlying conduct.",
+        "actual": "\u201cseparate and apart from the discovery of the\n\nunderlying conduct.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g6.quote[1].text",
+        "span": [
+          52765,
+          52929
+        ],
+        "claimed": "[A] district court may dismiss without leave where a plaintiff's proposed amendments would fail to cure the pleading deficiencies and amendment would be futile.",
+        "actual": "\u201c[A] district court may dismiss without leave where a plaintiff's proposed\n\namendments would fail to cure the pleading deficiencies and amendment would be\n\nfuti",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g8.quote[0].text",
+        "span": [
+          40641,
+          40711
+        ],
+        "claimed": "re- examine and decide a question which has been finally determined",
+        "actual": "\u201cre-\n\nexamine and decide a question which has been finally determined\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g9.quote[0].text",
+        "span": [
+          47099,
+          47387
+        ],
+        "claimed": "not required to accept as true allegations that contradict exhibits 20 Case 1:24-cv-00253-GPC-WRP Document 166 Filed 11/14/25 Page 28 of 33 PageID.2016 attached",
+        "actual": "\u201cnot required to accept as true allegations that contradict exhibits\n\n                                20 Case 1:24-cv-00253-GPC-WRP  Document 166   Filed 11/14/",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g10.quote[0].text",
+        "span": [
+          49220,
+          49248
+        ],
+        "claimed": "immaterial and impertinent",
+        "actual": "\u201cimmaterial and impertinent\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g11.quote[0].text",
+        "span": [
+          21744,
+          21835
+        ],
+        "claimed": "may strike from a pleading any redundant, immaterial, impertinent, or scandalous matter.",
+        "actual": "\u201cmay strike from a pleading any redundant,\n\nimmaterial, impertinent, or scandalous matter.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g11.quote[1].text",
+        "span": [
+          44885,
+          44925
+        ],
+        "claimed": "immaterial, impertinent, or scandalous",
+        "actual": "\u201cimmaterial, impertinent, or scandalous\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g13.quote[0].text",
+        "span": [
+          32449,
+          32459
+        ],
+        "claimed": "donation",
+        "actual": "\u201cdonation\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g19.quote[0].text",
+        "span": [
+          29360,
+          29472
+        ],
+        "claimed": "representation of a client, even in connection with government proceedings, does not constitute state action.",
+        "actual": "\u201crepresentation of a client, even in connection with government\n\nproceedings, does not constitute state action.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g22.quote[0].text",
+        "span": [
+          25346,
+          25382
+        ],
+        "claimed": "fairly attributable to the State.",
+        "actual": "\u201cfairly\n\nattributable to the State.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g28.quote[0].text",
+        "span": [
+          30474,
+          30543
+        ],
+        "claimed": "Private parties are not generally acting under color of state law.",
+        "actual": "\u201cPrivate parties\n\nare not generally acting under color of state law.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g33.quote[0].text",
+        "span": [
+          41161,
+          41186
+        ],
+        "claimed": "fraudulent concealment.",
+        "actual": "\u201cfraudulent concealment.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g34.quote[0].text",
+        "span": [
+          26946,
+          27047
+        ],
+        "claimed": "A lawyer representing a client is not, by virtue of being an officer of the court, a state actor.",
+        "actual": "\u201cA\n\nlawyer representing a client is not, by virtue of being an officer of the court, a state\n\nactor.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g35.quote[0].text",
+        "span": [
+          35445,
+          35506
+        ],
+        "claimed": "a type of fraud based on fraud by omission and concealment,",
+        "actual": "\u201ca type of fraud based on fraud by omission and concealment,\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g37.quote[0].text",
+        "span": [
+          47843,
+          47884
+        ],
+        "claimed": "immaterial, impertinent, or scandalous.",
+        "actual": "\u201cimmaterial, impertinent, or scandalous.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g39.quote[0].text",
+        "span": [
+          51300,
+          51403
+        ],
+        "claimed": "should not be revisited by the same court in the same case except under extraordinary circumstances.",
+        "actual": "\u201cshould not be revisited by the same court in the same\n\ncase except under extraordinary circumstances.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g41.quote[0].text",
+        "span": [
+          25119,
+          25146
+        ],
+        "claimed": "under color of state law.",
+        "actual": "\u201cunder color of state law.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g43.quote[0].text",
+        "span": [
+          22295,
+          22335
+        ],
+        "claimed": "no possible bearing on the controversy",
+        "actual": "\u201cno possible bearing on the controversy\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "g44.quote[0].text",
+        "span": [
+          51749,
+          51844
+        ],
+        "claimed": "merely repeats prior allegations and fails to cure the deficiencies identified by the court.",
+        "actual": "\u201cmerely repeats prior allegations and fails to cure the deficiencies\n\nidentified by the court.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "a1.quote[0].text",
+        "span": [
+          30312,
+          30327
+        ],
+        "claimed": "state action",
+        "actual": "\u201cstate\n\naction\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[0].text",
+        "span": [
+          26349,
+          26373
+        ],
+        "claimed": "worked in coordination",
+        "actual": "\u201cworked in coordination\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[1].text",
+        "span": [
+          26401,
+          26415
+        ],
+        "claimed": "communicated",
+        "actual": "\u201ccommunicated\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[2].text",
+        "span": [
+          30601,
+          30610
+        ],
+        "claimed": "Bribery",
+        "actual": "\u201cBribery\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[3].text",
+        "span": [
+          30612,
+          30643
+        ],
+        "claimed": "Campaign- Donation",
+        "actual": "\u201cCampaign-\n           Donation\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[4].text",
+        "span": [
+          30648,
+          30663
+        ],
+        "claimed": "Communication",
+        "actual": "\u201cCommunication\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[5].text",
+        "span": [
+          36328,
+          36465
+        ],
+        "claimed": "represented to the magistrate judge and Mau that MAI had already produced all documents to the Department of the Prosecuting Attorney.",
+        "actual": "\u201crepresented to the magistrate judge and Mau that MAI had already\n\nproduced all documents to the Department of the Prosecuting Attorney.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[6].text",
+        "span": [
+          37499,
+          37510
+        ],
+        "claimed": "side work",
+        "actual": "\u201cside work\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[7].text",
+        "span": [
+          41431,
+          41447
+        ],
+        "claimed": "late discovery",
+        "actual": "\u201clate discovery\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[8].text",
+        "span": [
+          41599,
+          41658
+        ],
+        "claimed": "would have enabled Mau to uncover the conspiracy sooner.",
+        "actual": "\u201cwould have enabled Mau to\n\nuncover the conspiracy sooner.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[9].text",
+        "span": [
+          43974,
+          43992
+        ],
+        "claimed": "Alivado Coaching",
+        "actual": "\u201cAlivado Coaching\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[10].text",
+        "span": [
+          44278,
+          44453
+        ],
+        "claimed": "During the trial of the 2012 Civil Action, Alivado testified under oath and represented that Mau had taken money intended to go to MAI, in support of MAI\u2019s clai",
+        "actual": "\u201cDuring the trial of the\n\n2012 Civil Action, Alivado testified under oath and represented that Mau had taken\n\nmoney intended to go to MAI, in support of MAI\u2019s c",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "r0.quote[11].text",
+        "span": [
+          44486,
+          44579
+        ],
+        "claimed": "Alivado\u2019s sworn testimony during the trial of the 2012 Civil Action was false and perjured",
+        "actual": "\u201cAlivado\u2019s sworn testimony during the trial of the 2012 Civil\n\nAction was false and perjured\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-mau-v-honolulu-ecf166.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[0].text",
+        "span": [
+          3078,
+          3087
+        ],
+        "claimed": "Bribery",
+        "actual": "\u201cBribery\u201d",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 56
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-park-v-kim-appellant-brief.pdf",
+    "bytes": 2497,
+    "stats": {
+      "groups": 3,
+      "citations": 3,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 1,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-wadsworth-v-walmart-ecf141.pdf",
+    "bytes": 212964,
+    "stats": {
+      "groups": 9,
+      "citations": 11,
+      "quotes": 12,
+      "linkedQuotes": 3,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 9,
+      "flagged": 0,
+      "authorities": 3,
+      "authorityCitations": 7
+    },
+    "problem_count": 13,
+    "problems": [
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "g4.quote[0].text",
+        "span": [
+          5323,
+          5441
+        ],
+        "claimed": "an undue tendency to suggest [a] decision on an improper basis, commonly, though not necessarily, an emotional one.",
+        "actual": "\u201can undue tendency to suggest [a] decision on an improper basis,\n\ncommonly, though not necessarily, an emotional one.\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "a1.quote[0].text",
+        "span": [
+          7547,
+          7561
+        ],
+        "claimed": "smoking shed",
+        "actual": "\u201csmoking shed\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "a1.quote[1].text",
+        "span": [
+          10768,
+          10782
+        ],
+        "claimed": "De-Energized",
+        "actual": "\"De-Energized\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "r2.quote[0].text",
+        "span": [
+          9157,
+          9189
+        ],
+        "claimed": "improperly discarded cigarette",
+        "actual": "\u201cimproperly discarded cigarette\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[0].text",
+        "span": [
+          5646,
+          5660
+        ],
+        "claimed": "smoking shed",
+        "actual": "\u201csmoking shed\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[1].text",
+        "span": [
+          5801,
+          5815
+        ],
+        "claimed": "smoking shed",
+        "actual": "\"smoking shed\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[2].text",
+        "span": [
+          6918,
+          6932
+        ],
+        "claimed": "smoking shed",
+        "actual": "\"smoking shed\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[3].text",
+        "span": [
+          7757,
+          7789
+        ],
+        "claimed": "improperly discarded cigarette",
+        "actual": "\u201cimproperly discarded cigarette\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[4].text",
+        "span": [
+          10964,
+          10978
+        ],
+        "claimed": "de-energized",
+        "actual": "\"de-energized\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[5].text",
+        "span": [
+          12145,
+          12178
+        ],
+        "claimed": "The Dollar Value of a Day",
+        "actual": "\u201cThe Dollar\n      Value of a Day\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[6].text",
+        "span": [
+          12436,
+          12463
+        ],
+        "claimed": "The Dollar Value of a Day",
+        "actual": "\u201cThe Dollar Value of a Day\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[7].text",
+        "span": [
+          13734,
+          13761
+        ],
+        "claimed": "The Dollar Value of a Day",
+        "actual": "\u201cThe Dollar Value of a Day\u201d",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-wadsworth-v-walmart-ecf141.pdf",
+        "kind": "mismatch",
+        "where": "unattributed[8].text",
+        "span": [
+          17141,
+          17152
+        ],
+        "claimed": "certified",
+        "actual": "\u201ccertified\u201d",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 13
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-whiting-v-athens-briefs.pdf",
+    "bytes": 3231,
+    "stats": {
+      "groups": 7,
+      "citations": 8,
+      "quotes": 6,
+      "linkedQuotes": 6,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 6,
+    "problems": [
+      {
+        "doc": "court-whiting-v-athens-briefs.pdf",
+        "kind": "mismatch",
+        "where": "g2.quote[0].text",
+        "span": [
+          619,
+          672
+        ],
+        "claimed": "must be limited to the hours reasonably expended on",
+        "actual": "\"must be limited to the hours reasonably expended on\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-whiting-v-athens-briefs.pdf",
+        "kind": "mismatch",
+        "where": "g2.quote[1].text",
+        "span": [
+          730,
+          783
+        ],
+        "claimed": "[t]he Court 'may make . . . a percentage reduction'",
+        "actual": "\"[t]he Court 'may make . . . a percentage reduction'\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-whiting-v-athens-briefs.pdf",
+        "kind": "mismatch",
+        "where": "g2.quote[2].text",
+        "span": [
+          821,
+          875
+        ],
+        "claimed": "[u]nsupported 'attorney conjecture' on apportionment",
+        "actual": "\"[u]nsupported 'attorney conjecture' on apportionment\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-whiting-v-athens-briefs.pdf",
+        "kind": "mismatch",
+        "where": "g2.quote[3].text",
+        "span": [
+          898,
+          917
+        ],
+        "claimed": "is impermissible,",
+        "actual": "\"is impermissible,\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-whiting-v-athens-briefs.pdf",
+        "kind": "mismatch",
+        "where": "g3.quote[0].text",
+        "span": [
+          971,
+          1104
+        ],
+        "claimed": "Court must accept as true all the factual allegations in the Complaint and construe it in the light most favorable to Plaintiff.",
+        "actual": "\"Court must accept as true all the factual allegations\n   in the Complaint and construe it in the light most favorable to Plaintiff.\"",
+        "collapsed_equal": false
+      },
+      {
+        "doc": "court-whiting-v-athens-briefs.pdf",
+        "kind": "mismatch",
+        "where": "g4.quote[0].text",
+        "span": [
+          1205,
+          1302
+        ],
+        "claimed": "[T]he mere fact that a plaintiff did not prevail does not mean that the claim was frivolous.",
+        "actual": "\"[T]he mere fact\n   that a plaintiff did not prevail does not mean that the claim was frivolous.\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 6
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\graham-altered-quote.pdf",
+    "bytes": 2146,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 1,
+      "linkedQuotes": 1,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 1,
+    "problems": [
+      {
+        "doc": "graham-altered-quote.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          175,
+          292
+        ],
+        "claimed": "An officer's evil intentions will make a Fourth Amendment violation out of an objectively reasonable use of force",
+        "actual": "\"An officer's evil intentions will make a Fourth Amendment violation out\n  of an objectively reasonable use of force\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 1
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\graham-bare-reference.pdf",
+    "bytes": 2013,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\graham-contradicted.pdf",
+    "bytes": 2111,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\graham-exact-quote.pdf",
+    "bytes": 2147,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 1,
+      "linkedQuotes": 1,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 1,
+    "problems": [
+      {
+        "doc": "graham-exact-quote.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          173,
+          294
+        ],
+        "claimed": "An officer's evil intentions will not make a Fourth Amendment violation out of an objectively reasonable use of force",
+        "actual": "\"An officer's evil intentions will not make a Fourth Amendment violation\n  out of an objectively reasonable use of force\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 1
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\graham-following-claim.pdf",
+    "bytes": 2124,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\graham-repeated-toa-body.pdf",
+    "bytes": 2745,
+    "stats": {
+      "groups": 1,
+      "citations": 3,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 1,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\graham-supported.pdf",
+    "bytes": 2113,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\graham-wrong-caption.pdf",
+    "bytes": 2140,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\iqbal-altered-quote.pdf",
+    "bytes": 2138,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 1,
+      "linkedQuotes": 1,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 1,
+    "problems": [
+      {
+        "doc": "iqbal-altered-quote.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          174,
+          288
+        ],
+        "claimed": "Threadbare recitals of the elements of a cause of action, supported by mere conclusory statements, do suffice.",
+        "actual": "\"Threadbare recitals of the elements of a cause of action, supported by\n  mere conclusory statements, do suffice.\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 1
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\iqbal-bare-reference.pdf",
+    "bytes": 2012,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\iqbal-contradicted.pdf",
+    "bytes": 2130,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\iqbal-exact-quote.pdf",
+    "bytes": 2138,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 1,
+      "linkedQuotes": 1,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 1,
+    "problems": [
+      {
+        "doc": "iqbal-exact-quote.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          172,
+          290
+        ],
+        "claimed": "Threadbare recitals of the elements of a cause of action, supported by mere conclusory statements, do not suffice.",
+        "actual": "\"Threadbare recitals of the elements of a cause of action, supported by\n  mere conclusory statements, do not suffice.\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 1
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\iqbal-following-claim.pdf",
+    "bytes": 2146,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\iqbal-repeated-toa-body.pdf",
+    "bytes": 2771,
+    "stats": {
+      "groups": 1,
+      "citations": 3,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 1,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\iqbal-supported.pdf",
+    "bytes": 2130,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\iqbal-wrong-caption.pdf",
+    "bytes": 2160,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\monell-altered-quote.pdf",
+    "bytes": 2130,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 1,
+      "linkedQuotes": 1,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 1,
+    "problems": [
+      {
+        "doc": "monell-altered-quote.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          175,
+          249
+        ],
+        "claimed": "a municipality can be held liable solely because it employs a tortfeasor",
+        "actual": "\"a municipality can be held liable solely because it employs a tortfeasor\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 1
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\monell-bare-reference.pdf",
+    "bytes": 2035,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\monell-contradicted.pdf",
+    "bytes": 2105,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\monell-exact-quote.pdf",
+    "bytes": 2130,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 1,
+      "linkedQuotes": 1,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 1,
+    "problems": [
+      {
+        "doc": "monell-exact-quote.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          173,
+          253
+        ],
+        "claimed": "a municipality cannot be held liable solely because it employs a tortfeasor",
+        "actual": "\"a municipality cannot be held liable solely because it employs a\n   tortfeasor\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 1
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\monell-following-claim.pdf",
+    "bytes": 2114,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\monell-repeated-toa-body.pdf",
+    "bytes": 2761,
+    "stats": {
+      "groups": 1,
+      "citations": 3,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\monell-supported.pdf",
+    "bytes": 2102,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\monell-wrong-caption.pdf",
+    "bytes": 2126,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\tolan-altered-quote.pdf",
+    "bytes": 2120,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 1,
+      "linkedQuotes": 1,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 1,
+    "problems": [
+      {
+        "doc": "tolan-altered-quote.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          174,
+          269
+        ],
+        "claimed": "courts may resolve genuine disputes of fact in favor of the party seeking summary judgment.",
+        "actual": "\"courts may resolve genuine disputes of fact in favor of the party seeking\n  summary judgment.\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 1
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\tolan-bare-reference.pdf",
+    "bytes": 2009,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\tolan-contradicted.pdf",
+    "bytes": 2095,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\tolan-exact-quote.pdf",
+    "bytes": 2121,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 1,
+      "linkedQuotes": 1,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 1,
+    "problems": [
+      {
+        "doc": "tolan-exact-quote.pdf",
+        "kind": "mismatch",
+        "where": "g0.quote[0].text",
+        "span": [
+          172,
+          271
+        ],
+        "claimed": "courts may not resolve genuine disputes of fact in favor of the party seeking summary judgment.",
+        "actual": "\"courts may not resolve genuine disputes of fact in favor of the party\n  seeking summary judgment.\"",
+        "collapsed_equal": false
+      }
+    ],
+    "by_field": {
+      "text": 1
+    }
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\tolan-following-claim.pdf",
+    "bytes": 2107,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\tolan-repeated-toa-body.pdf",
+    "bytes": 2722,
+    "stats": {
+      "groups": 1,
+      "citations": 3,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 1,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\tolan-supported.pdf",
+    "bytes": 2095,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  },
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\tolan-wrong-caption.pdf",
+    "bytes": 2121,
+    "stats": {
+      "groups": 1,
+      "citations": 1,
+      "quotes": 0,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 0,
+      "flagged": 0,
+      "authorities": 0,
+      "authorityCitations": 0
+    },
+    "problem_count": 0,
+    "problems": [],
+    "by_field": {}
+  }
+]

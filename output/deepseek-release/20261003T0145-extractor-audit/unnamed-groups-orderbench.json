@@ -1,0 +1,728 @@
+[
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g0",
+    "header_text": "731 P.2d 708",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      3971,
+      3983
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": " sections that use it.\n| Case | Sections | Citation as used | | :--- | :--- | :--- | | Continental Air Lines, Inc. v. Keenan | 01,\n02, 04, 06, 15, 17, 19, 20 | ",
+    "after": ", 711 (Colo. 1987) | | Mountain States Tel. & Tel. Co. v.\nAnimas Mosquito Contro"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g1",
+    "header_text": "152 Colo. 173",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4081,
+      4094
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [
+      {
+        "text": "380 P.2d 560",
+        "kind": "FullCaseCitation",
+        "plaintiff": null,
+        "defendant": null
+      }
+    ],
+    "before": "Inc. v. Keenan | 01,\n02, 04, 06, 15, 17, 19, 20 | 731 P.2d 708, 711 (Colo. 1987) | | Mountain States Tel. & Tel. Co. v.\nAnimas Mosquito Control District | 01 | ",
+    "after": ", 380 P.2d 560, 563 (1963) | | Sullivan v.\nDavis | 01, 04 | 39 Colo. App. 306, 5"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g2",
+    "header_text": "39 Colo. App. 306",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4154,
+      4171
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [
+      {
+        "text": "571 P.2d 1103",
+        "kind": "FullCaseCitation",
+        "plaintiff": null,
+        "defendant": null
+      }
+    ],
+    "before": ". 1987) | | Mountain States Tel. & Tel. Co. v.\nAnimas Mosquito Control District | 01 | 152 Colo. 173, 380 P.2d 560, 563 (1963) | | Sullivan v.\nDavis | 01, 04 | ",
+    "after": ", 571 P.2d 1103, 1105 (1977) | | Ginter v. Palmer & Co. | 01,\n05 | 196 Colo. 203"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g3",
+    "header_text": "196 Colo. 203",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4238,
+      4251
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [
+      {
+        "text": "585 P.2d 583",
+        "kind": "FullCaseCitation",
+        "plaintiff": null,
+        "defendant": null
+      }
+    ],
+    "before": " | 152 Colo. 173, 380 P.2d 560, 563 (1963) | | Sullivan v.\nDavis | 01, 04 | 39 Colo. App. 306, 571 P.2d 1103, 1105 (1977) | | Ginter v. Palmer & Co. | 01,\n05 | ",
+    "after": ", 585 P.2d 583, 585 (1978) | | Kaiser Foundation Health Plan of Colorado v.\nShar"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g4",
+    "header_text": "741 P.2d 714",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4344,
+      4356
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "03, 1105 (1977) | | Ginter v. Palmer & Co. | 01,\n05 | 196 Colo. 203, 585 P.2d 583, 585 (1978) | | Kaiser Foundation Health Plan of Colorado v.\nSharp | 01, 04 | ",
+    "after": ", 719 (Colo. 1987) | | Churchey v. Adolph Coors Co. | 01 | 759 P.2d\n1336, 1344 ("
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g5",
+    "header_text": "759 P.2d\n1336",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4415,
+      4428
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "5 P.2d 583, 585 (1978) | | Kaiser Foundation Health Plan of Colorado v.\nSharp | 01, 04 | 741 P.2d 714, 719 (Colo. 1987) | | Churchey v. Adolph Coors Co. | 01 | ",
+    "after": ", 1344 (Colo. 1988) | | Pinnacol Assurance v. Ho\ufb00 | 01 | 2016 CO 53, para. 16, 3"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g6",
+    "header_text": "2016 CO 53",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4485,
+      4495
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [
+      {
+        "text": "375 P.3d\n1214",
+        "kind": "FullCaseCitation",
+        "plaintiff": null,
+        "defendant": null
+      }
+    ],
+    "before": ".\nSharp | 01, 04 | 741 P.2d 714, 719 (Colo. 1987) | | Churchey v. Adolph Coors Co. | 01 | 759 P.2d\n1336, 1344 (Colo. 1988) | | Pinnacol Assurance v. Ho\ufb00 | 01 | ",
+    "after": ", para. 16, 375 P.3d\n1214, 1219 | | Rogers v. Sagers | 01 | 2017 COA 96, para. 2"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g7",
+    "header_text": "2017 COA 96",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4555,
+      4566
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [
+      {
+        "text": "418 P.3d 1193",
+        "kind": "FullCaseCitation",
+        "plaintiff": null,
+        "defendant": null
+      }
+    ],
+    "before": "ph Coors Co. | 01 | 759 P.2d\n1336, 1344 (Colo. 1988) | | Pinnacol Assurance v. Ho\ufb00 | 01 | 2016 CO 53, para. 16, 375 P.3d\n1214, 1219 | | Rogers v. Sagers | 01 | ",
+    "after": ", para. 22, 418 P.3d 1193, 1198 | | Todd v.\nBear Valley Village Apartments | 02,"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g8",
+    "header_text": "898 P.2d 520",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4652,
+      4664
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [
+      {
+        "text": "898 P.2d at ",
+        "kind": "ShortCaseCitation",
+        "plaintiff": null,
+        "defendant": null
+      }
+    ],
+    "before": " 53, para. 16, 375 P.3d\n1214, 1219 | | Rogers v. Sagers | 01 | 2017 COA 96, para. 22, 418 P.3d 1193, 1198 | | Todd v.\nBear Valley Village Apartments | 02, 17 | ",
+    "after": ", 524 (Colo. 1995) | | Nagy v. District Court\n| 02, 15, 16, 17, 19 | 762 P.2d 15"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g9",
+    "header_text": "762 P.2d 158",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4733,
+      4745
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": " 22, 418 P.3d 1193, 1198 | | Todd v.\nBear Valley Village Apartments | 02, 17 | 898 P.2d 520, 524 (Colo. 1995) | | Nagy v. District Court\n| 02, 15, 16, 17, 19 | ",
+    "after": ", 161 (Colo. 1988) | | Kwik Way Stores, Inc. v. Caldwell | 02,\n17 | 745 P.2d 672"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g10",
+    "header_text": "745 P.2d 672",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4813,
+      4825
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "98 P.2d 520, 524 (Colo. 1995) | | Nagy v. District Court\n| 02, 15, 16, 17, 19 | 762 P.2d 158, 161 (Colo. 1988) | | Kwik Way Stores, Inc. v. Caldwell | 02,\n17 | ",
+    "after": ", 676 (Colo. 1987) | | Kaitz v. District Court | 02, 15, 16, 17, 20 | 616 P.2d\n9"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g11",
+    "header_text": "616 P.2d\n954",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4895,
+      4907
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "2 P.2d 158, 161 (Colo. 1988) | | Kwik Way Stores, Inc. v. Caldwell | 02,\n17 | 745 P.2d 672, 676 (Colo. 1987) | | Kaitz v. District Court | 02, 15, 16, 17, 20 | ",
+    "after": ", 957 (Colo. 1980) | | Warne v. Hall | 04, 05, 06, 17 | 2016 CO 50, para. 12, 37"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g12",
+    "header_text": "2016 CO 50",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      4963,
+      4973
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [
+      {
+        "text": "373 P.3d 588",
+        "kind": "FullCaseCitation",
+        "plaintiff": null,
+        "defendant": null
+      }
+    ],
+    "before": " 02,\n17 | 745 P.2d 672, 676 (Colo. 1987) | | Kaitz v. District Court | 02, 15, 16, 17, 20 | 616 P.2d\n954, 957 (Colo. 1980) | | Warne v. Hall | 04, 05, 06, 17 | ",
+    "after": ", para. 12, 373 P.3d 588,\n593; paras. 19, 24 | | Bell Atlantic Corp. v. Twombly "
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g13",
+    "header_text": "550 U.S. 544",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5068,
+      5080
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": " 957 (Colo. 1980) | | Warne v. Hall | 04, 05, 06, 17 | 2016 CO 50, para. 12, 373 P.3d 588,\n593; paras. 19, 24 | | Bell Atlantic Corp. v. Twombly | 04, 05, 06 | ",
+    "after": " (2007) | |\nAshcroft v. Iqbal | 04, 05, 06 | 556 U.S. 662 (2009) | | Bly v. Stor"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g14",
+    "header_text": "556 U.S. 662",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5125,
+      5137
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "16 CO 50, para. 12, 373 P.3d 588,\n593; paras. 19, 24 | | Bell Atlantic Corp. v. Twombly | 04, 05, 06 | 550 U.S. 544 (2007) | |\nAshcroft v. Iqbal | 04, 05, 06 | ",
+    "after": " (2009) | | Bly v. Story | 04, 06 | 241 P.3d 529, 532\n(Colo. 2010) | | Dunlap v."
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g15",
+    "header_text": "241 P.3d 529",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5173,
+      5185
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": ", 24 | | Bell Atlantic Corp. v. Twombly | 04, 05, 06 | 550 U.S. 544 (2007) | |\nAshcroft v. Iqbal | 04, 05, 06 | 556 U.S. 662 (2009) | | Bly v. Story | 04, 06 | ",
+    "after": ", 532\n(Colo. 2010) | | Dunlap v. Colorado Springs Coach Co. | 04, 05 | 618 P.2d "
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g16",
+    "header_text": "618 P.2d 517",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5256,
+      5268
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "roft v. Iqbal | 04, 05, 06 | 556 U.S. 662 (2009) | | Bly v. Story | 04, 06 | 241 P.3d 529, 532\n(Colo. 2010) | | Dunlap v. Colorado Springs Coach Co. | 04, 05 | ",
+    "after": ", 519 (Colo. 1980)\n| | Alpine Bank v. Hubbell | 04 | 2017 COA 155, para. 14, 418"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g17",
+    "header_text": "2017 COA 155",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5321,
+      5333
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [
+      {
+        "text": "418 P.3d 604",
+        "kind": "FullCaseCitation",
+        "plaintiff": null,
+        "defendant": null
+      }
+    ],
+    "before": " | 04, 06 | 241 P.3d 529, 532\n(Colo. 2010) | | Dunlap v. Colorado Springs Coach Co. | 04, 05 | 618 P.2d 517, 519 (Colo. 1980)\n| | Alpine Bank v. Hubbell | 04 | ",
+    "after": ", para. 14, 418 P.3d 604, 608 | | E-470 Public\nHighway Authority v. Revenig | 04"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g18",
+    "header_text": "91 P.3d 1038",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5420,
+      5432
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "P.2d 517, 519 (Colo. 1980)\n| | Alpine Bank v. Hubbell | 04 | 2017 COA 155, para. 14, 418 P.3d 604, 608 | | E-470 Public\nHighway Authority v. Revenig | 04, 05 | ",
+    "after": ", 1045 (Colo. App. 2004) | | Eastern\nRailroad Presidents Conference v. Noerr Mot"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g19",
+    "header_text": "365 U.S. 127",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5536,
+      5548
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "lic\nHighway Authority v. Revenig | 04, 05 | 91 P.3d 1038, 1045 (Colo. App. 2004) | | Eastern\nRailroad Presidents Conference v. Noerr Motor Freight, Inc. | 06 | ",
+    "after": " (1961) | | United\nMine Workers v. Pennington | 06 | 381 U.S. 657 (1965) | | Pro"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g20",
+    "header_text": "381 U.S. 657",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5601,
+      5613
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "olo. App. 2004) | | Eastern\nRailroad Presidents Conference v. Noerr Motor Freight, Inc. | 06 | 365 U.S. 127 (1961) | | United\nMine Workers v. Pennington | 06 | ",
+    "after": " (1965) | | Professional Real Estate Investors, Inc. v.\nColumbia Pictures Indust"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g21",
+    "header_text": "508 U.S. 49",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5711,
+      5722
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "961) | | United\nMine Workers v. Pennington | 06 | 381 U.S. 657 (1965) | | Professional Real Estate Investors, Inc. v.\nColumbia Pictures Industries, Inc. | 06 | ",
+    "after": " (1993) | | Wick Communications Co. v.\nMontrose County Memorial Hospital Distric"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g22",
+    "header_text": "81 P.3d 360",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5827,
+      5838
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": ".\nColumbia Pictures Industries, Inc. | 06 | 508 U.S. 49 (1993) | | Wick Communications Co. v.\nMontrose County Memorial Hospital District | 03, 07, 09, 10, 18 | ",
+    "after": ", 363-366 (Colo.\n2003) | | Denver Publishing Co. v. Dreyer | 03, 07, 08, 09, 10,"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g23",
+    "header_text": "2016 CO 58",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      5924,
+      5934
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "trose County Memorial Hospital District | 03, 07, 09, 10, 18 | 81 P.3d 360, 363-366 (Colo.\n2003) | | Denver Publishing Co. v. Dreyer | 03, 07, 08, 09, 10, 18 | ",
+    "after": ", paras. 11, 12,\n20, 21 | | Richmond Newspapers, Inc. v. Virginia | 08 | 448 U.S"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g24",
+    "header_text": "448 U.S. 555",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6007,
+      6019
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": " (Colo.\n2003) | | Denver Publishing Co. v. Dreyer | 03, 07, 08, 09, 10, 18 | 2016 CO 58, paras. 11, 12,\n20, 21 | | Richmond Newspapers, Inc. v. Virginia | 08 | ",
+    "after": ", 569-574 (1980) | | Globe\nNewspaper Co. v. Superior Court | 08 | 457 U.S. 596, "
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g25",
+    "header_text": "457 U.S. 596",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6085,
+      6097
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "016 CO 58, paras. 11, 12,\n20, 21 | | Richmond Newspapers, Inc. v. Virginia | 08 | 448 U.S. 555, 569-574 (1980) | | Globe\nNewspaper Co. v. Superior Court | 08 | ",
+    "after": ", 603-607 (1982) | | Press-Enterprise Co. v.\nSuperior Court | 08 | 478 U.S. 1, 8"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g26",
+    "header_text": "478 U.S. 1",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6164,
+      6174
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": " | 448 U.S. 555, 569-574 (1980) | | Globe\nNewspaper Co. v. Superior Court | 08 | 457 U.S. 596, 603-607 (1982) | | Press-Enterprise Co. v.\nSuperior Court | 08 | ",
+    "after": ", 8-14 (1986) | | Landis v. North American Co. | 15, 16, 17, 18,\n19, 20 | 299 U."
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g27",
+    "header_text": "299 U.S. 248",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6248,
+      6260
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": " U.S. 596, 603-607 (1982) | | Press-Enterprise Co. v.\nSuperior Court | 08 | 478 U.S. 1, 8-14 (1986) | | Landis v. North American Co. | 15, 16, 17, 18,\n19, 20 | ",
+    "after": ", 254-255 (1936) | | Mathews v. Eldridge | 13, 16, 17, 20 | 424 U.S. 319,\n\n\n\nApp"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g28",
+    "header_text": "424 U.S. 319",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6320,
+      6332
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "8 | 478 U.S. 1, 8-14 (1986) | | Landis v. North American Co. | 15, 16, 17, 18,\n19, 20 | 299 U.S. 248, 254-255 (1936) | | Mathews v. Eldridge | 13, 16, 17, 20 | ",
+    "after": ",\n\n\n\nAppealAppeal andand ResponseResponse BriefsBriefs -- ArgumentArgument Secti"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g29",
+    "header_text": "510 P.2d 440",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6478,
+      6490
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "| 424 U.S. 319,\n\n\n\nAppealAppeal andand ResponseResponse BriefsBriefs -- ArgumentArgument SectionsSections333-335 (1976) | | Palmer v. District Court | 15, 17 | ",
+    "after": ", 443 (Colo. 1973) | | In re\nMarriage of Ciesluk | 11, 12, 14 | 113 P.3d 135, 14"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g30",
+    "header_text": "113 P.3d 135",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6554,
+      6566
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "mentArgument SectionsSections333-335 (1976) | | Palmer v. District Court | 15, 17 | 510 P.2d 440, 443 (Colo. 1973) | | In re\nMarriage of Ciesluk | 11, 12, 14 | ",
+    "after": ", 140-141 (Colo. 2005) | | In re Marriage of\nFrancis | 11, 12, 14 | 919 P.2d 776"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g31",
+    "header_text": "919 P.2d 776",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6634,
+      6646
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "7 | 510 P.2d 440, 443 (Colo. 1973) | | In re\nMarriage of Ciesluk | 11, 12, 14 | 113 P.3d 135, 140-141 (Colo. 2005) | | In re Marriage of\nFrancis | 11, 12, 14 | ",
+    "after": ", 781 (Colo. 1996) | | In re Marriage of Nussbeck | 11, 12, 13,\n14 | 974 P.2d 49"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g32",
+    "header_text": "974 P.2d 493",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6715,
+      6727
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "13 P.3d 135, 140-141 (Colo. 2005) | | In re Marriage of\nFrancis | 11, 12, 14 | 919 P.2d 776, 781 (Colo. 1996) | | In re Marriage of Nussbeck | 11, 12, 13,\n14 | ",
+    "after": ", 497 (Colo. 1999) | | In re Marriage of Balanson | 11, 12, 13, 14 | 25 P.3d 28,"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g33",
+    "header_text": "25 P.3d 28",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6796,
+      6806
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "9 P.2d 776, 781 (Colo. 1996) | | In re Marriage of Nussbeck | 11, 12, 13,\n14 | 974 P.2d 493, 497 (Colo. 1999) | | In re Marriage of Balanson | 11, 12, 13, 14 | ",
+    "after": ",\n34 (Colo. 2001) | | Troxel v. Granville | 11, 12, 14 | 530 U.S. 57, 65-72 (200"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g34",
+    "header_text": "530 U.S. 57",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6863,
+      6874
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "2, 13,\n14 | 974 P.2d 493, 497 (Colo. 1999) | | In re Marriage of Balanson | 11, 12, 13, 14 | 25 P.3d 28,\n34 (Colo. 2001) | | Troxel v. Granville | 11, 12, 14 | ",
+    "after": ", 65-72 (2000) | | In re Oliver |\n13 | 333 U.S. 257, 273-276 (1948) | | Internat"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g35",
+    "header_text": "333 U.S. 257",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      6913,
+      6925
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": "re Marriage of Balanson | 11, 12, 13, 14 | 25 P.3d 28,\n34 (Colo. 2001) | | Troxel v. Granville | 11, 12, 14 | 530 U.S. 57, 65-72 (2000) | | In re Oliver |\n13 | ",
+    "after": ", 273-276 (1948) | | International Union, United Mine Workers of America v.\nBagw"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g36",
+    "header_text": "512 U.S. 821",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      7016,
+      7028
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": ", 14 | 530 U.S. 57, 65-72 (2000) | | In re Oliver |\n13 | 333 U.S. 257, 273-276 (1948) | | International Union, United Mine Workers of America v.\nBagwell | 13 | ",
+    "after": ", 827-839 (1994) | | In re Marriage of Rogers | 13 | 709 P.2d 1383\n(Colo. App. 1"
+  },
+  {
+    "path": "00-INDEX.pdf",
+    "group": "g37",
+    "header_text": "709 P.2d 1383",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      7081,
+      7094
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [],
+    "before": " 257, 273-276 (1948) | | International Union, United Mine Workers of America v.\nBagwell | 13 | 512 U.S. 821, 827-839 (1994) | | In re Marriage of Rogers | 13 | ",
+    "after": "\n(Colo. App. 1985) |\nA short-form reference such as Todd, 898 P.2d at 524 is the"
+  },
+  {
+    "path": "01-2025CV36-2026-04-22-msj-denied.pdf",
+    "group": "g7",
+    "header_text": "2016 CO 53",
+    "header_kind": "FullCaseCitation",
+    "span": [
+      8349,
+      8359
+    ],
+    "plaintiff": null,
+    "defendant": null,
+    "header_case_name": null,
+    "any_member_has_parties": false,
+    "children": [
+      {
+        "text": "375 P.3d 1214",
+        "kind": "FullCaseCitation",
+        "plaintiff": null,
+        "defendant": null
+      }
+    ],
+    "before": " question is the legal e\ufb00ect of those facts, summary\njudgment is the appropriate mechanism and the question presented is one of law. Pinnacol\nAssurance v. Ho\ufb00, ",
+    "after": ", para. 16, 375 P.3d 1214, 1219. The distinction between a\npermissible inference"
+  }
+]

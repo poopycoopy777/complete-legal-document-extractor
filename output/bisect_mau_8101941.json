@@ -1,0 +1,4727 @@
+[
+  {
+    "path": "D:\\legal-app\\fullbench\\results\\full-20261001\\inputs\\court-mau-v-honolulu-ecf166.pdf",
+    "name": "court-mau-v-honolulu-ecf166.pdf",
+    "chars": 56816,
+    "old": {
+      "stats": {
+        "groups": 46,
+        "citations": 122,
+        "quotes": 44,
+        "linkedQuotes": 27,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 17,
+        "flagged": 30,
+        "authorities": 9,
+        "authorityCitations": 25
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "State Cases Pages Au v. Au",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5053,
+              5064
+            ],
+            "text": "63 Haw. 210",
+            "plaintiff": "State Cases Pages Au",
+            "defendant": "Au",
+            "case_name": null,
+            "full_citation": "State Cases Pages Au v. Au, 63 Haw. 210",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'PageID.1992 TABLE OF AUTHORITIES State Cases Pages Au' v. 'Au'",
+              "year_unverified: eyecite reports 2003, no year parenthetical in this citation's own window"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                5066,
+                5078
+              ],
+              "text": "626 P.2d 173",
+              "plaintiff": "State Cases Pages Au",
+              "defendant": "Au",
+              "case_name": null,
+              "full_citation": "626 P.2d 173 (1981)",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "parties_unverified: eyecite reported 'PageID.1992 TABLE OF AUTHORITIES State Cases Pages Au' v. 'Au', no 'v.' pattern in this citation's own window",
+                "year_corrected: eyecite reported 2003, citation's own parenthetical says 1981"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                17315,
+                17326
+              ],
+              "text": "63 Haw. 210",
+              "plaintiff": "Au",
+              "defendant": "Au",
+              "case_name": null,
+              "full_citation": "Au v. Au, 63 Haw. 210",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "year_unverified: eyecite reports 2014, no year parenthetical in this citation's own window"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                17328,
+                17341
+              ],
+              "text": "626 P.2d\n\n173",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": "626 P.2d 173, 178 (1981)",
+              "antecedent": null,
+              "pin": "178",
+              "flags": [
+                "parties_unverified: eyecite reported 'Au' v. 'Au', no 'v.' pattern in this citation's own window",
+                "year_corrected: eyecite reported 2014, citation's own parenthetical says 1981"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                34086,
+                34097
+              ],
+              "text": "63 Haw. 210",
+              "plaintiff": "Au",
+              "defendant": "Au",
+              "case_name": null,
+              "full_citation": "Au v. Au, 63 Haw. 210",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "year_unverified: eyecite reports 2014, no year parenthetical in this citation's own window"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                34099,
+                34111
+              ],
+              "text": "626 P.2d 173",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": "626 P.2d 173, 178 (1981)",
+              "antecedent": null,
+              "pin": "178",
+              "flags": [
+                "parties_unverified: eyecite reported 'Au' v. 'Au', no 'v.' pattern in this citation's own window",
+                "year_corrected: eyecite reported 2014, citation's own parenthetical says 1981"
+              ]
+            },
+            {
+              "kind": "ShortCaseCitation",
+              "span": [
+                41820,
+                41835
+              ],
+              "text": "626 P.2d at 178",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Au",
+              "pin": "178",
+              "flags": []
+            }
+          ],
+          "proposition": "That theory also fails as a matter of law\n\nbecause Hawai\u2018i does not recognize fraudulent concealment as an independent\n\ncause of action; it is merely a tolling doctrine.",
+          "propositionSpan": [
+            17131,
+            17300
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                5053,
+                5064
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                5066,
+                5078
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                17315,
+                17326
+              ],
+              "proposition": "That theory also fails as a matter of law\n\nbecause Hawai\u2018i does not recognize fraudulent concealment as an independent\n\ncause of action; it is merely a tolling doctrine.",
+              "propositionSpan": [
+                17131,
+                17300
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                17328,
+                17341
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                34086,
+                34097
+              ],
+              "proposition": "The fraudulent-concealment claim should be dismissed under Rule 12(b)(6)\n\nbecause Hawai\u2018i law does not recognize fraudulent concealment as an independent\n\ncause of action.",
+              "propositionSpan": [
+                33802,
+                33973
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                34099,
+                34111
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                41820,
+                41835
+              ],
+              "proposition": "Fraudulent concealment tolls a limitations period; it does not\n\nitself create liability.",
+              "propositionSpan": [
+                41727,
+                41815
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                34010,
+                34075
+              ],
+              "raw_text": "\u201cdoes not itself create a cause of\n\naction or right of recovery.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g0",
+              "pin_cite": null,
+              "pin_basis": null,
+              "citation_span": [
+                34086,
+                34097
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g1",
+          "caseName": "Matsuura v. E.I. du Pont de Nemours & Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5160,
+              5172
+            ],
+            "text": "102 Haw. 149",
+            "plaintiff": "Matsuura",
+            "defendant": "E.I. du Pont de Nemours & Co.",
+            "case_name": null,
+            "full_citation": "Matsuura v. E.I. du Pont de Nemours & Co., 102 Haw. 149",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported '' v. 'Nemours & Co.'",
+              "year_unverified: eyecite reports 2003, no year parenthetical in this citation's own window"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                5174,
+                5185
+              ],
+              "text": "73 P.3d 687",
+              "plaintiff": "Matsuura",
+              "defendant": "E.I. du Pont de Nemours & Co.",
+              "case_name": null,
+              "full_citation": "73 P.3d 687 (Haw. 2003)",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "parties_unverified: eyecite reported '' v. 'Nemours & Co.', no 'v.' pattern in this citation's own window"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                39167,
+                39178
+              ],
+              "text": "73 P.3d 687",
+              "plaintiff": "Matsuura",
+              "defendant": "E.I. du Pont de Nemours & Co.",
+              "case_name": null,
+              "full_citation": "Matsuura v. E.I. du Pont de Nemours & Co., 73 P.3d 687, 700 (Haw. 2003)",
+              "antecedent": null,
+              "pin": "700",
+              "flags": [
+                "parties_corrected: eyecite reported '' v. 'Nemours & Co.'"
+              ]
+            }
+          ],
+          "proposition": "The October 7 Order noted in a footnote that Hawai\u2018i recognizes a narrow\n\nability to bring a later tort action for extrinsic fraud in prior litigation.",
+          "propositionSpan": [
+            38967,
+            39118
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                5160,
+                5172
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                5174,
+                5185
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                39167,
+                39178
+              ],
+              "proposition": "The October 7 Order noted in a footnote that Hawai\u2018i recognizes a narrow\n\nability to bring a later tort action for extrinsic fraud in prior litigation.",
+              "propositionSpan": [
+                38967,
+                39118
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g2",
+          "caseName": "Federal Cases Ashcroft v. Iqbal",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5292,
+              5304
+            ],
+            "text": "556 U.S. 662",
+            "plaintiff": "Federal Cases Ashcroft",
+            "defendant": "Iqbal",
+            "case_name": null,
+            "full_citation": "Federal Cases Ashcroft v. Iqbal, 556 U.S. 662 (2009)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "year_corrected: eyecite reported 2020, citation's own parenthetical says 2009"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                20401,
+                20414
+              ],
+              "text": "556\n\nU.S. 662",
+              "plaintiff": "Ashcroft",
+              "defendant": "Iqbal",
+              "case_name": null,
+              "full_citation": "Ashcroft v. Iqbal, 556 U.S. 662, 678 (2009)",
+              "antecedent": null,
+              "pin": "678",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                27851,
+                27863
+              ],
+              "text": "556 U.S. 662",
+              "plaintiff": "Ashcroft",
+              "defendant": "Iqbal",
+              "case_name": null,
+              "full_citation": "Ashcroft v. Iqbal, 556 U.S. 662, 678 (2009)",
+              "antecedent": null,
+              "pin": "678",
+              "flags": [
+                "year_corrected: eyecite reported 1999, citation's own parenthetical says 2009"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                31643,
+                31655
+              ],
+              "text": "556 U.S. 662",
+              "plaintiff": "Ashcroft",
+              "defendant": "Iqbal",
+              "case_name": null,
+              "full_citation": "Ashcroft v. Iqbal, 556 U.S. 662, 678 (2009)",
+              "antecedent": null,
+              "pin": "678",
+              "flags": []
+            }
+          ],
+          "proposition": "The complaint offers only conclusory assertions\n\nthat she \u201ccoordinated\u201d or \u201cconspired\u201d with prosecutors, but such naked assertions\n\nare insufficient to survive a motion to dismiss.",
+          "propositionSpan": [
+            27651,
+            27831
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                5292,
+                5304
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                20401,
+                20414
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                27851,
+                27863
+              ],
+              "proposition": "The complaint offers only conclusory assertions\n\nthat she \u201ccoordinated\u201d or \u201cconspired\u201d with prosecutors, but such naked assertions\n\nare insufficient to survive a motion to dismiss.",
+              "propositionSpan": [
+                27651,
+                27831
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                31643,
+                31655
+              ],
+              "proposition": "Such vague and\n\nconclusory assertions do not satisfy federal pleading standards.",
+              "propositionSpan": [
+                31542,
+                31622
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                20333,
+                20351
+              ],
+              "raw_text": "\u201cnaked assertions\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g2",
+              "pin_cite": "678",
+              "pin_basis": "printed",
+              "citation_span": [
+                20401,
+                20414
+              ]
+            },
+            {
+              "span": [
+                20356,
+                20381
+              ],
+              "raw_text": "\u201clabels and conclusions.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g2",
+              "pin_cite": "678",
+              "pin_basis": "printed",
+              "citation_span": [
+                20401,
+                20414
+              ]
+            },
+            {
+              "span": [
+                27599,
+                27613
+              ],
+              "raw_text": "\u201cjoint action\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g2",
+              "pin_cite": "678",
+              "pin_basis": "printed",
+              "citation_span": [
+                27851,
+                27863
+              ]
+            },
+            {
+              "span": [
+                27709,
+                27722
+              ],
+              "raw_text": "\u201ccoordinated\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g2",
+              "pin_cite": "678",
+              "pin_basis": "printed",
+              "citation_span": [
+                27851,
+                27863
+              ]
+            },
+            {
+              "span": [
+                27726,
+                27737
+              ],
+              "raw_text": "\u201cconspired\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g2",
+              "pin_cite": "678",
+              "pin_basis": "printed",
+              "citation_span": [
+                27851,
+                27863
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g3",
+          "caseName": "Bell Atl. Corp. v. Twombly",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5430,
+              5442
+            ],
+            "text": "550 U.S. 544",
+            "plaintiff": "Bell Atl. Corp.",
+            "defendant": "Twombly",
+            "case_name": null,
+            "full_citation": "Bell Atl. Corp. v. Twombly, 550 U.S. 544 (2007)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "year_corrected: eyecite reported 2020, citation's own parenthetical says 2007"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                20832,
+                20844
+              ],
+              "text": "550 U.S. 544",
+              "plaintiff": "Bell Atl. Corp.",
+              "defendant": "Twombly",
+              "case_name": null,
+              "full_citation": "Bell Atl. Corp. v. Twombly, 550 U.S. 544, 555 (2007)",
+              "antecedent": null,
+              "pin": "555",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                27906,
+                27918
+              ],
+              "text": "550 U.S. 544",
+              "plaintiff": "Bell Atl. Corp.",
+              "defendant": "Twombly",
+              "case_name": null,
+              "full_citation": "Bell Atl. Corp. v. Twombly, 550 U.S. 544 (2007)",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "year_corrected: eyecite reported 1999, citation's own parenthetical says 2007"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                31697,
+                31709
+              ],
+              "text": "550 U.S. 544",
+              "plaintiff": "Bell Atl. Corp.",
+              "defendant": "Twombly",
+              "case_name": null,
+              "full_citation": "Bell Atl. Corp. v. Twombly, 550 U.S. 544, 556 (2007)",
+              "antecedent": null,
+              "pin": "556",
+              "flags": []
+            }
+          ],
+          "proposition": "To survive a Rule 12(b)(6) motion, \u201c[f]actual allegations must be enough to\n\nraise a right to relief above the speculative level on the assumption that all the\n\nallegations in the complaint are true (even if doubtful in fact).\u201d",
+          "propositionSpan": [
+            20574,
+            20801
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                5430,
+                5442
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                20832,
+                20844
+              ],
+              "proposition": "To survive a Rule 12(b)(6) motion, \u201c[f]actual allegations must be enough to\n\nraise a right to relief above the speculative level on the assumption that all the\n\nallegations in the complaint are true (even if doubtful in fact).\u201d",
+              "propositionSpan": [
+                20574,
+                20801
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                27906,
+                27918
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                31697,
+                31709
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                20609,
+                20801
+              ],
+              "raw_text": "\u201c[f]actual allegations must be enough to\n\nraise a right to relief above the speculative level on the assumption that all the\n\nallegations in the complaint are true (even if doubtful in fact).\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g3",
+              "pin_cite": "555",
+              "pin_basis": "printed",
+              "citation_span": [
+                20832,
+                20844
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g4",
+          "caseName": "Brodsky v. Apple Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5563,
+              5582
+            ],
+            "text": "445 F. Supp. 3d 110",
+            "plaintiff": "Brodsky",
+            "defendant": "Apple Inc.",
+            "case_name": null,
+            "full_citation": "Brodsky v. Apple Inc., 445 F. Supp. 3d 110 (N.D. Cal. 2020)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                49381,
+                49400
+              ],
+              "text": "445 F. Supp. 3d 110",
+              "plaintiff": "Brodsky",
+              "defendant": "Apple Inc.",
+              "case_name": null,
+              "full_citation": "Brodsky v. Apple Inc., 445 F. Supp. 3d 110, 132 (N.D. Cal. 2020)",
+              "antecedent": null,
+              "pin": "132",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                5563,
+                5582
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                49381,
+                49400
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g5",
+          "caseName": "Cafasso v. Gen. Dynamics C4 Sys.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5698,
+              5711
+            ],
+            "text": "637 F.3d 1047",
+            "plaintiff": "Cafasso",
+            "defendant": "Gen. Dynamics C4 Sys.",
+            "case_name": null,
+            "full_citation": "Cafasso v. Gen. Dynamics C4 Sys., 637 F.3d 1047 (9th Cir. 2011)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                19542,
+                19555
+              ],
+              "text": "637 F.3d 1047",
+              "plaintiff": "Cafasso",
+              "defendant": "Gen. Dynamics C4 Sys.",
+              "case_name": null,
+              "full_citation": "Cafasso v. Gen. Dynamics C4 Sys., 637 F.3d 1047 (9th Cir. 2011)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                5698,
+                5711
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                19542,
+                19555
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g6",
+          "caseName": "Cervantes v. Countrywide Home Loans, Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5849,
+              5862
+            ],
+            "text": "656 F.3d 1034",
+            "plaintiff": "Cervantes",
+            "defendant": "Countrywide Home Loans, Inc.",
+            "case_name": null,
+            "full_citation": "Cervantes v. Countrywide Home Loans, Inc., 656 F.3d 1034 (9th Cir. 2011)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                42015,
+                42028
+              ],
+              "text": "656 F.3d 1034",
+              "plaintiff": "Cervantes",
+              "defendant": "Countrywide Home Loans, Inc.",
+              "case_name": null,
+              "full_citation": "Cervantes v. Countrywide Home Loans, Inc., 656 F.3d 1034",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "year_unverified: eyecite reports 2011, no year parenthetical in this citation's own window"
+              ]
+            },
+            {
+              "kind": "ShortCaseCitation",
+              "span": [
+                43013,
+                43030
+              ],
+              "text": "656 F.3d at\n\n1041",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Cervantes",
+              "pin": "1041",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                51964,
+                51977
+              ],
+              "text": "656 F.3d 1034",
+              "plaintiff": "Cervantes",
+              "defendant": "Countrywide Home Loans, Inc.",
+              "case_name": null,
+              "full_citation": "Cervantes v. Countrywide Home Loans, Inc., 656 F.3d 1034, 1041 (9th Cir. 2011)",
+              "antecedent": null,
+              "pin": "1041",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                52973,
+                52986
+              ],
+              "text": "656 F.3d 1034",
+              "plaintiff": "Cervantes",
+              "defendant": "Countrywide Home Loans, Inc.",
+              "case_name": null,
+              "full_citation": "Cervantes v. Countrywide Home Loans, Inc., 656 F.3d 1034, 1041 (9th Cir. 2011)",
+              "antecedent": null,
+              "pin": "1041",
+              "flags": []
+            }
+          ],
+          "proposition": "plaintiff must allege an injury \u201cseparate and apart from the discovery of the\n\nunderlying conduct.\u201d",
+          "propositionSpan": [
+            41872,
+            41971
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                5849,
+                5862
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                42015,
+                42028
+              ],
+              "proposition": "plaintiff must allege an injury \u201cseparate and apart from the discovery of the\n\nunderlying conduct.\u201d",
+              "propositionSpan": [
+                41872,
+                41971
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                43013,
+                43030
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                51964,
+                51977
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                52973,
+                52986
+              ],
+              "proposition": "\u201c[A] district court may dismiss without leave where a plaintiff's proposed\n\namendments would fail to cure the pleading deficiencies and amendment would be\n\nfutile.\u201d",
+              "propositionSpan": [
+                52765,
+                52929
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                41904,
+                41971
+              ],
+              "raw_text": "\u201cseparate and apart from the discovery of the\n\nunderlying conduct.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g6",
+              "pin_cite": null,
+              "pin_basis": null,
+              "citation_span": [
+                42015,
+                42028
+              ]
+            },
+            {
+              "span": [
+                52765,
+                52929
+              ],
+              "raw_text": "\u201c[A] district court may dismiss without leave where a plaintiff's proposed\n\namendments would fail to cure the pleading deficiencies and amendment would be\n\nfutile.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g6",
+              "pin_cite": "1041",
+              "pin_basis": "printed",
+              "citation_span": [
+                52973,
+                52986
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g7",
+          "caseName": "Citizen United v. FEC",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              5973,
+              5985
+            ],
+            "text": "558 U.S. 310",
+            "plaintiff": "Citizen United",
+            "defendant": "FEC",
+            "case_name": null,
+            "full_citation": "Citizen United v. FEC, 558 U.S. 310 (2010)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                33111,
+                33123
+              ],
+              "text": "558 U.S. 310",
+              "plaintiff": "Citizens United",
+              "defendant": "FEC",
+              "case_name": null,
+              "full_citation": "Citizens United v. FEC, 558 U.S. 310, 359 (2010)",
+              "antecedent": null,
+              "pin": "359",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                5973,
+                5985
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                33111,
+                33123
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g8",
+          "caseName": "City of Tacoma v. Taxpayers of Tacoma",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              6124,
+              6136
+            ],
+            "text": "357 U.S. 320",
+            "plaintiff": "City of Tacoma",
+            "defendant": "Taxpayers of Tacoma",
+            "case_name": null,
+            "full_citation": "City of Tacoma v. Taxpayers of Tacoma, 357 U.S. 320 (1958)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'City  Tacoma' v. 'Taxpayers of Tacoma'",
+              "year_corrected: eyecite reported 2010, citation's own parenthetical says 1958"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                40773,
+                40785
+              ],
+              "text": "357 U.S. 320",
+              "plaintiff": "City of Tacoma",
+              "defendant": "Taxpayers of Tacoma",
+              "case_name": null,
+              "full_citation": "City of Tacoma v. Taxpayers of Tacoma, 357 U.S. 320, 334 (1958)",
+              "antecedent": null,
+              "pin": "334",
+              "flags": [
+                "parties_corrected: eyecite reported 'City  Tacoma' v. 'Taxpayers of Tacoma'",
+                "year_corrected: eyecite reported 1992, citation's own parenthetical says 1958"
+              ]
+            }
+          ],
+          "proposition": "Courts may not \u201cre-\n\nexamine and decide a question which has been finally determined\u201d in prior\n\nlitigation.",
+          "propositionSpan": [
+            40626,
+            40733
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                6124,
+                6136
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                40773,
+                40785
+              ],
+              "proposition": "Courts may not \u201cre-\n\nexamine and decide a question which has been finally determined\u201d in prior\n\nlitigation.",
+              "propositionSpan": [
+                40626,
+                40733
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                40641,
+                40711
+              ],
+              "raw_text": "\u201cre-\n\nexamine and decide a question which has been finally determined\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g8",
+              "pin_cite": "334",
+              "pin_basis": "printed",
+              "citation_span": [
+                40773,
+                40785
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g9",
+          "caseName": "Daniels\u2013Hall v. Nat\u2019l Educ. Ass\u2019n",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              6271,
+              6283
+            ],
+            "text": "629 F.3d 992",
+            "plaintiff": "Daniels\u2013Hall",
+            "defendant": "Nat\u2019l Educ. Ass\u2019n",
+            "case_name": null,
+            "full_citation": "Daniels\u2013Hall v. Nat\u2019l Educ. Ass\u2019n, 629 F.3d 992 (9th Cir. 2010)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                47424,
+                47436
+              ],
+              "text": "629 F.3d 992",
+              "plaintiff": "Daniels\u2013Hall",
+              "defendant": "Nat\u2019l Educ. Ass\u2019n",
+              "case_name": null,
+              "full_citation": "Daniels\u2013Hall v. Nat\u2019l Educ. Ass\u2019n, 629 F.3d 992, 998 (9th Cir. 2010)",
+              "antecedent": null,
+              "pin": "998",
+              "flags": []
+            }
+          ],
+          "proposition": "PageID.2016\n\n\nattached to the complaint or matters subject to judicial notice.\u201d",
+          "propositionSpan": [
+            47308,
+            47387
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                6271,
+                6283
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                47424,
+                47436
+              ],
+              "proposition": "PageID.2016\n\n\nattached to the complaint or matters subject to judicial notice.\u201d",
+              "propositionSpan": [
+                47308,
+                47387
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                47099,
+                47387
+              ],
+              "raw_text": "\u201cnot required to accept as true allegations that contradict exhibits\n\n                                20 Case 1:24-cv-00253-GPC-WRP  Document 166   Filed 11/14/25  Page 28 of 33\n                               PageID.2016\n\n\nattached to the complaint or matters subject to judicial notice.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g9",
+              "pin_cite": "998",
+              "pin_basis": "printed",
+              "citation_span": [
+                47424,
+                47436
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g10",
+          "caseName": "DeLeon v. Wells Fargo Bank, N.A.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              6411,
+              6426
+            ],
+            "text": "2010 WL 4285006",
+            "plaintiff": "DeLeon",
+            "defendant": "Wells Fargo Bank, N.A.",
+            "case_name": null,
+            "full_citation": "DeLeon v. Wells Fargo Bank, N.A., 2010 WL 4285006 (N.D. Cal. Oct. 22 2010)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                18683,
+                18698
+              ],
+              "text": "2010 WL 4285006",
+              "plaintiff": "DeLeon",
+              "defendant": "Wells Fargo Bank, N.A., No. C 10-01390-LHK",
+              "case_name": null,
+              "full_citation": "DeLeon v. Wells Fargo Bank, N.A., No. C 10-01390-LHK, 2010 WL 4285006, at *3 (N.D. Cal. Oct.\n\n22 2010)",
+              "antecedent": null,
+              "pin": "at *3",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                19953,
+                19968
+              ],
+              "text": "2010 WL 4285006",
+              "plaintiff": "DeLeon",
+              "defendant": "Wells Fargo Bank, N.A.",
+              "case_name": null,
+              "full_citation": "DeLeon v. Wells Fargo Bank, N.A., 2010 WL 4285006, at *3 (N.D. Cal.\n\nOct. 22 2010)",
+              "antecedent": null,
+              "pin": "at *3",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                24150,
+                24165
+              ],
+              "text": "2010 WL 4285006",
+              "plaintiff": "DeLeon",
+              "defendant": "Wells Fargo Bank, N.A.",
+              "case_name": null,
+              "full_citation": "DeLeon v. Wells Fargo Bank, N.A., 2010 WL 4285006, at *3 (N.D.\n\nCal. Oct. 22 2010)",
+              "antecedent": null,
+              "pin": "at *3",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                49307,
+                49322
+              ],
+              "text": "2010 WL 4285006",
+              "plaintiff": "DeLeon",
+              "defendant": "Wells Fargo Bank, N.A.",
+              "case_name": null,
+              "full_citation": "DeLeon v. Wells Fargo Bank, N.A., 2010 WL 4285006, at *3 (N.D. Cal. Oct. 22 2010)",
+              "antecedent": null,
+              "pin": "at *3",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                50843,
+                50858
+              ],
+              "text": "2010 WL 4285006",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": "2010 WL 4285006 (N.D. Cal. Oct. 22 2010)",
+              "antecedent": "A.",
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "By reintroducing malicious-prosecution allegations and expanding the state-\n\naction and fraudulent-concealment theories beyond the bounds of that Order, the\n\nSAC exceeds the scope of leave to amend and is subject to dismissal and/or\n\nstriking.",
+          "propositionSpan": [
+            23868,
+            24111
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                6411,
+                6426
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                18683,
+                18698
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                19953,
+                19968
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                24150,
+                24165
+              ],
+              "proposition": "By reintroducing malicious-prosecution allegations and expanding the state-\n\naction and fraudulent-concealment theories beyond the bounds of that Order, the\n\nSAC exceeds the scope of leave to amend and is subject to dismissal and/or\n\nstriking.",
+              "propositionSpan": [
+                23868,
+                24111
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                49307,
+                49322
+              ],
+              "proposition": "Allegations\n\npremised on a claim dismissed with prejudice are \u201cimmaterial and impertinent\u201d\n\nand properly stricken.",
+              "propositionSpan": [
+                49158,
+                49272
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                50843,
+                50858
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                49220,
+                49248
+              ],
+              "raw_text": "\u201cimmaterial and impertinent\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g10",
+              "pin_cite": "*3",
+              "pin_basis": "printed",
+              "citation_span": [
+                49307,
+                49322
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g11",
+          "caseName": "Fantasy, Inc. v. Fogerty",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              6736,
+              6749
+            ],
+            "text": "984 F.2d 1524",
+            "plaintiff": "Fantasy, Inc.",
+            "defendant": "Fogerty",
+            "case_name": null,
+            "full_citation": "Fantasy, Inc. v. Fogerty, 984 F.2d 1524 (9th Cir. 1993)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'PageID.1993 Fantasy, Inc.' v. 'Fogerty'"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                21862,
+                21876
+              ],
+              "text": "984 F.2d\n\n1524",
+              "plaintiff": "Fantasy, Inc.",
+              "defendant": "Fogerty",
+              "case_name": null,
+              "full_citation": "Fantasy, Inc. v. Fogerty, 984 F.2d 1524, 1527 (9th Cir. 1993)",
+              "antecedent": null,
+              "pin": "1527",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                44961,
+                44974
+              ],
+              "text": "984 F.2d 1524",
+              "plaintiff": "Fantasy, Inc.",
+              "defendant": "Fogerty",
+              "case_name": null,
+              "full_citation": "Fantasy, Inc. v. Fogerty, 984 F.2d 1524, 1527 (9th Cir. 1993)",
+              "antecedent": null,
+              "pin": "1527",
+              "flags": []
+            }
+          ],
+          "proposition": "Under Rule 12(f), the Court \u201cmay strike from a pleading any redundant,\n\nimmaterial, impertinent, or scandalous matter.\u201d",
+          "propositionSpan": [
+            21716,
+            21835
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                6736,
+                6749
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                21862,
+                21876
+              ],
+              "proposition": "Under Rule 12(f), the Court \u201cmay strike from a pleading any redundant,\n\nimmaterial, impertinent, or scandalous matter.\u201d",
+              "propositionSpan": [
+                21716,
+                21835
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                44961,
+                44974
+              ],
+              "proposition": "Rule 12(f)\n\nauthorizes striking such \u201cimmaterial, impertinent, or scandalous\u201d matter.",
+              "propositionSpan": [
+                44848,
+                44933
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                21744,
+                21835
+              ],
+              "raw_text": "\u201cmay strike from a pleading any redundant,\n\nimmaterial, impertinent, or scandalous matter.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g11",
+              "pin_cite": "1527",
+              "pin_basis": "printed",
+              "citation_span": [
+                21862,
+                21876
+              ]
+            },
+            {
+              "span": [
+                44885,
+                44925
+              ],
+              "raw_text": "\u201cimmaterial, impertinent, or scandalous\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g11",
+              "pin_cite": "1527",
+              "pin_basis": "printed",
+              "citation_span": [
+                44961,
+                44974
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g12",
+          "caseName": null,
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              6796,
+              6808
+            ],
+            "text": "510 U.S. 517",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "510 U.S. 517 (1994)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "year_corrected: eyecite reported 1992, citation's own parenthetical says 1994"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                21924,
+                21936
+              ],
+              "text": "510 U.S. 517",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": "510 U.S. 517 (1994)",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "year_corrected: eyecite reported 2010, citation's own parenthetical says 1994"
+              ]
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                45022,
+                45035
+              ],
+              "text": "510\n\nU.S. 517",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": "510 U.S. 517 (1994)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": ", rev\u2019d on other grounds,",
+          "propositionSpan": [
+            6765,
+            6790
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                6796,
+                6808
+              ],
+              "proposition": ", rev\u2019d on other grounds,",
+              "propositionSpan": [
+                6765,
+                6790
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                21924,
+                21936
+              ],
+              "proposition": ", rev\u2019d on other grounds,",
+              "propositionSpan": [
+                21898,
+                21923
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                45022,
+                45035
+              ],
+              "proposition": ", rev\u2019d on other grounds,",
+              "propositionSpan": [
+                44996,
+                45021
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g13",
+          "caseName": "Ferdik v. Bonzelet",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              6870,
+              6883
+            ],
+            "text": "963 F.2d 1258",
+            "plaintiff": "Ferdik",
+            "defendant": "Bonzelet",
+            "case_name": null,
+            "full_citation": "Ferdik v. Bonzelet, 963 F.2d 1258 (9th Cir. 1992)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                43052,
+                43065
+              ],
+              "text": "963 F.2d 1258",
+              "plaintiff": "Ferdik",
+              "defendant": "Bonzelet",
+              "case_name": null,
+              "full_citation": "Ferdik v. Bonzelet, 963 F.2d 1258, 1261 (9th Cir. 1992)",
+              "antecedent": null,
+              "pin": "1261",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                52031,
+                52044
+              ],
+              "text": "963 F.2d 1258",
+              "plaintiff": "Ferdik",
+              "defendant": "Bonzelet",
+              "case_name": null,
+              "full_citation": "Ferdik v. Bonzelet, 963 F.2d 1258, 1261 (9th Cir. 1992)",
+              "antecedent": null,
+              "pin": "1261",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                6870,
+                6883
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                43052,
+                43065
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                52031,
+                52044
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g14",
+          "caseName": "Franklin v. Fox",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              6992,
+              7004
+            ],
+            "text": "312 F.3d 423",
+            "plaintiff": "Franklin",
+            "defendant": "Fox",
+            "case_name": null,
+            "full_citation": "Franklin v. Fox, 312 F.3d 423 (9th Cir. 2002)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                26012,
+                26024
+              ],
+              "text": "312 F.3d 423",
+              "plaintiff": "Franklin",
+              "defendant": "Fox",
+              "case_name": null,
+              "full_citation": "Franklin v. Fox, 312 F.3d 423, 445 (9th Cir. 2002)",
+              "antecedent": null,
+              "pin": "445",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                32384,
+                32396
+              ],
+              "text": "312 F.3d 423",
+              "plaintiff": "Franklin",
+              "defendant": "Fox",
+              "case_name": null,
+              "full_citation": "Franklin v. Fox, 312 F.3d 423, 445 (9th Cir. 2002)",
+              "antecedent": null,
+              "pin": "445",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                6992,
+                7004
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                26012,
+                26024
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                32384,
+                32396
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                32449,
+                32459
+              ],
+              "raw_text": "\u201cdonation\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "preceding_citation",
+              "authority_id": "g14",
+              "pin_cite": "445",
+              "pin_basis": "printed",
+              "citation_span": [
+                32384,
+                32396
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g15",
+          "caseName": null,
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              7158,
+              7172
+            ],
+            "text": "121 F.4th 1180",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "121 F.4th 1180 (9th Cir. 2024)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_unverified: eyecite reported '' v. 'In Cloudera, Inc. Sec. Litig.', no 'v.' pattern in this citation's own window"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                36724,
+                36738
+              ],
+              "text": "121 F.4th 1180",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": "In re Cloudera, Inc.",
+              "full_citation": "In re Cloudera, Inc., 121 F.4th 1180, 1187 (9th Cir. 2024)",
+              "antecedent": null,
+              "pin": "1187",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                7158,
+                7172
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                36724,
+                36738
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g16",
+          "caseName": "In re Facebook, Inc. Consumer Privacy User Profile Litig.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              7324,
+              7338
+            ],
+            "text": "2020 WL 614956",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "In re Facebook, Inc. Consumer Privacy User Profile Litig.",
+            "full_citation": "In re Facebook, Inc. Consumer Privacy User Profile Litig., 2020 WL 614956 (N.D. Cal. Feb. 10 2020)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                23100,
+                23114
+              ],
+              "text": "2020 WL 614956",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": "In re Facebook, Inc. Consumer Priv. User Profile Litig., No. 18-md-02843-JSC",
+              "full_citation": "In re Facebook, Inc. Consumer Priv. User Profile Litig., No. 18-md-02843-JSC, 2020 WL 614956, at *2 (N.D. Cal. Feb. 10 2020)",
+              "antecedent": null,
+              "pin": "at *2",
+              "flags": []
+            }
+          ],
+          "proposition": "Courts\n\nroutinely  strike  allegations  referencing  unrelated  criminal  proceedings,  jury\n\ntestimony, or extraneous narratives that have no bearing on the claims asserted and\n\nrisk confusing the issues.",
+          "propositionSpan": [
+            22811,
+            23016
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                7324,
+                7338
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                23100,
+                23114
+              ],
+              "proposition": "Courts\n\nroutinely  strike  allegations  referencing  unrelated  criminal  proceedings,  jury\n\ntestimony, or extraneous narratives that have no bearing on the claims asserted and\n\nrisk confusing the issues.",
+              "propositionSpan": [
+                22811,
+                23016
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g17",
+          "caseName": null,
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              7508,
+              7520
+            ],
+            "text": "97 F.4th 634",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": null,
+            "full_citation": "97 F.4th 634 (9th Cir. 2024)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_unverified: eyecite reported '' v. 'In Sorrento Therapeutics, Inc. Sec. Litig.', no 'v.' pattern in this citation's own window"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                20274,
+                20286
+              ],
+              "text": "97 F.4th 634",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": "In re Sorrento Therapeutics, Inc. Sec. Litig.",
+              "full_citation": "In re Sorrento Therapeutics, Inc. Sec. Litig., 97 F.4th 634, 641 (9th Cir. 2024)",
+              "antecedent": null,
+              "pin": "641",
+              "flags": []
+            }
+          ],
+          "proposition": "A complaint can be dismissed under Rule 12(b)(6) for: (1) lack of cognizable\n\nlegal theory or (2) insufficient facts under a cognizable legal claim.",
+          "propositionSpan": [
+            20077,
+            20225
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                7508,
+                7520
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                20274,
+                20286
+              ],
+              "proposition": "A complaint can be dismissed under Rule 12(b)(6) for: (1) lack of cognizable\n\nlegal theory or (2) insufficient facts under a cognizable legal claim.",
+              "propositionSpan": [
+                20077,
+                20225
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g18",
+          "caseName": "Kearns v. Ford Motor Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              7644,
+              7657
+            ],
+            "text": "567 F.3d 1120",
+            "plaintiff": "Kearns",
+            "defendant": "Ford Motor Co.",
+            "case_name": null,
+            "full_citation": "Kearns v. Ford Motor Co., 567 F.3d 1120 (9th Cir. 2009)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                36661,
+                36674
+              ],
+              "text": "567 F.3d 1120",
+              "plaintiff": "Kearns",
+              "defendant": "Ford Motor Co.",
+              "case_name": null,
+              "full_citation": "Kearns v. Ford Motor Co., 567 F.3d 1120 (9th Cir. 2009)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "Yet Plaintiff still does not allege\u2014with the specificity required by Rule\n\n9(b)\u2014what was false about that statement or why it was misleading when made.",
+          "propositionSpan": [
+            36478,
+            36629
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                7644,
+                7657
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                36661,
+                36674
+              ],
+              "proposition": "Yet Plaintiff still does not allege\u2014with the specificity required by Rule\n\n9(b)\u2014what was false about that statement or why it was misleading when made.",
+              "propositionSpan": [
+                36478,
+                36629
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g19",
+          "caseName": "Kekona v. Abastillas",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              7773,
+              7788
+            ],
+            "text": "2014 WL 4059882",
+            "plaintiff": "Kekona",
+            "defendant": "Abastillas",
+            "case_name": null,
+            "full_citation": "Kekona v. Abastillas, 2014 WL 4059882 (D. Haw. Aug. 14 2014)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                17399,
+                17415
+              ],
+              "text": "2014 WL\n\n4059882",
+              "plaintiff": "Kekona",
+              "defendant": "Abastillas, No. 13-00260 DKW-BMK",
+              "case_name": null,
+              "full_citation": "Kekona v. Abastillas, No. 13-00260 DKW-BMK, 2014 WL 4059882, at *3 (D. Haw. Aug. 14 2014)",
+              "antecedent": null,
+              "pin": "at *3",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                34170,
+                34185
+              ],
+              "text": "2014 WL 4059882",
+              "plaintiff": "Kekona",
+              "defendant": "Abastillas, No. 13-00611 SOM-RLP",
+              "case_name": null,
+              "full_citation": "Kekona v. Abastillas, No. 13-00611 SOM-RLP, 2014 WL 4059882, at *3 (D. Haw.\n\nAug. 14 2014)",
+              "antecedent": null,
+              "pin": "at *3",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                41845,
+                41860
+              ],
+              "text": "2014 WL 4059882",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": "2014 WL 4059882, at *3",
+              "antecedent": null,
+              "pin": "at *3",
+              "flags": [
+                "parties_unverified: eyecite reported '' v. 'Kekona', no 'v.' pattern in this citation's own window",
+                "year_unverified: eyecite reports 2011, no year parenthetical in this citation's own window"
+              ]
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                7773,
+                7788
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                17399,
+                17415
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                34170,
+                34185
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                41845,
+                41860
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g20",
+          "caseName": "Kema v. Pentagen Techs.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              7889,
+              7904
+            ],
+            "text": "2013 WL 1349619",
+            "plaintiff": "Kema",
+            "defendant": "Pentagen Techs.",
+            "case_name": null,
+            "full_citation": "Kema v. Pentagen Techs., 2013 WL 1349619 (D. Haw. Mar. 29 2013)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                29513,
+                29528
+              ],
+              "text": "2013 WL 1349619",
+              "plaintiff": "Kema",
+              "defendant": "Pentagen Techs.",
+              "case_name": null,
+              "full_citation": "Kema v. Pentagen Techs., 2013 WL 1349619, at 4 (D. Haw. Mar. 29 2013)",
+              "antecedent": null,
+              "pin": "at 4",
+              "flags": []
+            }
+          ],
+          "proposition": ", the court dismissed such\n\nclaims because \u201crepresentation of a client, even in connection with government\n\nproceedings, does not constitute state action.\u201d Similarly, in",
+          "propositionSpan": [
+            29317,
+            29486
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                7889,
+                7904
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                29513,
+                29528
+              ],
+              "proposition": ", the court dismissed such\n\nclaims because \u201crepresentation of a client, even in connection with government\n\nproceedings, does not constitute state action.\u201d Similarly, in",
+              "propositionSpan": [
+                29317,
+                29486
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                29360,
+                29472
+              ],
+              "raw_text": "\u201crepresentation of a client, even in connection with government\n\nproceedings, does not constitute state action.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g20",
+              "pin_cite": "4",
+              "pin_basis": "printed",
+              "citation_span": [
+                29513,
+                29528
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g21",
+          "caseName": "Kirtley v. Rainey",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              8002,
+              8015
+            ],
+            "text": "326 F.3d 1088",
+            "plaintiff": "Kirtley",
+            "defendant": "Rainey",
+            "case_name": null,
+            "full_citation": "Kirtley v. Rainey, 326 F.3d 1088 (9th Cir. 2003)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                25955,
+                25968
+              ],
+              "text": "326 F.3d 1088",
+              "plaintiff": "Kirtley",
+              "defendant": "Rainey",
+              "case_name": null,
+              "full_citation": "Kirtley v. Rainey, 326 F.3d 1088 (9th Cir. 2003)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "The Ninth Circuit recognizes\n\nfour narrow circumstances in which private conduct may be treated as state action:\n\nwhen the private party performs a function traditionally and exclusively reserved to\n\nthe State; when the State is a willful participant in joint activity with the private\n\nactor; when the State has coerced or significantly encouraged the private conduct;\n\nor when there is such a close nexus between the State and the challenged action\n\nthat the private conduct may be fairly treated as that of the State itself.",
+          "propositionSpan": [
+            25407,
+            25934
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                8002,
+                8015
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                25955,
+                25968
+              ],
+              "proposition": "The Ninth Circuit recognizes\n\nfour narrow circumstances in which private conduct may be treated as state action:\n\nwhen the private party performs a function traditionally and exclusively reserved to\n\nthe State; when the State is a willful participant in joint activity with the private\n\nactor; when the State has coerced or significantly encouraged the private conduct;\n\nor when there is such a close nexus between the State and the challenged action\n\nthat the private conduct may be fairly treated as that of the State itself.",
+              "propositionSpan": [
+                25407,
+                25934
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g22",
+          "caseName": "Lee v. City of Los Angeles",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              8138,
+              8150
+            ],
+            "text": "250 F.3d 668",
+            "plaintiff": "Lee",
+            "defendant": "City of Los Angeles",
+            "case_name": null,
+            "full_citation": "Lee v. City of Los Angeles, 250 F.3d 668 (9th Cir. 2001)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                14614,
+                14626
+              ],
+              "text": "250 F.3d 668",
+              "plaintiff": "Lee",
+              "defendant": "City of Los Angeles",
+              "case_name": null,
+              "full_citation": "Lee v. City of Los Angeles, 250 F.3d 668 (9th Cir. 2001)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "n.6\n (9th Cir. 2006) (courts may take judicial notice of filings and results in other court proceedings);",
+          "propositionSpan": [
+            14470,
+            14575
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                8138,
+                8150
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                14614,
+                14626
+              ],
+              "proposition": "n.6\n (9th Cir. 2006) (courts may take judicial notice of filings and results in other court proceedings);",
+              "propositionSpan": [
+                14470,
+                14575
+              ],
+              "signal": "see also"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g23",
+          "caseName": "Lugar v. Edmondson Oil Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              8275,
+              8287
+            ],
+            "text": "457 U.S. 922",
+            "plaintiff": "Lugar",
+            "defendant": "Edmondson Oil Co.",
+            "case_name": null,
+            "full_citation": "Lugar v. Edmondson Oil Co., 457 U.S. 922 (1982)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                25216,
+                25228
+              ],
+              "text": "457 U.S. 922",
+              "plaintiff": "Lugar",
+              "defendant": "Edmondson Oil Co.",
+              "case_name": null,
+              "full_citation": "Lugar v. Edmondson Oil Co., 457 U.S. 922, 937 (1982)",
+              "antecedent": null,
+              "pin": "937",
+              "flags": []
+            },
+            {
+              "kind": "ShortCaseCitation",
+              "span": [
+                25390,
+                25405
+              ],
+              "text": "457 U.S. at 937",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Lugar",
+              "pin": "937",
+              "flags": []
+            }
+          ],
+          "proposition": "unless it is \u201cfairly\n\nattributable to the State.\u201d",
+          "propositionSpan": [
+            25333,
+            25382
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                8275,
+                8287
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                25216,
+                25228
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                25390,
+                25405
+              ],
+              "proposition": "unless it is \u201cfairly\n\nattributable to the State.\u201d",
+              "propositionSpan": [
+                25333,
+                25382
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                25346,
+                25382
+              ],
+              "raw_text": "\u201cfairly\n\nattributable to the State.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_short_citation",
+              "authority_id": "g23",
+              "pin_cite": "937",
+              "pin_basis": "printed",
+              "citation_span": [
+                25390,
+                25405
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g24",
+          "caseName": "McDonnell v. United States",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              8416,
+              8428
+            ],
+            "text": "579 U.S. 550",
+            "plaintiff": "McDonnell",
+            "defendant": "United States",
+            "case_name": null,
+            "full_citation": "McDonnell v. United States, 579 U.S. 550 (2016)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "year_corrected: eyecite reported 1999, citation's own parenthetical says 2016"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                33057,
+                33070
+              ],
+              "text": "579 U.S.\n\n550",
+              "plaintiff": "McDonnell",
+              "defendant": "United States",
+              "case_name": null,
+              "full_citation": "McDonnell v. United States, 579 U.S. 550 (2016)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "et seq.) and cannot constitute bribery absent an express quid pro quo\u2014a\n\nspecific exchange of value for an official act.",
+          "propositionSpan": [
+            32908,
+            33028
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                8416,
+                8428
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                33057,
+                33070
+              ],
+              "proposition": "et seq.) and cannot constitute bribery absent an express quid pro quo\u2014a\n\nspecific exchange of value for an official act.",
+              "propositionSpan": [
+                32908,
+                33028
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g25",
+          "caseName": "Mendocino Envtl. Ctr. v. Mendocino Cnty.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              8754,
+              8767
+            ],
+            "text": "192 F.3d 1283",
+            "plaintiff": "Mendocino Envtl. Ctr.",
+            "defendant": "Mendocino Cnty.",
+            "case_name": null,
+            "full_citation": "Mendocino Envtl. Ctr. v. Mendocino Cnty., 192 F.3d 1283 (9th Cir. 1999)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'Ctr.' v. 'Mendocino Cnty.'"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                28115,
+                28128
+              ],
+              "text": "192 F.3d 1283",
+              "plaintiff": "Mendocino Envtl. Ctr.",
+              "defendant": "Mendocino Cnty.",
+              "case_name": null,
+              "full_citation": "Mendocino Envtl. Ctr. v. Mendocino Cnty., 192 F.3d 1283, 1301 (9th Cir. 1999)",
+              "antecedent": null,
+              "pin": "1301",
+              "flags": [
+                "parties_corrected: eyecite reported 'Ctr.' v. 'Mendocino Cnty.'"
+              ]
+            }
+          ],
+          "proposition": "The Ninth\n\nCircuit requires specific factual allegations showing an agreement or meeting of\n\nthe minds to violate constitutional rights.",
+          "propositionSpan": [
+            27935,
+            28071
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                8754,
+                8767
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                28115,
+                28128
+              ],
+              "proposition": "The Ninth\n\nCircuit requires specific factual allegations showing an agreement or meeting of\n\nthe minds to violate constitutional rights.",
+              "propositionSpan": [
+                27935,
+                28071
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g26",
+          "caseName": "Mullis v. U.S. Bankr. Ct.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              8889,
+              8902
+            ],
+            "text": "828 F.2d 1385",
+            "plaintiff": "Mullis",
+            "defendant": "U.S. Bankr. Ct.",
+            "case_name": null,
+            "full_citation": "Mullis v. U.S. Bankr. Ct., 828 F.2d 1385 (9th Cir. 1987)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                40589,
+                40602
+              ],
+              "text": "828 F.2d 1385",
+              "plaintiff": "Mullis",
+              "defendant": "U.S. Bankr. Ct.",
+              "case_name": null,
+              "full_citation": "Mullis v. U.S. Bankr. Ct., 828 F.2d 1385, 1393 (9th Cir. 1987)",
+              "antecedent": null,
+              "pin": "1393",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                8889,
+                8902
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                40589,
+                40602
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g27",
+          "caseName": "Pac. Stock, Inc. v. Pearson Educ., Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              9039,
+              9058
+            ],
+            "text": "927 F. Supp. 2d 991",
+            "plaintiff": "Pac. Stock, Inc.",
+            "defendant": "Pearson Educ., Inc.",
+            "case_name": null,
+            "full_citation": "Pac. Stock, Inc. v. Pearson Educ., Inc., 927 F. Supp. 2d 991 (D. Haw. 2013)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                34846,
+                34865
+              ],
+              "text": "927 F. Supp. 2d 991",
+              "plaintiff": "Pac. Stock, Inc.",
+              "defendant": "Pearson Educ., Inc.",
+              "case_name": null,
+              "full_citation": "Pac. Stock, Inc. v. Pearson Educ., Inc., 927 F. Supp. 2d 991 (D.\n\nHaw. 2013)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            },
+            {
+              "kind": "IdCitation",
+              "span": [
+                35404,
+                35407
+              ],
+              "text": "Id.",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "The October 7 Order granted Plaintiff limited leave to amend the fraudulent-\n\nconcealment claim because she had pled certain details regarding the 2012 civil\n\ncase, but the Court expressly emphasized that she must still plead the elements of\n\nfraud, including a false statement, duty, and a legally cognizable injury, consistent\n\nwith",
+          "propositionSpan": [
+            34470,
+            34804
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                9039,
+                9058
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                34846,
+                34865
+              ],
+              "proposition": "The October 7 Order granted Plaintiff limited leave to amend the fraudulent-\n\nconcealment claim because she had pled certain details regarding the 2012 civil\n\ncase, but the Court expressly emphasized that she must still plead the elements of\n\nfraud, including a false statement, duty, and a legally cognizable injury, consistent\n\nwith",
+              "propositionSpan": [
+                34470,
+                34804
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                35404,
+                35407
+              ],
+              "proposition": "PageID.2009\n\n\nassertedly different outcome in the 2012 Title VII case\u2014both of which the Court\n\nhas already held are not cognizable as a matter of law.",
+              "propositionSpan": [
+                35253,
+                35403
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g28",
+          "caseName": "Polk Cnty. v. Dodson",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              9160,
+              9172
+            ],
+            "text": "454 U.S. 312",
+            "plaintiff": "Polk Cnty.",
+            "defendant": "Dodson",
+            "case_name": null,
+            "full_citation": "Polk Cnty. v. Dodson, 454 U.S. 312 (1981)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "year_corrected: eyecite reported 1991, citation's own parenthetical says 1981"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                27159,
+                27171
+              ],
+              "text": "454 U.S. 312",
+              "plaintiff": "Polk Cnty.",
+              "defendant": "Dodson",
+              "case_name": null,
+              "full_citation": "Polk Cnty. v. Dodson, 454 U.S. 312, 325 (1981)",
+              "antecedent": null,
+              "pin": "325",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                9160,
+                9172
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                27159,
+                27171
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g29",
+          "caseName": "Price v. Hawaii",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              9286,
+              9298
+            ],
+            "text": "939 F.2d 702",
+            "plaintiff": "Price",
+            "defendant": "Hawaii",
+            "case_name": null,
+            "full_citation": "Price v. Hawaii, 939 F.2d 702 (9th Cir. 1991)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                30439,
+                30451
+              ],
+              "text": "939 F.2d 702",
+              "plaintiff": "Price",
+              "defendant": "Hawaii",
+              "case_name": null,
+              "full_citation": "Price v. Hawaii, 939 F.2d 702, 708 (9th Cir. 1991)",
+              "antecedent": null,
+              "pin": "708",
+              "flags": []
+            }
+          ],
+          "proposition": "Count I should therefore be dismissed\n\nwith prejudice.",
+          "propositionSpan": [
+            30367,
+            30421
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                9286,
+                9298
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                30439,
+                30451
+              ],
+              "proposition": "Count I should therefore be dismissed\n\nwith prejudice.",
+              "propositionSpan": [
+                30367,
+                30421
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                30474,
+                30543
+              ],
+              "raw_text": "\u201cPrivate parties\n\nare not generally acting under color of state law.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "own_parenthetical",
+              "authority_id": "g29",
+              "pin_cite": "708",
+              "pin_basis": "printed",
+              "citation_span": [
+                30439,
+                30451
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g30",
+          "caseName": "Ramirez v. County of San Bernardino",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              9431,
+              9444
+            ],
+            "text": "806 F.3d 1002",
+            "plaintiff": "Ramirez",
+            "defendant": "County of San Bernardino",
+            "case_name": null,
+            "full_citation": "Ramirez v. County of San Bernardino, 806 F.3d 1002 (9th Cir. 2015)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                16221,
+                16234
+              ],
+              "text": "806 F.3d 1002",
+              "plaintiff": "Ramirez",
+              "defendant": "County of San Bernardino",
+              "case_name": null,
+              "full_citation": "Ramirez v. County of San Bernardino, 806 F.3d 1002, 1008 (9th Cir. 2015)",
+              "antecedent": null,
+              "pin": "1008",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                19470,
+                19483
+              ],
+              "text": "806 F.3d 1002",
+              "plaintiff": "Ramirez",
+              "defendant": "County of San Bernardino",
+              "case_name": null,
+              "full_citation": "Ramirez v. County of San Bernardino, 806 F.3d 1002, 1008 (9th Cir. 2015)",
+              "antecedent": null,
+              "pin": "1008",
+              "flags": []
+            }
+          ],
+          "proposition": "This exceeds the scope of leave to\n\namend and is improper as a matter of law.",
+          "propositionSpan": [
+            16101,
+            16178
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                9431,
+                9444
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                16221,
+                16234
+              ],
+              "proposition": "This exceeds the scope of leave to\n\namend and is improper as a matter of law.",
+              "propositionSpan": [
+                16101,
+                16178
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                19470,
+                19483
+              ],
+              "proposition": "Because an amended complaint supersedes the prior pleading, defendants\n\nmay renew Rule 12(b)(6) motions to address any repleaded or newly added claims.",
+              "propositionSpan": [
+                19280,
+                19431
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g31",
+          "caseName": "Rein v. Providian Fin. Corp.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              9568,
+              9580
+            ],
+            "text": "270 F.3d 895",
+            "plaintiff": "Rein",
+            "defendant": "Providian Fin. Corp.",
+            "case_name": null,
+            "full_citation": "Rein v. Providian Fin. Corp., 270 F.3d 895 (9th Cir. 2001)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                40526,
+                40538
+              ],
+              "text": "270 F.3d 895",
+              "plaintiff": "Rein",
+              "defendant": "Providian Fin. Corp.",
+              "case_name": null,
+              "full_citation": "Rein v. Providian Fin. Corp., 270 F.3d 895, 902 (9th Cir. 2001)",
+              "antecedent": null,
+              "pin": "902",
+              "flags": []
+            }
+          ],
+          "proposition": "PageID.2012\n\n\ncollateral-attack doctrine, which prohibits relitigation of issues resolved by a final\n\njudgment.",
+          "propositionSpan": [
+            40384,
+            40495
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                9568,
+                9580
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                40526,
+                40538
+              ],
+              "proposition": "PageID.2012\n\n\ncollateral-attack doctrine, which prohibits relitigation of issues resolved by a final\n\njudgment.",
+              "propositionSpan": [
+                40384,
+                40495
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g32",
+          "caseName": "Reyn\u2019s Pasta Bella, LLC v. Visa USA, Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              9719,
+              9731
+            ],
+            "text": "442 F.3d 741",
+            "plaintiff": "Reyn\u2019s Pasta Bella, LLC",
+            "defendant": "Visa USA, Inc.",
+            "case_name": null,
+            "full_citation": "Reyn\u2019s Pasta Bella, LLC v. Visa USA, Inc., 442 F.3d 741 (9th Cir. 2006)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'Reyn\u2019 Pasta Bella, LLC' v. 'Visa USA, Inc.'"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                14452,
+                14464
+              ],
+              "text": "442 F.3d 741",
+              "plaintiff": "Reyn\u2019s Pasta Bella, LLC",
+              "defendant": "Visa USA, Inc.",
+              "case_name": null,
+              "full_citation": "Reyn\u2019s Pasta Bella, LLC v. Visa USA, Inc., 442 F.3d 741 (9th Cir. 2006)",
+              "antecedent": null,
+              "pin": null,
+              "flags": [
+                "parties_corrected: eyecite reported 'Reyn\u2019 Pasta Bella, LLC' v. 'Visa USA, Inc.'"
+              ]
+            }
+          ],
+          "proposition": "Tanaka (\u201cTanaka\u201d).1\n\n\n\n\n\n1 The existence and outcomes of the 2014 civil jury trial and the 2022 federal criminal trial are matters of public\n record and properly subject to judicial notice.",
+          "propositionSpan": [
+            14215,
+            14404
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                9719,
+                9731
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                14452,
+                14464
+              ],
+              "proposition": "Tanaka (\u201cTanaka\u201d).1\n\n\n\n\n\n1 The existence and outcomes of the 2014 civil jury trial and the 2022 federal criminal trial are matters of public\n record and properly subject to judicial notice.",
+              "propositionSpan": [
+                14215,
+                14404
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g33",
+          "caseName": "Ritchie v. Hawaii",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              9847,
+              9862
+            ],
+            "text": "2011 WL 6303869",
+            "plaintiff": "Ritchie",
+            "defendant": "Hawaii",
+            "case_name": null,
+            "full_citation": "Ritchie v. Hawaii, 2011 WL 6303869 (D. Haw. Dec. 16 2011)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                29272,
+                29287
+              ],
+              "text": "2011 WL 6303869",
+              "plaintiff": "Ritchie",
+              "defendant": "Hawaii",
+              "case_name": null,
+              "full_citation": "Ritchie v. Hawaii, 2011 WL 6303869, at 6 (D. Haw. Dec. 16 2011)",
+              "antecedent": null,
+              "pin": "at 6",
+              "flags": []
+            }
+          ],
+          "proposition": "claims against private attorneys and law firms. In",
+          "propositionSpan": [
+            29201,
+            29251
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                9847,
+                9862
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                29272,
+                29287
+              ],
+              "proposition": "claims against private attorneys and law firms. In",
+              "propositionSpan": [
+                29201,
+                29251
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g34",
+          "caseName": "Sander v. Weyerhaeuser Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              9969,
+              9981
+            ],
+            "text": "966 F.2d 501",
+            "plaintiff": "Sander",
+            "defendant": "Weyerhaeuser Co.",
+            "case_name": null,
+            "full_citation": "Sander v. Weyerhaeuser Co., 966 F.2d 501 (9th Cir. 1992)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                40948,
+                40961
+              ],
+              "text": "966 F.2d\n\n501",
+              "plaintiff": "Sander",
+              "defendant": "Weyerhaeuser Co.",
+              "case_name": null,
+              "full_citation": "Sander v. Weyerhaeuser Co., 966 F.2d 501, 503 (9th Cir. 1992)",
+              "antecedent": null,
+              "pin": "503",
+              "flags": []
+            },
+            {
+              "kind": "IdCitation",
+              "span": [
+                41088,
+                41091
+              ],
+              "text": "Id.",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "Federal courts repeatedly reject post-judgment fraud claims based on alleged\n\nnondisclosure of discovery materials.",
+          "propositionSpan": [
+            40800,
+            40915
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                9969,
+                9981
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                40948,
+                40961
+              ],
+              "proposition": "Federal courts repeatedly reject post-judgment fraud claims based on alleged\n\nnondisclosure of discovery materials.",
+              "propositionSpan": [
+                40800,
+                40915
+              ],
+              "signal": "See"
+            },
+            {
+              "citationSpan": [
+                41088,
+                41091
+              ],
+              "proposition": "Rule 60 provides the exclusive mechanism\u2014and strict\n\ndeadlines\u2014for seeking relief from such a judgment.",
+              "propositionSpan": [
+                40984,
+                41087
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                41161,
+                41186
+              ],
+              "raw_text": "\u201cfraudulent concealment.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "same_sentence_preceding",
+              "authority_id": "g34",
+              "pin_cite": "503",
+              "pin_basis": "inherited_from_id",
+              "citation_span": [
+                41088,
+                41091
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g35",
+          "caseName": "Simmons v. Sacramento Cnty. Superior Ct.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10119,
+              10132
+            ],
+            "text": "318 F.3d 1156",
+            "plaintiff": "Simmons",
+            "defendant": "Sacramento Cnty. Superior Ct.",
+            "case_name": null,
+            "full_citation": "Simmons v. Sacramento Cnty. Superior Ct., 318 F.3d 1156 (9th Cir. 2003)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                27090,
+                27103
+              ],
+              "text": "318 F.3d 1156",
+              "plaintiff": "Simmons",
+              "defendant": "Sacramento Cnty. Superior Ct.",
+              "case_name": null,
+              "full_citation": "Simmons v. Sacramento Cnty. Superior Ct., 318 F.3d 1156, 1161 (9th Cir. 2003)",
+              "antecedent": null,
+              "pin": "1161",
+              "flags": []
+            }
+          ],
+          "proposition": "The Ninth Circuit has made this clear: \u201cA\n\nlawyer representing a client is not, by virtue of being an officer of the court, a state\n\nactor.\u201d",
+          "propositionSpan": [
+            26907,
+            27047
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                10119,
+                10132
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                27090,
+                27103
+              ],
+              "proposition": "The Ninth Circuit has made this clear: \u201cA\n\nlawyer representing a client is not, by virtue of being an officer of the court, a state\n\nactor.\u201d",
+              "propositionSpan": [
+                26907,
+                27047
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                26946,
+                27047
+              ],
+              "raw_text": "\u201cA\n\nlawyer representing a client is not, by virtue of being an officer of the court, a state\n\nactor.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g35",
+              "pin_cite": "1161",
+              "pin_basis": "printed",
+              "citation_span": [
+                27090,
+                27103
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g36",
+          "caseName": "Skyline Zipline Glob., LLC v. Domeck",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10265,
+              10280
+            ],
+            "text": "2013 WL 1103084",
+            "plaintiff": "Skyline Zipline Glob., LLC",
+            "defendant": "Domeck",
+            "case_name": null,
+            "full_citation": "Skyline Zipline Glob., LLC v. Domeck, 2013 WL 1103084 (D. Haw. Mar. 15 2013)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                35568,
+                35584
+              ],
+              "text": "2013 WL\n\n1103084",
+              "plaintiff": "Skyline Zipline Glob., LLC",
+              "defendant": "Domeck, No. 12-00527 ACK-KSC",
+              "case_name": null,
+              "full_citation": "Skyline Zipline Glob., LLC v. Domeck, No. 12-00527 ACK-KSC, 2013 WL 1103084, at *9 (D. Haw. Mar. 15 2013)",
+              "antecedent": null,
+              "pin": "at *9",
+              "flags": []
+            },
+            {
+              "kind": "IdCitation",
+              "span": [
+                35807,
+                35810
+              ],
+              "text": "Id.",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "An omission is actionable only if the defendant\n\n(1) failed to disclose a material fact, and (2) had a duty to do so.",
+          "propositionSpan": [
+            35689,
+            35806
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                10265,
+                10280
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                35568,
+                35584
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                35807,
+                35810
+              ],
+              "proposition": "An omission is actionable only if the defendant\n\n(1) failed to disclose a material fact, and (2) had a duty to do so.",
+              "propositionSpan": [
+                35689,
+                35806
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                35445,
+                35506
+              ],
+              "raw_text": "\u201ca type of fraud based on fraud by omission and concealment,\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g36",
+              "pin_cite": "*9",
+              "pin_basis": "printed",
+              "citation_span": [
+                35568,
+                35584
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g37",
+          "caseName": "Sprewell v. Golden State Warriors",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10394,
+              10406
+            ],
+            "text": "266 F.3d 979",
+            "plaintiff": "Sprewell",
+            "defendant": "Golden State Warriors",
+            "case_name": null,
+            "full_citation": "Sprewell v. Golden State Warriors, 266 F.3d 979 (9th Cir. 2001)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                47495,
+                47507
+              ],
+              "text": "266 F.3d 979",
+              "plaintiff": "Sprewell",
+              "defendant": "Golden State Warriors",
+              "case_name": null,
+              "full_citation": "Sprewell v. Golden State Warriors, 266 F.3d 979, 988 (9th Cir. 2001)",
+              "antecedent": null,
+              "pin": "988",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                10394,
+                10406
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                47495,
+                47507
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g38",
+          "caseName": "Talbot v. Robert Matthews Distrib. Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10542,
+              10554
+            ],
+            "text": "961 F.2d 654",
+            "plaintiff": "Talbot",
+            "defendant": "Robert Matthews Distrib. Co.",
+            "case_name": null,
+            "full_citation": "Talbot v. Robert Matthews Distrib. Co., 961 F.2d 654 (7th Cir. 1992)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                22773,
+                22785
+              ],
+              "text": "961 F.2d 654",
+              "plaintiff": "Talbot",
+              "defendant": "Robert Matthews Distrib. Co.",
+              "case_name": null,
+              "full_citation": "Talbot v. Robert Matthews Distrib. Co., 961 F.2d 654 (7th Cir. 1992)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                47926,
+                47938
+              ],
+              "text": "961 F.2d 654",
+              "plaintiff": "Talbot",
+              "defendant": "Robert Matthews Distrib. Co.",
+              "case_name": null,
+              "full_citation": "Talbot v. Robert Matthews Distrib. Co., 961 F.2d 654 (7th Cir. 1992)",
+              "antecedent": null,
+              "pin": null,
+              "flags": []
+            }
+          ],
+          "proposition": "Courts routinely strike such material as \u201cimmaterial, impertinent, or scandalous.\u201d",
+          "propositionSpan": [
+            47802,
+            47884
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                10542,
+                10554
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                22773,
+                22785
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                47926,
+                47938
+              ],
+              "proposition": "Courts routinely strike such material as \u201cimmaterial, impertinent, or scandalous.\u201d",
+              "propositionSpan": [
+                47802,
+                47884
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                47843,
+                47884
+              ],
+              "raw_text": "\u201cimmaterial, impertinent, or scandalous.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g38",
+              "pin_cite": null,
+              "pin_basis": null,
+              "citation_span": [
+                47926,
+                47938
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g39",
+          "caseName": "Tsao v. Desert Palace, Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10846,
+              10859
+            ],
+            "text": "698 F.3d 1128",
+            "plaintiff": "Tsao",
+            "defendant": "Desert Palace, Inc.",
+            "case_name": null,
+            "full_citation": "Tsao v. Desert Palace, Inc., 698 F.3d 1128 (9th Cir. 2012)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'PageID.1995 Tsao' v. 'Desert Palace, Inc.'"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                28994,
+                29008
+              ],
+              "text": "698\n\nF.3d 1128",
+              "plaintiff": "Tsao",
+              "defendant": "Desert Palace, Inc.",
+              "case_name": null,
+              "full_citation": "Tsao v. Desert Palace, Inc., 698 F.3d 1128, 1140 (9th Cir. 2012)",
+              "antecedent": null,
+              "pin": "1140",
+              "flags": []
+            }
+          ],
+          "proposition": "claims where private individuals or entities merely\n\ncooperated or interacted with law enforcement.",
+          "propositionSpan": [
+            28865,
+            28964
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                10846,
+                10859
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                28994,
+                29008
+              ],
+              "proposition": "claims where private individuals or entities merely\n\ncooperated or interacted with law enforcement.",
+              "propositionSpan": [
+                28865,
+                28964
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g40",
+          "caseName": "United States v. Alexander",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              10981,
+              10993
+            ],
+            "text": "106 F.3d 874",
+            "plaintiff": "United States",
+            "defendant": "Alexander",
+            "case_name": null,
+            "full_citation": "United States v. Alexander, 106 F.3d 874 (9th Cir. 1997)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                51437,
+                51449
+              ],
+              "text": "106 F.3d 874",
+              "plaintiff": "United States",
+              "defendant": "Alexander",
+              "case_name": null,
+              "full_citation": "United States v. Alexander, 106 F.3d 874, 876 (9th Cir. 1997)",
+              "antecedent": null,
+              "pin": "876",
+              "flags": []
+            }
+          ],
+          "proposition": "Once an\n\nissue has been decided, it \u201cshould not be revisited by the same court in the same\n\ncase except under extraordinary circumstances.\u201d",
+          "propositionSpan": [
+            51264,
+            51403
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                10981,
+                10993
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                51437,
+                51449
+              ],
+              "proposition": "Once an\n\nissue has been decided, it \u201cshould not be revisited by the same court in the same\n\ncase except under extraordinary circumstances.\u201d",
+              "propositionSpan": [
+                51264,
+                51403
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                51300,
+                51403
+              ],
+              "raw_text": "\u201cshould not be revisited by the same court in the same\n\ncase except under extraordinary circumstances.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g40",
+              "pin_cite": "876",
+              "pin_basis": "printed",
+              "citation_span": [
+                51437,
+                51449
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g41",
+          "caseName": "Wai Ola Alliance v. United States Dep\u2019t of the Navy",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              11142,
+              11162
+            ],
+            "text": "734 F. Supp. 3d 1034",
+            "plaintiff": "Wai Ola Alliance",
+            "defendant": "United States Dep\u2019t of the Navy",
+            "case_name": null,
+            "full_citation": "Wai Ola Alliance v. United States Dep\u2019t of the Navy, 734 F. Supp. 3d 1034 (D. Haw. 2024)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                21222,
+                21242
+              ],
+              "text": "734 F. Supp. 3d 1034",
+              "plaintiff": "Wai Ola Alliance",
+              "defendant": "United States Dep\u2019t of the Navy",
+              "case_name": null,
+              "full_citation": "Wai Ola Alliance v. United States Dep\u2019t of the Navy, 734 F. Supp. 3d 1034, 1044-45 (D. Haw. 2024)",
+              "antecedent": null,
+              "pin": "1044-45",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                11142,
+                11162
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                21222,
+                21242
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g42",
+          "caseName": "West v. Atkins",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              11259,
+              11270
+            ],
+            "text": "487 U.S. 42",
+            "plaintiff": "West",
+            "defendant": "Atkins",
+            "case_name": null,
+            "full_citation": "West v. Atkins, 487 U.S. 42 (1988)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "year_corrected: eyecite reported 2022, citation's own parenthetical says 1988"
+            ]
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                25163,
+                25174
+              ],
+              "text": "487 U.S. 42",
+              "plaintiff": "West",
+              "defendant": "Atkins",
+              "case_name": null,
+              "full_citation": "West v. Atkins, 487 U.S. 42, 48 (1988)",
+              "antecedent": null,
+              "pin": "48",
+              "flags": []
+            }
+          ],
+          "proposition": "a plaintiff must allege that the\n\ndefendant deprived the plaintiff of a constitutional right and that the defendant\n\nacted \u201cunder color of state law.\u201d",
+          "propositionSpan": [
+            24996,
+            25146
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                11259,
+                11270
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                25163,
+                25174
+              ],
+              "proposition": "a plaintiff must allege that the\n\ndefendant deprived the plaintiff of a constitutional right and that the defendant\n\nacted \u201cunder color of state law.\u201d",
+              "propositionSpan": [
+                24996,
+                25146
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                25119,
+                25146
+              ],
+              "raw_text": "\u201cunder color of state law.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g42",
+              "pin_cite": "48",
+              "pin_basis": "printed",
+              "citation_span": [
+                25163,
+                25174
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g43",
+          "caseName": "Weston Family Partnership LLLP v. Twitter, Inc.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              11424,
+              11436
+            ],
+            "text": "29 F.4th 611",
+            "plaintiff": "Weston Family Partnership LLLP",
+            "defendant": "Twitter, Inc.",
+            "case_name": null,
+            "full_citation": "Weston Family Partnership LLLP v. Twitter, Inc., 29 F.4th 611 (9th Cir. 2022)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                21133,
+                21145
+              ],
+              "text": "29 F.4th 611",
+              "plaintiff": "Weston Family Partnership LLLP",
+              "defendant": "Twitter, Inc.",
+              "case_name": null,
+              "full_citation": "Weston Family Partnership LLLP v. Twitter, Inc., 29 F.4th 611, 617 (9th Cir. 2022)",
+              "antecedent": null,
+              "pin": "617",
+              "flags": []
+            }
+          ],
+          "proposition": "In ruling on a Rule\n\n12(b)(6) motion, a court may consider the allegations in the complaint, as well as\n\nmaterial that is incorporated by reference in the complaint or subject to judicial\n\nnotice.",
+          "propositionSpan": [
+            20887,
+            21083
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                11424,
+                11436
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                21133,
+                21145
+              ],
+              "proposition": "In ruling on a Rule\n\n12(b)(6) motion, a court may consider the allegations in the complaint, as well as\n\nmaterial that is incorporated by reference in the complaint or subject to judicial\n\nnotice.",
+              "propositionSpan": [
+                20887,
+                21083
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "g44",
+          "caseName": "Whittlestone, Inc. v. Handi\u2013Craft Co.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              11571,
+              11583
+            ],
+            "text": "618 F.3d 970",
+            "plaintiff": "Whittlestone, Inc.",
+            "defendant": "Handi\u2013Craft Co.",
+            "case_name": null,
+            "full_citation": "Whittlestone, Inc. v. Handi\u2013Craft Co., 618 F.3d 970 (9th Cir. 2010)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                22212,
+                22224
+              ],
+              "text": "618 F.3d 970",
+              "plaintiff": "Whittlestone, Inc.",
+              "defendant": "Handi\u2013Craft Co.",
+              "case_name": null,
+              "full_citation": "Whittlestone, Inc. v. Handi\u2013Craft Co., 618 F.3d 970, 973 (9th Cir. 2010)",
+              "antecedent": null,
+              "pin": "973",
+              "flags": []
+            }
+          ],
+          "proposition": "Courts\n\nhave broad  discretion  to  strike improper  allegations  at  the  pleading  stage,\n\nparticularly when doing so  will streamline  the  litigation, avoid unnecessary\n\ndiscovery, and prevent prejudice to the parties.",
+          "propositionSpan": [
+            21945,
+            22167
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                11571,
+                11583
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                22212,
+                22224
+              ],
+              "proposition": "Courts\n\nhave broad  discretion  to  strike improper  allegations  at  the  pleading  stage,\n\nparticularly when doing so  will streamline  the  litigation, avoid unnecessary\n\ndiscovery, and prevent prejudice to the parties.",
+              "propositionSpan": [
+                21945,
+                22167
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                22295,
+                22335
+              ],
+              "raw_text": "\u201cno possible bearing on the controversy\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "same_sentence_preceding",
+              "authority_id": "g44",
+              "pin_cite": "973",
+              "pin_basis": "printed",
+              "citation_span": [
+                22212,
+                22224
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g45",
+          "caseName": "Zucco Partners, LLC v. Digimarc Corp.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              11715,
+              11727
+            ],
+            "text": "552 F.3d 981",
+            "plaintiff": "Zucco Partners, LLC",
+            "defendant": "Digimarc Corp.",
+            "case_name": null,
+            "full_citation": "Zucco Partners, LLC v. Digimarc Corp., 552 F.3d 981 (9th Cir. 2009)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                42966,
+                42978
+              ],
+              "text": "552 F.3d 981",
+              "plaintiff": "Zucco Partners, LLC",
+              "defendant": "Digimarc Corp.",
+              "case_name": null,
+              "full_citation": "Zucco Partners, LLC v. Digimarc Corp., 552 F.3d 981, 1007 (9th Cir. 2009)",
+              "antecedent": null,
+              "pin": "1007",
+              "flags": []
+            },
+            {
+              "kind": "FullCaseCitation",
+              "span": [
+                51884,
+                51896
+              ],
+              "text": "552 F.3d 981",
+              "plaintiff": "Zucco Partners, LLC",
+              "defendant": "Digimarc Corp.",
+              "case_name": null,
+              "full_citation": "Zucco Partners, LLC v. Digimarc Corp., 552 F.3d 981, 1007 (9th Cir. 2009)",
+              "antecedent": null,
+              "pin": "1007",
+              "flags": []
+            }
+          ],
+          "proposition": "Under Ninth Circuit authority, dismissal with prejudice\n\nis required where a plaintiff repeatedly fails to cure deficiencies.",
+          "propositionSpan": [
+            42800,
+            42925
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                11715,
+                11727
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                42966,
+                42978
+              ],
+              "proposition": "Under Ninth Circuit authority, dismissal with prejudice\n\nis required where a plaintiff repeatedly fails to cure deficiencies.",
+              "propositionSpan": [
+                42800,
+                42925
+              ],
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                51884,
+                51896
+              ],
+              "proposition": "The\n\nNinth Circuit repeatedly holds that dismissal with prejudice is mandatory when a\n\nplaintiff \u201cmerely repeats prior allegations and fails to cure the deficiencies\n\nidentified by the court.\u201d",
+              "propositionSpan": [
+                51652,
+                51844
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": [
+            {
+              "span": [
+                51749,
+                51844
+              ],
+              "raw_text": "\u201cmerely repeats prior allegations and fails to cure the deficiencies\n\nidentified by the court.\u201d",
+              "attribution_status": "linked",
+              "attribution_basis": "following_full_citation",
+              "authority_id": "g45",
+              "pin_cite": "1007",
+              "pin_basis": "printed",
+              "citation_span": [
+                51884,
+                51896
+              ]
+            }
+          ]
+        }
+      ],
+      "authorities": [
+        {
+          "id": "a0",
+          "category": "statute",
+          "source": "U.S. Code",
+          "header": {
+            "span": [
+              11827,
+              11843
+            ],
+            "text": "28 U.S.C. \u00a7 1927",
+            "name": "28 U.S.C. \u00a7 1927",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                54113,
+                54129
+              ],
+              "text": "28 U.S.C. \u00a7 1927",
+              "name": "28 U.S.C. \u00a7 1927",
+              "short": false
+            }
+          ]
+        },
+        {
+          "id": "a1",
+          "category": "statute",
+          "source": "U.S. Code",
+          "header": {
+            "span": [
+              11947,
+              11963
+            ],
+            "text": "42 U.S.C. \u00a7 1983",
+            "name": "42 U.S.C. \u00a7 1983",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                14978,
+                14994
+              ],
+              "text": "42 U.S.C. \u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": false
+            },
+            {
+              "span": [
+                24978,
+                24994
+              ],
+              "text": "42 U.S.C. \u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": false
+            },
+            {
+              "span": [
+                25326,
+                25332
+              ],
+              "text": "\u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": true
+            },
+            {
+              "span": [
+                27524,
+                27530
+              ],
+              "text": "\u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": true
+            },
+            {
+              "span": [
+                28858,
+                28864
+              ],
+              "text": "\u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": true
+            },
+            {
+              "span": [
+                29194,
+                29200
+              ],
+              "text": "\u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": true
+            },
+            {
+              "span": [
+                29693,
+                29699
+              ],
+              "text": "\u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": true
+            },
+            {
+              "span": [
+                30349,
+                30355
+              ],
+              "text": "\u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": true
+            },
+            {
+              "span": [
+                32344,
+                32350
+              ],
+              "text": "\u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": true
+            },
+            {
+              "span": [
+                33628,
+                33634
+              ],
+              "text": "\u00a7 1983",
+              "name": "42 U.S.C. \u00a7 1983",
+              "short": true
+            }
+          ]
+        },
+        {
+          "id": "a2",
+          "category": "statute",
+          "source": "Hawaii Revised Statutes",
+          "header": {
+            "span": [
+              12064,
+              12089
+            ],
+            "text": "Haw. Rev. Stat. \u00a7\u00a7 11\u2013351",
+            "name": "Haw. Rev. Stat. \u00a7 11-351",
+            "short": false
+          },
+          "children": []
+        },
+        {
+          "id": "a3",
+          "category": "statute",
+          "source": "U.S. Code",
+          "header": {
+            "span": [
+              32896,
+              32901
+            ],
+            "text": "\u00a7\u00a7 11",
+            "name": "42 U.S.C. \u00a7 11",
+            "short": true
+          },
+          "children": []
+        },
+        {
+          "id": "a4",
+          "category": "rule",
+          "source": "Federal Rules of Civil Procedure",
+          "header": {
+            "span": [
+              12182,
+              12202
+            ],
+            "text": "Fed. R. Civ. P. 9(b)",
+            "name": "Fed. R. Civ. P. 9(b)",
+            "short": false
+          },
+          "children": []
+        },
+        {
+          "id": "a5",
+          "category": "rule",
+          "source": "Federal Rules of Civil Procedure",
+          "header": {
+            "span": [
+              12303,
+              12327
+            ],
+            "text": "Fed. R. Civ. P. 12(b)(6)",
+            "name": "Fed. R. Civ. P. 12(b)(6)",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                35404,
+                35407
+              ],
+              "text": "Id.",
+              "name": "Fed. R. Civ. P. 12(b)(6)",
+              "short": true
+            },
+            {
+              "span": [
+                35807,
+                35810
+              ],
+              "text": "Id.",
+              "name": "Fed. R. Civ. P. 12(b)(6)",
+              "short": true
+            }
+          ]
+        },
+        {
+          "id": "a6",
+          "category": "rule",
+          "source": "Federal Rules of Civil Procedure",
+          "header": {
+            "span": [
+              12419,
+              12440
+            ],
+            "text": "Fed. R. Civ. P. 12(f)",
+            "name": "Fed. R. Civ. P. 12(f)",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                18605,
+                18626
+              ],
+              "text": "Fed. R. Civ. P. 12(f)",
+              "name": "Fed. R. Civ. P. 12(f)",
+              "short": false
+            }
+          ]
+        },
+        {
+          "id": "a7",
+          "category": "rule",
+          "source": "Federal Rules of Civil Procedure",
+          "header": {
+            "span": [
+              12537,
+              12555
+            ],
+            "text": "Fed. R. Civ. P. 60",
+            "name": "Fed. R. Civ. P. 60",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                41088,
+                41091
+              ],
+              "text": "Id.",
+              "name": "Fed. R. Civ. P. 60",
+              "short": true
+            }
+          ]
+        },
+        {
+          "id": "a8",
+          "category": "rule",
+          "source": "Federal Rules of Evidence",
+          "header": {
+            "span": [
+              12657,
+              12677
+            ],
+            "text": "Fed. R. Evid. 201(b)",
+            "name": "Fed. R. Evid. 201(b)",
+            "short": false
+          },
+          "children": [
+            {
+              "span": [
+                47539,
+                47559
+              ],
+              "text": "Fed. R. Evid. 201(b)",
+              "name": "Fed. R. Evid. 201(b)",
+              "short": false
+            }
+          ]
+        }
+      ],
+      "records": [
+        {
+          "id": "r0",
+          "kind": "pleading",
+          "label": "SAC",
+          "header": {
+            "span": [
+              26465,
+              26508
+            ],
+            "text": "SAC \u00b6\u00b6\n\n\n                                 8",
+            "pin": "8"
+          },
+          "children": [
+            {
+              "span": [
+                30788,
+                30796
+              ],
+              "text": "SAC \u00b6 32"
+            },
+            {
+              "span": [
+                31269,
+                31290
+              ],
+              "text": "SAC \u00b6\u00b6 84\u201393, 177\u2013186"
+            },
+            {
+              "span": [
+                36466,
+                36476
+              ],
+              "text": "SAC \u00b6\n\n192"
+            },
+            {
+              "span": [
+                37549,
+                37557
+              ],
+              "text": "SAC \u00b6 47"
+            },
+            {
+              "span": [
+                38879,
+                38898
+              ],
+              "text": "SAC \u00b6\u00b6 198\u2013199, 214"
+            },
+            {
+              "span": [
+                41659,
+                41673
+              ],
+              "text": "SAC \u00b6\u00b6 198\u2013199"
+            },
+            {
+              "span": [
+                44212,
+                44236
+              ],
+              "text": "SAC \u00b6\u00b6\n\n177\u2013185, 213\u2013226"
+            },
+            {
+              "span": [
+                48641,
+                48655
+              ],
+              "text": "SAC \u00b6\u00b6 110\u2013125"
+            }
+          ],
+          "proposition": "Tanaka, as outside counsel for MAI, \u201cworked in coordination\u201d with public officials\n\nand \u201ccommunicated\u201d with the Department of the Prosecuting Attorney.",
+          "propositionSpan": [
+            26313,
+            26464
+          ]
+        }
+      ],
+      "orphans": [],
+      "unattributedQuotes": [
+        {
+          "span": [
+            3078,
+            3087
+          ],
+          "raw_text": "\u201cBribery\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            3103,
+            3122
+          ],
+          "raw_text": "\u201cCampaign-Donation\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            3127,
+            3142
+          ],
+          "raw_text": "\u201cCommunication\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            3572,
+            3589
+          ],
+          "raw_text": "\u201cchanged outcome\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            3716,
+            3732
+          ],
+          "raw_text": "\u201clate discovery\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            4320,
+            4338
+          ],
+          "raw_text": "\u201cAlivado Coaching\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            13264,
+            13275
+          ],
+          "raw_text": "\u201cPlaintiff\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            13279,
+            13284
+          ],
+          "raw_text": "\u201cMau\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            14010,
+            14036
+          ],
+          "raw_text": "\u201cFirst Amended\n\nComplaint\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            15572,
+            15650
+          ],
+          "raw_text": "\u201callege facts that support a\n\ntolling theory as to each individual defendant.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            30973,
+            30989
+          ],
+          "raw_text": "\u201ccommunications\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            35050,
+            35060
+          ],
+          "raw_text": "\u201cinjuries\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            35093,
+            35105
+          ],
+          "raw_text": "\u201cconspiracy\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            40002,
+            40019
+          ],
+          "raw_text": "\u201cchanged outcome\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            44623,
+            44632
+          ],
+          "raw_text": "\u201ccoached\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            45233,
+            45263
+          ],
+          "raw_text": "\u201ctook money intended for MAI,\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        },
+        {
+          "span": [
+            48165,
+            48175
+          ],
+          "raw_text": "\u201ccoaching\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null
+        }
+      ]
+    }
+  }
+]

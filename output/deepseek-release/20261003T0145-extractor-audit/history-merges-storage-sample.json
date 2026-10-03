@@ -1,0 +1,25 @@
+{
+  "totals": {
+    "documents": 3,
+    "groups": 193,
+    "pairs": 217,
+    "parallel": 4,
+    "history": 2
+  },
+  "accepted": [
+    {
+      "path": "23fb36fee64f48aa952c765bfc3be0e7.pdf",
+      "first": "2019 WL\n\n1085179",
+      "gap": ", at *78 (D.N.M. Mar. 7, 2019), aff'd, ",
+      "second": "950 F.3d 754",
+      "context": " of Regents of Univ. of New Mexico, No. CIV 16-0318 JB\\SCY, 2019 WL\n\n1085179, at *78 (D.N.M. Mar. 7, 2019), aff'd, 950 F.3d 754 (10th Cir. 2020) (internal citations om"
+    },
+    {
+      "path": "359a46773baa472d832558e027afa22e.pdf",
+      "first": "976 P.2d 303",
+      "gap": ", 307\n\n       (Colo. App. 1998), aff'd, ",
+      "second": "3 P.3d 30",
+      "context": "lief (Lot Thirty-Four Venture, L.L.C. v. Town of Telluride, 976 P.2d 303, 307\n\n       (Colo. App. 1998), aff'd, 3 P.3d 30 (Colo. 2000); Denver Publ'g Co. v. Bd. "
+    }
+  ]
+}

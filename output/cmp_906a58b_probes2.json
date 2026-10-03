@@ -1,0 +1,1266 @@
+[
+  {
+    "path": "output\\probes2\\01_circuit_city.txt",
+    "name": "01_circuit_city.txt",
+    "chars": 62,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 1,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "City Stores, Inc. v. Adams",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              36,
+              48
+            ],
+            "text": "532 U.S. 105",
+            "plaintiff": "City Stores, Inc.",
+            "defendant": "Adams",
+            "case_name": null,
+            "full_citation": "City Stores, Inc. v. Adams, 532 U.S. 105, 119 (2001)",
+            "antecedent": null,
+            "pin": "119",
+            "flags": [
+              "parties_corrected: eyecite reported 'Circuit City Stores, Inc.' v. 'Adams'"
+            ]
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                36,
+                48
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\02_court_of_appeals.txt",
+    "name": "02_court_of_appeals.txt",
+    "chars": 50,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 1,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Appeals v. Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              27,
+              35
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "Appeals",
+            "defendant": "Smith",
+            "case_name": null,
+            "full_citation": "Appeals v. Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'Court  Appeals' v. 'Smith'"
+            ]
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                27,
+                35
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\03_and_anderson.txt",
+    "name": "03_and_anderson.txt",
+    "chars": 52,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Anderson, Inc. v. Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              29,
+              37
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "Anderson, Inc.",
+            "defendant": "Smith",
+            "case_name": null,
+            "full_citation": "Anderson, Inc. v. Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                29,
+                37
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\04_also_alsop.txt",
+    "name": "04_also_alsop.txt",
+    "chars": 38,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Also v. Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              15,
+              23
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "Also",
+            "defendant": "Smith",
+            "case_name": null,
+            "full_citation": "Also v. Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                15,
+                23
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\05_in_internet.txt",
+    "name": "05_in_internet.txt",
+    "chars": 48,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "In re Marriage of Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              25,
+              33
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "In re Marriage of Smith",
+            "full_citation": "In re Marriage of Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                25,
+                33
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\06_court_courtland.txt",
+    "name": "06_court_courtland.txt",
+    "chars": 43,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Courtland v. Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              20,
+              28
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "Courtland",
+            "defendant": "Smith",
+            "case_name": null,
+            "full_citation": "Courtland v. Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                20,
+                28
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\07_seeing_eye.txt",
+    "name": "07_seeing_eye.txt",
+    "chars": 37,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 1,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "See v. Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              14,
+              22
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "See",
+            "defendant": "Smith",
+            "case_name": null,
+            "full_citation": "See v. Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported '' v. 'Smith'"
+            ]
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                14,
+                22
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\08_generally_electric.txt",
+    "name": "08_generally_electric.txt",
+    "chars": 54,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "General Electric Co. v. Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              31,
+              39
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "General Electric Co.",
+            "defendant": "Smith",
+            "case_name": null,
+            "full_citation": "General Electric Co. v. Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                31,
+                39
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\09_under_underwood.txt",
+    "name": "09_under_underwood.txt",
+    "chars": 43,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Underwood v. Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              20,
+              28
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "Underwood",
+            "defendant": "Smith",
+            "case_name": null,
+            "full_citation": "Underwood v. Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                20,
+                28
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\10_no_numbering.txt",
+    "name": "10_no_numbering.txt",
+    "chars": 42,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 1,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Smith v. Jones",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              19,
+              27
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "Smith",
+            "defendant": "Jones",
+            "case_name": null,
+            "full_citation": "Smith v. Jones, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'A. Smith' v. 'Jones'"
+            ]
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                19,
+                27
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\11_ex_parte.txt",
+    "name": "11_ex_parte.txt",
+    "chars": 37,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Ex parte Young",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              16,
+              28
+            ],
+            "text": "209 U.S. 123",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "Ex parte Young",
+            "full_citation": "Ex parte Young, 209 U.S. 123 (1908)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                16,
+                28
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\12_people_in_interest.txt",
+    "name": "12_people_in_interest.txt",
+    "chars": 73,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "People in the Interest of C.A.G.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              34,
+              47
+            ],
+            "text": "903 P.2d 1229",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "People in the Interest of C.A.G.",
+            "full_citation": "People in the Interest of C.A.G., 903 P.2d 1229, 1231 (Colo. App. 1995)",
+            "antecedent": null,
+            "pin": "1231",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                34,
+                47
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [
+        {
+          "id": "r0",
+          "kind": "appendix",
+          "label": "Appendix",
+          "header": {
+            "span": [
+              61,
+              70
+            ],
+            "text": "App. 1995",
+            "pin": "1995"
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "quotes": []
+        }
+      ],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\13_corp_v_corp.txt",
+    "name": "13_corp_v_corp.txt",
+    "chars": 93,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 2,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Bell Atlantic Corp. v. Twombly",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              32,
+              44
+            ],
+            "text": "550 U.S. 544",
+            "plaintiff": "Bell Atlantic Corp.",
+            "defendant": "Twombly",
+            "case_name": null,
+            "full_citation": "Bell Atlantic Corp. v. Twombly, 550 U.S. 544, 556 (2007)",
+            "antecedent": null,
+            "pin": "556",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "ShortCaseCitation",
+              "span": [
+                76,
+                91
+              ],
+              "text": "550 U.S. at 557",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Twombly",
+              "pin": "557",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                32,
+                44
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                76,
+                91
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\14_city_of.txt",
+    "name": "14_city_of.txt",
+    "chars": 56,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 1,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "City of Los Angeles v. Patel",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              30,
+              42
+            ],
+            "text": "576 U.S. 409",
+            "plaintiff": "City of Los Angeles",
+            "defendant": "Patel",
+            "case_name": null,
+            "full_citation": "City of Los Angeles v. Patel, 576 U.S. 409, 415 (2015)",
+            "antecedent": null,
+            "pin": "415",
+            "flags": [
+              "parties_corrected: eyecite reported 'City  Los Angeles' v. 'Patel'"
+            ]
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                30,
+                42
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\15_state_of.txt",
+    "name": "15_state_of.txt",
+    "chars": 51,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 1,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "State of Colorado v. Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              28,
+              36
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "State of Colorado",
+            "defendant": "Smith",
+            "case_name": null,
+            "full_citation": "State of Colorado v. Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported 'State  Colorado' v. 'Smith'"
+            ]
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                28,
+                36
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\16_dep't.txt",
+    "name": "16_dep't.txt",
+    "chars": 50,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 1,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Dep't of Revenue v. Smith",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              27,
+              35
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "Dep't of Revenue",
+            "defendant": "Smith",
+            "case_name": null,
+            "full_citation": "Dep't of Revenue v. Smith, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": [
+              "parties_corrected: eyecite reported \"Dep'  Revenue\" v. 'Smith'"
+            ]
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                27,
+                35
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\17_rev_abbrev.txt",
+    "name": "17_rev_abbrev.txt",
+    "chars": 72,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Smith v. Jones",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              49,
+              57
+            ],
+            "text": "5 P.3d 1",
+            "plaintiff": "Smith",
+            "defendant": "Jones",
+            "case_name": null,
+            "full_citation": "Smith v. Jones, 5 P.3d 1 (Colo. 2000)",
+            "antecedent": null,
+            "pin": null,
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Rul. 2020-1 does not apply.",
+          "propositionSpan": [
+            5,
+            32
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                49,
+                57
+              ],
+              "proposition": "Rul. 2020-1 does not apply.",
+              "propositionSpan": [
+                5,
+                32
+              ],
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\18_priv_abbrev_mid.txt",
+    "name": "18_priv_abbrev_mid.txt",
+    "chars": 110,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "In re Facebook, Inc. Consumer Priv. User Profile Litig.",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              61,
+              75
+            ],
+            "text": "2020 WL 614956",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "In re Facebook, Inc. Consumer Priv. User Profile Litig.",
+            "full_citation": "In re Facebook, Inc. Consumer Priv. User Profile Litig., 2020 WL 614956, at *2 (N.D. Cal. Feb. 10 2020)",
+            "antecedent": null,
+            "pin": "at *2",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                61,
+                75
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\19_fed_r_evid.txt",
+    "name": "19_fed_r_evid.txt",
+    "chars": 81,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 1,
+        "authorityCitations": 1
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Old Chief v. United States",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              55,
+              67
+            ],
+            "text": "519 U.S. 172",
+            "plaintiff": "Old Chief",
+            "defendant": "United States",
+            "case_name": null,
+            "full_citation": "Old Chief v. United States, 519 U.S. 172, 180 (1997)",
+            "antecedent": null,
+            "pin": "180",
+            "flags": []
+          },
+          "children": [],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                55,
+                67
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [
+        {
+          "id": "a0",
+          "category": "rule",
+          "source": "Federal Rules of Evidence",
+          "header": {
+            "span": [
+              0,
+              17
+            ],
+            "text": "Fed. R. Evid. 403",
+            "name": "Fed. R. Evid. 403",
+            "short": false
+          },
+          "children": []
+        }
+      ],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  },
+  {
+    "path": "output\\probes2\\20_supra.txt",
+    "name": "20_supra.txt",
+    "chars": 82,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 2,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "Bell Atlantic Corp. v. Twombly",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              32,
+              44
+            ],
+            "text": "550 U.S. 544",
+            "plaintiff": "Bell Atlantic Corp.",
+            "defendant": "Twombly",
+            "case_name": null,
+            "full_citation": "Bell Atlantic Corp. v. Twombly, 550 U.S. 544, 556 (2007)",
+            "antecedent": null,
+            "pin": "556",
+            "flags": []
+          },
+          "children": [
+            {
+              "kind": "SupraCitation",
+              "span": [
+                67,
+                80
+              ],
+              "text": "supra, at 557",
+              "plaintiff": null,
+              "defendant": null,
+              "case_name": null,
+              "full_citation": null,
+              "antecedent": "Twombly",
+              "pin": "at 557",
+              "flags": []
+            }
+          ],
+          "proposition": null,
+          "propositionSpan": null,
+          "occurrences": [
+            {
+              "citationSpan": [
+                32,
+                44
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            },
+            {
+              "citationSpan": [
+                67,
+                80
+              ],
+              "proposition": null,
+              "propositionSpan": null,
+              "signal": null
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  }
+]

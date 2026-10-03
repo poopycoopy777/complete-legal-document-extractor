@@ -1,0 +1,126 @@
+Appeal and Response Briefs - Argument Sections
+
+Argument sections for the twenty appealable orders in D:
+\OrderBench\dataset\orders.jsonl, written as they would be ﬁled.
+Each ﬁle is the argument section of a brief for one order: the caption and standard of review,
+the issue presented, the argument with authority cited inline, and a conclusion stating the relief
+sought. Statement of the case, statement of facts, tables of authorities, and the certiﬁcate pages
+are outside the scope of these ﬁles, as is the rest of the brief.
+| # | File | Case | What the brief argues | | ---: | :--- | :--- | :--- | | 1 |
+01-2025CV36-2026-04-22-msj-denied.md | Cooper v. Baca, 2025CV36 | C.R.C.P. 56:
+Rule 36 admissions establish liability as a matter of law | | 2 | 02-2025CV36-2026-07-07-
+trial-findings.md | Cooper v. Baca, 2025CV36 | Discovery sanctions; judgment against
+the weight of the evidence | | 3 | 03-2025CV111-2026-04-05-ccjra-show-cause.md |
+Cooper v. Ingo, 2025CV111 | CCJRA show cause; full release of body-camera audio | | 4 |
+04-2025CV111-2026-05-22-12b5-dismissal.md | Cooper v. Ingo, 2025CV111 | Reversal
+of a C.R.C.P. 12(b)(5) dismissal of all four claims | | 5 | 05-2025CV36-2025-11-17-12c-
+counterclaims.md | Cooper v. Baca, 2025CV36 | C.R.C.P. 12(c) and 12(f): counterclaims
+and defenses insuﬃcient as a matter of law | | 6 | 06-2025CV36-2025-11-17-mtd-
+denied.md | Cooper v. Baca, 2025CV36 | Dismissal with prejudice; frivolity, abuse of process,
+laches | | 7 | 07-2025CR884-2026-02-09-reseal-denied.md | People v. Cooper,
+2025CR884 | Resealing under C.R.S. s 24-72-705 | | 8 | 08-2025CR884-2026-01-21-
+unseal-granted.md | People v. Cooper, 2025CR884 | Opposing unsealing of criminal case
+records | | 9 | 09-2025CV36-2026-02-17-pino-in-camera.md | Cooper v. Baca,
+2025CV36 | In camera review; unredacted release of body-camera footage | | 10 |
+10-2026CV10-2026-02-18-cora-show-cause.md | Cooper v. Stoller, 2026CV10 | CORA
+show cause against the records custodian | | 11 | 11-25CA0869-2026-01-22-opinion.md |
+Marriage of Harmes, 2025CA0869 | Modiﬁcation of parental responsibilities; C.R.M. 7 review |
+| 12 | 12-2018DR98-2025-02-20-minute-order.md | Marriage of Harmes, 2018DR98 |
+Modiﬁcation of decision-making and parenting time | | 13 | 13-2018DR98-2025-10-23-
+contempt-citation-denied.md | Marriage of Harmes, 2018DR98 | Contempt citation for
+non-payment of child support | | 14 | 14-2018DR98-2026-07-15-casa-written-
+order.md | Harmes v. Cooper, 2018DR98 | Written order; C.R.C.P. 58 and nunc pro tunc
+eﬀect | | 15 | 15-2025CV36-2025-05-12-case-management-16-1.md | Cooper v. Baca,
+2025CV36 | Objection to C.R.C.P. 16.1 simpliﬁed procedure | | 16 |
+16-2025CV36-2026-01-06-mediation-order.md | Cooper v. Baca, 2025CV36 |
+Objection to compelled mediation | | 17 | 17-2025CV36-2026-01-06-pretrial-
+order.md | Cooper v. Baca, 2025CV36 | Objection to a one-day bench trial and pretrial
+sanctions | | 18 | 18-2025CV111-2026-01-20-show-cause-setting.md | Cooper v. Ingo,
+2025CV111 | Continuance and staged body-camera release under the CCJRA | | 19 |
+19-25CA0869-2025-12-26-supplement-record.md | Marriage of Harmes, 2025CA0869
+
+
+
+AppealAppeal andand ResponseResponse BriefsBriefs -- ArgumentArgument SectionsSections| Supplementation of the appellate record | | 20 | 20-2026CA1239-2026-08-24-amended-
+record.md | Cooper v. Ingo, 2026CA1239 | Amending the record; extension of time to ﬁle the
+opening brief |
+
+PDF copies
+
+pdf/ holds a rendered PDF of every ﬁle in this directory, including this index. They are letter-
+size serif documents with a running footer, generated from the Markdown, which stays the
+canonical source. To rebuild them:
+`` python _md_to_pdf.py  ``
+
+Cases cited
+
+These are the decisions the argument sections rely on, with the citation string as it appears in
+the briefs and the sections that use it.
+| Case | Sections | Citation as used | | :--- | :--- | :--- | | Continental Air Lines, Inc. v. Keenan | 01,
+02, 04, 06, 15, 17, 19, 20 | 731 P.2d 708, 711 (Colo. 1987) | | Mountain States Tel. & Tel. Co. v.
+Animas Mosquito Control District | 01 | 152 Colo. 173, 380 P.2d 560, 563 (1963) | | Sullivan v.
+Davis | 01, 04 | 39 Colo. App. 306, 571 P.2d 1103, 1105 (1977) | | Ginter v. Palmer & Co. | 01,
+05 | 196 Colo. 203, 585 P.2d 583, 585 (1978) | | Kaiser Foundation Health Plan of Colorado v.
+Sharp | 01, 04 | 741 P.2d 714, 719 (Colo. 1987) | | Churchey v. Adolph Coors Co. | 01 | 759 P.2d
+1336, 1344 (Colo. 1988) | | Pinnacol Assurance v. Hoﬀ | 01 | 2016 CO 53, para. 16, 375 P.3d
+1214, 1219 | | Rogers v. Sagers | 01 | 2017 COA 96, para. 22, 418 P.3d 1193, 1198 | | Todd v.
+Bear Valley Village Apartments | 02, 17 | 898 P.2d 520, 524 (Colo. 1995) | | Nagy v. District Court
+| 02, 15, 16, 17, 19 | 762 P.2d 158, 161 (Colo. 1988) | | Kwik Way Stores, Inc. v. Caldwell | 02,
+17 | 745 P.2d 672, 676 (Colo. 1987) | | Kaitz v. District Court | 02, 15, 16, 17, 20 | 616 P.2d
+954, 957 (Colo. 1980) | | Warne v. Hall | 04, 05, 06, 17 | 2016 CO 50, para. 12, 373 P.3d 588,
+593; paras. 19, 24 | | Bell Atlantic Corp. v. Twombly | 04, 05, 06 | 550 U.S. 544 (2007) | |
+Ashcroft v. Iqbal | 04, 05, 06 | 556 U.S. 662 (2009) | | Bly v. Story | 04, 06 | 241 P.3d 529, 532
+(Colo. 2010) | | Dunlap v. Colorado Springs Coach Co. | 04, 05 | 618 P.2d 517, 519 (Colo. 1980)
+| | Alpine Bank v. Hubbell | 04 | 2017 COA 155, para. 14, 418 P.3d 604, 608 | | E-470 Public
+Highway Authority v. Revenig | 04, 05 | 91 P.3d 1038, 1045 (Colo. App. 2004) | | Eastern
+Railroad Presidents Conference v. Noerr Motor Freight, Inc. | 06 | 365 U.S. 127 (1961) | | United
+Mine Workers v. Pennington | 06 | 381 U.S. 657 (1965) | | Professional Real Estate Investors, Inc. v.
+Columbia Pictures Industries, Inc. | 06 | 508 U.S. 49 (1993) | | Wick Communications Co. v.
+Montrose County Memorial Hospital District | 03, 07, 09, 10, 18 | 81 P.3d 360, 363-366 (Colo.
+2003) | | Denver Publishing Co. v. Dreyer | 03, 07, 08, 09, 10, 18 | 2016 CO 58, paras. 11, 12,
+20, 21 | | Richmond Newspapers, Inc. v. Virginia | 08 | 448 U.S. 555, 569-574 (1980) | | Globe
+Newspaper Co. v. Superior Court | 08 | 457 U.S. 596, 603-607 (1982) | | Press-Enterprise Co. v.
+Superior Court | 08 | 478 U.S. 1, 8-14 (1986) | | Landis v. North American Co. | 15, 16, 17, 18,
+19, 20 | 299 U.S. 248, 254-255 (1936) | | Mathews v. Eldridge | 13, 16, 17, 20 | 424 U.S. 319,
+
+
+
+AppealAppeal andand ResponseResponse BriefsBriefs -- ArgumentArgument SectionsSections333-335 (1976) | | Palmer v. District Court | 15, 17 | 510 P.2d 440, 443 (Colo. 1973) | | In re
+Marriage of Ciesluk | 11, 12, 14 | 113 P.3d 135, 140-141 (Colo. 2005) | | In re Marriage of
+Francis | 11, 12, 14 | 919 P.2d 776, 781 (Colo. 1996) | | In re Marriage of Nussbeck | 11, 12, 13,
+14 | 974 P.2d 493, 497 (Colo. 1999) | | In re Marriage of Balanson | 11, 12, 13, 14 | 25 P.3d 28,
+34 (Colo. 2001) | | Troxel v. Granville | 11, 12, 14 | 530 U.S. 57, 65-72 (2000) | | In re Oliver |
+13 | 333 U.S. 257, 273-276 (1948) | | International Union, United Mine Workers of America v.
+Bagwell | 13 | 512 U.S. 821, 827-839 (1994) | | In re Marriage of Rogers | 13 | 709 P.2d 1383
+(Colo. App. 1985) |
+A short-form reference such as Todd, 898 P.2d at 524 is the same decision already listed above,
+not an additional authority.
+
+Statutes and rules
+
+The analysis rests principally on C.R.C.P. 8(a) and 8(c), 11, 12(b)(5), 12(c), 12(f), 13, 15, 16,
+16.1, 26, 30, 37 and its subdivisions, 38, 39, 40, 45, 52, 55.1, 56, 58, 59, 60, 81, 107 and 121;
+C.R.M. 7; C.A.R. 4, 10 and 27; C.R.S. ss 13-5-301, 13-17-101 and 13-17-102, 13-20-1101,
+13-22-301 through 13-22-307, 13-91-101 et seq., 14-10-116, 14-10-120, 14-10-122, 14-10-124,
+14-10-129, 14-14-101 through 14-14-104, the open records provisions at C.R.S. ss 24-72-201
+through 24-72-204, the criminal justice records provisions at C.R.S. ss 24-72-301 through
+24-72-305, and the sealing provisions at C.R.S. ss 24-72-701 through 24-72-707; Colo. Const.
+art. II, s 23; U.S. Const. amend. I.
+
+Provenance
+
+Every section was written from the procedural question each order resolves, as stated in the
+prompt ﬁeld of the dataset, together with the case caption, court, and docket number. No
+online search and no retrieval was used, and no external source was consulted. The citations
+above are recalled from memory and stated as a ﬁling lawyer states them.
+holding and reasoning_hooks in orders.jsonl, and the order texts under dataset/
+text/, were deliberately not read. Those ﬁelds are the benchmark's answer key. An argument
+section written after reading the ruling it responds to would not be an argument section at all,
+and reading them would have defeated the purpose of the exercise. Where a section responds to
+a ruling, it does so from the procedural posture the prompt describes.
+
+
+
+
+
+AppealAppeal andand ResponseResponse BriefsBriefs -- ArgumentArgument SectionsSections

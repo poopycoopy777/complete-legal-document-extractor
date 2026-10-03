@@ -1,0 +1,151 @@
+Cooper v. Ingo, Case No. 2025CV111 - Argument Section
+
+COURT: District Court, Pueblo County, Colorado
+CASE NO.: 2025CV111
+FILING PARTY: Plaintiﬀ, opposing dismissal of the complaint
+MATTER: Motion to dismiss for failure to state a claim (C.R.C.P. 12(b)(5))
+STANDARD OF REVIEW: De novo; dismissal is proper only if the plaintiﬀ can prove no set of
+facts entitling it to relief
+
+ISSUE PRESENTED
+
+Whether the district court erred in dismissing all four claims under C.R.C.P. 12(b)(5), where
+the complaint pleads facts supporting each element of each claim and a complaint may be
+dismissed only when the plaintiﬀ can prove no set of facts in support of the claim that would
+entitle it to relief.
+
+ARGUMENT
+
+I. A complaint may be dismissed only when the plaintiﬀ can prove no set of facts
+entitling it to relief, and the court applied a stricter standard than Colorado law allows.
+C.R.C.P. 12(b)(5) permits dismissal for failure to state a claim upon which relief can be
+granted. The inquiry the rule directs is a narrow one. The question is whether, taking the
+allegations of the complaint as true and drawing every reasonable inference in the plaintiﬀ's
+favor, the plaintiﬀ can prove no set of facts in support of the claim that would entitle it to
+relief. If, under any circumstances the plaintiﬀ is entitled to relief, dismissal is improper. Warne
+v. Hall, 2016 CO 50, para. 12, 373 P.3d 588, 593. The standard is the same one the Colorado
+Supreme Court applied before the federal rules were revised, and it is the standard the Supreme
+Court reaﬃrmed when it considered the question squarely. Id. at para. 16, 373 P.3d at 594.
+Colorado has deliberately declined to import the federal plausibility standard of Bell Atlantic
+Corp. v. Twombly, 550 U.S. 544 (2007), and Ashcroft v. Iqbal, 556 U.S. 662 (2009), into Rule
+12(b)(5). Warne, 2016 CO 50, para. 24, 373 P.3d at 596. The distinction is not semantic. A
+plausibility inquiry invites the court to assess the strength of the plaintiﬀ's account. The
+Colorado inquiry asks only whether that account, if true, states a claim the law recognizes. The
+Supreme Court itself described the federal standard as one requiring enough facts to state a
+claim to relief that is plausible on its face, Twombly, 550 U.S. at 570, and as a standard that
+calls for the reviewing court to draw on its judicial experience and common sense, Iqbal, 556
+U.S. at 679. Colorado rejected that invitation. A court that dismisses a complaint because the
+pleaded facts do not yet prove the ultimate issue has engaged in precisely the weighing the rule
+
+
+
+CooperCooper v.v. Ingo,Ingo, CaseCase No.No. 2025CV1112025CV111 -- ArgumentArgument SectionSectionforbids. A court may not dismiss because the plaintiﬀ's evidence may prove weak, because the
+facts pleaded appear improbable, or because a defense theory seems more credible on paper.
+Each of those is a merits determination reserved for a later stage.
+The standard is the mirror image of the summary judgment standard, and it is deliberately
+generous to the pleader. The purpose of notice pleading under C.R.C.P. 8(a) is to give the
+defendant fair notice of the claim and the grounds on which it rests. A complaint that does so is
+suﬃcient, and the plaintiﬀ is entitled to discovery to develop the facts that will prove it. Dunlap
+v. Colorado Springs Coach Co., 618 P.2d 517, 519 (Colo. 1980). The allocation of burdens that
+governs the dismissal inquiry is the same allocation the Supreme Court described for summary
+judgment under C.R.C.P. 56: the party moving for a terminal disposition must demonstrate that
+there is nothing left to try, and the responding party is not required to prove its case in advance
+of trial. Continental Air Lines, Inc. v. Keenan, 731 P.2d 708, 711 (Colo. 1987). A complaint is
+measured by C.R.C.P. 8(a), and the general rules of pleading do not require the pleader to
+anticipate and negate every defense the answer may raise. C.R.C.P. 8(c) assigns that function to
+the answering party, who bears the burden of pleading and proving the aﬃrmative matters it
+relies on. Sullivan v. Davis, 39 Colo. App. 306, 571 P.2d 1103, 1105 (1977).
+
+II. Each claim required its own analysis, and a dismissal of four claims on a single
+shared rationale cannot be sustained.
+An order granting a motion under C.R.C.P. 12(b)(5) must proceed claim by claim. Each count
+states a distinct legal theory with distinct elements, and each must be measured against its own
+elements. The required analysis is the same in form for every claim: identify the elements,
+identify the pleaded facts that go to each element, accept those facts as true, and ask whether a
+reasonable factﬁnder could ﬁnd for the plaintiﬀ. If the answer is yes for a claim, that claim
+survives and proceeds to discovery, whatever becomes of the others.
+An order that dismisses four separate claims on one shared rationale has not performed that
+analysis, and a reviewing court cannot determine from the order which element it found
+wanting as to which claim. The defect is not harmless, because the appellate standard requires
+the reviewing court to determine whether each claim independently satisﬁes the rule. A
+dismissal under C.R.C.P. 12(b)(5) is reviewed de novo, and the appellate court applies the same
+standard the trial court was required to apply. Bly v. Story, 241 P.3d 529, 532 (Colo. 2010). De
+novo review means that the appellate court owes no deference to the district court's reading of
+the pleading, and it must satisfy itself claim by claim that the dismissal was required. Warne,
+2016 CO 50, para. 19, 373 P.3d at 595. Where the order does not disclose a claim-by-claim
+element analysis, the dismissal cannot be aﬃrmed, and the appropriate disposition is reversal
+so that the required analysis is conducted.
+The court may not supply the missing analysis by reasoning that the claims rise and fall
+together. Claims pleaded in the alternative are permitted, C.R.C.P. 8(a) permits a party to state
+as many claims as it has, and C.R.C.P. 12(f) supplies a narrower remedy than dismissal where a
+portion of a pleading is redundant or immaterial. A court that concludes some allegation
+
+
+
+CooperCooper v.v. Ingo,Ingo, CaseCase No.No. 2025CV1112025CV111 -- ArgumentArgument SectionSectionshould not be in the case must use the remedy the rules provide for that conclusion rather than
+dismissing the claims to which the allegation relates.
+
+III. The court resolved disputed issues of fact and drew inferences against the plaintiﬀ.
+Rule 12(b)(5) requires every reasonable inference to be drawn in the plaintiﬀ's favor. An order
+that draws inferences against the pleader, or that credits the defendant's characterization of the
+facts over the plaintiﬀ's, has converted a motion addressed to the suﬃciency of the pleading
+into a premature trial of the merits. Where the plaintiﬀ's allegations and the defendant's version
+of events conﬂict, the conﬂict must be resolved for the plaintiﬀ at this stage. Dunlap, 618 P.2d
+at 519. A court may not dismiss a claim because the defendant oﬀers an explanation the
+plaintiﬀ's allegations do not foreclose. To do so places on the plaintiﬀ the burden of negating
+every possible defense in the complaint, a burden Colorado law does not impose and Rule
+12(b)(5) expressly disclaims. Dunlap, 618 P.2d at 519. The rule that all doubts are resolved in
+the pleader's favor is the pleading-stage counterpart of the rule that governs summary
+judgment, under which all doubts are resolved in favor of the party opposing a terminal
+disposition. Kaiser Foundation Health Plan of Colorado v. Sharp, 741 P.2d 714, 719 (Colo. 1987).
+The same error appears in any reliance on material outside the complaint. If the court
+considered a document, an aﬃdavit, an exhibit, or a representation of counsel that is neither
+part of the complaint nor properly subject to judicial notice, it exceeded the Rule 12(b)(5)
+inquiry. When matters outside the pleading are presented to and not excluded by the court, the
+motion must be treated as one for summary judgment under C.R.C.P. 56, and the parties must
+be given the notice and the reasonable opportunity to present the material that the rule makes
+relevant. Alpine Bank v. Hubbell, 2017 COA 155, para. 14, 418 P.3d 604, 608. A dismissal
+entered on a record the plaintiﬀ had no occasion to meet would violate that requirement. The
+conversion requirement is not a technicality; it is what protects the plaintiﬀ's entitlement to
+notice of the standard against which the pleading is being measured and to the opportunity to
+respond with evidence. C.R.C.P. 56(e) then governs the form that evidence must take, and
+C.R.C.P. 26(b)(1) deﬁnes the discovery the plaintiﬀ may take before the motion is decided.
+
+IV. Dismissal should have been with leave to amend, and any deﬁciency in the pleading
+is one amendment could cure.
+Even where dismissal is warranted, the ordinary course is dismissal with leave to amend unless
+amendment would be futile or the plaintiﬀ has already had a full opportunity to cure the
+defect. C.R.C.P. 15(a) directs that leave to amend "shall be freely given when justice so
+requires," and it embodies a policy of deciding cases on their merits rather than on pleading
+defects. E-470 Public Highway Authority v. Revenig, 91 P.3d 1038, 1045 (Colo. App. 2004). A
+dismissal that ends the litigation should rest on an express determination that no amendment
+could save the claim. The liberality the rule commands reﬂects the same policy that governs a
+motion for relief from judgment under C.R.C.P. 59(a) and C.R.C.P. 60, under which a party is
+permitted to correct a defect so that the merits may be reached.
+
+
+
+
+CooperCooper v.v. Ingo,Ingo, CaseCase No.No. 2025CV1112025CV111 -- ArgumentArgument SectionSectionA complaint dismissed for the suﬃciency of its allegations presents a deﬁciency that
+amendment can reach. The plaintiﬀ is entitled to an opportunity to cure, and the court should
+be directed on remand either to grant leave to amend or to identify on the record why
+amendment would be futile. Because the dismissal here terminated four claims without that
+determination, the order should be reversed and the case remanded for further proceedings. If
+the court on remand concludes that anything short of dismissal is warranted, C.R.C.P. 12(f)
+permits it to strike the oﬀending matter, and C.R.C.P. 12(c) permits judgment on the pleadings
+only after the pleadings are closed and only on the same legal suﬃciency standard. C.R.C.P. 16
+and C.R.C.P. 121 govern the management of the case on remand so that the amendment is ﬁled
+and joined on a schedule the court sets.
+
+CONCLUSION
+
+The complaint pleads facts that, taken as true and read in the plaintiﬀ's favor, state four claims
+for relief under the notice pleading standard Colorado applies. The plaintiﬀ respectfully
+requests that the Court reverse the dismissal of each claim, or in the alternative remand with
+directions to permit amendment pursuant to C.R.C.P. 15(a).
+
+
+
+
+
+CooperCooper v.v. Ingo,Ingo, CaseCase No.No. 2025CV1112025CV111 -- ArgumentArgument SectionSection

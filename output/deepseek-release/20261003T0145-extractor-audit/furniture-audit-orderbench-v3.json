@@ -1,0 +1,217 @@
+[
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\00-INDEX.pdf",
+    "text_chars": 8833,
+    "furniture_lines": [],
+    "groups": 38,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\01-2025CV36-2026-04-22-msj-denied.pdf",
+    "text_chars": 11424,
+    "furniture_lines": [],
+    "groups": 8,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\02-2025CV36-2026-07-07-trial-findings.pdf",
+    "text_chars": 25216,
+    "furniture_lines": [],
+    "groups": 5,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\03-2025CV111-2026-04-05-ccjra-show-cause.pdf",
+    "text_chars": 15099,
+    "furniture_lines": [],
+    "groups": 2,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\04-2025CV111-2026-05-22-12b5-dismissal.pdf",
+    "text_chars": 11063,
+    "furniture_lines": [],
+    "groups": 10,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\05-2025CV36-2025-11-17-12c-counterclaims.pdf",
+    "text_chars": 8830,
+    "furniture_lines": [],
+    "groups": 6,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\06-2025CV36-2025-11-17-mtd-denied.pdf",
+    "text_chars": 25011,
+    "furniture_lines": [],
+    "groups": 8,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\07-2025CR884-2026-02-09-reseal-denied.pdf",
+    "text_chars": 16538,
+    "furniture_lines": [],
+    "groups": 2,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\08-2025CR884-2026-01-21-unseal-granted.pdf",
+    "text_chars": 15084,
+    "furniture_lines": [],
+    "groups": 4,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\09-2025CV36-2026-02-17-pino-in-camera.pdf",
+    "text_chars": 12878,
+    "furniture_lines": [],
+    "groups": 2,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\10-2026CV10-2026-02-18-cora-show-cause.pdf",
+    "text_chars": 11736,
+    "furniture_lines": [],
+    "groups": 2,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\11-25CA0869-2026-01-22-opinion.pdf",
+    "text_chars": 17520,
+    "furniture_lines": [],
+    "groups": 5,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\12-2018DR98-2025-02-20-minute-order.pdf",
+    "text_chars": 17608,
+    "furniture_lines": [],
+    "groups": 5,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\13-2018DR98-2025-10-23-contempt-citation-denied.pdf",
+    "text_chars": 16277,
+    "furniture_lines": [],
+    "groups": 6,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\14-2018DR98-2026-07-15-casa-written-order.pdf",
+    "text_chars": 16542,
+    "furniture_lines": [],
+    "groups": 5,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\15-2025CV36-2025-05-12-case-management-16-1.pdf",
+    "text_chars": 15140,
+    "furniture_lines": [],
+    "groups": 5,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\16-2025CV36-2026-01-06-mediation-order.pdf",
+    "text_chars": 15339,
+    "furniture_lines": [],
+    "groups": 4,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\17-2025CV36-2026-01-06-pretrial-order.pdf",
+    "text_chars": 19353,
+    "furniture_lines": [],
+    "groups": 9,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\18-2025CV111-2026-01-20-show-cause-setting.pdf",
+    "text_chars": 12025,
+    "furniture_lines": [
+      {
+        "line": "Denver Publishing Co. v. Dreyer, 2016 CO 58, para. 21.",
+        "count": 2
+      }
+    ],
+    "groups": 3,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\19-25CA0869-2025-12-26-supplement-record.pdf",
+    "text_chars": 18246,
+    "furniture_lines": [],
+    "groups": 3,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  },
+  {
+    "path": "D:\\legal-app\\output\\orderbench-briefs\\pdf\\20-2026CA1239-2026-08-24-amended-record.pdf",
+    "text_chars": 15945,
+    "furniture_lines": [],
+    "groups": 4,
+    "contaminated_propositions": [],
+    "reused_propositions": [],
+    "contamination_count": 0,
+    "reuse_count": 0
+  }
+]

@@ -1,0 +1,2654 @@
+{
+  "summary": {
+    "textSource": "embedded",
+    "pageCount": 50,
+    "pages_table": 50,
+    "highlights": 73,
+    "highlights_with_page": 73,
+    "ocr": null,
+    "stats": {
+      "groups": 0,
+      "citations": 0,
+      "quotes": 63,
+      "linkedQuotes": 0,
+      "ambiguousQuotes": 0,
+      "unattributedQuotes": 63,
+      "flagged": 0,
+      "authorities": 4,
+      "authorityCitations": 10
+    },
+    "page_table_last_end": 70889,
+    "text_length": 70889,
+    "spans": 0,
+    "spans_ambiguous": 0,
+    "spans_without_page": 0
+  },
+  "response": {
+    "id": "41f50502794349e7a46e56134b2e478a",
+    "name": "263afae0799f45b2b45306907ce00975.pdf",
+    "kind": "pdf",
+    "sha256": "a4ace67a6666200c41f9c049ae52440ff8c10cd9d387dc3802d2cbb53cb6e355",
+    "uploadedAt": "2026-10-03T07:35:48.646931+00:00",
+    "pageCount": 50,
+    "pages": [
+      {
+        "index": 0,
+        "start": 0,
+        "end": 5,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 1,
+        "start": 5,
+        "end": 1528,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 2,
+        "start": 1528,
+        "end": 3158,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 3,
+        "start": 3158,
+        "end": 4751,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 4,
+        "start": 4751,
+        "end": 6234,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 5,
+        "start": 6234,
+        "end": 7898,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 6,
+        "start": 7898,
+        "end": 9393,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 7,
+        "start": 9393,
+        "end": 10917,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 8,
+        "start": 10917,
+        "end": 12544,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 9,
+        "start": 12544,
+        "end": 14100,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 10,
+        "start": 14100,
+        "end": 15947,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 11,
+        "start": 15947,
+        "end": 17670,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 12,
+        "start": 17670,
+        "end": 19395,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 13,
+        "start": 19395,
+        "end": 20942,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 14,
+        "start": 20942,
+        "end": 22612,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 15,
+        "start": 22612,
+        "end": 24100,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 16,
+        "start": 24100,
+        "end": 25799,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 17,
+        "start": 25799,
+        "end": 27490,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 18,
+        "start": 27490,
+        "end": 29231,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 19,
+        "start": 29231,
+        "end": 30949,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 20,
+        "start": 30949,
+        "end": 32600,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 21,
+        "start": 32600,
+        "end": 34171,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 22,
+        "start": 34171,
+        "end": 35722,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 23,
+        "start": 35722,
+        "end": 37394,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 24,
+        "start": 37394,
+        "end": 39101,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 25,
+        "start": 39101,
+        "end": 40908,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 26,
+        "start": 40908,
+        "end": 42699,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 27,
+        "start": 42699,
+        "end": 44281,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 28,
+        "start": 44281,
+        "end": 45391,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 29,
+        "start": 45391,
+        "end": 46289,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 30,
+        "start": 46289,
+        "end": 46294,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 31,
+        "start": 46294,
+        "end": 47720,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 32,
+        "start": 47720,
+        "end": 49352,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 33,
+        "start": 49352,
+        "end": 51164,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 34,
+        "start": 51164,
+        "end": 52991,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 35,
+        "start": 52991,
+        "end": 54770,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 36,
+        "start": 54770,
+        "end": 56631,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 37,
+        "start": 56631,
+        "end": 57769,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 38,
+        "start": 57769,
+        "end": 58642,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 39,
+        "start": 58642,
+        "end": 58647,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 40,
+        "start": 58647,
+        "end": 60184,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 41,
+        "start": 60184,
+        "end": 61606,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 42,
+        "start": 61606,
+        "end": 63041,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 43,
+        "start": 63041,
+        "end": 64539,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 44,
+        "start": 64539,
+        "end": 66097,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 45,
+        "start": 66097,
+        "end": 67730,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 46,
+        "start": 67730,
+        "end": 69297,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 47,
+        "start": 69297,
+        "end": 70248,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 48,
+        "start": 70248,
+        "end": 70529,
+        "width": 612.0,
+        "height": 792.0
+      },
+      {
+        "index": 49,
+        "start": 70529,
+        "end": 70889,
+        "width": 612.0,
+        "height": 792.0
+      }
+    ],
+    "highlights": [
+      {
+        "span": [
+          2926,
+          2936
+        ],
+        "page": 2,
+        "rects": [
+          [
+            340.58,
+            577.67,
+            393.23,
+            590.96
+          ]
+        ]
+      },
+      {
+        "span": [
+          3014,
+          3025
+        ],
+        "page": 2,
+        "rects": [
+          [
+            214.95,
+            632.87,
+            270.6,
+            646.15
+          ]
+        ]
+      },
+      {
+        "span": [
+          3062,
+          3072
+        ],
+        "page": 2,
+        "rects": [
+          [
+            227.95,
+            660.46,
+            280.61,
+            673.75
+          ]
+        ]
+      },
+      {
+        "span": [
+          5388,
+          5444
+        ],
+        "page": 4,
+        "rects": [
+          [
+            368.91,
+            329.29,
+            540.86,
+            342.58
+          ]
+        ]
+      },
+      {
+        "span": [
+          5883,
+          5925
+        ],
+        "page": 4,
+        "rects": [
+          [
+            255.29,
+            522.47,
+            527.65,
+            535.76
+          ]
+        ]
+      },
+      {
+        "span": [
+          9132,
+          9142
+        ],
+        "page": 6,
+        "rects": [
+          [
+            261.94,
+            605.27,
+            314.59,
+            618.56
+          ]
+        ]
+      },
+      {
+        "span": [
+          9339,
+          9350
+        ],
+        "page": 6,
+        "rects": [
+          [
+            214.95,
+            688.06,
+            270.6,
+            701.35
+          ]
+        ]
+      },
+      {
+        "span": [
+          9421,
+          9446
+        ],
+        "page": 7,
+        "rects": [
+          [
+            200.96,
+            108.51,
+            318.49,
+            121.8
+          ]
+        ]
+      },
+      {
+        "span": [
+          10810,
+          10824
+        ],
+        "page": 7,
+        "rects": [
+          [
+            156.81,
+            688.06,
+            243.12,
+            701.35
+          ]
+        ]
+      },
+      {
+        "span": [
+          10979,
+          10994
+        ],
+        "page": 8,
+        "rects": [
+          [
+            360.54,
+            108.51,
+            443.84,
+            121.8
+          ]
+        ]
+      },
+      {
+        "span": [
+          11012,
+          11026
+        ],
+        "page": 8,
+        "rects": [
+          [
+            145.97,
+            136.11,
+            226.27,
+            149.4
+          ]
+        ]
+      },
+      {
+        "span": [
+          11537,
+          11551
+        ],
+        "page": 8,
+        "rects": [
+          [
+            250.91,
+            356.89,
+            331.21,
+            370.18
+          ]
+        ]
+      },
+      {
+        "span": [
+          11659,
+          11673
+        ],
+        "page": 8,
+        "rects": [
+          [
+            250.91,
+            412.08,
+            331.21,
+            425.37
+          ]
+        ]
+      },
+      {
+        "span": [
+          11852,
+          11866
+        ],
+        "page": 8,
+        "rects": [
+          [
+            250.91,
+            467.28,
+            331.21,
+            480.57
+          ]
+        ]
+      },
+      {
+        "span": [
+          11977,
+          11991
+        ],
+        "page": 8,
+        "rects": [
+          [
+            250.91,
+            522.47,
+            331.21,
+            535.76
+          ]
+        ]
+      },
+      {
+        "span": [
+          12399,
+          12423
+        ],
+        "page": 8,
+        "rects": [
+          [
+            185.28,
+            660.46,
+            310.58,
+            673.75
+          ]
+        ]
+      },
+      {
+        "span": [
+          12448,
+          12501
+        ],
+        "page": 8,
+        "rects": [
+          [
+            180.62,
+            688.06,
+            444.94,
+            701.35
+          ]
+        ]
+      },
+      {
+        "span": [
+          12578,
+          12621
+        ],
+        "page": 9,
+        "rects": [
+          [
+            237.25,
+            108.51,
+            439.09,
+            121.8
+          ]
+        ]
+      },
+      {
+        "span": [
+          12646,
+          12684
+        ],
+        "page": 9,
+        "rects": [
+          [
+            183.96,
+            136.11,
+            362.25,
+            149.4
+          ]
+        ]
+      },
+      {
+        "span": [
+          12714,
+          12740
+        ],
+        "page": 9,
+        "rects": [
+          [
+            207.61,
+            163.71,
+            341.27,
+            176.99
+          ]
+        ]
+      },
+      {
+        "span": [
+          12769,
+          12820
+        ],
+        "page": 9,
+        "rects": [
+          [
+            194.96,
+            191.3,
+            433.57,
+            204.59
+          ]
+        ]
+      },
+      {
+        "span": [
+          13902,
+          14057
+        ],
+        "page": 9,
+        "rects": [
+          [
+            319.26,
+            632.87,
+            525.66,
+            646.15
+          ]
+        ]
+      },
+      {
+        "span": [
+          14339,
+          14407
+        ],
+        "page": 10,
+        "rects": [
+          [
+            423.23,
+            163.71,
+            523.71,
+            176.99
+          ]
+        ]
+      },
+      {
+        "span": [
+          14441,
+          14456
+        ],
+        "page": 10,
+        "rects": [
+          [
+            220.96,
+            218.9,
+            287.93,
+            232.19
+          ]
+        ]
+      },
+      {
+        "span": [
+          14642,
+          14651
+        ],
+        "page": 10,
+        "rects": [
+          [
+            314.61,
+            274.1,
+            355.1,
+            287.38
+          ]
+        ]
+      },
+      {
+        "span": [
+          15236,
+          15255
+        ],
+        "page": 10,
+        "rects": [
+          [
+            327.58,
+            467.28,
+            419.54,
+            480.57
+          ]
+        ]
+      },
+      {
+        "span": [
+          16136,
+          16182
+        ],
+        "page": 11,
+        "rects": [
+          [
+            452.54,
+            163.71,
+            524.57,
+            176.99
+          ]
+        ]
+      },
+      {
+        "span": [
+          20636,
+          20647
+        ],
+        "page": 13,
+        "rects": [
+          [
+            326.21,
+            605.27,
+            389.29,
+            618.56
+          ]
+        ]
+      },
+      {
+        "span": [
+          22066,
+          22122
+        ],
+        "page": 14,
+        "rects": [
+          [
+            346.92,
+            522.47,
+            518.87,
+            535.76
+          ]
+        ]
+      },
+      {
+        "span": [
+          23211,
+          23269
+        ],
+        "page": 15,
+        "rects": [
+          [
+            318.72,
+            301.69,
+            542.33,
+            314.98
+          ]
+        ]
+      },
+      {
+        "span": [
+          23548,
+          23566
+        ],
+        "page": 15,
+        "rects": [
+          [
+            122.99,
+            467.28,
+            216.66,
+            480.57
+          ]
+        ]
+      },
+      {
+        "span": [
+          24271,
+          24289
+        ],
+        "page": 16,
+        "rects": [
+          [
+            207.72,
+            163.71,
+            302.72,
+            176.99
+          ]
+        ]
+      },
+      {
+        "span": [
+          24302,
+          24313
+        ],
+        "page": 16,
+        "rects": [
+          [
+            363.06,
+            163.71,
+            422.28,
+            176.99
+          ]
+        ]
+      },
+      {
+        "span": [
+          24748,
+          24759
+        ],
+        "page": 16,
+        "rects": [
+          [
+            214.95,
+            356.89,
+            270.6,
+            370.18
+          ]
+        ]
+      },
+      {
+        "span": [
+          25204,
+          25214
+        ],
+        "page": 16,
+        "rects": [
+          [
+            186.98,
+            522.47,
+            239.63,
+            535.76
+          ]
+        ]
+      },
+      {
+        "span": [
+          25300,
+          25310
+        ],
+        "page": 16,
+        "rects": [
+          [
+            268.95,
+            550.07,
+            321.6,
+            563.36
+          ]
+        ]
+      },
+      {
+        "span": [
+          25832,
+          25846
+        ],
+        "page": 17,
+        "rects": [
+          [
+            216.64,
+            108.51,
+            296.93,
+            121.8
+          ]
+        ]
+      },
+      {
+        "span": [
+          31720,
+          31730
+        ],
+        "page": 20,
+        "rects": [
+          [
+            270.26,
+            398.29,
+            322.91,
+            411.57
+          ]
+        ]
+      },
+      {
+        "span": [
+          34802,
+          34812
+        ],
+        "page": 22,
+        "rects": [
+          [
+            299.27,
+            301.69,
+            351.93,
+            314.98
+          ]
+        ]
+      },
+      {
+        "span": [
+          36101,
+          36119
+        ],
+        "page": 23,
+        "rects": [
+          [
+            267.5,
+            218.9,
+            362.5,
+            232.19
+          ]
+        ]
+      },
+      {
+        "span": [
+          37172,
+          37228
+        ],
+        "page": 23,
+        "rects": [
+          [
+            346.92,
+            605.27,
+            518.87,
+            618.56
+          ]
+        ]
+      },
+      {
+        "span": [
+          37550,
+          37559
+        ],
+        "page": 24,
+        "rects": [
+          [
+            374.92,
+            136.11,
+            415.23,
+            149.4
+          ]
+        ]
+      },
+      {
+        "span": [
+          39146,
+          39164
+        ],
+        "page": 25,
+        "rects": [
+          [
+            278.4,
+            108.51,
+            372.07,
+            121.8
+          ]
+        ]
+      },
+      {
+        "span": [
+          39625,
+          39676
+        ],
+        "page": 25,
+        "rects": [
+          [
+            285.73,
+            274.1,
+            535.11,
+            287.38
+          ]
+        ]
+      },
+      {
+        "span": [
+          40145,
+          40163
+        ],
+        "page": 25,
+        "rects": [
+          [
+            267.5,
+            439.68,
+            362.5,
+            452.97
+          ]
+        ]
+      },
+      {
+        "span": [
+          40290,
+          40308
+        ],
+        "page": 25,
+        "rects": [
+          [
+            90.0,
+            522.47,
+            183.67,
+            535.76
+          ]
+        ]
+      },
+      {
+        "span": [
+          40759,
+          40777
+        ],
+        "page": 25,
+        "rects": [
+          [
+            297.95,
+            660.46,
+            391.62,
+            673.75
+          ]
+        ]
+      },
+      {
+        "span": [
+          41344,
+          41362
+        ],
+        "page": 26,
+        "rects": [
+          [
+            90.0,
+            246.5,
+            183.67,
+            259.79
+          ]
+        ]
+      },
+      {
+        "span": [
+          42742,
+          42752
+        ],
+        "page": 27,
+        "rects": [
+          [
+            290.25,
+            108.51,
+            342.9,
+            121.8
+          ]
+        ]
+      },
+      {
+        "span": [
+          43217,
+          43231
+        ],
+        "page": 27,
+        "rects": [
+          [
+            237.94,
+            274.1,
+            318.23,
+            287.38
+          ]
+        ]
+      },
+      {
+        "span": [
+          44084,
+          44102
+        ],
+        "page": 27,
+        "rects": [
+          [
+            352.25,
+            577.67,
+            445.93,
+            590.96
+          ]
+        ]
+      },
+      {
+        "span": [
+          47488,
+          47542
+        ],
+        "page": 31,
+        "rects": [
+          [
+            339.93,
+            638.38,
+            530.22,
+            651.67
+          ]
+        ]
+      },
+      {
+        "span": [
+          48251,
+          48261
+        ],
+        "page": 32,
+        "rects": [
+          [
+            148.42,
+            301.69,
+            201.08,
+            314.98
+          ]
+        ]
+      },
+      {
+        "span": [
+          48490,
+          48501
+        ],
+        "page": 32,
+        "rects": [
+          [
+            232.95,
+            384.49,
+            288.6,
+            397.78
+          ]
+        ]
+      },
+      {
+        "span": [
+          48518,
+          48543
+        ],
+        "page": 32,
+        "rects": [
+          [
+            364.26,
+            384.49,
+            481.79,
+            397.78
+          ]
+        ]
+      },
+      {
+        "span": [
+          50433,
+          50447
+        ],
+        "page": 33,
+        "rects": [
+          [
+            191.62,
+            467.28,
+            271.92,
+            480.57
+          ]
+        ]
+      },
+      {
+        "span": [
+          50517,
+          50531
+        ],
+        "page": 33,
+        "rects": [
+          [
+            127.97,
+            494.88,
+            208.27,
+            508.17
+          ]
+        ]
+      },
+      {
+        "span": [
+          50781,
+          50796
+        ],
+        "page": 33,
+        "rects": [
+          [
+            470.79,
+            550.07,
+            521.11,
+            563.36
+          ]
+        ]
+      },
+      {
+        "span": [
+          51008,
+          51031
+        ],
+        "page": 33,
+        "rects": [
+          [
+            375.01,
+            632.87,
+            497.32,
+            646.15
+          ]
+        ]
+      },
+      {
+        "span": [
+          51212,
+          51263
+        ],
+        "page": 34,
+        "rects": [
+          [
+            295.74,
+            108.51,
+            534.35,
+            121.8
+          ]
+        ]
+      },
+      {
+        "span": [
+          51877,
+          51893
+        ],
+        "page": 34,
+        "rects": [
+          [
+            376.73,
+            329.29,
+            446.22,
+            342.58
+          ]
+        ]
+      },
+      {
+        "span": [
+          51938,
+          51963
+        ],
+        "page": 34,
+        "rects": [
+          [
+            196.29,
+            356.89,
+            312.24,
+            370.18
+          ]
+        ]
+      },
+      {
+        "span": [
+          52017,
+          52026
+        ],
+        "page": 34,
+        "rects": [
+          [
+            332.61,
+            384.49,
+            373.1,
+            397.78
+          ]
+        ]
+      },
+      {
+        "span": [
+          53616,
+          53659
+        ],
+        "page": 35,
+        "rects": [
+          [
+            391.27,
+            274.1,
+            516.29,
+            287.38
+          ]
+        ]
+      },
+      {
+        "span": [
+          55268,
+          55279
+        ],
+        "page": 36,
+        "rects": [
+          [
+            131.31,
+            274.1,
+            194.39,
+            287.38
+          ]
+        ]
+      },
+      {
+        "span": [
+          57860,
+          57875
+        ],
+        "page": 38,
+        "rects": [
+          [
+            440.23,
+            163.71,
+            506.03,
+            176.99
+          ]
+        ]
+      },
+      {
+        "span": [
+          57985,
+          58026
+        ],
+        "page": 38,
+        "rects": [
+          [
+            164.33,
+            218.9,
+            433.69,
+            232.19
+          ]
+        ]
+      },
+      {
+        "span": [
+          58086,
+          58102
+        ],
+        "page": 38,
+        "rects": [
+          [
+            342.45,
+            246.5,
+            411.93,
+            259.79
+          ]
+        ]
+      },
+      {
+        "span": [
+          58107,
+          58124
+        ],
+        "page": 38,
+        "rects": [
+          [
+            435.26,
+            246.5,
+            518.89,
+            259.79
+          ]
+        ]
+      },
+      {
+        "span": [
+          58165,
+          58221
+        ],
+        "page": 38,
+        "rects": [
+          [
+            246.8,
+            274.1,
+            524.07,
+            287.38
+          ]
+        ]
+      },
+      {
+        "span": [
+          59035,
+          59042
+        ],
+        "page": 40,
+        "rects": [
+          [
+            201.99,
+            246.5,
+            240.63,
+            259.79
+          ]
+        ]
+      },
+      {
+        "span": [
+          59047,
+          59057
+        ],
+        "page": 40,
+        "rects": [
+          [
+            263.95,
+            246.5,
+            315.93,
+            259.79
+          ]
+        ]
+      },
+      {
+        "span": [
+          60123,
+          60184
+        ],
+        "page": 40,
+        "rects": [
+          [
+            322.28,
+            660.46,
+            532.9,
+            673.75
+          ]
+        ]
+      }
+    ],
+    "warning": null,
+    "textSource": "embedded",
+    "ocr": null,
+    "notes": [],
+    "rawUrl": "/api/documents/41f50502794349e7a46e56134b2e478a/raw",
+    "extraction": {
+      "text": "Tab 1 DISTRICT COURT, PUEBLO COUNTY, COLORADO\n  501 N. Elizabeth Street, Pueblo, CO 81003\n\n  PLAINTIFF,\n HARRY COOPER II\n\n  V.\n\n CHARLES SPOONER III\n DEFENDANT,                               \u25bc Court Use Only \u25bc\n  Pro Se Party\n  Harry Cooper                                                      Case Number:\n  1925 E Abriendo Ave Pueblo Colorado 81004                          Division:\n                                                                         Courtroom:\n  719-717-7191\n  coop.7th@gmail.com\n  VERIFIED COMPLAINT FOR DECLARATORY JUDGMENT, DAMAGES, COSTS,\n                    AND OTHER RELIEF\n         Plaintiff Harry Cooper, appearing pro se, brings this Verified Complaint against\n Defendant Charles Edward Spooner III and states as follows:\n\n                               I. PARTIES, JURISDICTION, AND VENUE\n\n1.\u200b  Plaintiff Harry Cooper is a natural person residing at 1925 E. Abriendo Ave., Unit # A [sic],\n\n    Pueblo, Colorado 81004.\n\n2.\u200b  Defendant Charles Edward Spooner III is the landlord under the written Residence Lease.\n\n3.\u200b  Defendant\u2019s mailing address listed in the lease is P.O. Box 11381, Pueblo, Colorado 81001.\n\n4.\u200b  The lease does not identify Defendant\u2019s residential address, physical business address,\n\n     registered agent, or other physical service address.\n\n5.\u200b  Plaintiff will use the P.O. Box listed in the lease for written notices and correspondence, but\n\n     Plaintiff does not concede that a P.O. Box is a proper physical service address for service of a\n\n   summons and complaint.6.\u200b  Defendant is the landlord, owner, or person claiming ownership and control over the real\n\n    property located at or commonly known as 1925 E. Abriendo Ave., Pueblo, Colorado 81004.\n\n7.\u200b  This Court has jurisdiction over this civil action, including claims for declaratory relief,\n\n     equitable relief, damages, rescission, statutory relief, and other relief allowed by law.\n\n8.\u200b  Venue is proper in Pueblo County because the property is located in Pueblo County, the lease\n\n    concerns property located in Pueblo County, and the events giving rise to this action occurred\n\n     in Pueblo County.\n\n                                       II. NATURE OF THE CASE\n\n9.\u200b  This case arises from a written Residence Lease for 1925 E. Abriendo Ave., Unit # A,\n\n    Pueblo, Colorado.\n\n10.\u200b Plaintiff paid Defendant $14,100.00 total under the lease, consisting of $13,200.00 in prepaid\n\n     rent for the lease term and a $900.00 security deposit.\n\n11.\u200b Defendant accepted Plaintiff\u2019s prepaid rent and security deposit.\n\n12.\u200b The lease identifies the rental in two ways.\n\n13.\u200b The address identifies the residence as 1925 E. Abriendo Ave., Unit # A.\n\n14.\u200b The handwritten legal description identifies the larger property or lot, including Lots 17, 18,\n\n    19, and the South 1/2 of Block 22, Lake Minnequa Addition, formerly No. 16124-08-009.\n\n15.\u200b The lease does not explain the relationship between \u201cUnit # A\u201d and the handwritten legal\n\n     description.\n\n16.\u200b The lease does not define \u201cUnit # A.\u201d\n\n17.\u200b The lease does not state that \u201cUnit # A\u201d means only the interior of the dwelling.\n\n\n\n\n                                       218.\u200b The lease does not contain a map, boundary description, exclusion, carveout, reservation, or\n\n     written statement showing that the detached garage, shop, driveway, parking area, yard,\n\n     exterior areas, breaker, electrical circuits, or related appurtenances were excluded from\n\n     Plaintiff\u2019s tenancy or reserved to Defendant.\n\n19.\u200b Defendant created the dispute by using a lease that referenced Unit # A by address while also\n\n    using a legal description for the larger property or lot, without identifying what areas were\n\n    supposedly excluded, shared, or retained by Defendant.\n\n20.\u200b After accepting prepaid rent, Defendant retained, controlled, or claimed control over parts of\n\n     the property that were not excluded or reserved to him in the lease.\n\n21.\u200b Defendant\u2019s retained or claimed control included the detached garage/shop area, driveway or\n\n    parking area, yard or exterior areas, and electrical control related to the detached\n\n    garage/shop.\n\n22.\u200b Defendant also regularly came to the property to use the detached garage/shop for\n\n    Defendant\u2019s own purposes.\n\n23.\u200b Defendant\u2019s regular use of the detached garage/shop was not disclosed in the lease.\n\n24.\u200b The lease does not state that Defendant may regularly enter or use any part of the leased\n\n    property for Defendant\u2019s own purposes.\n\n25.\u200b Plaintiff contends that Defendant cannot accept prepaid rent under a lease using the property\n\n     legal description and then later claim unwritten retained control over major parts of that same\n\n     property.\n\n\n\n\n\n                                       326.\u200b If Defendant intended to keep or share the garage/shop, driveway, parking area, yard,\n\n     breaker, electrical circuits, or any related electric load, he needed to say so in the lease before\n\n    accepting prepaid rent.\n\n27.\u200b Defendant did not do so.\n\n28.\u200b Defendant\u2019s Demand for Compliance also treated the yard, front area, parking lot, and\n\n    broader property as part of the lease relationship.\n\n29.\u200b Defendant claimed lease violations based on property damage, yard condition, debris,\n\n     obstructions, junk left in front, and the condition of the parking lot.\n\n30.\u200b Defendant also stated in the Demand for Compliance that \u201cthe landlord shares the parking lot\n\n    with tenants.\u201d\n\n31.\u200b That alleged sharing arrangement is not stated in the lease.\n\n32.\u200b Defendant cannot treat the yard, front area, parking lot, and broader property as\n\n    lease-covered when demanding compliance, while also claiming those same areas were\n\n    excluded from Plaintiff\u2019s tenancy or retained by Defendant.\n\n33.\u200b Public electrical permit/inspection information for the property states \u201cRE-WIRE HOUSE &\n\n   GARAGE\u201d and specifically notes \u201cDETACHED GARAGE FEED FROM 1925 Unit # A.\u201d\n\n34.\u200b The lease makes Plaintiff responsible for Electric.\n\n35.\u200b Plaintiff is not aware of any later permitted electrical work separating the detached\n\n    garage/shop from Unit # A\u2019s electric service or placing the detached garage/shop on a\n\n     separate meter.\n\n\n\n\n\n                                       436.\u200b Plaintiff\u2019s primary position is that the garage/shop, driveway, parking area, yard, exterior\n\n     areas, and related appurtenances were not excluded or reserved to Defendant by the lease,\n\n    and Defendant breached the lease by retaining, controlling, using, or interfering with them.\n\n37.\u200b In the alternative, if Defendant contends those areas were excluded from Plaintiff\u2019s tenancy,\n\n    then Defendant failed to disclose before accepting prepaid rent that a landlord-retained\n\n    detached garage/shop was connected to the electrical service for Unit # A, which Plaintiff\n\n     pays.\n\n38.\u200b Either way, Plaintiff did not receive the leasehold, quiet possession, and utility arrangement\n\n    he prepaid for.\n\n39.\u200b Plaintiff also contends that Defendant\u2019s Demand for Compliance was retaliatory, pretextual,\n\n     intimidating, or used as pressure after Plaintiff asserted rights.\n\n40.\u200b Plaintiff seeks declaratory relief, rescission or equitable termination, refund of unearned\n\n    prepaid rent, return of the security deposit subject only to lawful itemized deductions,\n\n    damages, utility reimbursement or restitution, statutory damages where applicable, costs, and\n\n      all other relief allowed by law.\n\n                             III. GENERAL FACTUAL ALLEGATIONS\n\nA. The Lease and Payment\n\n41.\u200b On or about May 1, 2026, Plaintiff and Defendant entered into a written Residence Lease for\n\n    1925 E. Abriendo Ave., Unit # A, Pueblo, Colorado.\n\n42.\u200b The lease term was from May 1, 2026 to May 1, 2027.\n\n43.\u200b The lease states full-term rent of $13,200.00.\n\n44.\u200b The lease states monthly rent of $1,100.00.\n\n\n                                       545.\u200b The lease states a security deposit of $900.00.\n\n46.\u200b Plaintiff paid Defendant $14,100.00 total, consisting of $13,200.00 in prepaid rent and a\n\n    $900.00 security deposit.\n\n47.\u200b The lease contains a handwritten acknowledgment near the signature section indicating that\n\n    one year of rent was paid and referencing the deposit.\n\n48.\u200b Defendant accepted Plaintiff\u2019s prepaid rent and security deposit.\n\n49.\u200b The lease provides that, upon payment of rent and performance of obligations, the tenant\n\n     shall enjoy quiet possession.\n\n50.\u200b Plaintiff paid the rent and security deposit required by the lease.\n\n51.\u200b The lease makes Plaintiff responsible for Electric.\n\n52.\u200b The lease uses an old printed form.\n\n53.\u200b To the extent any printed term conflicts with current Colorado law, current Colorado law\n\n     controls.\n\nB. The Lease Identifies Both Unit # A and the Larger Legal Description\n\n54.\u200b The lease identifies the address as 1925 E. Abriendo Ave., Unit # A.\n\n55.\u200b The lease also contains a handwritten legal description identifying the larger property or lot,\n\n    including Lots 17, 18, 19, and the South 1/2 of Block 22, Lake Minnequa Addition, formerly\n\n    No. 16124-08-009.\n\n56.\u200b The lease does not explain whether \u201cUnit # A\u201d means the entire leased premises located at\n\n     that address, only the dwelling interior, or some other undefined portion of the legally\n\n    described property.\n\n57.\u200b The lease does not define \u201cUnit # A.\u201d\n\n\n                                       658.\u200b The lease does not say \u201cUnit # A interior only.\u201d\n\n59.\u200b The lease does not state that Plaintiff only leased the inside of the dwelling.\n\n60.\u200b The lease does not include a map.\n\n61.\u200b The lease does not include a boundary drawing.\n\n62.\u200b The lease does not include a written list of excluded areas.\n\n63.\u200b The lease does not include a written list of landlord-retained areas.\n\n64.\u200b The lease does not say that Defendant retained the garage.\n\n65.\u200b The lease does not say that Defendant retained the shop.\n\n66.\u200b The lease does not say that Defendant retained the driveway.\n\n67.\u200b The lease does not say that Defendant retained the parking area.\n\n68.\u200b The lease does not say that Defendant retained the yard.\n\n69.\u200b The lease does not say that Defendant retained any exterior portion of the legally described\n\n     property.\n\n70.\u200b The lease does not say that Defendant retained any breaker, electrical circuit, or electric load\n\n    connected to the detached garage/shop.\n\n71.\u200b The lease does not say that Defendant may regularly come to the property to use the detached\n\n    garage/shop for Defendant\u2019s own purposes.\n\n72.\u200b If Defendant intended any of those areas, structures, utilities, or access rights to be excluded,\n\n     shared, or retained, those terms should have been written into the lease before Defendant\n\n    accepted prepaid rent.\n\n73.\u200b Defendant did not write those terms into the lease.\n\nC. The Undefined \u201cCommon Areas\u201d Language Does Not Create an Unwritten Reservation\n\n\n                                       774.\u200b The lease contains generic printed language referring to \u201ccommon areas.\u201d\n\n75.\u200b The phrase \u201ccommon areas\u201d is not defined in the lease.\n\n76.\u200b The lease does not identify any specific common area.\n\n77.\u200b The lease does not identify any shared parking lot.\n\n78.\u200b The lease does not identify any shared driveway.\n\n79.\u200b The lease does not identify any landlord-retained garage.\n\n80.\u200b The lease does not identify any landlord-retained shop.\n\n81.\u200b The lease does not identify any landlord-reserved parking area.\n\n82.\u200b The lease does not identify any landlord-retained electrical load.\n\n83.\u200b A generic undefined reference to \u201ccommon areas\u201d does not create an unwritten reservation in\n\n    Defendant\u2019s favor.\n\n84.\u200b A generic undefined reference to \u201ccommon areas\u201d does not allow Defendant to keep or\n\n     control part of the legally described property as his own while charging Plaintiff prepaid rent.\n\n85.\u200b A generic undefined reference to \u201ccommon areas\u201d does not disclose that Defendant retained\n\n    a detached garage/shop.\n\n86.\u200b A generic undefined reference to \u201ccommon areas\u201d does not disclose that any detached\n\n    garage/shop retained by Defendant was fed from Unit # A\u2019s electric service.\n\nD. Defendant\u2019s Demand for Compliance Treated the Broader Property as Lease-Covered\n\n87.\u200b On or about May 20, 2026, Defendant served Plaintiff with a Demand for Compliance.\n\n88.\u200b Plaintiff is in possession of the Demand for Compliance and will offer it as evidence.\n\n89.\u200b Defendant checked \u201cComply with the Lease.\u201d\n\n90.\u200b Defendant alleged \u201cproperty damage + not keeping yard clean as agreed.\u201d\n\n\n                                       891.\u200b Defendant claimed there were \u201cdebris and obstructions left on property.\u201d\n\n92.\u200b Defendant claimed \u201cjunk left in front also not removed.\u201d\n\n93.\u200b Defendant also checked \u201cStop Disturbing Conduct.\u201d\n\n94.\u200b Defendant stated that \u201cthe landlord shares the parking lot with tenants.\u201d\n\n95.\u200b Defendant claimed the parking lot condition was a nuisance to Defendant.\n\n96.\u200b Defendant\u2019s Demand for Compliance treated the yard, front area, parking lot, and broader\n\n    property as part of the lease relationship.\n\n97.\u200b Defendant used alleged conditions of the broader property as grounds for a residential\n\n     eviction notice.\n\n98.\u200b Defendant\u2019s Demand for Compliance is inconsistent with any claim that Plaintiff only leased\n\n     the inside of Unit # A.\n\n99.\u200b Defendant cannot use the lease to impose duties on Plaintiff concerning the yard, front area,\n\n    parking lot, and broader property while also claiming those same areas were excluded from\n\n     Plaintiff\u2019s tenancy.\n\n100.\u200bDefendant cannot rely on an alleged shared parking arrangement where that alleged\n\n    arrangement is not stated in the lease.\n\nE. Text Messages Showing the Demand for Compliance Was Pretextual\n\n101.\u200bBefore serving the Demand for Compliance, Defendant sent Plaintiff text messages\n\n    complaining about items outside the residence.\n\n102.\u200bIn one message, Defendant stated in substance: \u201cEven when moving in you leave stuff out\n\n     like that shows me you don\u2019t take care of your s%#*, now I\u2019m wondering what the inside\u2019s\n\n    looking like!\u201d\n\n\n                                       9103.\u200bDefendant\u2019s statement shows that Defendant used the outside condition as a reason to\n\n    question the inside of the residence and Plaintiff\u2019s tenancy generally.\n\n104.\u200bDefendant later acknowledged improvement by texting in substance: \u201cthat\u2019s better, what I\n\n    saw earlier was like a slap in my face.\u201d\n\n105.\u200bDefendant\u2019s statement that \u201cthat\u2019s better\u201d shows that Defendant knew the complained-of\n\n    condition had been improved or corrected before he served the Demand for Compliance.\n\n106.\u200bDespite acknowledging that the condition was \u201cbetter,\u201d Defendant served the Demand for\n\n    Compliance alleging yard, debris, obstruction, front-area, parking-lot, and property-related\n\n     lease violations.\n\n107.\u200bDefendant\u2019s own text messages support Plaintiff\u2019s position that the Demand for Compliance\n\n    was not a good-faith effort to enforce a valid uncured lease violation.\n\n108.\u200bDefendant\u2019s text messages support Plaintiff\u2019s position that the Demand for Compliance was\n\n     retaliatory, pretextual, intimidating, or used as pressure after Plaintiff asserted tenant rights.\n\n109.\u200bDefendant\u2019s reference to the outside condition as \u201ca slap in my face\u201d further supports\n\n     Plaintiff\u2019s position that the Demand for Compliance was motivated by personal frustration,\n\n     retaliation, control, or intimidation rather than a genuine uncured lease violation.\n\n110.\u200bDefendant did not file or pursue an eviction action based on the Demand for Compliance\n\n     after the cure period expired.\n\n111.\u200bDefendant\u2019s failure to pursue the Demand for Compliance further supports Plaintiff\u2019s\n\n     position that the notice was pretextual, retaliatory, intimidating, or used as pressure rather\n\n    than good-faith enforcement of a valid lease violation.\n\nF. Electrical Permit / Inspection Record and Utility Issue\n\n\n                                       10112.\u200bPublic electrical permit/inspection information for the property states \u201cRE-WIRE HOUSE &\n\n   GARAGE.\u201d\n\n113.\u200bThe same public electrical permit/inspection information specifically notes \u201cDETACHED\n\n   GARAGE FEED FROM 1925 Unit # A.\u201d\n\n114.\u200bPlaintiff is in possession of the public electrical permit/inspection record or screenshot and\n\n     will offer it as evidence.\n\n115.\u200bPlaintiff is not aware of any later permitted electrical work separating the detached\n\n    garage/shop from Unit # A\u2019s electrical service or placing the detached garage/shop on a\n\n     separate meter.\n\n116.\u200bIf Defendant claims the detached garage/shop is no longer fed from Unit # A, Defendant\n\n    should be required to produce any later permit, inspection approval, utility record,\n\n     licensed-electrician invoice, panel documentation, or other proof showing when and how that\n\n    change occurred.\n\n117.\u200bThe lease makes Plaintiff responsible for Electric.\n\n118.\u200bIf the detached garage/shop is part of Plaintiff\u2019s tenancy or appurtenant to Plaintiff\u2019s tenancy,\n\n    Defendant wrongfully retained or controlled part of what Plaintiff leased and prepaid for.\n\n119.\u200bIf Defendant claims the detached garage/shop was excluded from Plaintiff\u2019s tenancy, then\n\n    Defendant failed to disclose before accepting prepaid rent that a landlord-retained detached\n\n    garage/shop was connected to the electrical service for Unit # A, which Plaintiff pays.\n\n120.\u200bUnder either theory, the leasehold and utility arrangement Defendant provided or claimed\n\n     after payment was materially different from what was written, disclosed, and prepaid.\n\nG. Defendant\u2019s Regular Use of the Garage/Shop and Retained Control\n\n\n                                        11121.\u200bDefendant regularly comes to the property to access and use the detached garage/shop.\n\n122.\u200bDefendant comes to the property to use the detached garage/shop approximately weekly or\n\n    more often.\n\n123.\u200bDefendant\u2019s regular use of the detached garage/shop was not disclosed in the lease.\n\n124.\u200bThe lease does not reserve the detached garage/shop to Defendant.\n\n125.\u200bThe lease does not state that Defendant may regularly enter the property to use the detached\n\n    garage/shop for Defendant\u2019s own purposes.\n\n126.\u200bThe lease does not define the garage/shop as a landlord-retained area.\n\n127.\u200bThe lease does not define the garage/shop as a shared area.\n\n128.\u200bThe lease does not state that Defendant may keep using part of the legally described property\n\n    while Plaintiff pays prepaid rent for the tenancy.\n\n129.\u200bDefendant\u2019s regular use of the garage/shop is further evidence that Defendant retained\n\n     control over part of the property without writing that retained control into the lease.\n\n130.\u200bDefendant\u2019s regular use of the garage/shop interfered with Plaintiff\u2019s quiet possession,\n\n     privacy, use, and enjoyment of the tenancy.\n\n131.\u200bDefendant\u2019s regular use of the garage/shop also supports Plaintiff\u2019s alternative utility claim\n\n    because public permit/inspection information states that the detached garage feed is from\n\n    1925 Unit # A, and the lease makes Plaintiff responsible for Electric.\n\n132.\u200bDefendant\u2019s regular use of the garage/shop is not incidental landlord access for inspection or\n\n     repair.\n\n133.\u200bDefendant\u2019s regular use of the garage/shop is retained personal use of a disputed part of the\n\n    property not reserved to Defendant in the lease.\n\n\n                                       12H. Defendant\u2019s Retained Control and Interference with Possession\n\n134.\u200bDefendant retained, controlled, or claimed control over portions of the property not excluded\n\n     or reserved to him in the lease.\n\n135.\u200bDefendant retained, controlled, or claimed control over the detached garage/shop area.\n\n136.\u200bDefendant retained, controlled, or claimed control over the driveway or parking area.\n\n137.\u200bDefendant retained, controlled, or claimed control over yard or exterior areas.\n\n138.\u200bDefendant retained, controlled, or claimed control over a breaker or electrical control related\n\n     to the detached garage/shop.\n\n139.\u200bDefendant did not reserve those rights in the written lease.\n\n140.\u200bDefendant did not disclose those claimed retained rights before accepting Plaintiff\u2019s prepaid\n\n     rent.\n\n141.\u200bDefendant\u2019s retained or claimed control interfered with Plaintiff\u2019s use, possession, and quiet\n\n    enjoyment.\n\n142.\u200bDefendant\u2019s retained or claimed control deprived Plaintiff of the benefit of the lease as\n\n     written.\n\nI. Screen-Door Incident and Entry Pressure\n\n143.\u200bDefendant also interfered with Plaintiff\u2019s quiet possession through entry pressure and\n\n    conduct at the residence.\n\n144.\u200bDefendant appeared at the residence claiming an \u201cemergency\u201d to address a screen-door issue.\n\n145.\u200bA screen-door issue was not a genuine emergency.\n\n146.\u200bDefendant and/or a person with Defendant banged on the door and windows.\n\n147.\u200bDefendant and/or a person with Defendant attempted to look into the residence.\n\n\n                                       13148.\u200bDefendant and/or a person with Defendant used or operated tools at or near the door.\n\n149.\u200bDefendant and/or a person with Defendant attempted to manipulate or open the locked front\n\n     door.\n\n150.\u200bDefendant\u2019s conduct created reasonable fear of further interference with Plaintiff\u2019s\n\n    possession and quiet enjoyment.\n\n151.\u200bDefendant\u2019s conduct materially interfered with Plaintiff\u2019s tenancy.\n\nJ. Plaintiff\u2019s Assertion of Rights and Retaliation Concerns\n\n152.\u200bPlaintiff asserted rights in good faith under the lease and Colorado law.\n\n153.\u200bPlaintiff asserted rights appurtenances, quiet possession,\n\n154.\u200bAfter Plaintiff asserted rights, Defendant served the Demand for Compliance threatening\n\n     eviction-related consequences.\n\n155.\u200bThe Demand for Compliance alleged disputed violations concerning yard condition, debris,\n\n     obstructions, property damage, junk left in front, and the parking lot.\n\n156.\u200bDefendant\u2019s Demand for Compliance relied on areas that were not clearly excluded from\n\n     Plaintiff\u2019s tenancy or reserved to Defendant in the lease.\n\n157.\u200bDefendant\u2019s Demand for Compliance also stated that \u201cthe landlord shares the parking lot\n\n    with tenants,\u201d even though the lease contains no written shared-parking arrangement.\n\n158.\u200bDefendant did not file or pursue an eviction action based on the Demand for Compliance\n\n     after the cure period expired.\n\n159.\u200bDefendant\u2019s failure to pursue the Demand for Compliance supports an inference that the\n\n     notice was pretextual, retaliatory, intimidating, or used as pressure rather than as a good-faith\n\n     effort to enforce a valid lease violation.\n\n\n                                       14160.\u200bDefendant\u2019s conduct included threats or actions concerning possession, disputed notices,\n\n    claimed lease violations, harassment or intimidation, retained control over disputed property\n\n     areas, and interference with quiet possession.\n\n161.\u200bPlaintiff contends that Defendant\u2019s conduct was taken after and because of Plaintiff\u2019s\n\n     protected assertion of lease and tenant rights, or that Plaintiff\u2019s protected activity was at least\n\n    a motivating factor.\n\nK. Defendant\u2019s Written Statement That He Would Return Plaintiff\u2019s Money\n\n163.\u200bDefendant sent Plaintiff a text message stating: \u201cso I will give you your money back at end of\n\n    month.\u201d\n\nL. Prohibited and Void Lease Provisions Under Colorado Law\n\n170.\u200bThe lease appears to be an old printed 1997 form.\n\n171.\u200bColorado law now prohibits certain terms in written residential rental agreements and makes\n\n     prohibited provisions void and unenforceable.\n\n172.\u200bUnder C.R.S. \u00a7 38-12-801, a written rental agreement may not include certain penalty\n\n     provisions, one-way fee-shifting provisions, waivers of the right to jury trial, waivers of the\n\n    implied covenant of good faith and fair dealing, waivers of the implied covenant of quiet\n\n    enjoyment, or provisions that improperly characterize non-rent charges as rent.\n\n173.\u200bTo the extent Defendant relies on any printed lease term that conflicts with C.R.S. \u00a7\n\n    38-12-801, that term is void and unenforceable.\n\n\n\n\n\n                                       15                                  IV. CLAIMS FOR RELIEF\n\n                        COUNT I\u200b\n                                  Declaratory Judgment\u200b\n                         C.R.S. \u00a7 13-51-101 et seq. and C.R.C.P. 57\n\n176.\u200bPlaintiff incorporates all prior paragraphs.\n\n177.\u200bAn actual controversy exists between Plaintiff and Defendant regarding the meaning, scope,\n\n    and enforceability of the Residence Lease.\n\n178.\u200bThe parties dispute what Plaintiff actually leased and paid for.\n\n179.\u200bThe lease identifies the address as Unit # A, but the handwritten legal description identifies\n\n     the larger property or lot.\n\n180.\u200bThe lease does not define \u201cUnit # A.\u201d\n\n181.\u200bThe lease does not explain what, if anything, was excluded from Plaintiff\u2019s tenancy.\n\n182.\u200bThe lease does not reserve the detached garage, shop, driveway, parking area, yard, exterior\n\n     areas, breaker, electrical circuits, or landlord-retained electric load to Defendant.\n\n183.\u200bPlaintiff requests declarations that:\n\n               a.\u200b  The lease is ambiguous or materially incomplete regarding the relationship\n\n             between \u201cUnit # A\u201d and the handwritten legal description;\n\n               b.\u200b The lease does not define \u201cUnit # A\u201d as only the interior of a dwelling;\n\n               c.\u200b The lease does not contain any written exclusion or reservation of the detached\n\n               garage, shop, driveway, parking area, yard, exterior areas, breaker, electrical\n\n                  circuits, or related electric load;\n\n               d.\u200b The lease does not state that Defendant may regularly enter or use the detached\n\n               garage/shop for Defendant\u2019s own purposes;\n\n\n                                       16               e.\u200b The undefined \u201ccommon areas\u201d language does not create an unwritten landlord\n\n                reservation;\n\n                  f.\u200b  Defendant\u2019s Demand for Compliance treated the yard, front area, parking lot, and\n\n               broader property as part of the lease relationship;\n\n               g.\u200b Defendant cannot impose lease duties on Plaintiff regarding the broader property\n\n              while also claiming those same areas were excluded or retained by Defendant;\n\n               h.\u200b  If the detached garage/shop, driveway, parking area, yard, exterior areas, or\n\n                related appurtenances were part of the tenancy, Defendant breached Plaintiff\u2019s\n\n                 rights by retaining, controlling, or using them;\n\n                   i.\u200b  In the alternative, if those areas were excluded or retained by Defendant,\n\n              Defendant failed to disclose material terms and utility facts before accepting\n\n               prepaid rent; and\n\n                   j.\u200b  Plaintiff is entitled to equitable and monetary relief.\n\n                        COUNT II\u200b\n                         Breach of Lease / Breach of Contract\n\n184.\u200bPlaintiff incorporates all prior paragraphs.\n\n185.\u200bThe Residence Lease is a valid written contract.\n\n186.\u200bPlaintiff performed or substantially performed by paying $13,200.00 in prepaid rent and a\n\n    $900.00 security deposit.\n\n187.\u200bDefendant was required to deliver and respect the tenancy described in the lease.\n\n188.\u200bDefendant was required to provide quiet possession consistent with the lease.\n\n189.\u200bDefendant breached the lease by failing to provide the leasehold as written.\n\n\n\n                                       17190.\u200bDefendant breached the lease by retaining, controlling, regularly using, or claiming control\n\n    over portions of the property not excluded or reserved to him in the lease.\n\n191.\u200bDefendant breached the lease by claiming unwritten rights to share, retain, use, or control the\n\n    garage/shop, driveway, parking area, yard, exterior areas, breaker, electrical circuits, or\n\n     electric load.\n\n192.\u200bDefendant breached the lease by regularly coming to the property to use the detached\n\n    garage/shop for Defendant\u2019s own purposes, where the lease does not reserve that area or use\n\n     to Defendant.\n\n193.\u200bDefendant breached the lease by using the broader property as a basis for the Demand for\n\n    Compliance while also acting as if parts of that broader property were excluded from\n\n     Plaintiff\u2019s tenancy.\n\n194.\u200bDefendant breached the lease by interfering with Plaintiff\u2019s quiet possession.\n\n195.\u200bIn the alternative, if Defendant contends the detached garage/shop or related areas were\n\n    excluded from Plaintiff\u2019s tenancy, Defendant breached the lease by failing to disclose that a\n\n     landlord-retained garage/shop was fed from Unit # A\u2019s electric service.\n\n196.\u200bPlaintiff suffered damages, including unearned prepaid rent, loss of benefit of the bargain,\n\n     loss of quiet possession, utility-related damages or reimbursement, moving-related damages,\n\n    and other damages to be proven.\n\n                        COUNT III\u200b\n                     Breach of Quiet Possession / Quiet Enjoyment\n\n197.\u200bPlaintiff incorporates all prior paragraphs.\n\n198.\u200bThe lease provides that Plaintiff is entitled to quiet possession upon payment of rent and\n\n    performance of lease obligations.\n\n                                       18199.\u200bPlaintiff paid the rent and security deposit required by the lease.\n\n200.\u200bDefendant interfered with Plaintiff\u2019s quiet possession.\n\n201.\u200bDefendant interfered by retaining, controlling, regularly using, or claiming control over parts\n\n     of the property not excluded or reserved in the lease.\n\n202.\u200bDefendant interfered by claiming unwritten control over the garage/shop, driveway, parking\n\n     area, yard, exterior areas, breaker, electrical circuits, or electric load.\n\n203.\u200bDefendant interfered by regularly coming to the property to use the detached garage/shop for\n\n    Defendant\u2019s own purposes.\n\n204.\u200bDefendant interfered by issuing the disputed Demand for Compliance based on vague,\n\n     disputed, cured, or pretextual property conditions.\n\n205.\u200bDefendant interfered through the screen-door incident and related entry pressure.\n\n206.\u200bDefendant\u2019s conduct substantially interfered with Plaintiff\u2019s possession, privacy, use, and\n\n    enjoyment of the tenancy.\n\n207.\u200bPlaintiff suffered damages and is entitled to equitable relief, damages, rescission or\n\n     termination, and other relief allowed by law.\n\n                        COUNT IV\u200b\n                     Wrongful Exclusion / Partial Actual Eviction\u200b\n                                    In the Alternative\n\n208.\u200bPlaintiff incorporates all prior paragraphs.\n\n209.\u200bPlaintiff pleads this claim in the alternative to the extent the Court determines that the\n\n    garage/shop, driveway, parking area, yard, exterior areas, breaker, electrical circuits, or\n\n     related appurtenances were part of Plaintiff\u2019s tenancy or appurtenant to it.\n\n210.\u200bPlaintiff paid prepaid rent for the tenancy described in the lease.\n\n\n                                       19211.\u200bDefendant retained, controlled, or regularly used parts of the tenancy or appurtenant areas.\n\n212.\u200bDefendant did not reserve those areas in the lease.\n\n213.\u200bDefendant\u2019s retained control and regular use wrongfully excluded Plaintiff from parts of what\n\n     Plaintiff leased and prepaid for.\n\n214.\u200bPlaintiff is entitled to rent abatement, damages, rescission or termination, refund of unearned\n\n    prepaid rent, and other relief allowed by law.\n\n                        COUNT V\u200b\n                 Rescission / Equitable Termination / Failure of Consideration\n\n215.\u200bPlaintiff incorporates all prior paragraphs.\n\n216.\u200bPlaintiff paid $13,200.00 in prepaid rent and a $900.00 security deposit based on the written\n\n     lease.\n\n217.\u200bThe lease did not clearly define what \u201cUnit # A\u201d included or excluded.\n\n218.\u200bThe lease used a legal description for the larger property or lot without excluding or reserving\n\n    major areas, structures, appurtenances, or electric loads.\n\n219.\u200bDefendant later retained, controlled, regularly used, or claimed control over areas not\n\n    excluded or reserved in the lease.\n\n220.\u200bDefendant did not provide the leasehold and utility arrangement Plaintiff reasonably\n\n    understood from the lease and prepaid for.\n\n221.\u200bThe difference between the written lease and Defendant\u2019s retained-control position is\n\n     material.\n\n222.\u200bPlaintiff did not receive the benefit of the bargain.\n\n223.\u200bPlaintiff is entitled to rescission or equitable termination, refund of unearned prepaid rent,\n\n    proper handling of the security deposit, damages, restitution, and other equitable relief.\n\n                                       20                        COUNT VI\u200b\n                  Unjust Enrichment / Restitution / Utility Reimbursement\u200b\n                                    In the Alternative\n\n224.\u200bPlaintiff incorporates all prior paragraphs.\n\n225.\u200bPlaintiff pleads this claim in the alternative.\n\n226.\u200bThe lease makes Plaintiff responsible for Electric.\n\n227.\u200bPublic permit/inspection information states that the detached garage feed is from 1925 Unit #\n\n    A.\n\n228.\u200bDefendant retained, controlled, regularly used, or claimed control over the detached\n\n    garage/shop or related areas.\n\n229.\u200bIf Defendant retained, controlled, or regularly used a detached garage/shop that was fed from\n\n    Unit # A\u2019s electric service, Defendant received a benefit from electric service paid for or\n\n   owed by Plaintiff.\n\n230.\u200bDefendant knew or should have known that retaining or using a garage/shop connected to\n\n     Plaintiff\u2019s electric service would benefit Defendant at Plaintiff\u2019s expense.\n\n231.\u200bIt would be unjust for Defendant to retain that benefit without reimbursement, credit,\n\n     restitution, rent abatement, or other relief.\n\n232.\u200bPlaintiff is entitled to restitution, reimbursement, damages, accounting, and other appropriate\n\n      relief.\n\n                        COUNT VII\u200b\n                         Fraudulent Nondisclosure / Concealment\u200b\n                                    In the Alternative\n\n233.\u200bPlaintiff incorporates all prior paragraphs.\n\n234.\u200bPlaintiff pleads this claim in the alternative and subject to proof obtained through discovery.\n\n\n                                       21235.\u200bDefendant knew or should have known before accepting Plaintiff\u2019s prepaid rent what\n\n     portions of the property Defendant intended to retain, control, share, or continue using for\n\n    Defendant\u2019s own purposes.\n\n236.\u200bDefendant knew or should have known before accepting Plaintiff\u2019s prepaid rent whether the\n\n    detached garage/shop was connected to Unit # A\u2019s electric service.\n\n237.\u200bDefendant had superior knowledge concerning any intended landlord-retained areas, shared\n\n     areas, excluded areas, garage/shop access, breakers, electrical circuits, and utility loads.\n\n238.\u200bDefendant did not disclose in the lease that \u201cUnit # A\u201d meant only the interior of the\n\n    dwelling.\n\n239.\u200bDefendant did not disclose in the lease that the detached garage, shop, driveway, parking\n\n     area, yard, exterior areas, breaker, electrical circuits, or electric load were excluded, shared,\n\n     or retained by Defendant.\n\n240.\u200bDefendant did not disclose in the lease that Defendant would regularly come to the property\n\n     to use the detached garage/shop for Defendant\u2019s own purposes.\n\n241.\u200bDefendant did not disclose in the lease that any landlord-retained detached garage/shop was\n\n    connected to Unit # A\u2019s electrical service.\n\n242.\u200bDefendant accepted $13,200.00 in prepaid rent and a $900.00 security deposit without those\n\n     disclosures.\n\n243.\u200bThe omitted facts were material.\n\n244.\u200bPlaintiff reasonably relied on the written lease and the absence of any written exclusion or\n\n     reservation.\n\n\n\n\n                                       22245.\u200bPlaintiff was damaged by paying for a tenancy and utility arrangement materially different\n\n    from what Defendant later provided or claimed.\n\n246.\u200bPlaintiff seeks rescission, damages, restitution, and other relief allowed by law.\n\n                       COUNT VIII\u200b\n                             Retaliation / Protected Tenant Activity\u200b\n                                    C.R.S. \u00a7 38-12-509\n\n247.\u200bPlaintiff incorporates all prior paragraphs.\n\n248.\u200bPlaintiff asserted rights in good faith under the lease and Colorado law.\n\n249.\u200bPlaintiff asserted rights concerning the scope of the tenancy, the legal description, quiet\n\n     possession, utilities, the detached garage/shop electrical feed, the Demand for Compliance,\n\n    Defendant\u2019s regular use of the garage/shop, and Defendant\u2019s claimed retained control over\n\n     areas not reserved in the lease.\n\n250.\u200bPlaintiff\u2019s assertion of those rights was protected tenant activity.\n\n251.\u200bAfter Plaintiff asserted rights, Defendant served a Demand for Compliance threatening\n\n     eviction-related consequences.\n\n252.\u200bThe Demand for Compliance alleged disputed violations concerning yard condition, debris,\n\n     obstructions, property damage, junk left in front, and the parking lot.\n\n253.\u200bDefendant\u2019s Demand for Compliance relied on areas that were not clearly excluded from\n\n     Plaintiff\u2019s tenancy or reserved to Defendant in the lease.\n\n254.\u200bDefendant\u2019s Demand for Compliance also stated that \u201cthe landlord shares the parking lot\n\n    with tenants,\u201d even though the lease contains no written shared-parking arrangement.\n\n255.\u200bDefendant\u2019s own text messages show pretext.\n\n\n\n\n                                       23256.\u200bBefore serving the Demand for Compliance, Defendant complained about outside property\n\n     conditions, then later acknowledged that the condition was \u201cbetter.\u201d\n\n257.\u200bDespite acknowledging improvement, Defendant served the Demand for Compliance\n\n     alleging yard, debris, obstruction, front-area, parking-lot, and property-related violations.\n\n258.\u200bDefendant\u2019s decision to serve the notice after acknowledging improvement supports an\n\n     inference that the notice was retaliatory, pretextual, intimidating, or used as pressure rather\n\n    than as a good-faith response to an uncured lease violation.\n\n259.\u200bDefendant did not file or pursue an eviction action based on the Demand for Compliance\n\n     after the cure period expired.\n\n260.\u200bDefendant\u2019s failure to pursue the Demand for Compliance supports an inference that the\n\n     notice was pretextual, retaliatory, intimidating, or used as pressure rather than as a good-faith\n\n     effort to enforce a valid lease violation.\n\n261.\u200bDefendant also regularly came to the property to access and use the detached garage/shop,\n\n     despite no written lease reservation allowing Defendant to retain and use that area for\n\n     himself.\n\n262.\u200bDefendant\u2019s conduct included threats or actions concerning possession, disputed notices,\n\n    claimed lease violations, harassment or intimidation, retained control over disputed property\n\n     areas, and interference with quiet possession.\n\n263.\u200bPlaintiff contends that Defendant\u2019s conduct was taken after and because of Plaintiff\u2019s\n\n     protected assertion of lease and tenant rights, or that Plaintiff\u2019s protected activity was at least\n\n    a motivating factor.\n\n\n\n\n                                       24264.\u200bPlaintiff seeks all remedies allowed by C.R.S. \u00a7 38-12-509, including statutory damages,\n\n     actual damages, termination of the rental agreement, costs, reasonable attorney fees if\n\n     incurred and allowed by law, and all other relief allowed by law.\n\n                        COUNT IX\u200b\n              Promissory Estoppel / Enforcement of Promise to Return Money\u200b\n                                    In the Alternative\n\n265.\u200bPlaintiff incorporates all prior paragraphs.\n\n266.\u200bDefendant texted Plaintiff that he would \u201cgive [Plaintiff] your money back at end of month.\u201d\n\n267.\u200bPlaintiff reasonably understood Defendant\u2019s statement as a promise or offer to return\n\n     Plaintiff\u2019s money and unwind the lease.\n\n268.\u200bPlaintiff requests enforcement of Defendant\u2019s promise, refund of unearned prepaid rent,\n\n    proper handling of the security deposit, damages, and other relief allowed by law.\n\n                        COUNT X\u200b\n              Declaratory Relief Regarding Void or Unenforceable Lease Terms\u200b\n                                    C.R.S. \u00a7 38-12-801\n\n272.\u200bPlaintiff incorporates all prior paragraphs.\n\n273.\u200bThe lease appears to be an old printed residential lease form.\n\n274.\u200bC.R.S. \u00a7 38-12-801 prohibits certain clauses in written residential rental agreements and\n\n    makes prohibited clauses void and unenforceable.\n\n275.\u200bTo the extent Defendant relies on any printed lease provision that purports to waive quiet\n\n    enjoyment, waive good faith and fair dealing, waive jury-trial rights, impose an\n\n     eviction-related penalty, impose one-way attorney fees or costs, characterize non-rent\n\n    amounts as rent, or otherwise conflict with C.R.S. \u00a7 38-12-801, Plaintiff requests a\n\n     declaration that such provision is void and unenforceable.\n\n\n                                       25276.\u200bPlaintiff further requests a declaration that Defendant may not use outdated or prohibited\n\n     boilerplate provisions to defeat Plaintiff\u2019s statutory rights, lease rights, quiet-possession\n\n     rights, or claims in this action.\n\n277.\u200bPlaintiff also requests discovery and appropriate relief concerning whether the written rental\n\n    agreement was required to include the source-of-income-discrimination notice required by\n\n    C.R.S. \u00a7 38-12-801(2.5), and whether any statutory exemption applies.\n\n                        COUNT XI\u200b\n             Reservation Regarding Statutory Possession and Utility Interference\n\n278.\u200bPlaintiff incorporates all prior paragraphs.\n\n279.\u200bPlaintiff does not presently know the full scope of Defendant\u2019s conduct concerning\n\n     possession, electrical control, breakers, and service access.\n\n280.\u200bIf discovery shows that Defendant willfully interfered with Plaintiff\u2019s possession, access,\n\n     electric service, or other essential services, Plaintiff reserves the right to amend this\n\n    Complaint to add claims and remedies under Colorado law, including statutory damages,\n\n     restoration orders, injunctive relief, costs, and reasonable attorney fees if incurred and\n\n    allowed by law.\n\n                                 V. PRAYER FOR RELIEF\n\nWHEREFORE, Plaintiff Harry Cooper respectfully requests that the Court enter judgment in his\n\n    favor and against Defendant Charles Edward Spooner III and grant the following relief:\n\n     A.\u200b Enter declaratory judgment determining the parties\u2019 rights and obligations under the\n\n       Residence Lease;\n\n     B.\u200b Declare that the lease identifies the address as Unit # A but also uses a handwritten legal\n\n        description for the larger property or lot;\n\n                                       26C.\u200b Declare that the lease does not define \u201cUnit # A\u201d as only the interior of the dwelling;\n\nD.\u200b Declare that the lease does not contain any written exclusion, carveout, or reservation for\n\n          i.\u200b   landlord-retained garage, shop, driveway, parking area, yard, exterior area,\n\n           breaker, electrical circuit, or electric load;\n\nE.\u200b Declare that the lease does not state that Defendant may regularly enter or use the\n\n   detached garage/shop for Defendant\u2019s own purposes;\n\nF.\u200b Declare that the undefined \u201ccommon areas\u201d language does not create an unwritten\n\n    landlord reservation;\n\nG.\u200b Declare that Defendant\u2019s Demand for Compliance treated the yard, front area, parking\n\n     lot, and broader property as part of the lease relationship;\n\nH.\u200b Declare that Defendant cannot use the lease to demand compliance concerning the\n\n   broader property while also claiming those areas were excluded or retained;\n\nI.\u200b  Declare that Defendant breached the lease and quiet possession by retaining, controlling,\n\n    using, or claiming control over areas not excluded or reserved in the lease;\n\nJ.\u200b  Alternatively, declare that if the garage/shop or related areas were excluded from\n\n    Plaintiff\u2019s tenancy, Defendant failed to disclose a material retained-control and utility\n\n   arrangement before accepting prepaid rent;\n\nK.\u200b Declare that any prohibited lease provisions under C.R.S. \u00a7 38-12-801 are void and\n\n    unenforceable;\n\nL.\u200b Rescind or equitably terminate the lease;\n\nM.\u200bAward Plaintiff refund of all unearned prepaid rent;\n\n\n\n\n                                   27     N.\u200b Order return of the $900.00 security deposit subject only to lawful itemized deductions, if\n\n        any;\n\n     O.\u200b Award Plaintiff damages for breach of lease, breach of quiet possession, wrongful\n\n        exclusion, failure of consideration, fraudulent nondisclosure, unjust enrichment,\n\n        promissory estoppel, and retaliation as proven;\n\n      P.\u200b Award Plaintiff utility-related damages, reimbursement, restitution, credit, or accounting;\n\n     Q.\u200b Award Plaintiff statutory damages for retaliation if proven and allowed by law;\n\n     R.\u200b Award Plaintiff moving-related damages and consequential damages as proven;\n\n     S.\u200b Award Plaintiff costs;\n\n     T.\u200b Award reasonable fees only to the extent actually incurred and allowed by contract,\n\n         statute, or law;\n\n     U.\u200b Award pre-judgment and post-judgment interest as allowed by law;\n\n     V.\u200b Grant such other and further relief as the Court deems just and proper.\n\n                                 VI. JURY DEMAND\n\nPlaintiff demands a jury trial on all claims and issues so triable.\n\n\n\n\n\n                                       28                                  VII. VERIFICATION\n\nI, Harry Cooper, declare under penalty of perjury under the laws of the State of Colorado that I\n\n   am the Plaintiff in this action; that I have read the foregoing Verified Complaint; and that the\n\n     factual allegations are true and correct to the best of my knowledge, information, and belief.\n\nExecuted on ____________________, 2026, in Pueblo County, Colorado.\n\n\n\n                                                 Harry Cooper\u200b\n                                                                 Plaintiff, pro se\u200b\n                                              1925 E. Abriendo Ave., Unit # A\u200b\n                                                     Pueblo, CO 81004\u200b\n                                                  719-717-7191\u200b\n                                                coop.7th@gmail.com\n\n\n\n\n\n                                       29Tab 2Harry Cooper\u200b\n1925 E. Abriendo Ave.\nPueblo, CO 81004\u200b\n719-717-7191\u200b\ncoop.7th@gmail.com\n\nJune 18, 2026\n\u200b\nCharles E. Spooner III\u200b\n72 Louis Nelson Rd Pueblo, CO\n\n\n\nRe: First and Final Demand to Confirm Mutual Termination, Refund Unearned Prepaid\nRent, Return Security Deposit, and Avoid Litigation \u2014 1925 E. Abriendo Ave., Unit # A\n\n\n\nMr. Spooner:\n\n       This is a first and final good-faith demand to resolve the dispute concerning the\n\nResidence Lease for 1925 E. Abriendo Ave., without litigation.\n\n       Enclosed is a Mutual Lease Termination, Surrender, Refund, and Limited Release\n\nAgreement already signed by the Tenants. Your signature without changes, together with\n\npayment of the required refund in verified funds, will accept the agreement and make it effective\n\nunder its terms. The Tenant signatures are tendered for settlement only and do not release any\n\nclaims, terminate the lease, surrender possession, waive rights, or create any obligation unless\n\nand until you sign the agreement without changes and pay the required refund.\n\n      You have already made what I understand to be a good-faith offer to return my money\n\nand unwind the lease. In your text message, you stated: \u201cso I will give you your money back at\n\nend of month.\u201d I accept the concept of unwinding the lease on that basis. This letter is intended\n\nto reduce that agreement to clear written terms, including the refund amount, surrender date,security deposit, and release language so neither side later claims abandonment, future rent,\n\ndefault, or breach.\n\n         I paid you $14,100.00 total under the lease, consisting of $13,200.00 in prepaid rent for\n\nthe lease term and a $900.00 security deposit. My position is that I did not receive the leasehold,\n\nquiet possession, and utility arrangement described, implied, and prepaid for under the written\n\nlease.\n\nThe lease identifies the rental in two ways. The address identifies the residence as 1925 E.\n\nAbriendo Ave., \u201cUnit # A\u201d [sic]. But the handwritten legal description identifies the larger\n\nproperty or lot, including Lots 17, 18, 19, and the South 1/2 of Block 22, Lake Minnequa\n\nAddition, formerly No. 16124-08-009.\n\n      The lease does not define \u201cUnit # A.\u201d It does not say \u201cUnit # A interior only.\u201d It does not\n\ncontain a map, boundary description, exclusion, carveout, reservation, or written statement\n\nshowing that the detached garage, shop, driveway, parking area, yard, exterior areas, breaker,\n\nelectrical circuits, or related appurtenances were excluded from my tenancy or reserved to you.\n\nThat is the problem. You used a lease that referenced Unit # A by address while also using a\n\nlegal description for the larger property or lot, but you did not identify what areas were\n\nsupposedly excluded, shared, or retained by you. If you intended to keep or share the\n\ngarage/shop, driveway, parking area, yard, breaker, electrical circuits, or any related electric load,\n\nthat needed to be written into the lease before you accepted prepaid rent.\n\nIt was not.\n\n\n\n\n\n                                      2      The lease also gives me quiet possession upon payment of rent and performance of lease\n\nobligations. I paid the rent and security deposit required by the lease. The lease also makes me\n\nresponsible for Electric.\n\n       Despite that, you have retained, controlled, used, or claimed control over parts of the\n\nproperty that were not excluded or reserved to you in the lease. That includes the detached\n\ngarage/shop area, driveway or parking area, yard or exterior areas, and electrical control related\n\nto the detached garage/shop.\n\n      You also regularly come to the property to access and use the detached garage/shop for\n\nyour own purposes, approximately weekly or more often. That regular use was not disclosed in\n\nthe lease. The lease does not state that you may regularly enter or use any part of the leased\n\nproperty for your own purposes. Your regular use of the garage/shop is not incidental landlord\n\naccess for inspection or repair. It is retained personal use of a disputed part of the property that\n\nwas not reserved to you in the lease.\n\n     Any reference to \u201ccommon areas\u201d in the old printed lease form does not fix this problem.\n\nThe phrase \u201ccommon areas\u201d is not defined. The lease does not identify any specific shared\n\nparking lot, shared driveway, landlord-retained garage, landlord-retained shop, landlord-reserved\n\nparking area, or landlord-retained electrical load. A generic undefined reference to \u201ccommon\n\nareas\u201d does not create an unwritten reservation in your favor.\n\n      Your own Demand for Compliance also treated the yard, front area, parking lot, and\n\nbroader property as part of the lease relationship. You checked \u201cComply with the Lease\u201d and\n\nalleged property damage, yard issues, debris, obstructions, junk left in front, and\n\n\n\n\n                                      3parking-lot-related issues. You also wrote that \u201cthe landlord shares the parking lot with tenants.\u201d\n\nThat alleged sharing arrangement is not stated in the lease.\n\nYou cannot use the lease to demand compliance concerning the yard, front area, parking lot, and\n\nbroader property while also claiming those same areas were excluded from my tenancy or\n\nretained by you.\n\n      The Demand for Compliance also appears retaliatory and pretextual. Before serving the\n\nnotice, you complained by text about items outside the residence and stated, in substance, that\n\neven while moving in we left stuff out and that it made you wonder what the inside looked like.\n\nYou then acknowledged improvement by texting, in substance, \u201cthat\u2019s better,\u201d while also saying\n\nwhat you saw earlier was \u201clike a slap in my face.\u201d\n\n       Despite acknowledging that the condition was \u201cbetter,\u201d you still served the Demand for\n\nCompliance based on yard, debris, obstruction, front-area, parking-lot, and property-related\n\nallegations. That sequence supports the conclusion that the notice was retaliatory, intimidating,\n\npretextual, or used as pressure rather than a good-faith effort to enforce an uncured lease\n\nviolation. Your failure to file or pursue an eviction action based on that Demand after the cure\n\nperiod expired further supports that conclusion.\n\n       This letter also serves as formal notice that I am asserting my rights under the lease and\n\nColorado law in good faith. That includes my rights concerning the scope of the tenancy, quiet\n\npossession, the legal description, appurtenances, utilities, the detached garage/shop electrical\n\nfeed, your regular use of the garage/shop, the disputed Demand for Compliance, and any\n\nattempted entry, harassment, exclusion, or interference with possession.\n\n\n\n\n                                      4     Any further threats of eviction, new notices, harassment, intimidation, attempted fees or\n\npenalties, interference with utilities, lockout conduct, reduction of services, interference with\n\npossession, or other adverse action taken because I asserted tenant rights may be treated as\n\nretaliation under Colorado law and may expose you to statutory damages, actual damages, costs,\n\nattorney fees if incurred and allowed, and termination of the rental agreement.\n\n         I also recently discovered public electrical permit/inspection information for the property\n\nstating \u201cRE-WIRE HOUSE & GARAGE\u201d and specifically noting \u201cDETACHED GARAGE\n\nFEED FROM 1925 Unit # A.\u201d Paying your electric bill was the last straw for us,  I am not\n\naware of any later permitted electrical work separating the detached garage/shop from Unit # A\u2019s\n\nelectrical service or placing the detached garage/shop on a separate meter.\n\n         If you contend the detached garage/shop is no longer fed from Unit # A, provide the later\n\npermit, inspection approval, utility record, licensed-electrician invoice, panel documentation, or\n\nother proof showing when and how that change occurred.\n\nThe issue is straightforward:\n\n         If the garage/shop, driveway, parking area, yard, exterior areas, or related appurtenances\n\nwere part of my tenancy or appurtenant to it, then your retained control, regular use, and\n\ninterference breached the lease and quiet possession.\n\n         If you contend those areas were excluded or retained by you, then that exclusion was not\n\nwritten into the lease, and you failed to disclose before accepting prepaid rent that a\n\nlandlord-retained detached garage/shop was connected to the electric service for Unit # A, which\n\nI pay.\n\n\n\n\n                                      5       Either way, I did not receive the leasehold, quiet possession, and utility arrangement I\n\nprepaid for.\n\n       This dispute is not limited to the garage and electricity. Your conduct has also interfered\n\nwith quiet possession. This includes the disputed Demand for Compliance, your position\n\nregarding the driveway, yard, vehicles, parking area, and exterior areas despite no clear lease\n\nprovision supporting your claimed retained control, and your appearance at the residence\n\nclaiming an \u201cemergency\u201d to address a screen-door issue.\n\n    A screen-door issue was not a genuine emergency. During that incident, you and/or a\n\nperson with you banged on the door and windows, attempted to look into the residence, used or\n\noperated tools at or near the door, and attempted to manipulate or open the locked front door. I\n\nconsider that conduct further interference with quiet possession.\n\n      The lease also appears to be an old printed 1997 form. To the extent you rely on any\n\nprinted provision that conflicts with current Colorado residential-tenant law, including C.R.S. \u00a7\n\n38-12-801, that provision is void and unenforceable. This includes any attempted waiver of quiet\n\nenjoyment, waiver of good faith and fair dealing, one-way fee shifting, eviction-related penalty,\n\nimproper treatment of non-rent charges as rent, or other prohibited lease term.\n\n       This demand must be accepted in writing no later than Thursday, June 25, 2026, at 11:59\n\np.m. Mountain Time. If it is not accepted in writing by that deadline, I am prepared to file the\n\nattached complaint in Pueblo County District Court without further notice.\n\n      The complaint will seek declaratory relief, rescission or equitable termination, refund of\n\nunearned prepaid rent, return of the security deposit subject only to lawful deductions,\n\n\n\n\n                                      6breach-of-lease damages, quiet-possession damages, wrongful-exclusion damages, utility-related\n\nreimbursement or restitution, retaliation damages, costs, and all other relief allowed by law.\n\n         I am not sending this demand because I am unwilling or unable to litigate. I am sending it\n\nto give you one final opportunity to resolve the matter without court intervention. I am\n\nexperienced in litigation, including State Public Records Litigation, Federal Civil Rights\n\nLitigation in the District of Colorado, and State District Court money-claim litigation, and\n\nmultiple Criminal Case Dismissals with Prejudice and plenty of actual trial experience. I am not\n\nseeking litigation for its own sake, but I am prepared to file and prosecute the attached complaint\n\nif this matter is not resolved.\n\n       This demand remains open until Thursday, June 25, 2026, at 11:59 p.m. Mountain Time.\n\nAfter that deadline, it is withdrawn unless I agree otherwise in writing.\n\nAll rights reserved.\n\nSincerely,\n\nHarry Cooper|Kristen Yanes\n\n______________________________\n\n______________________________\n\n\n\n\n\n                                      7Attachments:\n\n\n\n              1.\u200b Retaliatory Demand for Compliance after you acknowledged \u201cthat's better\u201d....\n\n              2.\u200b Electrical permit/inspection record showing \u201cRE-WIRE HOUSE & GARAGE\u201d\n\n            and \u201cDETACHED GARAGE FEED FROM 1925 Unit # A\u201d\n\n              3.\u200b Text messages concerning outside items, \u201cthat\u2019s better,\u201d and \u201cslap in my face\u201d\n\n              4.\u200b Text message stating \u201cso I will give you your money back at the end of month\u201d\n\n              5.\u200b Police Report\n\n              6.\u200b Unfiled Verified Complaint\n\n              7.\u200b Mutual Lease Termination, Surrender, Refund, and Limited Release Agreement\n\n              8.\u200b Multiple supporting videos of you banging on my door and window, attempting to\n\n            open the side door, and peeking in my window, WILL BE USED AS EXHIBITS\n\n           IN TRIAL\n\n\n\n\n\n                                      8Tab 3   MUTUAL LEASE TERMINATION, SURRENDER, REFUND, AND LIMITED\n\n                     RELEASE AGREEMENT\n\nThis Mutual Lease Termination, Surrender, Refund, and Limited Release Agreement\n\n(\u201cAgreement\u201d) is made by and between Harry Cooper and Kristen Yanes (\u201cTenants\u201d) and\n\nCharles E. Spooner III (\u201cLandlord\u201d) concerning the Residence Lease for 1925 E. Abriendo Ave.,\n\nUnit A, Pueblo, Colorado (\u201cLease\u201d and \u201cProperty\u201d).\n\n                                                     I. PARTIES\n\n    1.\u200b Tenants are Harry Cooper and Kristen Yanes.\n\n    2.\u200b Landlord is Charles E. Spooner III.\n\n    3.\u200b The Property is 1925 E. Abriendo Ave., Unit A, Pueblo, Colorado.\n\n    4.\u200b The Lease is the Residence Lease for the Property for the term beginning May 1, 2026\n\n      and ending May 1, 2027.\n\n                                    II. PURPOSE OF AGREEMENT\n\n    5.\u200b The parties dispute the Lease, the scope of the tenancy, quiet possession, access and\n\n       control over portions of the Property, utilities, the detached garage/shop,\n\n       parking/driveway/yard areas, the Demand for Compliance, and related matters.\n\n    6.\u200b Tenants contend they paid $14,100.00 total under the Lease, consisting of $13,200.00 in\n\n       prepaid rent and a $900.00 security deposit.\n\n    7.\u200b Tenants contend they did not receive the leasehold, quiet possession, and utility\n\n       arrangement described, implied, and prepaid for under the written Lease.\n\n    8.\u200b Landlord previously stated by text message, \u201cso I will give you your money back at end\n\n       of month.\u201d9.\u200b The parties desire to resolve this dispute without litigation, without any admission of\n\n     liability, and without either side later claiming abandonment, default, breach, future rent,\n\n    or improper surrender.\n\n                                      III. NO ADMISSION\n\n10.\u200bThis Agreement is a compromise and settlement agreement.\n\n11.\u200bNeither party admits liability, wrongdoing, default, breach, fraud, retaliation, damages, or\n\n    violation of law by signing this Agreement.\n\n12.\u200bThe parties enter this Agreement to avoid litigation, expense, uncertainty, and further\n\n    dispute.\n\n                    IV. EFFECTIVE DATE AND CONDITIONS\n\n13.\u200bThis Agreement becomes effective only when all of the following occur:\n\n             a. Harry Cooper signs this Agreement;\n\n            b. Kristen Yanes signs this Agreement;\n\n             c. Charles E. Spooner III signs this Agreement without changes;\n\n            d. Landlord pays Tenants $10,668.49 in verified funds; and\n\n             e. Each party receives a copy of the fully signed Agreement.\n\n14.\u200bTenants\u2019 signatures are tendered for settlement purposes only.\n\n15.\u200bTenants\u2019 signatures do not release any claims, terminate the Lease, surrender possession,\n\n   waive any rights, or create any duty to vacate unless and until Landlord signs this\n\n   Agreement without changes and pays Tenants $10,668.49 in verified funds.\n\n\n\n\n\n                                    216.\u200bAny change, deletion, added term, delayed-payment condition, altered refund term, or\n\n   added condition by Landlord is a counteroffer and is not accepted unless Tenants agree in\n\n    writing.\n\n                           V. TERMINATION OF LEASE\n\n17.\u200bUpon the Effective Date of this Agreement, the Lease shall terminate by mutual written\n\n   agreement, subject to the surrender period stated below.\n\n18.\u200bThe termination shall not be treated as abandonment by Tenants.\n\n19.\u200bThe termination shall not be treated as default by Tenants.\n\n20.\u200bThe termination shall not be treated as breach by Tenants.\n\n21.\u200bLandlord shall not seek or claim future rent after the agreed surrender date.\n\n22.\u200bLandlord shall not seek or claim lease-break fees, reletting fees, eviction-related\n\n    penalties, late fees, administrative fees, attorney fees, or costs arising from Tenants\u2019\n\n   move-out under this Agreement.\n\n                         VI. PREPAID RENT REFUND\n\n23.\u200bTenants paid $13,200.00 in prepaid rent for the Lease term.\n\n24.\u200bFor purposes of this settlement only, the parties agree that the prepaid-rent refund due at\n\n    signing is $10,668.49.\n\n25.\u200bThe $10,668.49 refund amount accounts for rent prorated through July 9, 2026, which is\n\n    the agreed surrender date under this Agreement.\n\n26.\u200bLandlord shall pay Tenants $10,668.49 in verified funds at the time Landlord signs this\n\n   Agreement.\n\n\n\n\n                                    327.\u200bThe refund must be paid by cashier\u2019s check, money order, certified funds, cash, or other\n\n    verified funds acceptable to Tenants.\n\n28.\u200bPayment must be made payable to Harry Cooper unless Tenants agree otherwise in\n\n    writing.\n\n29.\u200bNo rent shall be owed after July 9, 2026.\n\n30.\u200bLandlord shall not claim future rent, abandonment, default, breach, lease-break fees,\n\n    reletting fees, eviction-related penalties, attorney fees, or costs based on Tenants\u2019\n\n    surrender under this Agreement.\n\n                       VII. SURRENDER OF POSSESSION\n\n31.\u200bTenants shall surrender possession of the Property no later than July 9, 2026, at 11:59\n\n   p.m. Mountain Time.\n\n32.\u200bTenants may remove personal property from the Property through the surrender deadline.\n\n33.\u200bSurrender under this Agreement shall not be deemed abandonment, default, breach, or\n\n   unlawful possession.\n\n34.\u200bLandlord shall not enter the dwelling before surrender except as allowed by law, by\n\n    written agreement of the parties, or in a genuine emergency.\n\n35.\u200bTenants shall return keys and any access devices at surrender.\n\n                            VIII. SECURITY DEPOSIT\n\n36.\u200bThe $900.00 security deposit shall be handled separately from the prepaid-rent refund.\n\n37.\u200bLandlord shall return the $900.00 security deposit within thirty days after surrender,\n\n    unless Landlord provides a written itemized statement of claimed lawful deductions with\n\n    supporting documentation.\n\n\n                                    438.\u200bAny claimed deduction must be lawful, itemized, documented, and based on actual\n\n   damages beyond ordinary wear and tear.\n\n39.\u200bClaims relating to the security deposit are not released unless and until the deposit is\n\n    returned or timely itemized under this Agreement.\n\n40.\u200bIf Landlord fails to return or timely itemize the security deposit within thirty days after\n\n    surrender, Tenants reserve all rights and remedies concerning the security deposit.\n\n                                IX. UTILITIES\n\n41.\u200bTenants shall remain responsible for ordinary utility charges for the dwelling through the\n\n   agreed surrender date, to the extent required by the Lease and law.\n\n42.\u200bTenants do not waive any claim or defense concerning electricity allegedly used by any\n\n   detached garage/shop, landlord-retained area, exterior area, or other area not properly\n\n    disclosed or reserved in the Lease.\n\n43.\u200bAny claim relating to undisclosed electric use, detached garage/shop electric feed, utility\n\n   reimbursement, utility accounting, or utility offset is preserved unless separately resolved\n\n    in writing.\n\n                   X. LIMITED RELEASE BY TENANTS\n\n44.\u200bUpon all of the following occurring, Tenants release Landlord from claims arising from\n\n    the Lease and tenancy through the date of surrender:\n\n             a. Landlord signs this Agreement without changes;\n\n            b. Landlord pays Tenants $10,668.49 in verified funds;\n\n             c. Tenants receive a fully signed copy of this Agreement;\n\n\n\n\n                                    5            d. Tenants receive the full surrender period through July 9, 2026, at 11:59 p.m.\n\n         Mountain Time; and\n\n             e. Tenants surrender possession under this Agreement.\n\n45.\u200bThis release is limited to claims arising from the Lease and tenancy through surrender.\n\n46.\u200bThis release does not release security-deposit claims unless and until the deposit is\n\n    returned or timely itemized as required by this Agreement.\n\n47.\u200bThis release does not release claims arising from any breach of this Agreement.\n\n48.\u200bThis release does not release claims arising from conduct occurring after the Effective\n\n   Date of this Agreement.\n\n49.\u200bThis release does not release claims arising from retaliation, lockout, utility interference,\n\n   harassment, unlawful entry, property damage, failure to pay the required refund, failure to\n\n   honor the surrender period, or failure to comply with this Agreement.\n\n                   XI. LIMITED RELEASE BY LANDLORD\n\n50.\u200bUpon Tenants surrendering possession under this Agreement, Landlord releases Tenants\n\n   from all claims for future rent, abandonment, lease-break fees, reletting fees,\n\n    eviction-related penalties, late fees, administrative fees, attorney fees, costs, default,\n\n    breach, or damages arising solely from Tenants\u2019 termination and surrender under this\n\n   Agreement.\n\n51.\u200bLandlord does not release lawful claims, if any, for actual physical damage to the\n\n   dwelling beyond ordinary wear and tear, but any such claim must be handled through the\n\n    security-deposit process stated in this Agreement and Colorado law.\n\n\n\n\n                                    6             XII. NO EVICTION OR FUTURE POSSESSION CLAIM\n\n52.\u200bLandlord agrees not to file, pursue, or threaten an eviction, possession action, or rent\n\n   claim based on Tenants\u2019 move-out under this Agreement.\n\n53.\u200bLandlord agrees not to report Tenants as evicted, abandoned, defaulted, or owing future\n\n    rent based on Tenants\u2019 surrender under this Agreement.\n\n54.\u200bLandlord agrees not to send any adverse rental reference based on Tenants\u2019 termination\n\n   and surrender under this Agreement.\n\n             XIII. NON-RETALIATION AND NON-INTERFERENCE\n\n55.\u200bLandlord agrees not to retaliate against Tenants for asserting lease rights, tenant rights,\n\n    quiet-possession rights, utility-related rights, or rights concerning the Demand for\n\n   Compliance.\n\n56.\u200bLandlord agrees not to interfere with utilities, access, possession, quiet enjoyment,\n\n   moving, or surrender during the surrender period.\n\n57.\u200bLandlord agrees not to harass, intimidate, threaten, or pressure Tenants during the\n\n    surrender period.\n\n                   XIV. EACH SIDE BEARS OWN COSTS\n\n58.\u200bEach party shall bear its own costs and fees for purposes of settlement.\n\n59.\u200bThis provision does not limit any party\u2019s right to seek fees or costs if another party\n\n   breaches this Agreement and litigation is required to enforce it.\n\n                       XV. ENTIRE AGREEMENT\n\n60.\u200bThis Agreement is the entire agreement between the parties concerning mutual\n\n    termination, surrender, prepaid-rent refund, security deposit handling, and limited release.\n\n\n                                    7   61.\u200bNo oral statement changes this Agreement.\n\n   62.\u200bAny modification must be in writing and signed by all parties.\n\n                XVI. COPIES AND ELECTRONIC SIGNATURES\n\n    63.\u200bCopies, scans, photographs, and electronic versions of this signed Agreement shall be\n\n        treated as originals.\n\n   64.\u200bThe parties may sign in counterparts, and all signed counterparts together shall form one\n\n      Agreement.\n\n                              XVII. SIGNATURES\n\nTENANTS:\n\nI have read this Agreement. I sign it for settlement purposes only. My signature does not release\n\nclaims, terminate the Lease, surrender possession, waive rights, or create any duty to vacate\n\nunless and until Landlord signs this Agreement without changes and pays Tenants $10,668.49 in\n\nverified funds.\n\nOn this 18th day of June 2026\n\n________________________\nHarry Cooper\nTenant\n\n\n________________________\nKristen Yanes\u200b\nTenant\n\n\n\n\n\n                                      8LANDLORD:\n\nI have read this Agreement. I accept it without changes. I agree to pay Tenants $10,668.49 in\n\nverified funds at signing and comply with all terms of this Agreement.\n\n__________________________\nCharles E. Spooner III\nLandlord\n\n\n\n\n\n                                      9PAYMENT RECEIPT\n\nAmount paid at signing: $10,668.49\n\nForm of payment: _______________________________\n\nCheck / money order / receipt number: _______________________________\n\n\n\nReceived by Tenants:\n\n\n\nDate: ______________________\n\n___________________________\nHarry Cooper\n\n____________________________\nKristen Yanes\n\n\n\n\n\n                                      10",
+      "groups": [],
+      "orphans": [],
+      "authorities": [
+        {
+          "id": "a0",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "category": "statute",
+            "source": "Colorado Revised Statutes",
+            "text": "C.R.S. \u00a7 38-12-801",
+            "span": [
+              23548,
+              23566
+            ],
+            "name": "Colo. Rev. Stat. \u00a7 38-12-801",
+            "url": "https://colorado.public.law/statutes/crs_38-12-801",
+            "tokens": {
+              "title": "38",
+              "article": "12",
+              "section": "801"
+            },
+            "is_shortform": false
+          },
+          "children": [
+            {
+              "category": "statute",
+              "source": "Colorado Revised Statutes",
+              "text": "C.R.S. \u00a7 38-12-801",
+              "span": [
+                40145,
+                40163
+              ],
+              "name": "Colo. Rev. Stat. \u00a7 38-12-801",
+              "url": "https://colorado.public.law/statutes/crs_38-12-801",
+              "tokens": {
+                "title": "38",
+                "article": "12",
+                "section": "801"
+              },
+              "is_shortform": false
+            },
+            {
+              "category": "statute",
+              "source": "Colorado Revised Statutes",
+              "text": "C.R.S. \u00a7 38-12-801",
+              "span": [
+                40290,
+                40308
+              ],
+              "name": "Colo. Rev. Stat. \u00a7 38-12-801",
+              "url": "https://colorado.public.law/statutes/crs_38-12-801",
+              "tokens": {
+                "title": "38",
+                "article": "12",
+                "section": "801"
+              },
+              "is_shortform": false
+            },
+            {
+              "category": "statute",
+              "source": "Colorado Revised Statutes",
+              "text": "C.R.S. \u00a7 38-12-801",
+              "span": [
+                40759,
+                40777
+              ],
+              "name": "Colo. Rev. Stat. \u00a7 38-12-801",
+              "url": "https://colorado.public.law/statutes/crs_38-12-801",
+              "tokens": {
+                "title": "38",
+                "article": "12",
+                "section": "801"
+              },
+              "is_shortform": false
+            },
+            {
+              "category": "statute",
+              "source": "Colorado Revised Statutes",
+              "text": "C.R.S. \u00a7 38-12-801",
+              "span": [
+                41344,
+                41362
+              ],
+              "name": "Colo. Rev. Stat. \u00a7 38-12-801",
+              "url": "https://colorado.public.law/statutes/crs_38-12-801",
+              "tokens": {
+                "title": "38",
+                "article": "12",
+                "section": "801"
+              },
+              "is_shortform": false
+            },
+            {
+              "category": "statute",
+              "source": "Colorado Revised Statutes",
+              "text": "C.R.S. \u00a7 38-12-801",
+              "span": [
+                44084,
+                44102
+              ],
+              "name": "Colo. Rev. Stat. \u00a7 38-12-801",
+              "url": "https://colorado.public.law/statutes/crs_38-12-801",
+              "tokens": {
+                "title": "38",
+                "article": "12",
+                "section": "801"
+              },
+              "is_shortform": false
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "a1",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "category": "statute",
+            "source": "Colorado Revised Statutes",
+            "text": "C.R.S. \u00a7 13-51-101",
+            "span": [
+              24271,
+              24289
+            ],
+            "name": "Colo. Rev. Stat. \u00a7 13-51-101",
+            "url": "https://colorado.public.law/statutes/crs_13-51-101",
+            "tokens": {
+              "title": "13",
+              "article": "51",
+              "section": "101"
+            },
+            "is_shortform": false
+          },
+          "children": [],
+          "quotes": []
+        },
+        {
+          "id": "a2",
+          "category": "statute",
+          "source": "Colorado Revised Statutes",
+          "header": {
+            "category": "statute",
+            "source": "Colorado Revised Statutes",
+            "text": "C.R.S. \u00a7 38-12-509",
+            "span": [
+              36101,
+              36119
+            ],
+            "name": "Colo. Rev. Stat. \u00a7 38-12-509",
+            "url": "https://colorado.public.law/statutes/crs_38-12-509",
+            "tokens": {
+              "title": "38",
+              "article": "12",
+              "section": "509"
+            },
+            "is_shortform": false
+          },
+          "children": [
+            {
+              "category": "statute",
+              "source": "Colorado Revised Statutes",
+              "text": "C.R.S. \u00a7 38-12-509",
+              "span": [
+                39146,
+                39164
+              ],
+              "name": "Colo. Rev. Stat. \u00a7 38-12-509",
+              "url": "https://colorado.public.law/statutes/crs_38-12-509",
+              "tokens": {
+                "title": "38",
+                "article": "12",
+                "section": "509"
+              },
+              "is_shortform": false
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "id": "a3",
+          "category": "rule",
+          "source": "Colorado Rules of Civil Procedure",
+          "header": {
+            "category": "rule",
+            "source": "Colorado Rules of Civil Procedure",
+            "text": "C.R.C.P. 57",
+            "span": [
+              24302,
+              24313
+            ],
+            "name": "C.R.C.P. 57",
+            "url": null,
+            "tokens": {
+              "rule": "57",
+              "section": "57"
+            },
+            "is_shortform": false
+          },
+          "children": [],
+          "quotes": []
+        }
+      ],
+      "unattributedQuotes": [
+        {
+          "text": "Unit # A",
+          "span": [
+            2926,
+            2936
+          ],
+          "raw_text": "\u201cUnit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A.",
+          "span": [
+            3014,
+            3025
+          ],
+          "raw_text": "\u201cUnit # A.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A",
+          "span": [
+            3062,
+            3072
+          ],
+          "raw_text": "\u201cUnit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "the landlord shares the parking lot with tenants.",
+          "span": [
+            5388,
+            5444
+          ],
+          "raw_text": "\u201cthe landlord shares the parking lot\n\n    with tenants.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "DETACHED GARAGE FEED FROM 1925 Unit # A.",
+          "span": [
+            5883,
+            5925
+          ],
+          "raw_text": "\u201cDETACHED GARAGE FEED FROM 1925 Unit # A.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A",
+          "span": [
+            9132,
+            9142
+          ],
+          "raw_text": "\u201cUnit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A.",
+          "span": [
+            9339,
+            9350
+          ],
+          "raw_text": "\u201cUnit # A.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A interior only.",
+          "span": [
+            9421,
+            9446
+          ],
+          "raw_text": "\u201cUnit # A interior only.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Common Areas",
+          "span": [
+            10810,
+            10824
+          ],
+          "raw_text": "\u201cCommon Areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas.",
+          "span": [
+            10979,
+            10994
+          ],
+          "raw_text": "\u201ccommon areas.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            11012,
+            11026
+          ],
+          "raw_text": "\u201ccommon areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            11537,
+            11551
+          ],
+          "raw_text": "\u201ccommon areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            11659,
+            11673
+          ],
+          "raw_text": "\u201ccommon areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            11852,
+            11866
+          ],
+          "raw_text": "\u201ccommon areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            11977,
+            11991
+          ],
+          "raw_text": "\u201ccommon areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Comply with the Lease.",
+          "span": [
+            12399,
+            12423
+          ],
+          "raw_text": "\u201cComply with the Lease.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "property damage + not keeping yard clean as agreed.",
+          "span": [
+            12448,
+            12501
+          ],
+          "raw_text": "\u201cproperty damage + not keeping yard clean as agreed.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "debris and obstructions left on property.",
+          "span": [
+            12578,
+            12621
+          ],
+          "raw_text": "\u201cdebris and obstructions left on property.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "junk left in front also not removed.",
+          "span": [
+            12646,
+            12684
+          ],
+          "raw_text": "\u201cjunk left in front also not removed.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Stop Disturbing Conduct.",
+          "span": [
+            12714,
+            12740
+          ],
+          "raw_text": "\u201cStop Disturbing Conduct.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "the landlord shares the parking lot with tenants.",
+          "span": [
+            12769,
+            12820
+          ],
+          "raw_text": "\u201cthe landlord shares the parking lot with tenants.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Even when moving in you leave stuff out like that shows me you don\u2019t take care of your s%#*, now I\u2019m wondering what the inside\u2019s looking like!",
+          "span": [
+            13902,
+            14057
+          ],
+          "raw_text": "\u201cEven when moving in you leave stuff out\n\n     like that shows me you don\u2019t take care of your s%#*, now I\u2019m wondering what the inside\u2019s\n\n    looking like!\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "that\u2019s better, what I saw earlier was like a slap in my face.",
+          "span": [
+            14339,
+            14407
+          ],
+          "raw_text": "\u201cthat\u2019s better, what I\n\n    saw earlier was like a slap in my face.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "that\u2019s better",
+          "span": [
+            14441,
+            14456
+          ],
+          "raw_text": "\u201cthat\u2019s better\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "better,",
+          "span": [
+            14642,
+            14651
+          ],
+          "raw_text": "\u201cbetter,\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "a slap in my face",
+          "span": [
+            15236,
+            15255
+          ],
+          "raw_text": "\u201ca slap in my face\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "DETACHED GARAGE FEED FROM 1925 Unit # A.",
+          "span": [
+            16136,
+            16182
+          ],
+          "raw_text": "\u201cDETACHED\n\n   GARAGE FEED FROM 1925 Unit # A.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "emergency",
+          "span": [
+            20636,
+            20647
+          ],
+          "raw_text": "\u201cemergency\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "the landlord shares the parking lot with tenants,",
+          "span": [
+            22066,
+            22122
+          ],
+          "raw_text": "\u201cthe landlord shares the parking lot\n\n    with tenants,\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "so I will give you your money back at end of month.",
+          "span": [
+            23211,
+            23269
+          ],
+          "raw_text": "\u201cso I will give you your money back at end of\n\n    month.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A.",
+          "span": [
+            24748,
+            24759
+          ],
+          "raw_text": "\u201cUnit # A.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A",
+          "span": [
+            25204,
+            25214
+          ],
+          "raw_text": "\u201cUnit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A",
+          "span": [
+            25300,
+            25310
+          ],
+          "raw_text": "\u201cUnit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            25832,
+            25846
+          ],
+          "raw_text": "\u201ccommon areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A",
+          "span": [
+            31720,
+            31730
+          ],
+          "raw_text": "\u201cUnit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A",
+          "span": [
+            34802,
+            34812
+          ],
+          "raw_text": "\u201cUnit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "the landlord shares the parking lot with tenants,",
+          "span": [
+            37172,
+            37228
+          ],
+          "raw_text": "\u201cthe landlord shares the parking lot\n\n    with tenants,\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "better.",
+          "span": [
+            37550,
+            37559
+          ],
+          "raw_text": "\u201cbetter.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "give [Plaintiff] your money back at end of month.",
+          "span": [
+            39625,
+            39676
+          ],
+          "raw_text": "\u201cgive [Plaintiff] your money back at end of month.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A",
+          "span": [
+            42742,
+            42752
+          ],
+          "raw_text": "\u201cUnit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            43217,
+            43231
+          ],
+          "raw_text": "\u201ccommon areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "so I will give you your money back at end of month.",
+          "span": [
+            47488,
+            47542
+          ],
+          "raw_text": "\u201cso I will give you your money back at\n\nend of month.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A",
+          "span": [
+            48251,
+            48261
+          ],
+          "raw_text": "\u201cUnit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A.",
+          "span": [
+            48490,
+            48501
+          ],
+          "raw_text": "\u201cUnit # A.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Unit # A interior only.",
+          "span": [
+            48518,
+            48543
+          ],
+          "raw_text": "\u201cUnit # A interior only.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            50433,
+            50447
+          ],
+          "raw_text": "\u201ccommon areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            50517,
+            50531
+          ],
+          "raw_text": "\u201ccommon areas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "common areas",
+          "span": [
+            50781,
+            50796
+          ],
+          "raw_text": "\u201ccommon\n\nareas\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Comply with the Lease",
+          "span": [
+            51008,
+            51031
+          ],
+          "raw_text": "\u201cComply with the Lease\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "the landlord shares the parking lot with tenants.",
+          "span": [
+            51212,
+            51263
+          ],
+          "raw_text": "\u201cthe landlord shares the parking lot with tenants.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "that\u2019s better,",
+          "span": [
+            51877,
+            51893
+          ],
+          "raw_text": "\u201cthat\u2019s better,\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "like a slap in my face.",
+          "span": [
+            51938,
+            51963
+          ],
+          "raw_text": "\u201clike a slap in my face.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "better,",
+          "span": [
+            52017,
+            52026
+          ],
+          "raw_text": "\u201cbetter,\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "DETACHED GARAGE FEED FROM 1925 Unit # A.",
+          "span": [
+            53616,
+            53659
+          ],
+          "raw_text": "\u201cDETACHED GARAGE\n\nFEED FROM 1925 Unit # A.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "emergency",
+          "span": [
+            55268,
+            55279
+          ],
+          "raw_text": "\u201cemergency\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "that's better",
+          "span": [
+            57860,
+            57875
+          ],
+          "raw_text": "\u201cthat's better\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "DETACHED GARAGE FEED FROM 1925 Unit # A",
+          "span": [
+            57985,
+            58026
+          ],
+          "raw_text": "\u201cDETACHED GARAGE FEED FROM 1925 Unit # A\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "that\u2019s better,",
+          "span": [
+            58086,
+            58102
+          ],
+          "raw_text": "\u201cthat\u2019s better,\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "slap in my face",
+          "span": [
+            58107,
+            58124
+          ],
+          "raw_text": "\u201cslap in my face\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "so I will give you your money back at the end of month",
+          "span": [
+            58165,
+            58221
+          ],
+          "raw_text": "\u201cso I will give you your money back at the end of month\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Lease",
+          "span": [
+            59035,
+            59042
+          ],
+          "raw_text": "\u201cLease\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "Property",
+          "span": [
+            59047,
+            59057
+          ],
+          "raw_text": "\u201cProperty\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        },
+        {
+          "text": "so I will give you your money back at end of month.",
+          "span": [
+            60123,
+            60184
+          ],
+          "raw_text": "\u201cso I will give you your money back at end\n\n       of month.\u201d",
+          "attribution_status": "unattributed",
+          "attribution_basis": null,
+          "authority_id": null,
+          "candidate_authorities": [],
+          "pin_cite": null,
+          "citation_span": null,
+          "pin_basis": null
+        }
+      ],
+      "layoutRegions": [],
+      "records": [],
+      "stats": {
+        "groups": 0,
+        "citations": 0,
+        "quotes": 63,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 63,
+        "flagged": 0,
+        "authorities": 4,
+        "authorityCitations": 10
+      }
+    }
+  }
+}

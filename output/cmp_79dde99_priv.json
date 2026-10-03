@@ -1,0 +1,66 @@
+[
+  {
+    "path": "output\\probe_priv.txt",
+    "name": "probe_priv.txt",
+    "chars": 211,
+    "old": {
+      "stats": {
+        "groups": 1,
+        "citations": 1,
+        "quotes": 0,
+        "linkedQuotes": 0,
+        "ambiguousQuotes": 0,
+        "unattributedQuotes": 0,
+        "flagged": 0,
+        "authorities": 0,
+        "authorityCitations": 0
+      },
+      "groups": [
+        {
+          "id": "g0",
+          "caseName": "In re Facebook, Inc. Consumer Priv. User Profile Litig., No. 18-md-02843-JSC",
+          "header": {
+            "kind": "FullCaseCitation",
+            "span": [
+              162,
+              176
+            ],
+            "text": "2020 WL 614956",
+            "plaintiff": null,
+            "defendant": null,
+            "case_name": "In re Facebook, Inc. Consumer Priv. User Profile Litig., No. 18-md-02843-JSC",
+            "full_citation": "In re Facebook, Inc. Consumer Priv. User Profile Litig., No. 18-md-02843-JSC, 2020 WL 614956, at *2 (N.D. Cal. Feb. 10 2020)",
+            "antecedent": null,
+            "pin": "at *2",
+            "flags": []
+          },
+          "children": [],
+          "proposition": "Courts routinely strike allegations referencing unrelated criminal proceedings.",
+          "propositionSpan": [
+            0,
+            79
+          ],
+          "occurrences": [
+            {
+              "citationSpan": [
+                162,
+                176
+              ],
+              "proposition": "Courts routinely strike allegations referencing unrelated criminal proceedings.",
+              "propositionSpan": [
+                0,
+                79
+              ],
+              "signal": "See"
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "authorities": [],
+      "records": [],
+      "orphans": [],
+      "unattributedQuotes": []
+    }
+  }
+]
