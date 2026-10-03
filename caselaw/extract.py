@@ -493,8 +493,20 @@ def _after_section_heading(window: str) -> str:
     return window[headings[-1].end():] if headings else window
 
 
+def _strip_emphasis_markers(window: str) -> str:
+    """Remove Markdown emphasis delimiters that wrap a caption.
+
+    Pasted text may italicise a case name ("*Warne v. Hall*"). The markers sit
+    at the caption boundary -- a leading run and a run immediately before the
+    terminal comma or end -- never inside a real party name, so only those two
+    positions are stripped.
+    """
+    window = re.sub(r"^[*_]+", "", window)
+    return re.sub(r"[*_]+(?=\s*,?\s*$)", "", window)
+
+
 def _derive_parties(window: str) -> tuple[str | None, str | None]:
-    stripped = _after_last_sentence(_after_section_heading(window)).rstrip()
+    stripped = _strip_emphasis_markers(_after_last_sentence(_after_section_heading(window)).rstrip())
     match = _CASE_NAME.search(stripped)
     if not match:
         return None, None
@@ -525,7 +537,7 @@ def _derive_case_name(window: str) -> str | None:
     happens to contain "in the matter of" cannot drag prose into the name.
     Returns the caption as written; there are no parties to split.
     """
-    stripped = window.rstrip().rstrip(",").rstrip()
+    stripped = _strip_emphasis_markers(window.rstrip().rstrip(",").rstrip())
     openers = list(_IN_RE_OPENER.finditer(stripped))
     if not openers:
         return None
