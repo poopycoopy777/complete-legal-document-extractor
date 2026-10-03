@@ -103,6 +103,31 @@ class TestSubsequentHistoryMerges:
         assert _is_subsequent_history(" (Colo. App. 2005), certiorari denied ")
         assert _is_subsequent_history(", petition for certiorari denied, ")
 
+    def test_a_replacement_character_inside_affd_is_still_history(self):
+        """The text layer prints "aff'd" with an unresolved glyph.
+
+        This filing's line is
+
+            Lot Thirty-Four Venture, L.L.C v. Town of Telluride, 976 P.2d 303
+            (Colo. App. 1998)  aff\\ufffdd on other grounds, 3 P.3d 30 (Colo. 2000)
+
+        where the apostrophe did not survive the scan. The history phrase is
+        still history, so the affirmance belongs to the case being affirmed
+        rather than becoming a second, unnamed card at the same citation.
+        """
+        from caselaw.group import _is_subsequent_history
+
+        assert _is_subsequent_history("  (Colo. App. 1998)  aff\ufffdd on other grounds,  ")
+        text = ("Lot Thirty-Four\n    Venture,  L.L.C v. Town of Telluride,  976  P.2d 303  "
+                "(Colo. App. 1998)  aff\ufffdd on other\n    grounds,  3 P.3d 30 (Colo. 2000)).")
+        groups = _groups(text)
+        assert len(groups) == 1, [(g["id"], g["caseName"], g["header"]["text"])
+                                  for g in groups]
+        group = groups[0]
+        assert group["caseName"] == "Lot Thirty-Four Venture, L.L.C v. Town of Telluride"
+        assert [c["text"] for c in (group["header"], *group["children"])] == [
+            "976  P.2d 303", "3 P.3d 30"]
+
     def test_a_cert_denied_cite_joins_the_case_it_belongs_to(self):
         """A Colorado filing writes:
 

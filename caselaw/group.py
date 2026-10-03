@@ -788,8 +788,14 @@ _PARALLEL_GAP = re.compile(
 # to be recognised explicitly. Its absence split one case into two cards whenever
 # it was appealed, and the second card then took whatever caption happened to
 # precede it -- evidence attached to the wrong authority.
+# An apostrophe in a printed history phrase survives the text layer as an ASCII
+# quote, a typographic one, or -- on a scanned page -- the replacement character
+# OCR emits. "aff\ufffdd on other grounds, 3 P.3d 30 (Colo. 2000)" was refused as
+# history because only an ASCII apostrophe was allowed, so the affirmed citation
+# split off into a card of its own with no caption to show.
+_APOSTROPHE = r"['\u2018\u2019\ufffd\u25a1]?"
 _HISTORY_PHRASE = re.compile(
-    r"(?:aff'?d|affirmed|rev'?d|reversed|vacated|modified|remanded|"
+    rf"(?:aff{_APOSTROPHE}d|affirmed|rev{_APOSTROPHE}d|reversed|vacated|modified|remanded|"
     r"cert\.\s*(?:denied|granted|dismissed)|"
     # A filing that spells the denial out ("certiorari denied 2005 WL 3074095")
     # is writing the same history as "cert. denied". Only the abbreviation was
@@ -802,8 +808,8 @@ _HISTORY_PHRASE = re.compile(
     r"overruled(?:\s+(?:on\s+other\s+grounds|in\s+part))?|"
     r"abrogated(?:\s+(?:on\s+other\s+grounds|in\s+part))?|"
     r"superseded(?:\s+by\s+statute)?|depublished|withdrawn|"
-    r"opinion\s+(?:amended|modified)|reh'?g\s+denied|"
-    r"aff'?d\s+on\s+other\s+grounds|rev'?d\s+on\s+other\s+grounds|sub\s+nom|"
+    rf"opinion\s+(?:amended|modified)|reh{_APOSTROPHE}g\s+denied|"
+    rf"aff{_APOSTROPHE}d\s+on\s+other\s+grounds|rev{_APOSTROPHE}d\s+on\s+other\s+grounds|sub\s+nom|"
     r"argued|adopted)"
     r"(?:\s+(?:on\s+other\s+grounds|in\s+part|en\s+banc|mem\.|per\s+curiam))?"
     r"\s*$",
@@ -815,15 +821,26 @@ _HISTORY_PHRASE = re.compile(
 _PIN = (
     r"(?:(?:paras?\.|\u00b6{1,2}|n\.|at)\s*)?\*?\d+(?:\s*[-\u2013]\s*\d+)?"
 )
-_PIN_OR_PARENTHETICAL = re.compile(
+_PIN_OR_PARENTHETICAL_ITEM = (
     r"(?:"
     rf"{_PIN}|"
     # The original's court-and-year parenthetical, which may itself carry an
     # inner parenthetical: "(D. Colo. Apr. 17, 2013)", "(Colo. App. 1999)".
     r"\((?:[^()]|\([^()]{0,60}\)){0,120}\)|"
     rf"{_PIN}\s*\((?:[^()]|\([^()]{{0,60}}\)){{0,120}}\)"
-    r")\s*$"
+    r")"
 )
+_PIN_OR_PARENTHETICAL = re.compile(_PIN_OR_PARENTHETICAL_ITEM + r"\s*$")
+# A filing often leaves out the comma between the original's own parenthetical
+# and its history:
+#
+#     ... 976 P.2d 303 (Colo. App. 1998) aff'd on other grounds, 3 P.3d 30 (Colo. 2000)
+#
+# The parenthetical then leads the history piece instead of standing as a piece
+# of its own. Treating that shape as neither a pin nor a parenthetical refused
+# real subsequent history, which is how the affirmed citation became a second,
+# unnamed card at the same page.
+_LEADING_PIN_OR_PARENTHETICAL = re.compile(r"^" + _PIN_OR_PARENTHETICAL_ITEM + r"\s*")
 _HISTORY_GAP_MAX = 80
 _WHITESPACE = re.compile(r"\s+")
 
@@ -872,7 +889,15 @@ def _is_subsequent_history(gap: str) -> bool:
     for piece in pieces:
         if _HISTORY_PHRASE.match(piece):
             named_history = True
-        elif not _PIN_OR_PARENTHETICAL.match(piece):
+            continue
+        # The filing may have run the original's parenthetical straight into its
+        # history ("(Colo. App. 1998) aff'd on other grounds"); the phrase is
+        # history all the same.
+        remainder = _LEADING_PIN_OR_PARENTHETICAL.sub("", piece, count=1).strip()
+        if remainder != piece.strip() and _HISTORY_PHRASE.match(remainder):
+            named_history = True
+            continue
+        if not _PIN_OR_PARENTHETICAL.match(piece):
             return False
     return named_history
 
