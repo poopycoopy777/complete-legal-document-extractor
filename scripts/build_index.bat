@@ -4,9 +4,8 @@ rem Logs to logs\ivfflat_build.log. Reads stay available throughout.
 setlocal EnableExtensions
 cd /d "%~dp0.."
 
-if "%VERIFIER_ENV_FILE%"=="" (
-    set "VERIFIER_ENV_FILE=D:\THE FUTURE OF LITIGATION\app_v2\backend\.env"
-)
+rem The database URL comes from VERIFIER_DATABASE_URL (persisted at user level)
+rem or a VERIFIER_ENV_FILE the operator sets. There is no fallback path.
 
 if not exist "logs" mkdir "logs"
 

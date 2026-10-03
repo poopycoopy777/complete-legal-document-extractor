@@ -74,14 +74,10 @@ The application reads the connection from either:
    `DATABASE_URL`.
 
 The user-level `VERIFIER_DATABASE_URL` was persisted on September 20, 2026 so
-new normal launches can configure the retriever without importing another
-repository. The original private configuration remains at:
+normal launches configure the retriever without importing another repository.
 
-`D:\THE FUTURE OF LITIGATION\app_v2\backend\.env`
-
-That path may be used as `VERIFIER_ENV_FILE` for recovery, but it is not a code
-dependency and must not be parsed for any purpose except obtaining
-`DATABASE_URL`.
+`D:\THE FUTURE OF LITIGATION` is a separate, unrelated project. Never read its
+files, point `VERIFIER_ENV_FILE` at it, or use it as a fallback for anything.
 
 ### Credential rules
 
@@ -148,15 +144,9 @@ Set-Location web
 npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
-If the current shell has not inherited the persisted user environment yet, a
-temporary recovery launch may set only the pointer, not the secret:
-
-```powershell
-$env:VERIFIER_ENV_FILE = `
-  'D:\THE FUTURE OF LITIGATION\app_v2\backend\.env'
-.\.venv\Scripts\python.exe -m uvicorn server.app:app `
-  --host 127.0.0.1 --port 8010
-```
+If the current shell has not inherited the persisted user environment yet,
+open a new shell so it does. Do not point `VERIFIER_ENV_FILE` at another
+project's configuration.
 
 Do not claim the verifier is operational from `/api/health`; that endpoint only
 proves FastAPI is answering. Make a real `POST /api/verify/cases` request and

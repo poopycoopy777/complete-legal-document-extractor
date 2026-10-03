@@ -279,9 +279,7 @@ Live target, confirmed read-only at last inspection:
 
 Connection details come from an environment variable or a git-ignored local
 `.env`. Credentials are never printed, committed, or copied into this
-repository. The existing private configuration at
-`D:\THE FUTURE OF LITIGATION\app_v2\backend\.env` is read by the operator, not
-by this repository.
+repository.
 
 Hard boundaries:
 
