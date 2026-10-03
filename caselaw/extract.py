@@ -552,10 +552,29 @@ def _normalize_docket_slashes(window: str) -> str:
     return window.replace("\\", "/")
 
 
+def _normalize_glued_versus(window: str) -> str:
+    """A text layer that drops the space before "v." glues the parties together.
+
+        "... in favor of the plaintiff.  Rectorv.  City and County of
+         Denver, 122 P.3d 1010 (Colo. App. 2005), certiorari denied ..."
+
+    One character is missing from the caption, and it costs the case its name
+    twice over: "_after_last_sentence" reads "Rectorv." as the end of a sentence,
+    and the party pattern needs whitespace before the "v." anyway. The caption
+    was rejected, so the citation reached verification with whatever word sat
+    before the comma as its name ("Denver"), and the card said the case was
+    unnamed even though the filing prints its name in full. Parsing-only: the
+    reported text and its spans come from the original.
+    """
+    return re.sub(r"(?<=[^\W\d_])v\.(?=\s+[^\W\d_])", " v.", window)
+
+
 def _derive_parties(window: str) -> tuple[str | None, str | None]:
     stripped = _strip_emphasis_markers(
         _normalize_docket_slashes(
-            _after_last_sentence(_after_section_heading(_after_stamp_heading(window)))
+            _after_last_sentence(_after_section_heading(_after_stamp_heading(
+                _normalize_glued_versus(window)
+            )))
         ).rstrip()
     )
     match = _CASE_NAME.search(stripped)

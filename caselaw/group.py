@@ -790,7 +790,13 @@ _PARALLEL_GAP = re.compile(
 # precede it -- evidence attached to the wrong authority.
 _HISTORY_PHRASE = re.compile(
     r"(?:aff'?d|affirmed|rev'?d|reversed|vacated|modified|remanded|"
-    r"cert\.\s*(?:denied|granted|dismissed)|appeal\s+dismissed|"
+    r"cert\.\s*(?:denied|granted|dismissed)|"
+    # A filing that spells the denial out ("certiorari denied 2005 WL 3074095")
+    # is writing the same history as "cert. denied". Only the abbreviation was
+    # recognised, so the spelled-out form split one Colorado case into two cards
+    # and the second -- the cert-denied cite -- had no caption to show.
+    r"(?:petition\s+for\s+)?certiorari\s+(?:denied|granted|dismissed)|"
+    r"appeal\s+dismissed|"
     r"judgment\s+vacated|decision\s+vacated|"
     r"report\s+and\s+recommendation\s+(?:adopted|accepted)|recommendation\s+adopted|"
     r"overruled(?:\s+(?:on\s+other\s+grounds|in\s+part))?|"

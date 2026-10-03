@@ -196,6 +196,33 @@ def test_ordinary_text_is_not_an_incomplete_citation(text):
     assert _incomplete(extract(text)) == []
 
 
+# --- a space the text layer dropped before "v." -------------------------------
+
+
+def test_a_caption_glued_to_its_versus_keeps_its_name():
+    """The PDF prints "Rector v. City and County of Denver"; the text layer
+
+    returns "Rectorv."  With the space missing, the sentence splitter read
+    "Rectorv." as the end of the sentence and the party pattern found no caption,
+    so the citation was reported under the word before the comma ("Denver") --
+    the card said "Case name unavailable" for a Colorado case whose name the
+    filing prints in full.
+    """
+    text = ("A motion to dismiss for failure to state a claim must be decided solely on the complaint\n"
+            "allegations, with all factual allegations being accepted as true and the court drawing all\n"
+            "reasonable inferences therefrom in favor of the plaintiff.  Rectorv.  City and County of\n"
+            "Denver,  122 P.3d 1010  (Colo.  App. 2005),  certiorari   denied  2005 WL 3074095.\n")
+    records = extract(text)
+    rector = next(r for r in records if r.text == "122 P.3d 1010")
+    assert (rector.plaintiff, rector.defendant) == ("Rector", "City and County of Denver")
+    assert rector.full_citation.startswith("Rector v. City and County of Denver, 122 P.3d 1010")
+
+
+def test_a_versus_with_its_space_written_normally_is_unchanged():
+    (record,) = extract("Smith v. Jones, 1 P.3d 1 (Colo. 2000).")
+    assert (record.plaintiff, record.defendant) == ("Smith", "Jones")
+
+
 def test_complete_citations_are_never_reported_incomplete():
     text = "Woo v. El Paso County Sheriff\u2019s Office, 528 P.3d 899 (Colo. 2022)."
     assert _incomplete(extract(text)) == []

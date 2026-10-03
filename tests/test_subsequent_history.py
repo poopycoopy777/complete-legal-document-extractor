@@ -97,6 +97,34 @@ class TestSubsequentHistoryMerges:
 
         assert _is_subsequent_history(", at *78 (D.N.M. Mar. 7, 2019), aff'd, ")
 
+    def test_certiorari_denied_spelled_out_is_history(self):
+        from caselaw.group import _is_subsequent_history
+
+        assert _is_subsequent_history(" (Colo. App. 2005), certiorari denied ")
+        assert _is_subsequent_history(", petition for certiorari denied, ")
+
+    def test_a_cert_denied_cite_joins_the_case_it_belongs_to(self):
+        """A Colorado filing writes:
+
+            Rector v. City and County of Denver, 122 P.3d 1010 (Colo. App.
+            2005), certiorari denied 2005 WL 3074095.
+
+        The WL cite is the same case at a later stage. Only "cert. denied" was
+        recognised, so the spelled-out form left the WL cite as a group of its
+        own with no caption -- the card said "Case name unavailable" while the
+        filing prints the name directly in front of the cite -- and, worse, the
+        history cite was checked as though it were a different authority.
+        """
+        text = ("Rector v. City and County of Denver, 122 P.3d 1010 "
+                "(Colo. App. 2005), certiorari denied 2005 WL 3074095.")
+        groups = _groups(text)
+        assert len(groups) == 1, [(g["id"], g["caseName"], g["header"]["text"])
+                                  for g in groups]
+        group = groups[0]
+        assert group["caseName"] == "Rector v. City and County of Denver"
+        assert [c["text"] for c in (group["header"], *group["children"])] == [
+            "122 P.3d 1010", "2005 WL 3074095"]
+
     def test_a_different_case_is_still_a_separate_group(self):
         """Guards the guard: history phrases must not merge unrelated cases."""
         text = ("People v. Hoff, 2016 CO 53, 375 P.3d 1214. "
