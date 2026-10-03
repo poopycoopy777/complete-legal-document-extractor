@@ -227,6 +227,12 @@ _NAME_CONNECTORS = {"of", "the", "for", "de", "van", "der", "del", "la", "&", "e
 # "Cruz v. Davis".
 _STRIPPABLE_CONNECTORS = _NAME_CONNECTORS - set(_PARTY_PARTICLES)
 
+# An entity suffix closes a party even when OCR or the typist lowercased it:
+# "Freedom Colorado Information, inc. v. El Paso County" lost its whole caption
+# because the capitalised-run walk stopped at "inc.". Matched as printed, never
+# re-cased, so the name stays the source text.
+_ENTITY_SUFFIXES = {"inc.", "inc", "corp.", "co.", "ltd.", "llc", "l.l.c.", "llp", "l.l.p.", "l.p."}
+
 # A word that may close a party name: a capitalised word, a connector, or a
 # particle-led word such as "al-Kidd". The lookahead keeps ordinary lower-case
 # prose out -- neither "also" nor "derivative" opens on a whole particle -- and
@@ -328,7 +334,8 @@ def _is_party_word(word: str) -> bool:
         return False
     if stripped[:1].isupper():
         return True
-    return stripped.lower() in _NAME_CONNECTORS or bool(_PARTICLE_WORD.match(stripped))
+    lowered = stripped.lower()
+    return lowered in _NAME_CONNECTORS or lowered in _ENTITY_SUFFIXES or bool(_PARTICLE_WORD.match(stripped))
 
 
 def _trim_lead_in(name: str) -> str:
