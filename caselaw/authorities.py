@@ -293,6 +293,56 @@ def _base_source(template_name: str) -> str:
     return re.sub(r"\s*\[[^\]]+\]\s*$", "", template_name)
 
 
+# A PDF text layer breaks a citation wherever the printed line ends, including
+# in the middle of a section number: the brief that prompted this writes
+# "C.R.S. § 24-31-", then a blank line, then "902(2)(a)". CiteURL then sees
+# "§ 24-31" -- a provision that does not exist -- and reports it as an invalid
+# cite. The hyphen is the printed continuation, so the halves are one token and
+# everything between them (newlines, indentation) is that break's whitespace.
+_LINE_BREAK_HYPHEN = re.compile(r"[-\u2010\u2011][ \t]*\r?\n\s*")
+
+
+def _join_line_break_hyphens(text: str) -> tuple[str, list[int]]:
+    """``text`` with line-break hyphenation joined, and where each char came from.
+
+    Every emitted character keeps the index of the original character it came
+    from, so a citation found in the joined text can be reported against the
+    document the user actually uploaded.
+    """
+    joined: list[str] = []
+    origin: list[int] = []
+    index = 0
+    length = len(text)
+    while index < length:
+        continuation = _LINE_BREAK_HYPHEN.match(text, index)
+        if continuation:
+            joined.append("-")
+            origin.append(index)
+            index = continuation.end()
+            continue
+        joined.append(text[index])
+        origin.append(index)
+        index += 1
+    return "".join(joined), origin
+
+
+def _repair_spans(authorities: list[Authority], text: str, origin: list[int]) -> None:
+    """Point each authority at ``text`` rather than at the joined copy.
+
+    ``origin`` has one entry per character of the joined text, so an offset at
+    the end of that text is clamped to the last known original index.
+    """
+    limit = len(origin)
+    for authority in authorities:
+        start, end = authority.span
+        if start >= limit:
+            continue
+        mapped_start = origin[start]
+        mapped_end = origin[end - 1] + 1 if start < end <= limit else mapped_start
+        authority.span = (mapped_start, mapped_end)
+        authority.text = text[mapped_start:mapped_end]
+
+
 # Colorado civil rules are absent from CiteURL's bundled templates. Require
 # the explicit designator, and extend it only across an adjacent numeric list.
 _COLORADO_CIVIL_RULE = re.compile(
@@ -341,15 +391,22 @@ def _colorado_civil_rules(text: str) -> list[Authority]:
 
 
 def extract_authorities(text: str) -> list[Authority]:
-    """Extract statutes, regulations, rules and constitutions, in order."""
+    """Extract statutes, regulations, rules and constitutions, in order.
+
+    Parsing runs on a copy whose line-break hyphenation is joined, so a section
+    number split across two printed lines is read as the one provision it is.
+    Every returned span and text is mapped back to ``text``.
+    """
     if not text or not text.strip():
         return []
 
-    results: list[Authority] = _colorado_civil_rules(text)
-    for cite in _citator().list_cites(text):
+    parsed, origin = _join_line_break_hyphens(text)
+
+    results: list[Authority] = _colorado_civil_rules(parsed)
+    for cite in _citator().list_cites(parsed):
         source = _base_source(cite.template.name)
         start, end = cite.span
-        body = text[start:end]
+        body = parsed[start:end]
         is_shortform = getattr(cite, "parent", None) is not None
         if is_shortform and not _SHORTFORM_EVIDENCE.search(body):
             continue
@@ -365,5 +422,6 @@ def extract_authorities(text: str) -> list[Authority]:
                 is_shortform=is_shortform,
             )
         )
+    _repair_spans(results, text, origin)
     results.sort(key=lambda a: a.span[0])
     return results
