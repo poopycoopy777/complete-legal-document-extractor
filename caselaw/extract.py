@@ -27,7 +27,9 @@ from eyecite.models import (
     ReferenceCitation,
     ShortCaseCitation,
     SupraCitation,
+    UnknownCitation,
 )
+from eyecite.tokenizers import Token
 
 # The citation types this module is scoped to. Statute (FullLawCitation),
 # journal (FullJournalCitation) and placeholder/unknown citations are dropped.
@@ -45,7 +47,12 @@ _MAX_YEAR = datetime.now(timezone.utc).year + 1
 # A parenthetical whose final token is a 4-digit year: "(1978)", "(10th Cir. 2013)",
 # "(D. Colo. Mar. 3, 2011)". Requires the year at the close paren so that
 # "(rejecting Conley)" or "(en banc)" do not match.
-_YEAR_PAREN = re.compile(r"\(([^()]{0,60}?)(\d{4})\s*\)")
+#
+# The year must stand alone: a digit or letter in front of it ("(Colo., C2022)",
+# "(Colo. 12022)") is a typo in the filing, and reading 2022 out of it would
+# present a repair as if the filing had printed it.
+_YEAR_PAREN = re.compile(r"\(([^()]{0,60}?)(?<![A-Za-z0-9])(\d{4})\s*\)")
+_GLUED_YEAR_PAREN = re.compile(r"\(([^()]{0,60}?[A-Za-z]\d{4})\s*\)")
 
 # Reporters print a party's foreign particle the way the caption has it, which
 # is often lower case: "Ashcroft v. al-Kidd", "United States v. van der
@@ -377,7 +384,7 @@ def _derive_year_and_court(window: str) -> tuple[int | None, str | None]:
     year = _valid_year(match.group(2))
     if year is None:
         return None, None
-    court = match.group(1).strip().rstrip(",").strip() or None
+    court = _collapse(match.group(1)).rstrip(",").strip() or None
     return year, court
 
 
@@ -466,8 +473,28 @@ def _after_last_sentence(window: str) -> str:
     return window[ends[-1].end():] if ends else window
 
 
+# A section heading of a table of authorities or an index of cases. It is layout,
+# not a party, but sits on the line above the first caption of its section and
+# is capitalised like one: "Case Authorities\n\nAMCO Ins. Co. v. Sills" gave the
+# plaintiff "Case Authorities AMCO Ins. Co.". Only a line that is nothing but
+# the heading counts, so "Case Authorities Inc. v. Smith" on one line is a
+# party name and is left whole.
+_SECTION_HEADING_LINE = re.compile(
+    r"^[ \t]*(?:table[ \t]+of[ \t]+(?:authorities|cases)|index[ \t]+of[ \t]+authorities"
+    r"|(?:(?:case|statutory|constitutional|other|cited)[ \t]+)?authorities"
+    r"|cases(?:[ \t]+cited)?|case[ \t]+law|statutes)[ \t]*[:.]?[ \t]*\r?\n",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def _after_section_heading(window: str) -> str:
+    """The window from the line after the last section heading that stands alone."""
+    headings = list(_SECTION_HEADING_LINE.finditer(window))
+    return window[headings[-1].end():] if headings else window
+
+
 def _derive_parties(window: str) -> tuple[str | None, str | None]:
-    stripped = _after_last_sentence(window).rstrip()
+    stripped = _after_last_sentence(_after_section_heading(window)).rstrip()
     match = _CASE_NAME.search(stripped)
     if not match:
         return None, None
@@ -533,10 +560,10 @@ def _assemble_full_citation(record: Citation) -> str:
 
     if record.plaintiff and record.defendant:
         name = f"{record.plaintiff} v. {record.defendant}"
-        return f"{name}, {body}" if body else name
+        return _collapse(f"{name}, {body}" if body else name)
     if record.case_name:
-        return f"{record.case_name}, {body}" if body else record.case_name
-    return body
+        return _collapse(f"{record.case_name}, {body}" if body else record.case_name)
+    return _collapse(body)
 
 
 # OCR slips that stop eyecite recognising a citation at all, each replaced by a
@@ -583,22 +610,8 @@ def _map_span_back(cite: Any, origin: list[int]) -> None:
             setattr(cite, attr, origin[value - 1] + 1 if attr.endswith("end") and value else origin[value])
 
 
-def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
-    """Extract citations, keeping each eyecite object beside its record.
-
-    Grouping needs the eyecite objects (resolve_citations operates on them),
-    so they are carried alongside rather than discarded.
-    """
-    if not text or not text.strip():
-        return []
-
-    # PDF text layers break lines anywhere, including inside a citation
-    # ("Florida v. Jardines, 569\nU.S. 1"; "Woods v. BNSF Railway Co., 2016\n\n
-    # WL 165971"), and eyecite reads neither a line break nor a run of spaces
-    # between volume and reporter. The citation was then missed, and its
-    # quotation attributed to the next citation found. eyecite parses a copy
-    # with every whitespace run collapsed to one space; each citation's span is
-    # then mapped back, so every span still indexes the original text.
+def _case_law_cites(text: str) -> list[Any]:
+    """eyecite's case-law citations in ``text``, in order, spans indexing ``text``."""
     parsed, origin = _collapse_whitespace(_ocr_for_parsing(text))
     found = get_citations(parsed)
     if len(parsed) != len(text):
@@ -615,12 +628,159 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
         ),
         key=lambda c: c.span()[0],
     )
+    for cite in anchored:
+        if isinstance(cite, IdCitation):
+            _release_paragraph_marker(cite, text)
+    return sorted(
+        [*anchored, *_incomplete_cites(text, anchored)], key=lambda c: c.span()[0]
+    )
+
+
+# A pin cite eyecite read off the numbered paragraph that follows an Id.:
+#
+#   ...has standing to appeal. Id.\n\n   14. Any issue with the search warrant
+#
+# eyecite parses a copy with whitespace collapsed, so "Id. 14" looks like a pin.
+# A real pin follows "at" or sits on the Id.'s own line; a number that starts
+# its own line and is followed by a period and a new sentence is the next
+# paragraph's marker.
+_ID_THEN_PARAGRAPH_NUMBER = re.compile(r"(?P<id>Id\.?)(?P<gap>\s*\n\s*)\d{1,4}", re.IGNORECASE)
+_PARAGRAPH_MARKER_TAIL = re.compile(r"\.[ \t]+[A-Z(\u201c\"]")
+
+
+def _release_paragraph_marker(cite: Any, text: str) -> None:
+    start, end = cite.span()
+    match = _ID_THEN_PARAGRAPH_NUMBER.fullmatch(text, start, end)
+    if not match or not _PARAGRAPH_MARKER_TAIL.match(text, end):
+        return
+    cite.span_end = match.end("id")
+    if getattr(cite, "full_span_end", None) is not None:
+        cite.full_span_end = match.end("id")
+    cite.metadata.pin_cite = None
+
+
+@lru_cache(maxsize=1)
+def _reporter_names() -> frozenset[str]:
+    """Every reporter abbreviation and variant eyecite knows, spacing removed."""
+    from reporters_db import REPORTERS
+
+    names: set[str] = set()
+    for key, entries in REPORTERS.items():
+        names.add(key)
+        for entry in entries:
+            names.update(entry["editions"])
+            names.update(entry.get("variations", {}))
+    return frozenset(re.sub(r"\s+", "", name).lower() for name in names)
+
+
+# A volume and a reporter with no first page, straight into the court/year
+# parenthetical: "Woo v. El Paso County Sheriff's Office, 528 P.3d (Colo., 2022)".
+# eyecite needs a page and reports nothing, so the citation vanished from the
+# result and the reader counted one case fewer than the brief cites. The
+# parenthetical must carry a year, and the reporter must be a known one that is
+# printed with a period ("P.3d", "Colo."), which keeps "Exhibit 12 (attached)",
+# "42 U.S.C. (2018)" and bare state codes out.
+_NO_PAGE_CITATION = re.compile(
+    r"(?<![\w.])(?P<volume>\d{1,4})[ \t]+(?P<reporter>[A-Z][A-Za-z.\d' ]{0,18}?)[ \t]*"
+    r"(?=\([^()]{0,60}(?<![A-Za-z0-9])\d{4}\s*\))"
+)
+
+
+def _incomplete_cites(text: str, found: list[Any]) -> list[Any]:
+    """Stand-in eyecite objects for each volume-and-reporter cite with no page.
+
+    UnknownCitation is a kind the result schema and the interface already carry;
+    eyecite's resolver ignores it and breaks any Id. chain through it, which is
+    right: an Id. after a citation nobody could read has no referent.
+    """
+    taken = [cite.span() for cite in found]
+    cites: list[Any] = []
+    for match in _NO_PAGE_CITATION.finditer(text):
+        reporter = match.group("reporter").rstrip()
+        if "." not in reporter or re.sub(r"\s+", "", reporter).lower() not in _reporter_names():
+            continue
+        start = match.start("volume")
+        end = match.start("reporter") + len(reporter)
+        if any(start < b and a < end for a, b in taken):
+            continue
+        cites.append(
+            UnknownCitation(Token(text[start:end], start, end), 0, span_start=start, span_end=end)
+        )
+    return cites
+
+
+def case_citation_spans(text: str) -> list[tuple[int, int]]:
+    """Spans of every case citation except Id., which has no referent of its own.
+
+    A statute's "Id." is only meaningful when no case was cited after the
+    statute, so the statute extractor asks where the cases are.
+    """
+    if not text or not text.strip():
+        return []
+    return [
+        (start, end)
+        for cite in _case_law_cites(text)
+        if not isinstance(cite, IdCitation)
+        for start, end in [cite.span()]
+    ]
+
+
+def _incomplete_record(text: str, cite: Any, prev_end: int, next_start: int) -> Citation:
+    """A citation that names a volume and reporter but no page, flagged as such.
+
+    It keeps what the filing printed -- caption, court, year -- and nothing it
+    did not: no page, and no assembled full citation, so it can never be
+    mistaken for one that could be checked against a reporter.
+    """
+    start, end = cite.span()
+    record = Citation(
+        kind="UnknownCitation",
+        text=text[start:end],
+        span=(start, end),
+    )
+    record.volume, record.reporter = text[start:end].split(None, 1)
+    record.flags.append(
+        f"incomplete: no first page after {record.volume} {record.reporter}; "
+        "the citation cannot be located or verified as printed"
+    )
+    record.year, hint = _derive_year_and_court(_trailing_window(text, end, next_start))
+    record.court_text = hint
+    if record.court_text:
+        record.court = _court_from_hint(record.court_text)
+    before = _leading_window(text, prev_end, start)
+    record.plaintiff, record.defendant = _derive_parties(before)
+    if record.plaintiff is None:
+        record.case_name = _derive_case_name(before)
+    return record
+
+
+def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
+    """Extract citations, keeping each eyecite object beside its record.
+
+    Grouping needs the eyecite objects (resolve_citations operates on them),
+    so they are carried alongside rather than discarded.
+    """
+    if not text or not text.strip():
+        return []
+
+    # PDF text layers break lines anywhere, including inside a citation
+    # ("Florida v. Jardines, 569\nU.S. 1"; "Woods v. BNSF Railway Co., 2016\n\n
+    # WL 165971"), and eyecite reads neither a line break nor a run of spaces
+    # between volume and reporter. The citation was then missed, and its
+    # quotation attributed to the next citation found. eyecite parses a copy
+    # with every whitespace run collapsed to one space; each citation's span is
+    # then mapped back, so every span still indexes the original text.
+    anchored = _case_law_cites(text)
 
     results: list[tuple[Any, Citation]] = []
     for i, cite in enumerate(anchored):
         start, end = cite.span()
         prev_end = anchored[i - 1].span()[1] if i else 0
         next_start = anchored[i + 1].span()[0] if i + 1 < len(anchored) else len(text)
+
+        if isinstance(cite, UnknownCitation):
+            results.append((cite, _incomplete_record(text, cite, prev_end, next_start)))
+            continue
 
         record = Citation(
             kind=type(cite).__name__,
@@ -650,7 +810,13 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
             record.year = year
             eyecite_year = _valid_year(getattr(cite, "year", None))
             if year is None:
-                if eyecite_year is not None:
+                glued = _GLUED_YEAR_PAREN.search(after)
+                if glued:
+                    record.flags.append(
+                        f"year_unverified: parenthetical reads ({_collapse(glued.group(1))}), "
+                        "which has no standalone four-digit year"
+                    )
+                elif eyecite_year is not None:
                     record.flags.append(
                         f"year_unverified: eyecite reports {eyecite_year}, "
                         "no year parenthetical in this citation's own window"

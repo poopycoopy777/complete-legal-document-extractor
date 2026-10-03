@@ -22,6 +22,7 @@ from eyecite import resolve_citations
 from .authorities import Authority, extract_authorities
 from .extract import Citation, extract_pairs
 from .record_cites import RecordCite, extract_record_cites
+from .shortforms import short_form_resolvers
 
 # Quoted material: straight or curly doubles.
 #
@@ -774,7 +775,10 @@ def _proposition(
 
 # Between the two halves of a parallel citation: an optional pin, then a comma.
 #   Au v. Au, 63 Haw. 210, 214, 626 P.2d 173, 176 (1981)
-_PARALLEL_GAP = re.compile(r"(?:,\s*\d+(?:\s*[-\u2013]\s*\d+)?(?:\s*n\.\s*\d+)?)?\s*,\s*")
+_PARALLEL_GAP = re.compile(
+    r"(?:,\s*(?:(?:paras?\.|\u00b6{1,2})\s*)?"
+    r"\d+(?:\s*[-\u2013]\s*\d+)?(?:\s*n\.\s*\d+)?)?\s*,\s*"
+)
 
 
 def _merge_parallel_citations(text: str, groups: list[CitationGroup]) -> list[CitationGroup]:
@@ -938,7 +942,10 @@ def group_citations(text: str) -> ExtractionResult:
     by_cite: dict[int, Citation] = {id(cite): rec for cite, rec in pairs}
     records = [rec for _, rec in pairs]
 
-    resolved = resolve_citations([cite for cite, _ in pairs]) if pairs else {}
+    resolved = (
+        resolve_citations([cite for cite, _ in pairs], **short_form_resolvers(pairs, text))
+        if pairs else {}
+    )
 
     groups: list[CitationGroup] = []
     grouped_ids: set[int] = set()

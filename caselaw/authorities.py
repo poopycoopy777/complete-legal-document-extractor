@@ -33,6 +33,9 @@ import citeurl
 import yaml
 from citeurl import Citator
 
+from .extract import case_citation_spans
+from .record_cites import extract_record_cites
+
 # Bundled template sets to load. "caselaw" is deliberately excluded: eyecite
 # owns case law and running both produces duplicate, conflicting citations.
 # "secondary sources" (law reviews, treatises) is out of scope.
@@ -99,6 +102,27 @@ _SHORTFORM_EVIDENCE = re.compile(
 # Idaho Code and Iowa Code, "MS" for Minnesota Statutes) collide with ordinary
 # abbreviations and produce false positives.
 _MIN_INITIALISM = 3
+
+# CiteURL's id-form patterns build a short form from whatever number follows
+# "Id.": the section of the last statute it saw, with that section replaced by a
+# paragraph number, a page pin or a year. In two filed briefs that turned a
+# case's "Id. at 962" into "C.R.S. 24-25-962" and a bare "Id." before the next
+# numbered paragraph into "C.R.S. 18-9-13". An Id. is a statute short form only
+# when the citation immediately before it, of any kind, is that statute; and it
+# then refers to that statute whole, so its provision is the statute's own,
+# never one read off the text after it.
+_ID_LEAD = re.compile(r"\s*id\b", re.IGNORECASE)
+_BARE_ID = re.compile(r"\s*id\.?,?\s*", re.IGNORECASE)
+_EXPLICIT_SECTION = re.compile(r"\u00a7|&sect;|&#167|\bsec(?:tions?|ts?)?\b", re.IGNORECASE)
+
+# A Colorado Court of Appeals case number is "25 CA 2333" (also "25CA2333" and
+# "2025CA002333"). The California regulation template accepts a bare "CA" as the
+# code's name, so the caption of every Colorado appellate brief matched it as
+# title 25, section 2333.
+_APPELLATE_CASE_NUMBER = re.compile(r"(?:\d{2}|\d{4})\s*CA\s*0*\d{2,6}")
+_CASE_NUMBER_LABEL = re.compile(r"(?:\bcase\s+)?\b(?:no|nos|number|num)\.?\s*:?\s*$", re.IGNORECASE)
+_NAMES_A_CALIFORNIA_CODE = re.compile(r"\bCal(?:ifornia|\.)|\bCCR\b|\bCode\b|\bRegs?\b", re.IGNORECASE)
+_CALIFORNIA_REGULATION_SOURCES = {"California Code of Regulations", "California Building Code"}
 
 
 @dataclass
@@ -410,6 +434,8 @@ def extract_authorities(text: str) -> list[Authority]:
         is_shortform = getattr(cite, "parent", None) is not None
         if is_shortform and not _SHORTFORM_EVIDENCE.search(body):
             continue
+        if source in _CALIFORNIA_REGULATION_SOURCES and _is_case_number(parsed, start, body):
+            continue
         results.append(
             Authority(
                 category=_categorise(source),
@@ -424,4 +450,54 @@ def extract_authorities(text: str) -> list[Authority]:
         )
     _repair_spans(results, text, origin)
     results.sort(key=lambda a: a.span[0])
-    return results
+    return _keep_supported_id_forms(results, text)
+
+
+def _is_case_number(parsed: str, start: int, body: str) -> bool:
+    """A Colorado appellate case number, or a bare "CA nnnn" labelled as a number."""
+    if _APPELLATE_CASE_NUMBER.fullmatch(body.strip()):
+        return True
+    if _NAMES_A_CALIFORNIA_CODE.search(body):
+        return False
+    return bool(_CASE_NUMBER_LABEL.search(parsed[max(0, start - 20):start]))
+
+
+def _keep_supported_id_forms(results: list[Authority], text: str) -> list[Authority]:
+    """Drop every "Id." that does not directly follow the statute it would name.
+
+    Citations are compared in document order: the other authorities, every case
+    citation eyecite reads, and every record citation. The Id. attaches only
+    when an authority is the latest of them. A bare Id. then takes that
+    authority's provision; "Id. at 962" names a page and is dropped; an Id. that
+    prints its own section sign keeps CiteURL's reading. Anything else emits
+    nothing: a missed short form costs a line, a fabricated one a false issue.
+    """
+    if not any(a.is_shortform and _ID_LEAD.match(a.text) for a in results):
+        return results
+
+    others = sorted(
+        [*case_citation_spans(text), *(c.span for c in extract_record_cites(text))]
+    )
+    kept: list[Authority] = []
+    for authority in results:
+        if not (authority.is_shortform and _ID_LEAD.match(authority.text)):
+            kept.append(authority)
+            continue
+        start = authority.span[0]
+        referent = next((a for a in reversed(kept) if a.span[1] <= start), None)
+        if referent is None:
+            continue
+        # Another citation, of any kind, between the authority and this Id.
+        if any(referent.span[1] <= other_start and other_end <= start
+               for other_start, other_end in others):
+            continue
+        if _BARE_ID.fullmatch(authority.text):
+            authority.category = referent.category
+            authority.source = referent.source
+            authority.name = referent.name
+            authority.url = referent.url
+            authority.tokens = dict(referent.tokens)
+        elif not _EXPLICIT_SECTION.search(authority.text):
+            continue
+        kept.append(authority)
+    return kept
