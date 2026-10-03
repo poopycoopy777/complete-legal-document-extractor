@@ -502,6 +502,32 @@ def _after_section_heading(window: str) -> str:
     return window[headings[-1].end():] if headings else window
 
 
+# A filing-service stamp that stands alone on its own line above a caption:
+# "NOT A FILED PLEADING" across the top of a proposed brief, or "NOT AN
+# OFFICIAL COURT DOCUMENT" on a slip copy. It is layout, not a party, but every
+# word is capitalised like one, so the caption read the stamp in as the
+# plaintiff and the assembled case name carried it into verification, where the
+# caption then failed to match the case it actually cites. Only a line that is
+# nothing but the stamp counts, so "Not a Filed Pleading, Inc. v. Smith" on one
+# line is a party name and is left whole.
+_STAMP_HEADING_LINE = re.compile(
+    r"^[ \t]*(?:"
+    r"not[ \t]+(?:a|an)[ \t]+(?:filed[ \t]+pleading|official[ \t]+(?:court[ \t]+)?document|original[ \t]+(?:document|pleading))"
+    r"|not[ \t]+for[ \t]+(?:publication|filing|citation)"
+    r"|draft(?:[ \t]+version)?"
+    r"|(?:unfiled|unofficial)[ \t]+(?:copy|draft|document)"
+    r"|placeholder(?:[ \t]+(?:pleading|document))?"
+    r")[ \t]*[:.]?[ \t]*\r?\n",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def _after_stamp_heading(window: str) -> str:
+    """The window from the line after the last standalone filing stamp."""
+    stamps = list(_STAMP_HEADING_LINE.finditer(window))
+    return window[stamps[-1].end():] if stamps else window
+
+
 def _strip_emphasis_markers(window: str) -> str:
     """Remove Markdown emphasis delimiters that wrap a caption.
 
@@ -528,7 +554,9 @@ def _normalize_docket_slashes(window: str) -> str:
 
 def _derive_parties(window: str) -> tuple[str | None, str | None]:
     stripped = _strip_emphasis_markers(
-        _normalize_docket_slashes(_after_last_sentence(_after_section_heading(window))).rstrip()
+        _normalize_docket_slashes(
+            _after_last_sentence(_after_section_heading(_after_stamp_heading(window)))
+        ).rstrip()
     )
     match = _CASE_NAME.search(stripped)
     if not match:
@@ -560,7 +588,9 @@ def _derive_case_name(window: str) -> str | None:
     happens to contain "in the matter of" cannot drag prose into the name.
     Returns the caption as written; there are no parties to split.
     """
-    stripped = _strip_emphasis_markers(window.rstrip().rstrip(",").rstrip())
+    stripped = _strip_emphasis_markers(
+        _after_stamp_heading(window).rstrip().rstrip(",").rstrip()
+    )
     openers = list(_IN_RE_OPENER.finditer(stripped))
     if not openers:
         return None
