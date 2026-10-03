@@ -48,6 +48,55 @@ _APPENDIX = re.compile(
     re.IGNORECASE,
 )
 
+# Reporter names that end in the word "App.": Colorado, North Carolina,
+# Illinois, Indiana, and the Florida District Courts of Appeal. "39 Colo. App.
+# 306" is a citation to the Colorado Court of Appeals reports, not to an
+# appendix, so matching it made a brief that cites no appendix look as though it
+# cites one -- and took the parallel reporter's volume as the appendix page.
+# A genuine appendix cite never follows a reporter token like this.
+#
+# "App." may itself be the tail of a longer reporter: "Fla. Dist. Ct. App.".
+# The run of abbreviation tokens immediately before it names that reporter, and
+# it starts with a jurisdiction or court word.
+_REPORTER_TAILS = frozenset({
+    "ala", "ariz", "ark", "cal", "colo", "conn", "del", "fla", "ga", "hawaii",
+    "idaho", "ill", "ind", "iowa", "kan", "ky", "la", "md", "mass", "mich",
+    "minn", "miss", "mo", "mont", "neb", "nev", "nh", "nj", "nm", "ny", "nc",
+    "nd", "ohio", "okla", "or", "pa", "ri", "sc", "sd", "tenn", "tex", "utah",
+    "vt", "va", "wash", "wva", "wis", "wyo", "dc", "pr", "guam", "nmariana",
+    "virgin", "dist", "ct", "app", "misc", "supp", "so", "n", "c", "e", "w",
+    "b", "p", "a", "d", "f", "g", "m", "r", "s", "t", "lois", "ed", "sci",
+    "bankr", "cir", "fed", "sess", "law", "eq", "ch", "commw", "commonw",
+})
+
+# Explicitly an appendix: "Appellant's App.", "Joint App.", "App. to Pet.".
+_APPENDIX_LEAD = re.compile(
+    r"(?:Appellant|Appellee|Petitioner|Respondent)(?:['\u2019]s)?\s+$|"
+    r"(?:Joint|Supp\.?|Separate|Record|Addendum)\s+$|"
+    r"App\.\s+to\s+$",
+    re.IGNORECASE,
+)
+
+# A keyed abbreviation such as "Colo.", "C.", "So.", "Ark." A parenthesised
+# form, "(Colo. App. 2004)", is not a citation to the appendix either.
+_ABBREV_TOKEN = re.compile(r"\(?([A-Za-z]{1,10})\.$")
+
+
+def _is_reporter_app(text: str, start: int) -> bool:
+    """True when this ``App.`` is the reporter word, not an appendix label.
+
+    ``start`` is the offset of the ``App.`` token itself. The deciding evidence
+    is the abbreviation printed immediately before it: "Colo." and "C." in
+    "N.C." name the reporter, while "Appellant's" and "Joint" name a document.
+    """
+    before = text[:start]
+    if _APPENDIX_LEAD.search(before):
+        return False
+    token = _ABBREV_TOKEN.search(before.rstrip())
+    if token is None:
+        return False
+    return token.group(1).lower() in _REPORTER_TAILS
+
 # "Policy 1010.4.2", "Policy 321.5.9(f)-(g)". Subsection letters are dropped:
 # the policy number is what identifies the source document.
 _POLICY = re.compile(r"\bPolicy\s+(\d{1,4}(?:\.\d{1,3})*)", re.IGNORECASE)
@@ -118,6 +167,8 @@ def extract_record_cites(text: str, original: str | None = None) -> list[RecordC
             else:
                 label, pin = match.group(1), None
             if kind == "docket" and _is_page_stamp(text, match.span()):
+                continue
+            if kind == "appendix" and _is_reporter_app(text, match.start()):
                 continue
             span = match.span()
             found.append(

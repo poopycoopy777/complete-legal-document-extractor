@@ -70,11 +70,20 @@ _PARTICLE_ALT = "|".join(_PARTY_PARTICLES)
 # prints: "al-Kidd", "van der Linden", "della Robbia".
 _PARTICLE_RUN = rf"(?:(?:{_PARTICLE_ALT})[-'\u2019\s])*"
 # A party opens on a capital, or on a particle that the caption leaves lower
-# case. The lookahead that keeps prose out is the [A-Z] itself: a lower-case
+# case. The lookahead that keeps prose out is the capital itself: a lower-case
 # word is only ever consumed when a capital follows it ("de Novo" is not a
-# party, "de la Cruz" is).
-_PARTY_HEAD = rf"{_PARTICLE_RUN}[A-Z]"
-_PARTY_BODY = r"(?:[A-Za-z0-9'\u2018\u2019\.\-\u2013&,\s]|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}"
+# party, "de la Cruz" is). The capital may be a non-ASCII letter: a caption can
+# print "\u00c5berg" or "Mu\u00f1oz".
+_PARTY_HEAD = rf"(?={_PARTICLE_RUN}[^\W\d_])"
+# A party's characters are whatever the typesetter printed, not ASCII. PDF text
+# layers carry the typographic ligatures ("Ho\ufb00" for "Hoff", "Co\ufb01man")
+# and real accents. An ASCII-only class dropped the party entirely, and the
+# citation then reached identity checking with no case name at all -- reported
+# as a caption mismatch against the case the filing names.
+_PARTY_BODY = (
+    r"(?:[^\W\d_]|[0-9'\u2018\u2019\.\-\u2013&,\s]"
+    r"|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}"
+)
 
 # "Plaintiff v. Defendant," immediately preceding the citation.
 # Party names wrap across lines in real filings, so the character classes
@@ -505,8 +514,22 @@ def _strip_emphasis_markers(window: str) -> str:
     return re.sub(r"[*_]+(?=\s*,?\s*$)", "", window)
 
 
+def _normalize_docket_slashes(window: str) -> str:
+    """A federal docket number separates its magistrate with either slash.
+
+    "No. CIV 16-0318 JB\\SCY" is printed with a backslash on the docket. A
+    backslash is not a party-name character, so the caption match stopped inside
+    the docket number and the case was reported with no name at all. The window
+    is a working copy for parsing only; the reported text and its spans are read
+    from the original elsewhere, so this cannot move an offset.
+    """
+    return window.replace("\\", "/")
+
+
 def _derive_parties(window: str) -> tuple[str | None, str | None]:
-    stripped = _strip_emphasis_markers(_after_last_sentence(_after_section_heading(window)).rstrip())
+    stripped = _strip_emphasis_markers(
+        _normalize_docket_slashes(_after_last_sentence(_after_section_heading(window))).rstrip()
+    )
     match = _CASE_NAME.search(stripped)
     if not match:
         return None, None
@@ -547,6 +570,70 @@ def _derive_case_name(window: str) -> str | None:
     # An opener alone is not a case name; something must follow it.
     remainder = _IN_RE_OPENER.sub("", candidate, count=1).strip(" :,.")
     return candidate if remainder else None
+
+
+# The short name a brief prints in front of a repeat citation: "Warne, 2016 CO
+# 50, para. 24", "Bell Atlantic Corp., 550 U.S. 544". eyecite's own answer for
+# this shape is unsound -- on the supplied dismissal it read
+# "Rule 12(b)(5). Warne" as the defendant, dragging the previous sentence in --
+# and its antecedent_guess is always None on this version, so the name was
+# dropped and the occurrence was then reported as though nothing named it.
+#
+# The clause is what bounds a short name: it sits after the last sentence or
+# clause break, before the citation. A period only ends a sentence when a new one
+# follows it, so the abbreviation period in "Bell Atlantic Corp., 550 U.S. 544"
+# does not cut the name in half.
+_CASE_NAME_CLAUSE_BREAK = re.compile(r"[;:!?\n\u2014\u2013]")
+_CASE_NAME_SENTENCE_END = re.compile(r"(?<!\bv)\.(?=\s+[A-Z\"\u201c(])")
+_CASE_NAME_RUN = re.compile(
+    r"([A-Z][\w&.'\u2019-]*"
+    r"(?:\s+(?:(?:of|the|and|for|on|in|d(?:ba)?)\s+)?[A-Z][\w&.'\u2019-]*)*"
+    r")\s*$"
+)
+
+
+def _clause_tail(window: str) -> str:
+    """The last clause of ``window``, with abbreviation periods left intact."""
+    tail = window
+    for pattern in (_CASE_NAME_CLAUSE_BREAK, _CASE_NAME_SENTENCE_END):
+        matches = list(pattern.finditer(tail))
+        if matches:
+            tail = tail[matches[-1].end():]
+    return tail.strip()
+
+
+def _derive_short_case_name(window: str) -> str | None:
+    """The case name printed immediately before a repeat citation, if any.
+
+    Returns None rather than a guess when the clause holds anything a name cannot
+    contain: digits, section signs, parentheses, or a lower-case word that is not
+    a listed connector. A missed name costs a label; a wrong one labels a case
+    with another case's party.
+    """
+    tail = _clause_tail(window.rstrip()).rstrip(",\u2019'").strip()
+    if not tail or len(tail) > 120:
+        return None
+    if _IN_RE_OPENER.match(tail):
+        # A non-adversarial caption ("In re Marriage of Rubio, 313 P.3d 623")
+        # is parsed by its own rule, which knows how far a name runs.
+        return _derive_case_name(tail + ", ")
+    if re.search(r"[\d\u00a7()\[\]]", tail):
+        return None
+    match = _CASE_NAME_RUN.fullmatch(tail)
+    if match is None:
+        return None
+    # The pattern stops at the final token's own characters, so an abbreviation
+    # keeps its period ("Bell Atlantic Corp.") while a trailing comma does not.
+    name = _collapse(match.group(1))
+    if not name or _norm_word(name) in _SIGNAL_WORDS:
+        # A lone introductory signal is prose, not a party. "See, 550 U.S. 544"
+        # names nothing, and labelling the case "See" is worse than no label.
+        return None
+    return name
+
+
+def _norm_word(value: str) -> str:
+    return value.strip().strip(".,").lower()
 
 
 def _assemble_full_citation(record: Citation) -> str:
@@ -883,6 +970,14 @@ def extract_pairs(text: str) -> list[tuple[Any, Citation]]:
                     record.case_name = _derive_case_name(before)
                 ec_p = (getattr(meta, "plaintiff", None) or "").strip()
                 ec_d = (getattr(meta, "defendant", None) or "").strip()
+                if plaintiff is None and record.case_name is None:
+                    # A brief names a case in full once and then refers to it by
+                    # party name with the reporter citation: "Warne, 2016 CO 50,
+                    # para. 24, 373 P.3d at 596." The name is printed in front of
+                    # the citation, so this occurrence does carry naming
+                    # evidence; leaving it unnamed reported the later occurrence
+                    # of a named case as though nothing identified it.
+                    record.case_name = _derive_short_case_name(before)
                 if plaintiff is None and record.case_name is None and (ec_p or ec_d):
                     record.flags.append(
                         f"parties_unverified: eyecite reported "

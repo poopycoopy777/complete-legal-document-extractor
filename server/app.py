@@ -112,8 +112,8 @@ async def _read_upload_limited(file: UploadFile, limit: int = MAX_BYTES) -> byte
     return data
 
 
-def _pdf_text_and_pages(path: Path) -> tuple[str, int, list[dict]]:
-    """Extract text plus per-page character ranges and geometry.
+def _pdf_text_and_pages(path: Path) -> tuple[str, int, list[dict], list[int]]:
+    """Extract text plus per-page character ranges, geometry and raw lengths.
 
     sort=True orders blocks by position; without it PyMuPDF can emit a filing's
     lines out of order, splitting case names across non-adjacent lines.
@@ -122,9 +122,14 @@ def _pdf_text_and_pages(path: Path) -> tuple[str, int, list[dict]]:
     span dictionary instead would give exact offset-to-rectangle mapping, but it
     fragments the text differently and measurably degrades citation extraction,
     so highlight rectangles are resolved by search (see _highlight_rects).
+
+    The raw length of each page is returned alongside the ranges so a caller can
+    tell which pages carry no text at all. A whole-document average hides that:
+    a 50-page filing with three blank pages averages 1,400 characters per page.
     """
     chunks: list[str] = []
     pages: list[dict] = []
+    lengths: list[int] = []
     offset = 0
     with pymupdf.open(path) as doc:
         if doc.page_count > MAX_PDF_PAGES:
@@ -135,6 +140,7 @@ def _pdf_text_and_pages(path: Path) -> tuple[str, int, list[dict]]:
         for index, page in enumerate(doc):
             body = page.get_text("text", sort=True)
             chunks.append(body)
+            lengths.append(len(body))
             pages.append(
                 {
                     "index": index,
@@ -146,7 +152,7 @@ def _pdf_text_and_pages(path: Path) -> tuple[str, int, list[dict]]:
             )
             offset += len(body)
         count = doc.page_count
-    return "".join(chunks), count, pages
+    return "".join(chunks), count, pages, lengths
 
 
 # A page of a text-layer PDF carries well over this; a scanned page carries
@@ -154,12 +160,23 @@ def _pdf_text_and_pages(path: Path) -> tuple[str, int, list[dict]]:
 # text layer at all and silently produced "0 citations".
 _MIN_CHARS_PER_PAGE = 100
 
+# Below this there is no usable text layer at all, and OCR is the only source of
+# text. Between the two numbers the layer is real but thin, so it is kept and
+# reported rather than replaced.
+_NO_TEXT_LAYER_CHARS_PER_PAGE = 20
 
-def _text_layer_warning(text: str, page_count: int) -> str | None:
-    """Warn when a PDF has no usable text layer.
+
+def _text_layer_warning(text: str, page_count: int, page_lengths: list[int] | None = None) -> str | None:
+    """Warn when a PDF has no usable text layer, or pages that carry none.
 
     Without this, a scanned brief full of citations is indistinguishable from a
     document that cites nothing: both return an empty result.
+
+    A whole-document average hides a real filing's partial scan. One 50-page
+    complaint in storage carried 70,889 characters -- an average of 1,400 per
+    page, comfortably above every threshold -- with three pages that produced
+    almost nothing. Citations printed on those pages are simply absent, and
+    nothing in the response said so.
     """
     if page_count <= 0:
         return None
@@ -177,7 +194,52 @@ def _text_layer_warning(text: str, page_count: int) -> str | None:
             f"{page_count} page(s). The document may be a partial scan, so "
             "citations may be missing."
         )
+    if page_lengths:
+        blank = [i + 1 for i, n in enumerate(page_lengths) if n < _MIN_CHARS_PER_PAGE]
+        if blank:
+            shown = ", ".join(str(n) for n in blank[:8])
+            more = f" and {len(blank) - 8} more" if len(blank) > 8 else ""
+            return (
+                f"{len(blank)} of {page_count} page(s) carry almost no text "
+                f"(page{'s' if len(blank) != 1 else ''} {shown}{more}). Those "
+                "pages may be scans, photographs or images, and any citation "
+                "printed on them is missing from this result."
+            )
     return None
+
+
+def page_ranges(page_lengths: list[int]) -> list[tuple[int, int, int]]:
+    """``(page_index, start, end)`` for every page that carries text.
+
+    ``_page_for_offset`` resolves an offset by scanning for the first range that
+    contains it, so ranges must not overlap and no two may share a start. Only
+    pages with text get a range: an empty page has no offsets to own, and giving
+    it one adjacent to its neighbour's start would make every offset on that
+    boundary ambiguous. A page that recognised nothing is therefore absent from
+    the table, which is the honest answer for a page with no text.
+
+    Text a page contributed but did not report a length for is still covered,
+    because the ranges are built from the text the caller actually holds.
+    """
+    ranges: list[tuple[int, int, int]] = []
+    offset = 0
+    for index, length in enumerate(page_lengths):
+        length = max(0, int(length))
+        if length:
+            ranges.append((index, offset, offset + length))
+        offset += length
+    if not ranges and offset:
+        # Lengths were reported but no single page accounted for the text.
+        ranges.append((0, 0, offset))
+    return ranges
+
+
+def page_table(page_lengths: list[int]) -> list[dict]:
+    """The response's page table: one entry per page that carries text."""
+    return [
+        {"index": index, "start": start, "end": end}
+        for index, start, end in page_ranges(page_lengths)
+    ]
 
 
 def _page_for_offset(pages: list[dict], offset: int) -> int | None:
@@ -297,13 +359,14 @@ async def upload_document(file: Annotated[UploadFile, File()]) -> dict:
     path.write_bytes(data)
 
     pages: list[dict] = []
+    page_lengths: list[int] = []
     text_source = "embedded"
     ocr_info: dict | None = None
     notes: list[str] = []
 
     if kind == "pdf":
         try:
-            text, page_count, pages = _pdf_text_and_pages(path)
+            text, page_count, pages, page_lengths = _pdf_text_and_pages(path)
         except HTTPException:
             path.unlink(missing_ok=True)
             raise
@@ -315,7 +378,7 @@ async def upload_document(file: Annotated[UploadFile, File()]) -> dict:
 
         # No usable text layer: recognise the pages rather than reporting an
         # empty document, which reads identically to "cites nothing".
-        if _text_layer_warning(text, page_count):
+        if page_count and len(text.strip()) / page_count < _NO_TEXT_LAYER_CHARS_PER_PAGE:
             try:
                 result = ocr_module.ocr_pdf(path)
             except ocr_module.OcrUnavailable as exc:
@@ -324,13 +387,16 @@ async def upload_document(file: Annotated[UploadFile, File()]) -> dict:
                 notes.append(f"OCR failed: {exc}")
             else:
                 if len(result.text.strip()) > len(text.strip()):
+                    # A page table built from the embedded layer describes the
+                    # text that layer produced, so it has to be rebuilt for OCR
+                    # text. Dropping it instead left a scanned filing with
+                    # "pageCount: 2" and no page for any citation.
                     text = result.text
                     text_source = "ocr"
                     ocr_info = result.as_dict()
                     notes.extend(ocr_module.quality_notes(result))
-                    # Page offsets came from the embedded layer and no longer
-                    # describe this text.
-                    pages = []
+                    pages = page_table(result.raw_page_chars)
+                    page_lengths = list(result.raw_page_chars)
     else:
         text = data.decode("utf-8", errors="replace")
         page_count = 0
@@ -356,7 +422,7 @@ async def upload_document(file: Annotated[UploadFile, File()]) -> dict:
             "against the page image before it is relied on."
         )
     else:
-        warning = _text_layer_warning(text, page_count) if kind == "pdf" else None
+        warning = _text_layer_warning(text, page_count, page_lengths) if kind == "pdf" else None
     highlights = (
         _highlight_rects(path, text, pages, extraction) if kind == "pdf" else []
     )

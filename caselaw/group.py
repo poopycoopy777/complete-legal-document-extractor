@@ -780,6 +780,96 @@ _PARALLEL_GAP = re.compile(
     r"\d+(?:\s*[-\u2013]\s*\d+)?(?:\s*n\.\s*\d+)?)?\s*,\s*"
 )
 
+# Subsequent history: the same case in a later reporter or at a later stage.
+#   People v. Hoff, 2016 CO 53, 375 P.3d 1214, 1219, aff'd, 908 F.3d 1219, 1224
+#   Sanchez v. City of Denver, 5 P.3d 1, 4 (Colo. App. 1999), report and
+#   recommendation adopted, 2013 WL 1658203
+# The history phrase is the whole difference from a parallel reporter, so it has
+# to be recognised explicitly. Its absence split one case into two cards whenever
+# it was appealed, and the second card then took whatever caption happened to
+# precede it -- evidence attached to the wrong authority.
+_HISTORY_PHRASE = re.compile(
+    r"(?:aff'?d|affirmed|rev'?d|reversed|vacated|modified|remanded|"
+    r"cert\.\s*(?:denied|granted|dismissed)|appeal\s+dismissed|"
+    r"judgment\s+vacated|decision\s+vacated|"
+    r"report\s+and\s+recommendation\s+(?:adopted|accepted)|recommendation\s+adopted|"
+    r"overruled(?:\s+(?:on\s+other\s+grounds|in\s+part))?|"
+    r"abrogated(?:\s+(?:on\s+other\s+grounds|in\s+part))?|"
+    r"superseded(?:\s+by\s+statute)?|depublished|withdrawn|"
+    r"opinion\s+(?:amended|modified)|reh'?g\s+denied|"
+    r"aff'?d\s+on\s+other\s+grounds|rev'?d\s+on\s+other\s+grounds|sub\s+nom|"
+    r"argued|adopted)"
+    r"(?:\s+(?:on\s+other\s+grounds|in\s+part|en\s+banc|mem\.|per\s+curiam))?"
+    r"\s*$",
+    re.IGNORECASE,
+)
+# What may sit between the original citation and the history phrase: its own
+# pin, the court-and-year parenthetical it already printed, and the "at *4"
+# star-pagination form of an unreported decision.
+_PIN = (
+    r"(?:(?:paras?\.|\u00b6{1,2}|n\.|at)\s*)?\*?\d+(?:\s*[-\u2013]\s*\d+)?"
+)
+_PIN_OR_PARENTHETICAL = re.compile(
+    r"(?:"
+    rf"{_PIN}|"
+    # The original's court-and-year parenthetical, which may itself carry an
+    # inner parenthetical: "(D. Colo. Apr. 17, 2013)", "(Colo. App. 1999)".
+    r"\((?:[^()]|\([^()]{0,60}\)){0,120}\)|"
+    rf"{_PIN}\s*\((?:[^()]|\([^()]{{0,60}}\)){{0,120}}\)"
+    r")\s*$"
+)
+_HISTORY_GAP_MAX = 80
+_WHITESPACE = re.compile(r"\s+")
+
+
+def _split_outside_parentheses(text: str) -> list[str]:
+    """Split on commas that are not inside parentheses.
+
+    A court-and-year parenthetical carries its own commas -- "(D.N.M. Mar. 7,
+    2019)" -- and splitting through them broke the run into pieces that looked
+    like prose, so real subsequent history was refused.
+    """
+    pieces: list[str] = []
+    depth = 0
+    current: list[str] = []
+    for char in text:
+        if char == "(":
+            depth += 1
+        elif char == ")":
+            depth = max(0, depth - 1)
+        if char == "," and depth == 0:
+            pieces.append("".join(current))
+            current = []
+            continue
+        current.append(char)
+    pieces.append("".join(current))
+    return pieces
+
+
+def _is_subsequent_history(gap: str) -> bool:
+    """Whether ``gap`` is subsequent history rather than unrelated prose.
+
+    Subsequent history is a comma-separated run of a pin, the original's
+    court-and-year parenthetical, and a history phrase. Anything else in the run
+    is prose, so it is not history and the two citations stay apart.
+    """
+    if len(gap) > _HISTORY_GAP_MAX:
+        return False
+    flat = _WHITESPACE.sub(" ", gap).strip()
+    if not flat:
+        return False
+    pieces = [piece.strip() for piece in _split_outside_parentheses(flat)]
+    pieces = [piece for piece in pieces if piece]
+    if not pieces:
+        return False
+    named_history = False
+    for piece in pieces:
+        if _HISTORY_PHRASE.match(piece):
+            named_history = True
+        elif not _PIN_OR_PARENTHETICAL.match(piece):
+            return False
+    return named_history
+
 
 def _merge_parallel_citations(text: str, groups: list[CitationGroup]) -> list[CitationGroup]:
     """One case cited in two reporters is one card, not two half-cards.
@@ -795,14 +885,21 @@ def _merge_parallel_citations(text: str, groups: list[CitationGroup]) -> list[Ci
     fulls = sorted((c for g in groups for c in (g.header, *g.children)
                     if c.kind == "FullCaseCitation"), key=lambda c: c.span[0])
     for first, second in zip(fulls, fulls[1:]):
-        if not _PARALLEL_GAP.fullmatch(text, first.span[1], second.span[0]):
+        gap = text[first.span[1]:second.span[0]]
+        parallel = bool(_PARALLEL_GAP.fullmatch(text, first.span[1], second.span[0]))
+        history = (not parallel) and _is_subsequent_history(gap)
+        if not (parallel or history):
             continue
         g_first, g_second = owner[id(first)], owner[id(second)]
         if g_first is g_second or second is not g_second.header:
             continue
-        for attr in ("year", "court", "court_text"):
-            if getattr(first, attr, None) is None:
-                setattr(first, attr, getattr(second, attr, None))
+        # History keeps its own year and court: the later stage is a different
+        # decision of the same case, and overwriting them would attribute the
+        # affirmance's court to the original opinion.
+        if not history:
+            for attr in ("year", "court", "court_text"):
+                if getattr(first, attr, None) is None:
+                    setattr(first, attr, getattr(second, attr, None))
         if not (second.plaintiff and second.defendant):
             second.plaintiff, second.defendant = first.plaintiff, first.defendant
             second.case_name = second.case_name or first.case_name

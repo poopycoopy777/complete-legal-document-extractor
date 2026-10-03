@@ -103,6 +103,38 @@ class TestScopeDiscipline:
     def test_rules_are_not_record_cites(self):
         assert extract_record_cites("Fed. R. Civ. P. 12(b)(6)") == []
 
+    @pytest.mark.parametrize(
+        "text",
+        [
+            # "Colo. App." is a reporter abbreviation, not a record appendix. The
+            # extractor reported "App. 306" and "App. 2004" as record cites, so a
+            # brief citing Sullivan v. Davis appeared to cite an appendix, and the
+            # parallel reporter's volume became the appendix page.
+            "Sullivan v. Davis, 39 Colo. App. 306, 571 P.2d 1103, 1105 (1977).",
+            "E-470 Public Highway Auth. v. Revenig, 91 P.3d 1038, 1045 (Colo. App. 2004).",
+            "See Colo. App. 306 for the parallel citation.",
+        ],
+    )
+    def test_reporter_app_is_not_an_appendix_cite(self, text):
+        assert [c.kind for c in extract_record_cites(text)] == []
+
+    def test_a_real_appendix_cite_still_counts(self):
+        found = extract_record_cites("As shown in App. 58, the record is thin.")
+        assert [(c.kind, c.label, c.pin) for c in found] == [("appendix", "Appendix", "58")]
+
+    def test_appellant_appendix_cite_still_counts(self):
+        found = extract_record_cites("Appellant's App. 136-38 shows the objection.")
+        assert [(c.kind, c.label, c.pin) for c in found] == [
+            ("appendix", "Appendix", "136-38")]
+
+    def test_other_state_appellate_reporters_are_not_appendices(self):
+        for text in (
+            "Smith v. Jones, 5 N.C. App. 12, 20 (1968).",
+            "Doe v. Roe, 12 Ill. App. 3d 45, 50 (1973).",
+            "Poe v. Coe, 300 So. 2d 1, 4 (Fla. Dist. Ct. App. 1974).",
+        ):
+            assert [c.kind for c in extract_record_cites(text)] == [], text
+
     def test_spans_are_reported(self):
         cite = extract_record_cites("As stated in Doc. No. 80 at 26, the court found")[0]
         assert cite.span[0] < cite.span[1]

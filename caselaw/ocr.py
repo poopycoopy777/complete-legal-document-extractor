@@ -51,10 +51,26 @@ class OcrResult:
     dpi: int
     language: str
     page_chars: list[int] = field(default_factory=list)
+    # ``page_chars`` counts stripped text, which is what tells a reviewer
+    # whether a page came out empty. It cannot rebuild offsets: the pages are
+    # concatenated verbatim into ``text``, so the offset table needs the raw
+    # length of each recognised page. Without it a caller has to drop the page
+    # table for an OCR'd document, and every citation in a scanned filing loses
+    # the printed page it sits on.
+    raw_page_chars: list[int] = field(default_factory=list)
 
     @property
     def pages(self) -> int:
         return len(self.page_chars)
+
+    def page_ranges(self) -> list[tuple[int, int]]:
+        """``(start, end)`` for each recognised page, in ``text`` offsets."""
+        ranges: list[tuple[int, int]] = []
+        offset = 0
+        for length in self.raw_page_chars:
+            ranges.append((offset, offset + length))
+            offset += length
+        return ranges
 
     @property
     def empty_pages(self) -> int:
@@ -150,12 +166,14 @@ def ocr_pdf(
 
     chunks: list[str] = []
     page_chars: list[int] = []
+    raw_page_chars: list[int] = []
     with pymupdf.open(path) as doc:
         for page in doc:
             textpage = page.get_textpage_ocr(language=language, dpi=dpi, full=True)
             body = page.get_text(textpage=textpage)
             chunks.append(body)
             page_chars.append(len(body.strip()))
+            raw_page_chars.append(len(body))
 
     return OcrResult(
         text="".join(chunks),
@@ -163,6 +181,7 @@ def ocr_pdf(
         dpi=dpi,
         language=language,
         page_chars=page_chars,
+        raw_page_chars=raw_page_chars,
     )
 
 
