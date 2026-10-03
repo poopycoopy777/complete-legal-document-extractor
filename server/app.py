@@ -333,6 +333,19 @@ _MIN_CHARS_PER_PAGE = 100
 # reported rather than replaced.
 _NO_TEXT_LAYER_CHARS_PER_PAGE = 20
 
+# CM/ECF adds searchable filing stamps even when the page body is an image.
+# Count substantive text for the OCR gate without changing extracted evidence.
+_FILING_STAMP = re.compile(
+    r"\bCase\s+\S+\s+Document\s+\S+\s+(?:Date\s+)?Filed\s+\S+"
+    r"\s+Page\s+\d+\s+of\s+\d+",
+    re.IGNORECASE,
+)
+
+
+def _needs_ocr(text: str, page_count: int) -> bool:
+    substantive = _FILING_STAMP.sub("", text)
+    return bool(page_count) and len(substantive.strip()) / page_count < _NO_TEXT_LAYER_CHARS_PER_PAGE
+
 
 def _text_layer_warning(text: str, page_count: int, page_lengths: list[int] | None = None) -> str | None:
     """Warn when a PDF has no usable text layer, or pages that carry none.
@@ -546,7 +559,7 @@ async def upload_document(file: Annotated[UploadFile, File()]) -> dict:
 
         # No usable text layer: recognise the pages rather than reporting an
         # empty document, which reads identically to "cites nothing".
-        if page_count and len(text.strip()) / page_count < _NO_TEXT_LAYER_CHARS_PER_PAGE:
+        if _needs_ocr(text, page_count):
             try:
                 result = ocr_module.ocr_pdf(path)
             except ocr_module.OcrUnavailable as exc:

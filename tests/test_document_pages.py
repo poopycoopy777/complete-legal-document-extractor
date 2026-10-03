@@ -185,6 +185,46 @@ class TestOcrUploadKeepsPageProvenance:
         assert any(h["page"] is not None for h in response["highlights"])
 
 
+class TestFilingStampOnlyScan:
+    def test_filing_stamps_do_not_hide_a_scanned_body_from_ocr(self, monkeypatch):
+        source = pymupdf.open()
+        page = source.new_page()
+        argument = "Smith v. Jones, 1 P.3d 1 (Colo. 2000). " * 5
+        page.insert_text((72, 100), argument)
+        image = page.get_pixmap().tobytes("png")
+        source.close()
+        pdf = pymupdf.open()
+        page = pdf.new_page()
+        page.insert_image(page.rect, stream=image)
+        page.insert_text((20, 20),
+            "Case 1:22-cv-01461-PKC Document 21 Filed 03/01/23 Page 1 of 1")
+        body = pdf.tobytes()
+        pdf.close()
+        result = ocr_module.OcrResult(text=argument, engine="test", dpi=300,
+            language="eng", page_chars=[len(argument)], raw_page_chars=[len(argument)])
+        monkeypatch.setattr(ocr_module, "ocr_pdf", lambda path: result)
+        response = asyncio.run(api.upload_document(
+            UploadFile(filename="stamped-scan.pdf", file=BytesIO(body))))
+        assert response["textSource"] == "ocr"
+        assert response["extraction"]["groups"], "the scanned body contains a citation"
+        assert response["pages"][-1]["end"] == len(argument)
+
+    def test_short_substantive_text_is_kept_without_ocr(self, monkeypatch):
+        pdf = pymupdf.open()
+        page = pdf.new_page()
+        page.insert_text((72, 72), "Smith v. Jones, 1 P.3d 1 (Colo. 2000).")
+        body = pdf.tobytes()
+        pdf.close()
+        def unexpected_ocr(path):
+            raise AssertionError("usable embedded text must be preserved")
+        monkeypatch.setattr(ocr_module, "ocr_pdf", unexpected_ocr)
+        response = asyncio.run(api.upload_document(
+            UploadFile(filename="short-text.pdf", file=BytesIO(body))))
+        assert response["textSource"] == "embedded"
+        assert response["extraction"]["groups"]
+        assert response["notes"] == []
+
+
 class TestEmbeddedUploadKeepsPageProvenance:
     def _upload(self) -> dict:
         pdf = pymupdf.open()

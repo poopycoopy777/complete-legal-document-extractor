@@ -6,7 +6,7 @@ Read it before starting, stopping, debugging, or changing the application.
 ## Repository identity and boundaries
 
 - Repository root: `D:\complete-legal-document-extractor`
-- Current local branch: `master`
+- Current working branch: `dev` (user instruction, 2026-10-03; leave existing branches alone)
 - Frontend: `web/` (React, TypeScript, Vite)
 - API: `server/app.py` (FastAPI)
 - Extraction code: `caselaw/`
