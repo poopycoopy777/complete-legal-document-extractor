@@ -20,7 +20,7 @@ from typing import Any
 from eyecite import resolve_citations
 
 from .authorities import Authority, extract_authorities
-from .extract import Citation, extract_pairs
+from .extract import NOISE_TOLERANT_SPACE, Citation, extract_pairs
 from .record_cites import RecordCite, extract_record_cites
 from .shortforms import short_form_resolvers
 
@@ -666,7 +666,7 @@ def _caption_start(text: str, lo: int, start: int, names: list[str]) -> int:
         words = name.split()
         if not words:
             continue
-        pattern = re.compile(r"\s+".join(map(re.escape, words)) + r"[\s,]*$")
+        pattern = re.compile(NOISE_TOLERANT_SPACE.join(map(re.escape, words)) + r"[\s,]*$")
         match = pattern.search(text, lo, start)
         if match and match.start() < anchor:
             anchor = match.start()

@@ -576,11 +576,30 @@ def _normalize_glued_versus(window: str) -> str:
     return re.sub(r"(?<=[^\W\d_])v\.(?=\s+[^\W\d_])", " v.", window)
 
 
+# A scanned page's text layer leaves stray marks on lines of their own inside a
+# caption that wraps across lines: "Freedom Colorado Information,", a line holding
+# one replacement character, a line holding "a", then "inc. v. El Paso County
+# Sheriff's Department". Such a line is a mark that is not text (a replacement
+# character, a stray quote or semicolon) or a single lower-case letter, which no
+# party name is. The backward scan stopped at it, so the caption lost its first
+# party and the card read "inc. v. El Paso County Sheriff's Department". "&" is a
+# real party connector and "v" a glued versus, so neither counts. Parsing-only:
+# reported text and spans come from the original.
+_NOISE_LINE_BODY = r"[ \t]*(?:[^\w&\s]+|[a-uw-z])[ \t]*"
+_NOISE_LINE = re.compile(rf"^{_NOISE_LINE_BODY}(?:\r?\n|$)", re.MULTILINE)
+# Between two words of a caption: whitespace, which may run across noise lines.
+NOISE_TOLERANT_SPACE = rf"(?:\s+|\s*\n(?:{_NOISE_LINE_BODY}\r?\n)+\s*)"
+
+
+def _drop_noise_lines(window: str) -> str:
+    return _NOISE_LINE.sub("", window)
+
+
 def _derive_parties(window: str) -> tuple[str | None, str | None]:
     stripped = _strip_emphasis_markers(
         _normalize_docket_slashes(
             _after_last_sentence(_after_section_heading(_after_stamp_heading(
-                _normalize_glued_versus(window)
+                _normalize_glued_versus(_drop_noise_lines(window))
             )))
         ).rstrip()
     )
@@ -615,7 +634,7 @@ def _derive_case_name(window: str) -> str | None:
     Returns the caption as written; there are no parties to split.
     """
     stripped = _strip_emphasis_markers(
-        _after_stamp_heading(window).rstrip().rstrip(",").rstrip()
+        _after_stamp_heading(_drop_noise_lines(window)).rstrip().rstrip(",").rstrip()
     )
     openers = list(_IN_RE_OPENER.finditer(stripped))
     if not openers:
