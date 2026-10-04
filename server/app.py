@@ -336,7 +336,7 @@ _NO_TEXT_LAYER_CHARS_PER_PAGE = 20
 # CM/ECF adds searchable filing stamps even when the page body is an image.
 # Count substantive text for the OCR gate without changing extracted evidence.
 _FILING_STAMP = re.compile(
-    r"\bCase\s+\S+\s+Document\s+\S+\s+(?:Date\s+)?Filed\s+\S+"
+    r"(?<![A-Za-z])Case\s+\S+\s+Document\s+\S+\s+(?:Date\s+)?Filed\s+\S+"
     r"\s+Page\s+\d+\s+of\s+\d+",
     re.IGNORECASE,
 )

@@ -186,6 +186,13 @@ class TestOcrUploadKeepsPageProvenance:
 
 
 class TestFilingStampOnlyScan:
+    def test_adjacent_page_stamps_are_not_substantive_text(self):
+        text = "".join(
+            f"Case 1:22-cv-01461-PKC Document 21 Filed 03/01/23 Page {page} of 10"
+            for page in range(1, 11)
+        )
+        assert api._needs_ocr(text, 10)
+
     def test_filing_stamps_do_not_hide_a_scanned_body_from_ocr(self, monkeypatch):
         source = pymupdf.open()
         page = source.new_page()
