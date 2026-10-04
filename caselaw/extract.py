@@ -74,14 +74,14 @@ _PARTICLE_RUN = rf"(?:(?:{_PARTICLE_ALT})[-'\u2019\s])*"
 # word is only ever consumed when a capital follows it ("de Novo" is not a
 # party, "de la Cruz" is). The capital may be a non-ASCII letter: a caption can
 # print "\u00c5berg" or "Mu\u00f1oz".
-_PARTY_HEAD = rf"(?={_PARTICLE_RUN}[^\W\d_])"
+_PARTY_HEAD = rf"(?=(?:{_PARTICLE_RUN}[^\W\d_]|\$[0-9]))"
 # A party's characters are whatever the typesetter printed, not ASCII. PDF text
 # layers carry the typographic ligatures ("Ho\ufb00" for "Hoff", "Co\ufb01man")
 # and real accents. An ASCII-only class dropped the party entirely, and the
 # citation then reached identity checking with no case name at all -- reported
 # as a caption mismatch against the case the filing names.
 _PARTY_BODY = (
-    r"(?:[^\W\d_]|[0-9'\u2018\u2019\.\-\u2013&,\s]"
+    r"(?:[^\W\d_]|[0-9$'\u2018\u2019\.\-\u2013&,\s]"
     r"|\([A-Za-z0-9 .&\x27-]{1,40}\)){0,140}"
 )
 

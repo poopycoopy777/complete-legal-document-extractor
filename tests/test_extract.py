@@ -22,6 +22,11 @@ BRIEF = (
     "Id. at 771. Graham v. Connor, 490 U.S. 386 (1989)."
 )
 
+def test_currency_property_caption_preserves_money_and_full_parties():
+    records = extract("People v. $11,100 in U.S. Currency, 345 P.3d 411 (Colo. App. 2014)")
+    assert records[0].plaintiff == "People"
+    assert records[0].defendant == "$11,100 in U.S. Currency"
+
 
 # --- upstream behaviour being worked around -------------------------------
 
