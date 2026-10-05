@@ -153,3 +153,52 @@ def test_stats_are_consistent():
 def test_empty_text_yields_nothing():
     result = group_citations("")
     assert result.groups == [] and result.orphans == []
+
+
+POLLARD = (
+    "Bell Atl. Corp. v. Twombly, 550 U.S. 544, 570 (2007). "
+    "Ashcroft v. Iqbal, 556 U.S. 662, 678 (2009). "
+    "Courts will not supply additional facts. Hall v. Bellmon, 935 F.2d 1106, 1110 "
+    "(10th Cir. 1991). A pro se complaint must still allege facts stating "
+    "“a plausible on its face” claim in compliance with Iqbal and Twombly. "
+    "See id."
+)
+
+
+def test_a_quotation_named_to_another_case_in_its_sentence_is_not_given_to_the_following_id():
+    result = group_citations(POLLARD)
+    by_name = {g.case_name: g for g in result.groups}
+    iqbal = by_name["Ashcroft v. Iqbal"]
+    hall = by_name["Hall v. Bellmon"]
+
+    assert [q.text for q in iqbal.quotes] == ["a plausible on its face"]
+    quote = iqbal.quotes[0]
+    assert quote.attribution_basis == "named_in_sentence"
+    assert quote.candidate_authorities == [iqbal.id, by_name["Bell Atl. Corp. v. Twombly"].id]
+    assert quote.citation_span == iqbal.header.span
+    assert quote.pin_cite is None
+    assert hall.quotes == []
+
+
+def test_a_case_name_used_as_a_caption_does_not_take_a_quotation_from_its_id():
+    text = (
+        "Monell v. Department of Social Services, 436 U.S. 658, 690 (1978). "
+        "The Court called the rule “a deliberate choice,” id. at 690; see also "
+        "Pembaur v. City of Cincinnati, 475 U.S. 469, 483 (1986)."
+    )
+    result = group_citations(text)
+    monell = next(g for g in result.groups if g.case_name.startswith("Monell"))
+    assert [q.text for q in monell.quotes] == ["a deliberate choice,"]
+    assert monell.quotes[0].attribution_basis == "following_id"
+
+
+def test_a_short_citation_that_names_its_own_case_keeps_its_quotation():
+    text = (
+        "Monell v. Department of Social Services, 436 U.S. 658, 694 (1978). "
+        "Frey v. Town of Jackson, 41 F.4th 1223, 1238 (10th Cir. 2022). "
+        "To state a Monell claim, “a plaintiff must allege a municipal policy” "
+        "under Monell. Frey, 41 F.4th at 1238."
+    )
+    result = group_citations(text)
+    frey = next(g for g in result.groups if g.case_name.startswith("Frey"))
+    assert [q.text for q in frey.quotes] == ["a plaintiff must allege a municipal policy"]

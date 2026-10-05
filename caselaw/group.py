@@ -567,6 +567,68 @@ def _attribute_quote(
     return None, None
 
 
+_GENERIC_PARTY = {
+    "people", "the people", "state", "the state", "united states", "commonwealth", "city",
+    "county", "in re", "ex parte", "plaintiff", "plaintiffs", "defendant", "defendants",
+    "government", "department", "board",
+}
+# A case caption in front of its citation: "Brooks v. Gaenzle, 614 F.3d".
+_CAPTION_TAIL = re.compile(r"(?:\s+v\.?\s+[^,;().]{1,60}\.?[^,;()]{0,40})?[\s,]*")
+
+
+def _case_aliases(groups: list[CitationGroup]) -> list[tuple[re.Pattern, str]]:
+    """Party names that identify exactly one case group: "Iqbal", "Twombly".
+
+    A name shared by two groups ("Hall" in Hall v. Bellmon and Warne v. Hall)
+    identifies neither.
+    """
+    owners: dict[str, set[str]] = {}
+    for group in groups:
+        for citation in (group.header, *group.children):
+            for name in (citation.plaintiff, citation.defendant, citation.antecedent):
+                name = " ".join(str(name or "").split()).strip(" ,.")
+                if len(name) >= 4 and name.casefold() not in _GENERIC_PARTY:
+                    owners.setdefault(name, set()).add(group.id)
+    return [
+        (re.compile(r"(?<![A-Za-z])" + NOISE_TOLERANT_SPACE.join(map(re.escape, name.split()))
+                    + r"(?![A-Za-z])"), next(iter(ids)))
+        for name, ids in owners.items() if len(ids) == 1
+    ]
+
+
+def _cases_named_in_sentence(
+    text: str,
+    quote_start: int,
+    quote_end: int,
+    aliases: list[tuple[re.Pattern, str]],
+    citation_spans: list[tuple[int, int]],
+) -> list[str]:
+    """Case groups named in prose after the quotation, before its sentence ends.
+
+        ... stating "a plausible on its face" claim in compliance with Iqbal and
+        Twombly. See id.
+
+    A name that is a citation's caption or inside a citation does not count.
+    """
+    after = _SENTENCE_END.search(text, max(quote_start, quote_end - 3))
+    end = after.start() + 1 if after else min(len(text), quote_end + _SAME_SENTENCE_REACH)
+    hits: list[tuple[int, str]] = []
+    for pattern, gid in aliases:
+        for match in pattern.finditer(text, quote_end, end):
+            if any(lo <= match.start() < hi for lo, hi in citation_spans):
+                continue
+            following = [lo for lo, _ in citation_spans if lo >= match.end()]
+            if following and _CAPTION_TAIL.fullmatch(text, match.end(), min(following)):
+                continue
+            hits.append((match.start(), gid))
+            break
+    named: list[str] = []
+    for _, gid in sorted(hits):
+        if gid not in named:
+            named.append(gid)
+    return named
+
+
 def _echo_key(body: str) -> str:
     return " ".join(re.findall(r"[a-z0-9]+", body.casefold()))
 
@@ -1201,6 +1263,9 @@ def group_citations(text: str) -> ExtractionResult:
     attribution_records = [*records, *authority_records, *record_cites]
 
     unattributed_quotes: list[Quote] = []
+    case_aliases = _case_aliases(groups)
+    groups_by_id = {g.id: g for g in groups}
+    citation_spans = [tuple(c.span) for c in timeline]
     # A word quoted once from the record and echoed later ("the “siege”") is
     # still the record's word, whatever case happens to be cited nearby.
     record_words: dict[str, RecordCite] = {}
@@ -1226,7 +1291,19 @@ def group_citations(text: str) -> ExtractionResult:
         if owner is None:
             unattributed_quotes.append(quote)
             continue
+        named = (_cases_named_in_sentence(text, q_start, q_end, case_aliases, citation_spans)
+                 if basis == "following_id" and isinstance(owner, CitationGroup) else [])
         quote.attribution_status = "linked"
+        if named and owner.id not in named:
+            # "... stating “plausible on its face” in compliance with Iqbal. See id.":
+            # the Id. carries the sentence's proposition; the words are Iqbal's.
+            owner = groups_by_id[named[0]]
+            quote.attribution_basis = "named_in_sentence"
+            quote.authority_id = owner.id
+            quote.candidate_authorities = named
+            quote.citation_span = owner.header.span
+            owner.quotes.append(quote)
+            continue
         quote.attribution_basis = basis
         quote.authority_id = owner.id
         quote.citation_span = target.span
