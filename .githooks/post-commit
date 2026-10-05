@@ -1,0 +1,9 @@
+#!/bin/sh
+# Keep GitHub identical to local dev: every commit made on dev is pushed at once.
+# Fast-forward only, never --force, and never any branch but dev (master is kept
+# exactly as the user liked it). A failed push is reported, not hidden.
+[ "$(git symbolic-ref --short -q HEAD)" = "dev" ] || exit 0
+if ! git push --quiet origin dev; then
+    echo "WARNING: local dev and origin/dev now DIFFER (push failed). Run: git push origin dev" >&2
+fi
+exit 0

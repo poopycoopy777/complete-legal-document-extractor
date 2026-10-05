@@ -6,7 +6,8 @@ Read it before starting, stopping, debugging, or changing the application.
 ## Repository identity and boundaries
 
 - Repository root: `D:\complete-legal-document-extractor`
-- Current working branch: `dev` (user instruction, 2026-10-03; leave existing branches alone)
+- Current working branch: `dev` (user instruction, 2026-10-03). Exactly two branches exist, locally and on GitHub: `dev` and `master` (2026-10-05). `master` is the user's preserved snapshot of the app as they liked it: never commit to, merge into, reset, or push it. `state-snapshot` was deleted; do not recreate it.
+- GitHub's default branch is `dev`. Local and GitHub are always the same: `.githooks/post-commit` (enabled with `git config core.hooksPath .githooks`) pushes `dev` to `origin/dev` after every commit, fast-forward only, never forced. If it prints a push warning, run `git push origin dev` before anything else. `python scripts/check_repo_sync.py` in `D:\legal-app` checks all three repositories.
 - Frontend: `web/` (React, TypeScript, Vite)
 - API: `server/app.py` (FastAPI)
 - Extraction code: `caselaw/`
