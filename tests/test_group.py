@@ -266,3 +266,14 @@ def test_a_quotation_that_opens_a_sentence_after_a_citation_goes_to_the_one_afte
     result = group_citations(text)
     owner = {q.text[:5]: g.case_name for g in result.groups for q in g.quotes}
     assert owner["It is"] == "Roska ex rel. Roska v. Peterson"
+
+
+def test_a_quotation_marked_citations_omitted_carries_the_mark():
+    text = (
+        "See Artes-Roy v. City of Aspen, 31 F.3d 958, 962 (10th Cir. 1994) (\u201cEven if we treat "
+        "the entry as a violation, it was a de minimis violation.\u201d (citations omitted)). "
+        "The officers were there to investigate. See Lyman v. James, 400 U.S. 309, 318 (1971) "
+        "(\u201cnot a search\u201d (internal quotation marks omitted))."
+    )
+    marks = {q.text[:5]: q.citations_omitted for g in group_citations(text).groups for q in g.quotes}
+    assert marks == {"Even ": True, "not a": False}

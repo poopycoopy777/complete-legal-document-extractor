@@ -112,6 +112,9 @@ class Quote:
     # "printed": the pin appears at the citation. "inherited_from_id": a bare
     # Id. repeats the previous citation's page, as Bluebook reads it.
     pin_basis: str | None = None
+    # The filing marked the quotation "(citations omitted)" or "(internal
+    # citations omitted)": citations inside the quoted passage were left out.
+    citations_omitted: bool = False
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -658,6 +661,12 @@ def _cases_named_in_sentence(
         if gid not in named:
             named.append(gid)
     return named
+
+
+# "...a de minimis violation." (citations omitted)). Other omissions may share
+# the parenthetical: "(internal quotation marks and citations omitted)".
+_CITATIONS_OMITTED = re.compile(
+    r"[\s.,]*\((?:[^()]{0,60}\b)?citations?\b[^()]{0,40}\bomitted\)", re.IGNORECASE)
 
 
 def _echo_key(body: str) -> str:
@@ -1305,6 +1314,7 @@ def group_citations(text: str) -> ExtractionResult:
             text=body,
             span=(q_start, q_end),
             raw_text=original_text[q_start:q_end],
+            citations_omitted=bool(_CITATIONS_OMITTED.match(text, q_end)),
         )
         echo = record_words.get(_echo_key(body))
         if echo is not None:
