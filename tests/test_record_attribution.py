@@ -134,3 +134,19 @@ def test_appendix_citations_are_recognised_as_record_cites():
     assert len(appendix.quotes) == 2
     assert {q.text for q in appendix.quotes} == {
         "did not interfere physically", "blocked our path"}
+
+
+def test_trial_court_quotation_does_not_attach_to_appellate_case():
+    text = (
+        '70. Continued retention of property after dismissal, without forfeiture '
+        'proceedings, without a lawful basis, and solely to enforce a "reasonable '
+        'form" the trial court found "was not the law" violates the 4th and 5th '
+        'Amendments. Soldal v. Cook County, 506 U.S. 56, 61 (1992).'
+    )
+    result = group_citations(text)
+    soldal = next(g for g in result.groups if "Soldal" in (g.case_name or ""))
+    assert soldal.quotes == []
+    assert {q.text for q in result.unattributed_quotes} == {
+        "reasonable form", "was not the law"
+    }
+

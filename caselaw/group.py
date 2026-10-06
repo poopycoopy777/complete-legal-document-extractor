@@ -684,12 +684,32 @@ _PARTY_SPEAKS = re.compile(
     re.IGNORECASE,
 )
 
+_TRIAL_COURT_SPEAKS = re.compile(
+    r"\b(?:trial|district|superior|county|circuit|municipal)\s+court\b[^.;:]{0,30}?"
+    r"\b(?:held|holds|found|finds|stated|states|said|says|explained|explains|noted|notes|"
+    r"concluded|concludes|ruled|rules|reasoned)\b",
+    re.IGNORECASE,
+)
+
 
 def _describes_a_party(text: str, quote_start: int) -> bool:
     """The sentence holding the quotation says a party said or alleged it."""
     head = text[max(0, quote_start - 300):quote_start]
     sentence = re.split(r"(?<=[.!?][\u201d\"')\]])\s+|(?<=[.!?])\s+(?=[A-Z\u201c\"(])", head)[-1]
     return bool(_PARTY_SPEAKS.search(sentence))
+
+
+def _describes_trial_court(text: str, quote_start: int, quote_end: int) -> bool:
+    """The sentence holding the quotation states what the trial court held or found."""
+    head = text[max(0, quote_start - 300):quote_start]
+    ends_head = list(_SENTENCE_END.finditer(head))
+    head_start = ends_head[-1].end() if ends_head else 0
+    sentence_head = head[head_start:]
+    tail = text[quote_end:min(len(text), quote_end + 300)]
+    ends_tail = list(_SENTENCE_END.finditer(tail))
+    tail_end = ends_tail[0].start() if ends_tail else len(tail)
+    sentence_tail = tail[:tail_end]
+    return bool(_TRIAL_COURT_SPEAKS.search(sentence_head) or _TRIAL_COURT_SPEAKS.search(sentence_tail))
 
 
 def _group_authorities(text: str) -> list[AuthorityGroup]:
@@ -1324,6 +1344,8 @@ def group_citations(text: str) -> ExtractionResult:
         if isinstance(target, RecordCite):
             record_words.setdefault(_echo_key(body), target)
         elif target is not None and basis in _BACKWARD_BASES and _describes_a_party(text, q_start):
+            target, basis = None, None
+        elif target is not None and _describes_trial_court(text, q_start, q_end):
             target, basis = None, None
         if target is None:
             unattributed_quotes.append(quote)
