@@ -160,7 +160,7 @@ POLLARD = (
     "Ashcroft v. Iqbal, 556 U.S. 662, 678 (2009). "
     "Courts will not supply additional facts. Hall v. Bellmon, 935 F.2d 1106, 1110 "
     "(10th Cir. 1991). A pro se complaint must still allege facts stating "
-    "“a plausible on its face” claim in compliance with Iqbal and Twombly. "
+    "\u201ca plausible on its face\u201d claim in compliance with Iqbal and Twombly. "
     "See id."
 )
 
@@ -183,7 +183,7 @@ def test_a_quotation_named_to_another_case_in_its_sentence_is_not_given_to_the_f
 def test_a_case_name_used_as_a_caption_does_not_take_a_quotation_from_its_id():
     text = (
         "Monell v. Department of Social Services, 436 U.S. 658, 690 (1978). "
-        "The Court called the rule “a deliberate choice,” id. at 690; see also "
+        "The Court called the rule \u201ca deliberate choice,\u201d id. at 690; see also "
         "Pembaur v. City of Cincinnati, 475 U.S. 469, 483 (1986)."
     )
     result = group_citations(text)
@@ -196,7 +196,7 @@ def test_a_short_citation_that_names_its_own_case_keeps_its_quotation():
     text = (
         "Monell v. Department of Social Services, 436 U.S. 658, 694 (1978). "
         "Frey v. Town of Jackson, 41 F.4th 1223, 1238 (10th Cir. 2022). "
-        "To state a Monell claim, “a plaintiff must allege a municipal policy” "
+        "To state a Monell claim, \u201ca plaintiff must allege a municipal policy\u201d "
         "under Monell. Frey, 41 F.4th at 1238."
     )
     result = group_citations(text)
@@ -206,7 +206,7 @@ def test_a_short_citation_that_names_its_own_case_keeps_its_quotation():
 
 def test_a_quotation_before_a_sentence_with_its_own_signal_citation_is_not_given_to_it():
     text = (
-        "Such conduct cannot be “extreme and outrageous” as a matter of law. "
+        "Such conduct cannot be \u201cextreme and outrageous\u201d as a matter of law. "
         "The Colorado Supreme Court has held that asserting one's legal rights is not "
         "outrageous conduct. See Rugg v. McCarty, 476 P.2d 753, 755 (Colo. 1970)."
     )
@@ -218,7 +218,7 @@ def test_a_quotation_before_a_sentence_with_its_own_signal_citation_is_not_given
 
 def test_a_quotation_in_the_sentence_before_a_signal_citation_keeps_it():
     text = (
-        "Conduct must be “extreme and outrageous.” "
+        "Conduct must be \u201cextreme and outrageous.\u201d "
         "See Rugg v. McCarty, 476 P.2d 753, 755 (Colo. 1970)."
     )
     result = group_citations(text)
@@ -239,8 +239,8 @@ def test_an_exhibit_number_is_not_read_as_a_reporter_volume():
 
 def test_a_page_number_inside_a_quotation_across_a_page_break_is_not_part_of_it():
     text = (
-        "Such conduct cannot be “extreme and\n\n\n\n"
-        "                                      5       outrageous” as a matter of law."
+        "Such conduct cannot be \u201cextreme and\n\n\n\n"
+        "                                      5       outrageous\u201d as a matter of law."
     )
     result = group_citations(text)
     assert [q.text for q in result.unattributed_quotes] == ["extreme and outrageous"]
@@ -249,7 +249,7 @@ def test_a_page_number_inside_a_quotation_across_a_page_break_is_not_part_of_it(
 def test_a_quotation_under_a_new_heading_is_not_given_to_the_citation_above_it():
     text = (
         "These allegations are insufficient. See Rugg v. McCarty, 476 P.2d 753, 756 (Colo. 1970).\n\n\n\n"
-        "C. Counterclaim III (Abuse of Process) Fails to Allege an Improper “Act”\n\n"
+        "C. Counterclaim III (Abuse of Process) Fails to Allege an Improper \u201cAct\u201d\n\n"
     )
     result = group_citations(text)
     rugg = next(g for g in result.groups if g.case_name.startswith("Rugg"))
@@ -258,9 +258,9 @@ def test_a_quotation_under_a_new_heading_is_not_given_to_the_citation_above_it()
 
 def test_a_quotation_that_opens_a_sentence_after_a_citation_goes_to_the_one_after_it():
     text = (
-        "“A search occurs when an expectation of privacy is infringed.” Maryland v. Macon, "
+        "\u201cA search occurs when an expectation of privacy is infringed.\u201d Maryland v. Macon, "
         "472 U.S. 463, 468 (1985) (quoting United States v. Jacobsen, 466 U.S. 109, 113 (1984)). "
-        "“It is well-established that a warrantless search is presumptively unreasonable.” "
+        "\u201cIt is well-established that a warrantless search is presumptively unreasonable.\u201d "
         "Roska ex rel. Roska v. Peterson, 328 F.3d 1230, 1240 (10th Cir. 2003)."
     )
     result = group_citations(text)

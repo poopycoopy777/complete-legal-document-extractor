@@ -1326,7 +1326,7 @@ def group_citations(text: str) -> ExtractionResult:
                  if basis == "following_id" and isinstance(owner, CitationGroup) else [])
         quote.attribution_status = "linked"
         if named and owner.id not in named:
-            # "... stating “plausible on its face” in compliance with Iqbal. See id.":
+            # '... stating "plausible on its face" in compliance with Iqbal. See id.':
             # the Id. carries the sentence's proposition; the words are Iqbal's.
             owner = groups_by_id[named[0]]
             quote.attribution_basis = "named_in_sentence"
