@@ -202,3 +202,25 @@ def test_a_short_citation_that_names_its_own_case_keeps_its_quotation():
     result = group_citations(text)
     frey = next(g for g in result.groups if g.case_name.startswith("Frey"))
     assert [q.text for q in frey.quotes] == ["a plaintiff must allege a municipal policy"]
+
+
+def test_a_quotation_before_a_sentence_with_its_own_signal_citation_is_not_given_to_it():
+    text = (
+        "Such conduct cannot be “extreme and outrageous” as a matter of law. "
+        "The Colorado Supreme Court has held that asserting one's legal rights is not "
+        "outrageous conduct. See Rugg v. McCarty, 476 P.2d 753, 755 (Colo. 1970)."
+    )
+    result = group_citations(text)
+    rugg = next(g for g in result.groups if g.case_name.startswith("Rugg"))
+    assert rugg.quotes == []
+    assert [q.text for q in result.unattributed_quotes] == ["extreme and outrageous"]
+
+
+def test_a_quotation_in_the_sentence_before_a_signal_citation_keeps_it():
+    text = (
+        "Conduct must be “extreme and outrageous.” "
+        "See Rugg v. McCarty, 476 P.2d 753, 755 (Colo. 1970)."
+    )
+    result = group_citations(text)
+    rugg = next(g for g in result.groups if g.case_name.startswith("Rugg"))
+    assert [q.text for q in rugg.quotes] == ["extreme and outrageous."]

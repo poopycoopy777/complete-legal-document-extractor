@@ -468,6 +468,12 @@ _PROSE_SENTENCE = re.compile(
     r"His|Her|Their|Our|Plaintiffs?|Defendants?|Officers?|Here|There|Thus|Therefore|"
     r"Accordingly|Moreover|Further|Furthermore|Indeed|However|Because|Such|No|Nor)\b)"
 )
+# A citation sentence that opens with a signal: "... conduct. See Rugg v. McCarty,".
+_SIGNAL_SENTENCE = re.compile(
+    r"[.!?][\"'”’)\]]*\s+(?:See(?:,?\s+e\.g\.,|\s+also|\s+generally)?|Cf\.|Accord|"
+    r"But\s+see|But\s+cf\.|E\.g\.,|Compare)\s"
+)
+_SIGNAL_TO_CITATION = 150
 
 
 def _same_sentence_owner(
@@ -532,7 +538,15 @@ def _attribute_quote(
         # Two sentences of the filing's own argument between a quotation and
         # the next citation: that citation is for the argument, not the quote.
         nearest_start = min(c.span[0] for c in following)
-        if len(_PROSE_SENTENCE.findall(text, max(quote_start, quote_end - 3), nearest_start)) >= 2:
+        lo = max(quote_start, quote_end - 3)
+        prose = len(_PROSE_SENTENCE.findall(text, lo, nearest_start))
+        # One sentence of argument, then a citation sentence of its own: the
+        # citation supports that sentence only, as Bluebook reads it.
+        #   ... cannot be "extreme and outrageous" as a matter of law. The
+        #   Colorado Supreme Court has held that ... See Rugg v. McCarty, 476 P.2d
+        signals = list(_SIGNAL_SENTENCE.finditer(text, lo, nearest_start))
+        own_sentence = bool(signals) and nearest_start - signals[-1].end() <= _SIGNAL_TO_CITATION
+        if prose >= 2 or (prose >= 1 and own_sentence):
             following = []
     if following:
         target = min(following, key=lambda c: c.span[0])
