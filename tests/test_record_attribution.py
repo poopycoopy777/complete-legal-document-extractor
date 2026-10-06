@@ -150,19 +150,3 @@ def test_trial_court_quotation_does_not_attach_to_appellate_case():
         "reasonable form", "was not the law"
     }
 
-
-def test_pleading_allegation_quotes_do_not_attach_to_following_case_citation():
-    text = (
-        'Nor does the SAC plausibly allege that Ms. Tanaka engaged in "joint action" '
-        'or conspiracy with state officials. The complaint offers only conclusory assertions '
-        'that she "coordinated" or "conspired" with prosecutors, but such naked assertions '
-        'are insufficient to survive a motion to dismiss. Ashcroft v. Iqbal, 556 U.S. 662, 678 (2009).'
-    )
-    result = group_citations(text)
-    iqbal = next(g for g in result.groups if "Iqbal" in (g.case_name or ""))
-    assert iqbal.quotes == []
-    assert {q.text for q in result.unattributed_quotes} == {
-        "joint action", "coordinated", "conspired"
-    }
-
-

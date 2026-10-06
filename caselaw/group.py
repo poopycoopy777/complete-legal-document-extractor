@@ -73,15 +73,11 @@ _ECF_STAMP = re.compile(
 # Mask only a complete docket/date/court/page stamp, including a fused footer
 # number. Keep every character position and newline for document navigation.
 _COMPLETE_ECF_STAMP = re.compile(
-    r"(?m)^[ \t]*(?:(?:\d+|[ivxlcdm]+|\))[ \t]*(?:\r?\n[ \t]*)*)?"
-    r"Case[ \t]+(?:No\.?[ \t]*)?"
+    r"(?m)^[ \t]*(?:\d+[ \t]*(?:\r?\n[ \t]*)*)?Case[ \t]+(?:No\.?[ \t]*)?"
     r"\d+:\d+-[a-z]{2}-\d+[^\r\n]*?\bDocument[ \t]+\d+(?:-\d+)?"
     r"[^\r\n]*?\bfiled[ \t]+\d{1,2}/\d{1,2}/\d{2,4}"
-    r"[^\r\n]*?"
-    r"(?:[ \t]*\r?\n[ \t]*)?"
-    r"(?:pg\.?|Page)[ \t]+\d+[ \t]+of[ \t]+\d+"
-    r"(?:[ \t]+PageID\.?\s*\d+)?"
-    r"(?:[ \t]*\r?\n[ \t]*PageID\.?\s*\d+)?",
+    r"[^\r\n]*?\bUSDC[^\r\n]*?(?:[ \t]*\r?\n[ \t]*)?"
+    r"(?:pg\.?|Page)[ \t]+\d+[ \t]+of[ \t]+\d+",
     re.IGNORECASE,
 )
 
@@ -470,10 +466,7 @@ def _parenthetical_owner(
 # A sentence ends at . ! or ? (after any closing quote or bracket) followed by
 # whitespace and a capital. Reporter abbreviations ("F.3d", "U.S.", "v.") are
 # followed by a digit or a lower-case word, so they do not end a sentence.
-_SENTENCE_END = re.compile(
-    r"(?<!\bMs)(?<!\bMr)(?<!\bMrs)(?<!\bDr)(?<!\bProf)(?<!\bSr)(?<!\bJr)(?<!\bNo)"
-    r"[.!?][\"'\u201d\u2019)\]]*\s+(?=[A-Z\u201c\"])"
-)
+_SENTENCE_END = re.compile(r"[.!?][\"'\u201d\u2019)\]]*\s+(?=[A-Z\u201c\"])")
 # A citation sentence opens with a signal or with the case name itself. A
 # sentence opening "In Doe v. United States, ..." is prose about that case.
 _TEXTUAL_OPENING = re.compile(r"\s*In\s+(?!re\b)")
@@ -686,11 +679,9 @@ _BACKWARD_BASES = {"same_sentence_preceding", "preceding_citation", "preceding_a
 # "Plaintiff says ...", "Plaintiff's allegation that the City “divert[s]” ...":
 # the filing is quoting a party, not the case cited in the sentence before.
 _PARTY_SPEAKS = re.compile(
-    r"\b(?:plaintiffs?|defendants?|petitioners?|respondents?|movants?|he|she|they|"
-    r"(?:the|this|plaintiff['\u2019]s|defendant['\u2019]s)\s+(?:SAC|FAC|TAC|complaint|pleading|petition|indictment|motion)|"
-    r"SAC|FAC|TAC)(?:[\u2019']s?)?\s+"
+    r"\b(?:plaintiffs?|defendants?|petitioners?|respondents?|movants?|he|she|they)(?:[\u2019']s?)?\s+"
     r"(?:\w+\s+){0,3}?(?:alleg\w*|says?|said|claims?|claimed|asserts?|asserted|argues?|argued|"
-    r"contends?|contended|states?|stated|describes?|described|calls?|called|characteriz\w+|refers?|referred|offers?|offered)\b",
+    r"contends?|contended|states?|stated|describes?|described|calls?|called|characteriz\w+|refers?|referred)\b",
     re.IGNORECASE,
 )
 
@@ -702,17 +693,11 @@ _TRIAL_COURT_SPEAKS = re.compile(
 )
 
 
-def _describes_a_party(text: str, quote_start: int, quote_end: int = 0) -> bool:
-    """The sentence holding the quotation says a party or pleading said or alleged it."""
-    head = text[max(0, quote_start - 300):quote_start + 1]
-    ends_head = list(_SENTENCE_END.finditer(head))
-    head_start = ends_head[-1].end() if ends_head else 0
-    sentence_head = head[head_start:]
-    tail = text[quote_end:min(len(text), quote_end + 300)] if quote_end else ""
-    ends_tail = list(_SENTENCE_END.finditer(tail))
-    tail_end = ends_tail[0].start() if ends_tail else len(tail)
-    sentence_tail = tail[:tail_end]
-    return bool(_PARTY_SPEAKS.search(sentence_head) or _PARTY_SPEAKS.search(sentence_tail))
+def _describes_a_party(text: str, quote_start: int) -> bool:
+    """The sentence holding the quotation says a party said or alleged it."""
+    head = text[max(0, quote_start - 300):quote_start]
+    sentence = re.split(r"(?<=[.!?][\u201d\"')\]])\s+|(?<=[.!?])\s+(?=[A-Z\u201c\"(])", head)[-1]
+    return bool(_PARTY_SPEAKS.search(sentence))
 
 
 def _describes_trial_court(text: str, quote_start: int, quote_end: int) -> bool:
@@ -1359,7 +1344,7 @@ def group_citations(text: str) -> ExtractionResult:
             target, basis = _attribute_quote(q_start, q_end, attribution_records, text)
         if isinstance(target, RecordCite):
             record_words.setdefault(_echo_key(body), target)
-        elif target is not None and _describes_a_party(text, q_start, q_end):
+        elif target is not None and basis in _BACKWARD_BASES and _describes_a_party(text, q_start):
             target, basis = None, None
         elif target is not None and _describes_trial_court(text, q_start, q_end):
             target, basis = None, None
