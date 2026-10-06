@@ -224,3 +224,14 @@ def test_a_quotation_in_the_sentence_before_a_signal_citation_keeps_it():
     result = group_citations(text)
     rugg = next(g for g in result.groups if g.case_name.startswith("Rugg"))
     assert [q.text for q in rugg.quotes] == ["extreme and outrageous."]
+
+
+def test_an_exhibit_number_is_not_read_as_a_reporter_volume():
+    text = (
+        "Ex. 8         Call 2400006154 Redacted\n\n"
+        "Ex. 9        Call 25-114565 Redacted\n\n"
+        "Exhibit 3 shows it. See Rugg v. McCarty, 476 P.2d 753, 755 (Colo. 1970)."
+    )
+    result = group_citations(text)
+    assert [g.case_name for g in result.groups] == ["Rugg v. McCarty"]
+    assert result.orphans == []

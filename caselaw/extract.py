@@ -802,12 +802,24 @@ def _case_law_cites(text: str) -> list[Any]:
         ),
         key=lambda c: c.span()[0],
     )
+    anchored = [cite for cite in anchored if not _is_exhibit_number(cite, text)]
     for cite in anchored:
         if isinstance(cite, IdCitation):
             _release_paragraph_marker(cite, text)
     return sorted(
         [*anchored, *_incomplete_cites(text, anchored)], key=lambda c: c.span()[0]
     )
+
+
+# An exhibit label in front of the "volume": an exhibit list row such as
+# "Ex. 9    Call 25-114565 Redacted" reads as 9 Call 25, volume 9 of Call's
+# Virginia Reports. A reporter volume never follows "Ex." or "Exhibit".
+_EXHIBIT_LABEL = re.compile(r"(?<![A-Za-z])(?:Ex|Exh|Exs|Exhs|Exhibits?)\.?\s*$", re.IGNORECASE)
+
+
+def _is_exhibit_number(cite: Any, text: str) -> bool:
+    start = cite.span()[0]
+    return bool(start) and bool(_EXHIBIT_LABEL.search(text, max(0, start - 20), start))
 
 
 # A pin cite eyecite read off the numbered paragraph that follows an Id.:
