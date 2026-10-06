@@ -676,28 +676,62 @@ def _echo_key(body: str) -> str:
 
 _BACKWARD_BASES = {"same_sentence_preceding", "preceding_citation", "preceding_authority"}
 
+_SCARE_QUOTE_LEAD = re.compile(
+    r"\b(?:so-called|referred\s+to\s+as|known\s+as|dubbed|termed|labeled|concept\s+of|the\s+term|the\s+word|the\s+phrase|any\s+claimed)\s*$",
+    re.IGNORECASE,
+)
+
+
+def _is_scare_quote(text: str, quote_start: int, body: str) -> bool:
+    """A term in scare quotes or preceded by 'so-called', 'the term', etc."""
+    if len(body.split()) > 4:
+        return False
+    lead = text[max(0, quote_start - 40):quote_start]
+    return bool(_SCARE_QUOTE_LEAD.search(lead))
+
 # "Plaintiff says ...", "Plaintiff's allegation that the City “divert[s]” ...":
 # the filing is quoting a party, not the case cited in the sentence before.
 _PARTY_SPEAKS = re.compile(
-    r"\b(?:plaintiffs?|defendants?|petitioners?|respondents?|movants?|he|she|they)(?:[\u2019']s?)?\s+"
-    r"(?:\w+\s+){0,3}?(?:alleg\w*|says?|said|claims?|claimed|asserts?|asserted|argues?|argued|"
-    r"contends?|contended|states?|stated|describes?|described|calls?|called|characteriz\w+|refers?|referred)\b",
+    r"\b(?:plaintiffs?|defendants?|petitioners?|respondents?|movants?|he|she|they|"
+    r"(?:the\s+)?(?:city|government|prosecution|defense|people|sheriff(?:['\u2019]s\s+office)?|officers?|prosecutor)|"
+    r"(?:the\s+state)|"
+    r"counsel|defense\s+counsel)(?:['\u2019]s?)?(?:,\s*for\s+its\s+part,)?\s+"
+    r"(?:[^\s.;:!?]+\s+){0,5}?"
+    r"(?:alleg\w*|says?|said|claims?|claimed|asserts?|asserted|argues?|argued|"
+    r"contends?|contended|states?|stated|describes?|described|calls?|called|"
+    r"characteriz\w+|refers?|referred|insists?|insisted|countered|told\s+the\s+jury)\b",
     re.IGNORECASE,
 )
 
 _TRIAL_COURT_SPEAKS = re.compile(
-    r"\b(?:trial|district|superior|county|circuit|municipal)\s+court\b[^.;:]{0,30}?"
+    r"\b(?:(?:trial|district|superior|county|circuit|municipal)\s+court|court\s+below|magistrate(?:\s+judge)?)\b"
+    r"[^.;:!?]{0,80}?"
     r"\b(?:held|holds|found|finds|stated|states|said|says|explained|explains|noted|notes|"
-    r"concluded|concludes|ruled|rules|reasoned)\b",
+    r"concluded|concludes|ruled|rules|reasoned|observed|observes|acknowledged|acknowledges|"
+    r"denied|denies|granted|grants|admitted|admits)\b",
+    re.IGNORECASE,
+)
+
+
+_APPELLATE_COURT_SPEAKS = re.compile(
+    r"\b(?:supreme\s+court|this\s+court|the\s+court|tenth\s+circuit|ninth\s+circuit|"
+    r"second\s+circuit|third\s+circuit|fourth\s+circuit|fifth\s+circuit|sixth\s+circuit|"
+    r"seventh\s+circuit|eighth\s+circuit|first\s+circuit|d\.c\.\s+circuit|federal\s+circuit)\b[^.;:!?]{0,80}?"
+    r"\b(?:held|holds|explained|explains|stated|states|cautioned|cautionary|declared|declares|"
+    r"emphasized|emphasizes|rejected|recognized|has\s+made\s+clear|instructed|instructs)\b",
     re.IGNORECASE,
 )
 
 
 def _describes_a_party(text: str, quote_start: int) -> bool:
     """The sentence holding the quotation says a party said or alleged it."""
-    head = text[max(0, quote_start - 300):quote_start]
-    sentence = re.split(r"(?<=[.!?][\u201d\"')\]])\s+|(?<=[.!?])\s+(?=[A-Z\u201c\"(])", head)[-1]
-    return bool(_PARTY_SPEAKS.search(sentence))
+    start = max(0, quote_start - 300)
+    ends_head = [m for m in _SENTENCE_END.finditer(text, start) if m.start() < quote_start]
+    head_start = ends_head[-1].end() if ends_head else start
+    sentence_head = text[head_start:quote_start]
+    if _APPELLATE_COURT_SPEAKS.search(sentence_head):
+        return False
+    return bool(_PARTY_SPEAKS.search(sentence_head))
 
 
 def _describes_trial_court(text: str, quote_start: int, quote_end: int) -> bool:
@@ -706,11 +740,18 @@ def _describes_trial_court(text: str, quote_start: int, quote_end: int) -> bool:
     ends_head = list(_SENTENCE_END.finditer(head))
     head_start = ends_head[-1].end() if ends_head else 0
     sentence_head = head[head_start:]
+    if _TRIAL_COURT_SPEAKS.search(sentence_head):
+        return True
     tail = text[quote_end:min(len(text), quote_end + 300)]
-    ends_tail = list(_SENTENCE_END.finditer(tail))
-    tail_end = ends_tail[0].start() if ends_tail else len(tail)
-    sentence_tail = tail[:tail_end]
-    return bool(_TRIAL_COURT_SPEAKS.search(sentence_head) or _TRIAL_COURT_SPEAKS.search(sentence_tail))
+    # Strip any closing quotation marks
+    rest = tail.lstrip("\"'\u201c\u201d\u2018\u2019")
+    # If the text immediately following opens a new sentence (starts with uppercase or sentence break),
+    # it belongs to the next sentence, not this quotation's sentence.
+    if rest.lstrip()[:1].isupper() or rest.startswith((".", "!", "?")):
+        return False
+    cut = min([rest.find(m) for m in (".", "!", "?", ";") if rest.find(m) >= 0] or [len(rest)])
+    sentence_tail = rest[:cut]
+    return bool(_TRIAL_COURT_SPEAKS.search(sentence_tail))
 
 
 def _group_authorities(text: str) -> list[AuthorityGroup]:
@@ -1344,9 +1385,11 @@ def group_citations(text: str) -> ExtractionResult:
             target, basis = _attribute_quote(q_start, q_end, attribution_records, text)
         if isinstance(target, RecordCite):
             record_words.setdefault(_echo_key(body), target)
-        elif target is not None and basis in _BACKWARD_BASES and _describes_a_party(text, q_start):
+        elif target is not None and _describes_a_party(text, q_start):
             target, basis = None, None
         elif target is not None and _describes_trial_court(text, q_start, q_end):
+            target, basis = None, None
+        elif target is not None and _is_scare_quote(text, q_start, body):
             target, basis = None, None
         if target is None:
             unattributed_quotes.append(quote)
