@@ -349,3 +349,20 @@ def test_ecf_stamp_removes_a_separate_footer_and_keeps_body_on_same_line():
             'Document 86 filed 07/23/26 USDC Colorado pg 5 of 10 dismissal." '
             'Bauchman v. West High School, 132 F.3d 542, 562 (10th Cir. 1997).')
     assert group_citations(text).as_dict()["groups"][0]["quotes"][0]["text"] == "A claim may survive dismissal."
+
+
+def test_ecf_stamp_without_usdc_and_pageid_inside_quote_is_not_quoted_evidence():
+    text = (
+        'The Court is "not required to accept as true allegations that contradict exhibits\n\n'
+        '                                20 Case 1:24-cv-00253-GPC-WRP  Document 166   Filed 11/14/25  Page 28 of 33\n'
+        '                               PageID.2016\n\n\n'
+        'attached to the complaint or matters subject to judicial notice." '
+        'Daniels-Hall v. Nat\'l Educ. Ass\'n, 629 F.3d 992, 998 (9th Cir. 2010).'
+    )
+    result = group_citations(text).as_dict()
+    quote = result["groups"][0]["quotes"][0]
+    assert quote["text"] == (
+        "not required to accept as true allegations that contradict exhibits "
+        "attached to the complaint or matters subject to judicial notice."
+    )
+
