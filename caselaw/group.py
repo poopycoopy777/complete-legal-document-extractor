@@ -704,7 +704,7 @@ _PARTY_SPEAKS = re.compile(
 )
 
 _TRIAL_COURT_SPEAKS = re.compile(
-    r"\b(?:(?:trial|district|superior|county|circuit|municipal)\s+court|court\s+below|magistrate(?:\s+judge)?)\b"
+    r"\b((?:trial|district|superior|county|circuit|municipal)\s+court|court\s+below|magistrate(?:\s+judge)?)\b"
     r"[^.;:!?]{0,80}?"
     r"\b(?:held|holds|found|finds|stated|states|said|says|explained|explains|noted|notes|"
     r"concluded|concludes|ruled|rules|reasoned|observed|observes|acknowledged|acknowledges|"
@@ -734,13 +734,27 @@ def _describes_a_party(text: str, quote_start: int) -> bool:
     return bool(_PARTY_SPEAKS.search(sentence_head))
 
 
+_PARAGRAPH_BREAK = re.compile(r"\n[ \t]*\n")
+
+
+def _trial_court_speaks(sentence: str) -> bool:
+    """A trial court is the subject; an all-capitals court name is a caption, not prose."""
+    pos = 0
+    while (m := _TRIAL_COURT_SPEAKS.search(sentence, pos)) is not None:
+        if not m.group(1).isupper():
+            return True
+        pos = m.end(1)
+    return False
+
+
 def _describes_trial_court(text: str, quote_start: int, quote_end: int) -> bool:
     """The sentence holding the quotation states what the trial court held or found."""
     head = text[max(0, quote_start - 300):quote_start]
-    ends_head = list(_SENTENCE_END.finditer(head))
-    head_start = ends_head[-1].end() if ends_head else 0
+    # A blank line ends the sentence too: a caption block has no period.
+    ends_head = [*_SENTENCE_END.finditer(head), *_PARAGRAPH_BREAK.finditer(head)]
+    head_start = max((m.end() for m in ends_head), default=0)
     sentence_head = head[head_start:]
-    if _TRIAL_COURT_SPEAKS.search(sentence_head):
+    if _trial_court_speaks(sentence_head):
         return True
     tail = text[quote_end:min(len(text), quote_end + 300)]
     # Strip any closing quotation marks
@@ -751,7 +765,7 @@ def _describes_trial_court(text: str, quote_start: int, quote_end: int) -> bool:
         return False
     cut = min([rest.find(m) for m in (".", "!", "?", ";") if rest.find(m) >= 0] or [len(rest)])
     sentence_tail = rest[:cut]
-    return bool(_TRIAL_COURT_SPEAKS.search(sentence_tail))
+    return _trial_court_speaks(sentence_tail)
 
 
 def _group_authorities(text: str) -> list[AuthorityGroup]:

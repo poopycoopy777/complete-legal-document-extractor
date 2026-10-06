@@ -150,3 +150,20 @@ def test_trial_court_quotation_does_not_attach_to_appellate_case():
         "reasonable form", "was not the law"
     }
 
+
+
+def test_court_explained_quote_after_district_court_caption_stays_with_case():
+    # pymupdf text of a benchmark quote document: the caption names the
+    # district court with no sentence end before "The court explained:".
+    text = (
+        "Constructed challenge | Page 1\nUNITED STATES DISTRICT COURT\n"
+        "DISTRICT OF COLORADO\niqbal-exact-quote\nThe court explained: "
+        '"Threadbare recitals of the elements of a cause of action, supported by\n'
+        'mere conclusory statements, do not suffice." Ashcroft v. Iqbal, 556 U.S. '
+        "662, 678 (2009).\n"
+    )
+    result = group_citations(text)
+    iqbal = next(g for g in result.groups if "Iqbal" in (g.case_name or ""))
+    assert len(iqbal.quotes) == 1
+    assert iqbal.quotes[0].text.startswith("Threadbare recitals")
+    assert result.unattributed_quotes == []
