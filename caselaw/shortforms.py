@@ -157,6 +157,28 @@ def short_form_resolvers(pairs: list[tuple[Any, Any]], text: str) -> dict[str, C
             ))
         return None
 
+    def resolve_id(id_citation: Any, last_resolution: Any, resolutions: Any) -> Any:
+        if not last_resolution:
+            return None
+        pin = getattr(id_citation.metadata, "pin_cite", None)
+        if not pin:
+            return last_resolution
+        # Westlaw/LEXIS star pagination (e.g. "*4", "at *4", "*10") is a valid pin cite
+        if "*" in pin or "¶" in pin or "§" in pin:
+            return last_resolution
+        m = re.match(r"(?:at\s+)?(\d+)", pin)
+        if not m:
+            return last_resolution if "at" in pin else None
+        full_cite = resolutions[last_resolution][0]
+        page_str = getattr(full_cite, "groups", {}).get("page", "") if hasattr(full_cite, "groups") else ""
+        if not page_str.isdigit():
+            return last_resolution
+        page = int(page_str)
+        pin_page = int(m[1])
+        if pin_page < page or pin_page > page + MAX_OPINION_PAGES:
+            return None
+        return last_resolution
+
     def resolve_supra(short: Any, resolved_full: list[tuple[Any, Any]]) -> Any:
         resource = _resolve_supra_citation(short, resolved_full)
         return resource if resource is not None else refine(short, resolved_full)
@@ -166,6 +188,7 @@ def short_form_resolvers(pairs: list[tuple[Any, Any]], text: str) -> dict[str, C
         return resource if resource is not None else refine(short, resolved_full)
 
     return {
+        "resolve_id_citation": resolve_id,
         "resolve_supra_citation": resolve_supra,
         "resolve_reference_citation": resolve_reference,
     }

@@ -561,7 +561,8 @@ def _attribute_quote(
         #   Colorado Supreme Court has held that ... See Rugg v. McCarty, 476 P.2d
         signals = list(_SIGNAL_SENTENCE.finditer(text, lo, nearest_start))
         own_sentence = bool(signals) and nearest_start - signals[-1].end() <= _SIGNAL_TO_CITATION
-        if prose >= 2 or (prose >= 1 and own_sentence):
+        new_block = bool(_NEW_BLOCK.search(text, lo, nearest_start))
+        if prose >= 2 or (prose >= 1 and own_sentence) or new_block:
             following = []
     if following:
         target = min(following, key=lambda c: c.span[0])
