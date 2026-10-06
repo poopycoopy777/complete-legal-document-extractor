@@ -418,12 +418,19 @@ def _is_shouted_label(body: str) -> bool:
     return len(body.split()) <= 4 and len(letters) >= 2 and letters.isupper()
 
 
+# A page or transcript line number inside a quotation that runs across a page
+# break: alone after a blank line, padded wide on both sides.
+#   "extreme and\n\n\n\n                    5       outrageous"
+# It was sent to the verifier as "extreme and 5 outrageous".
+_LAYOUT_NUMBER = re.compile(r"(?:\n[ \t]*){2,}[ \t]{8,}\d{1,4}[ \t]{3,}")
+
+
 def _find_quotes(text: str) -> list[tuple[int, int, str]]:
     text = _mask_court_stamps(text)
     spans = []
     for m in _QUOTE.finditer(text):
         body = m.group(1) if m.group(1) is not None else m.group(2)
-        body = " ".join(body.split())
+        body = " ".join(_LAYOUT_NUMBER.sub(" ", body).split())
         if (_is_defined_term(text, m.start(), m.end(), body) or _is_citation_only(body)
                 or _is_shouted_label(body)):
             continue
@@ -470,10 +477,13 @@ _PROSE_SENTENCE = re.compile(
 )
 # A citation sentence that opens with a signal: "... conduct. See Rugg v. McCarty,".
 _SIGNAL_SENTENCE = re.compile(
-    r"[.!?][\"'”’)\]]*\s+(?:See(?:,?\s+e\.g\.,|\s+also|\s+generally)?|Cf\.|Accord|"
+    r"[.!?][\"'\u201d\u2019)\]]*\s+(?:See(?:,?\s+e\.g\.,|\s+also|\s+generally)?|Cf\.|Accord|"
     r"But\s+see|But\s+cf\.|E\.g\.,|Compare)\s"
 )
 _SIGNAL_TO_CITATION = 150
+# A heading or numbered paragraph starting on its own line: "C. Counterclaim",
+# "IV. Plaintiffs", "14. Any issue".
+_NEW_BLOCK = re.compile(r"\n[ \t]*(?:[A-Z]|[IVXL]{1,5}|\d{1,3})\.[ \t]+[A-Z]")
 
 
 def _same_sentence_owner(
@@ -494,7 +504,9 @@ def _same_sentence_owner(
     if not preceding:
         return None
     nearest = max(preceding, key=lambda c: c.span[1])
-    if _SENTENCE_END.search(text, nearest.span[1], quote_start):
+    # One character past the opening mark: the sentence-end pattern looks ahead
+    # for it, and a search that stops at the mark cannot see it.
+    if _SENTENCE_END.search(text, nearest.span[1], quote_start + 1):
         return None
     following = [c for c in records if c.span[0] >= quote_end]
     if not following:
@@ -571,6 +583,11 @@ def _attribute_quote(
     ]
     if preceding:
         target = max(preceding, key=lambda c: c.span[1])
+        # A quotation under a later heading or numbered paragraph is not the
+        # citation's above it: "... insufficient. See Rugg, 476 P.2d at 756.
+        # C. Counterclaim III ... Fails to Allege an Improper "Act"".
+        if _NEW_BLOCK.search(text, target.span[1], quote_start):
+            return None, None
         if isinstance(target, RecordCite):
             basis = "preceding_record"
         elif isinstance(target, Authority):

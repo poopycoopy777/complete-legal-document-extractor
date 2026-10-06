@@ -235,3 +235,34 @@ def test_an_exhibit_number_is_not_read_as_a_reporter_volume():
     result = group_citations(text)
     assert [g.case_name for g in result.groups] == ["Rugg v. McCarty"]
     assert result.orphans == []
+
+
+def test_a_page_number_inside_a_quotation_across_a_page_break_is_not_part_of_it():
+    text = (
+        "Such conduct cannot be “extreme and\n\n\n\n"
+        "                                      5       outrageous” as a matter of law."
+    )
+    result = group_citations(text)
+    assert [q.text for q in result.unattributed_quotes] == ["extreme and outrageous"]
+
+
+def test_a_quotation_under_a_new_heading_is_not_given_to_the_citation_above_it():
+    text = (
+        "These allegations are insufficient. See Rugg v. McCarty, 476 P.2d 753, 756 (Colo. 1970).\n\n\n\n"
+        "C. Counterclaim III (Abuse of Process) Fails to Allege an Improper “Act”\n\n"
+    )
+    result = group_citations(text)
+    rugg = next(g for g in result.groups if g.case_name.startswith("Rugg"))
+    assert rugg.quotes == []
+
+
+def test_a_quotation_that_opens_a_sentence_after_a_citation_goes_to_the_one_after_it():
+    text = (
+        "“A search occurs when an expectation of privacy is infringed.” Maryland v. Macon, "
+        "472 U.S. 463, 468 (1985) (quoting United States v. Jacobsen, 466 U.S. 109, 113 (1984)). "
+        "“It is well-established that a warrantless search is presumptively unreasonable.” "
+        "Roska ex rel. Roska v. Peterson, 328 F.3d 1230, 1240 (10th Cir. 2003)."
+    )
+    result = group_citations(text)
+    owner = {q.text[:5]: g.case_name for g in result.groups for q in g.quotes}
+    assert owner["It is"] == "Roska ex rel. Roska v. Peterson"
