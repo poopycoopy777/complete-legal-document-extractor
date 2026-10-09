@@ -524,6 +524,12 @@ def _same_sentence_owner(
     return None
 
 
+_ATTACHING_OPINION = re.compile(
+    r"\b(?:attaching|enclosing|submitting)\s+(?:the\s+)?(?:full\s+)?(?:opinion|decision|order|ruling)\s+in\b",
+    re.IGNORECASE,
+)
+
+
 def _attribute_quote(
     quote_start: int,
     quote_end: int,
@@ -566,6 +572,8 @@ def _attribute_quote(
             following = []
     if following:
         target = min(following, key=lambda c: c.span[0])
+        if text and _ATTACHING_OPINION.search(text[max(quote_start, quote_end - 3) : target.span[0]]):
+            return None, None
         if isinstance(target, RecordCite):
             basis = "following_record"
         elif isinstance(target, Authority):
@@ -704,7 +712,7 @@ _PARTY_SPEAKS = re.compile(
 )
 
 _TRIAL_COURT_SPEAKS = re.compile(
-    r"\b((?:trial|district|superior|county|circuit|municipal)\s+court|court\s+below|magistrate(?:\s+judge)?)\b"
+    r"\b((?:trial|district|superior|county|circuit|municipal)\s+court|court\s+below|magistrate(?:\s+judge)?|(?:[A-Za-z-]+\s+)?order)\b"
     r"[^.;:!?]{0,80}?"
     r"\b(?:held|holds|found|finds|stated|states|said|says|explained|explains|noted|notes|"
     r"concluded|concludes|ruled|rules|reasoned|observed|observes|acknowledged|acknowledges|"
@@ -723,6 +731,13 @@ _APPELLATE_COURT_SPEAKS = re.compile(
 )
 
 
+_NOTICE_SPEAKS = re.compile(
+    r"\b(?:(?:issued|sent|served|provided|submitted|wrote)\s+(?:a\s+)?(?:[a-z-]+\s+)?(?:written\s+)?(?:notice|letter|email|demand|request|response)|"
+    r"(?:[a-z-]+\s+)?(?:written\s+)?(?:notice|letter|email|demand|request|response)\s+(?:explaining|stating|demanding|asserting|alleging|claiming|noting))\b",
+    re.IGNORECASE,
+)
+
+
 def _describes_a_party(text: str, quote_start: int) -> bool:
     """The sentence holding the quotation says a party said or alleged it."""
     start = max(0, quote_start - 300)
@@ -731,7 +746,7 @@ def _describes_a_party(text: str, quote_start: int) -> bool:
     sentence_head = text[head_start:quote_start]
     if _APPELLATE_COURT_SPEAKS.search(sentence_head):
         return False
-    return bool(_PARTY_SPEAKS.search(sentence_head))
+    return bool(_PARTY_SPEAKS.search(sentence_head) or _NOTICE_SPEAKS.search(sentence_head))
 
 
 _PARAGRAPH_BREAK = re.compile(r"\n[ \t]*\n")

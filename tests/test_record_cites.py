@@ -146,6 +146,21 @@ class TestScopeDiscipline:
     def test_empty_text(self):
         assert extract_record_cites("") == []
 
+    def test_order_cites(self):
+        found = extract_record_cites("See Dismissal Order ¶ 8; accord Order at 2; Order ¶ 5; Dismissal Order (¶ 26-28).")
+        assert [c.kind for c in found] == ["order", "order", "order", "order"]
+        assert found[0].label == "Dismissal Order" and found[0].pin == "8"
+        assert found[1].label == "Order" and found[1].pin == "2"
+        assert found[2].label == "Order" and found[2].pin == "5"
+        assert found[3].label == "Dismissal Order" and found[3].pin == "26-28"
+
+    def test_efiling_and_court_file_cites(self):
+        found = extract_record_cites("(EF 00016-00017; EF 00041; CF 123).")
+        assert [c.kind for c in found] == ["efiling", "efiling", "efiling"]
+        assert found[0].label == "EF" and found[0].pin == "00016-00017"
+        assert found[1].label == "EF" and found[1].pin == "00041"
+        assert found[2].label == "CF" and found[2].pin == "123"
+
 
 def test_record_cite_is_immutable():
     cite = extract_record_cites("Doc. No. 80 at 26")[0]

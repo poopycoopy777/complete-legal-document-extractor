@@ -101,7 +101,37 @@ def _is_reporter_app(text: str, start: int) -> bool:
 # the policy number is what identifies the source document.
 _POLICY = re.compile(r"\bPolicy\s+(\d{1,4}(?:\.\d{1,3})*)", re.IGNORECASE)
 
-_KINDS = (("docket", _DOCKET), ("pleading", _PLEADING), ("appendix", _APPENDIX), ("policy", _POLICY))
+# "Order at 2", "Dismissal Order ¶ 8", "Order ¶ 5", "Dismissal Order (¶ 26–28)".
+_ORDER = re.compile(
+    r"\b((?:[A-Za-z-]+\s+)?Order)\s*(?:,?\s*(?:\(?\s*at\s+(?:pp?\.\s*)?|\(?\s*¶{1,2}\s*|\(?\s*pp?\.?\s*))"
+    r"(\d{1,4}(?:\s*(?:,|[-\u2013])\s*\d{1,4})*)\)?",
+    re.IGNORECASE,
+)
+
+# "EF 00016–00017", "EF 00041", "CF 123", "CF 45".
+_EFILING = re.compile(
+    r"\b(EF|CF)\s*(?:No\.?\s*)?(\d{1,6}(?:\s*[-\u2013]\s*\d{1,6})?)",
+    re.IGNORECASE,
+)
+
+_KINDS = (
+    ("docket", _DOCKET),
+    ("pleading", _PLEADING),
+    ("appendix", _APPENDIX),
+    ("policy", _POLICY),
+    ("order", _ORDER),
+    ("efiling", _EFILING),
+)
+
+_ORDER_LEAD_STRIP = frozenset({"see", "also", "accord", "cf", "the", "this", "that", "its", "court", "court's", "courts"})
+
+
+def _clean_order_label(raw: str) -> str:
+    words = raw.split()
+    while words and words[0].lower() in _ORDER_LEAD_STRIP:
+        words.pop(0)
+    return " ".join(words) if words else "Order"
+
 
 # One pleading, however it is abbreviated. The paragraph is a pin, not part of
 # the document's identity: "SAC para 45" and "SAC para 46" cite one document.
@@ -164,6 +194,10 @@ def extract_record_cites(text: str, original: str | None = None) -> list[RecordC
                 label, pin = match.group(1), match.group(2)
             elif kind == "appendix":
                 label, pin = "Appendix", match.group(1)
+            elif kind == "order":
+                label, pin = _clean_order_label(match.group(1)), match.group(2)
+            elif kind == "efiling":
+                label, pin = match.group(1).upper(), match.group(2)
             else:
                 label, pin = match.group(1), None
             if kind == "docket" and _is_page_stamp(text, match.span()):

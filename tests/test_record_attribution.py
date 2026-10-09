@@ -167,3 +167,40 @@ def test_court_explained_quote_after_district_court_caption_stays_with_case():
     assert len(iqbal.quotes) == 1
     assert iqbal.quotes[0].text.startswith("Threadbare recitals")
     assert result.unattributed_quotes == []
+
+
+def test_dismissal_order_quotation_does_not_attach_to_case():
+    text = (
+        'The court resolved the motion by relying on deferred proceedings: '
+        '"The Court has already determined Plaintiff\'s rights." (Dismissal Order ¶ 8.) '
+        'Rector v. City and County of Denver, 122 P.3d 1010 (Colo. App. 2005).'
+    )
+    result = group_citations(text)
+    rector = next(g for g in result.groups if "Rector" in (g.case_name or ""))
+    assert rector.quotes == []
+    order_rec = next(r for r in result.records if r.kind == "order")
+    assert len(order_rec.quotes) == 1
+    assert "Plaintiff's rights" in order_rec.quotes[0].text
+
+
+def test_attaching_opinion_in_notice_does_not_attribute_notice_quotes_to_case():
+    text = (
+        'Mr. Cooper issued a detailed written notice explaining that '
+        '"ELEIA controls release of body camera footage," attaching the full opinion in '
+        'Ion Media Networks, Inc. v. West, 2025 COA 66 (EF 00041).'
+    )
+    result = group_citations(text)
+    ion = next(g for g in result.groups if "Ion" in (g.case_name or ""))
+    assert ion.quotes == []
+    assert any("ELEIA controls" in q.text for q in result.unattributed_quotes)
+
+
+def test_dismissal_order_held_quotation_does_not_attach_to_following_case():
+    text = (
+        'The Dismissal Order (¶ 26–28) held declaratory relief unavailable "where a statute '
+        'already exists that provides relief," quoting Katzenbach v. McClung, 379 U.S. 294 (1964).'
+    )
+    result = group_citations(text)
+    katz = next(g for g in result.groups if "Katzenbach" in (g.case_name or ""))
+    assert katz.quotes == []
+    assert any("where a statute already exists" in q.text for q in result.unattributed_quotes)
